@@ -1,13 +1,14 @@
 // US-QWERTY layout, French variant
 //   copyleft Fabien Cazenave <kaze@kompozer.net>
-//   last update: 2010-10-28
+//   last update: 2010-11-11
 //
 // To apply this keymap, use:
 //   xkbcomp -w9 lafayette.xkb $DISPLAY 
 
 xkb_keymap {
   //xkb_keycodes      { include "xfree86+aliases(azerty)" };
-  xkb_keycodes      { include "evdev+aliases(azerty)" };
+  //xkb_keycodes      { include "evdev+aliases(azerty)" };
+  xkb_keycodes      { include "evdev" };
   xkb_types         {
     include "complete"
     type "ALTGR_TWO" {
@@ -32,7 +33,7 @@ xkb_keymap {
   // ┃ ⇬       ┃   à │   ß │   ð │   ſ │   © │   † │   ← │   ↓ │   → │ ¤ ` │ '   │ \   ┃      ┃
   // ┣━━━━━━┳━━┹──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┲━━┷━━━━━┻━━━━━━┫
   // ┃      ┃ >   │ Z   │ X   │ C   │ V   │ B   │ N   │ M º │ ;   │ :   │ ? ¿ ┃               ┃
-  // ┃ ⇧    ┃ <   │   < │   > │   ç │   ŭ │     │   ñ │   µ │ ,   │ . … │ / ؟ ┃ ⇧             ┃
+  // ┃ ⇧    ┃ <   │   < │   > │   ç │   ŭ │     │   ñ │   µ │ ,   │ . … │ / \ ┃ ⇧             ┃
   // ┣━━━━━━┻┳━━━━┷━━┳━━┷━━━━┱┴─────┴─────┴─────┴─────┴─────┴─┲━━━┷━━━┳━┷━━━━━╋━━━━━━━┳━━━━━━━┫
   // ┃       ┃       ┃       ┃ ⍽ Espace insécable             ┃       ┃       ┃       ┃       ┃
   // ┃ Ctrl  ┃ super ┃ Alt   ┃ ␣ Espace                     ` ┃ AltGr ┃ super ┃ menu  ┃ Ctrl  ┃
@@ -60,7 +61,15 @@ xkb_keymap {
   xkb_symbols "lafayette" {
       name[group1]= "France - Qwerty";
       name[group2]= "France - AltGr";
-      include "pc+fr+inet(evdev)+level3(ralt_switch_for_alts_toggle)+group(alts_toggle)+level3(ralt_switch)"
+      //include "pc+fr+inet(evdev)+level3(ralt_switch_for_alts_toggle)+group(alts_toggle)+level3(ralt_switch)"
+      //include "pc+inet(evdev)+level3(ralt_switch_for_alts_toggle)+group(alts_toggle)+level3(ralt_switch)"
+
+      include "pc"
+      //include "fr"
+      //include "inet(evdev)"
+      //include "group(alts_toggle)"
+      //include "level3(ralt_switch)"
+      //include "level3(ralt_switch_for_alts_toggle)"
 
       // Chiffres
       key <TLDE> {
@@ -230,7 +239,7 @@ xkb_keymap {
         type[group2] = "TWO_LEVEL" , [ KP_Decimal, VoidSymbol ]
       };
       key <AB10> {
-        type[group1] = "FOUR_LEVEL", [ slash, question, U061f, questiondown ],
+        type[group1] = "FOUR_LEVEL", [ slash, question, backslash, questiondown ],
         type[group2] = "TWO_LEVEL" , [ VoidSymbol, VoidSymbol ]
       };
 
@@ -244,11 +253,11 @@ xkb_keymap {
         type[group2] = "TWO_LEVEL" , [ VoidSymbol, VoidSymbol ]
       };
       key <AD11> {
-        type[group1] = "FOUR_LEVEL", [ dead_circumflex, dead_caron, bracketleft, braceleft ],
+        type[group1] = "FOUR_LEVEL", [ dead_circumflex, guillemotleft, bracketleft, braceleft ],
         type[group2] = "TWO_LEVEL" , [ VoidSymbol, VoidSymbol ]
       };
       key <AD12> {
-        type[group1] = "FOUR_LEVEL", [ dead_acute, dead_abovedot, bracketright, braceright ],
+        type[group1] = "FOUR_LEVEL", [ dead_acute, guillemotright, bracketright, braceright ],
         type[group2] = "TWO_LEVEL" , [ VoidSymbol, VoidSymbol ]
       };
       key <AC11> {
@@ -270,10 +279,10 @@ xkb_keymap {
 
       // AltGr
       key <RALT> { [ VoidSymbol ], actions = [ SetGroup(group=2) ] };
-      include "level3(ralt_switch)"
+      //include "level3(ralt_switch)"
   };
 
-  xkb_geometry { include "pc(pc105)" };
+  //xkb_geometry { include "pc(pc105)" };
 };
 
 // vim: set filetype=xkb:
