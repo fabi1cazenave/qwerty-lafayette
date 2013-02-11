@@ -1,0 +1,55 @@
+html {
+  background-color: #ddd;
+}
+
+body {
+  width: 740px;
+  margin: 20px auto;
+  padding: 20px;
+  font-family: sans-serif;
+  border: 1px solid #bbb;
+  background-color: white;
+           border-radius: 15px;
+        -o-border-radius: 15px;
+      -moz-border-radius: 15px;
+   -webkit-border-radius: 15px;
+           box-shadow: 0px 1px 10px #888;
+        -o-box-shadow: 0px 1px 10px #888;
+      -moz-box-shadow: 0px 1px 10px #888;
+   -webkit-box-shadow: 0px 1px 10px #888;
+}
+
+h1, h2 {
+  color: brown;
+  border-bottom: 1px inset brown;
+}
+
+dd, dt {
+  margin-bottom: 0.5em;
+}
+
+#github {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 149px;
+  height: 149px;
+  background-image: url(images/forkme.png);
+}
+
+* html #github { /* IE6 */
+  background-image: url(images/forkme.gif);
+}
+
+#github span {
+  display: none;
+}
+
+#badRendering {
+  text-align: center;
+  font-weight: bold;
+  color: brown;
+  display: none;
+}
+

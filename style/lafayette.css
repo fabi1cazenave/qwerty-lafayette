@@ -1,0 +1,159 @@
+/* lowercase letters */
+ul#keyboard li.letter em {
+  display: none;
+}
+ul#keyboard li.letter em.lafayette,
+ul#keyboard li.letter em.altgr {
+  display: block;
+}
+
+/* AltGr keys */
+ul#keyboard li .altgr {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  left: auto;
+  right: 5px;
+  color: blue;
+}
+
+/* primary lafayette keys */
+ul#keyboard li .lafayette {
+  opacity: 0;
+  left: auto;
+  right: 5px;
+  color: green;
+}
+/* secondary lafayette keys
+ul#keyboard li em.lafayette.secondary,
+ul#keyboard li strong.lafayette.secondary {
+  opacity: 0;
+} */
+
+/* qwerty/lafayette/altgr class switcher */
+.qwerty li.qwerty,
+.extra li#ac10,
+.lafayette li#ac10 {
+  background-color: #fdd;
+}
+.altgr     ul#keyboard li .altgr,
+.home      ul#keyboard li .lafayette,
+.extra     ul#keyboard li .lafayette,
+.lafayette ul#keyboard li .lafayette {
+  opacity: 1;
+}
+.altgr li#ralt {
+  background-color: #ddf;
+}
+.altgr ul#keyboard li em,
+.altgr ul#keyboard li strong {
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+}
+.altgr ul#keyboard li .lafayette {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.altgr ul#keyboard li .altgr {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.altgr li#ralt em {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  color: blue;
+}
+
+ul#keyboard li em.lafayette.secondary,
+ul#keyboard li strong.lafayette.secondary {
+  opacity: 0;
+}
+.extra ul#keyboard li em.lafayette.secondary,
+.extra ul#keyboard li strong.lafayette.secondary {
+  opacity: 1;
+}
+
+.home a#navHome,
+.extra a#navExtra,
+.lafayette a#navLafayette,
+.qwerty a#navQwerty,
+.altgr a#navAltGr {
+  background-color: #fdd !important;
+}
+
+/* description block */
+div#description {
+  overflow: hidden;
+  position: relative;
+  height: 350px;
+  width: 780px;
+  /*margin: 0 auto;*/
+  margin: 0 -20px;
+  /*border: 1px solid;*/
+}
+div#description div {
+  position: absolute;
+  top: 0;
+  width: 620px;
+  height: 300px;
+  margin: 0 58px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
+  border-radius: 15px;
+  -o-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+}
+div#description li {
+  margin-bottom: 0.5em;
+}
+div#description a {
+  color: brown !important;
+}
+
+/* description selector */
+p#selector {
+  clear: both;
+  padding-top: 20px;
+  text-align: center;
+}
+p#selector a {
+  color: brown;
+  background-color: white;
+  text-decoration: none;
+  border: 1px solid brown;
+  margin-left: 1px;
+  padding: 4px 8px;
+}
+p#selector a:hover {
+  background-color: #fff0f0;
+}
+p#selector a:first-child {
+  border-top-left-radius         : 8px;
+  -o-border-top-left-radius      : 8px;
+  -moz-border-radius-topleft     : 8px;
+  -webkit-border-top-left-radius : 8px;
+  border-bottom-left-radius         : 8px;
+  -o-border-bottom-left-radius      : 8px;
+  -moz-border-radius-bottomleft     : 8px;
+  -webkit-border-bottom-left-radius : 8px;
+}
+p#selector a:last-child {
+  border-top-right-radius         : 8px;
+  -o-border-top-right-radius      : 8px;
+  -moz-border-radius-topright     : 8px;
+  -webkit-border-top-right-radius : 8px;
+  border-bottom-right-radius         : 8px;
+  -o-border-bottom-right-radius      : 8px;
+  -moz-border-radius-bottomright     : 8px;
+  -webkit-border-bottom-right-radius : 8px;
+}
+
+/* AdBlockPlus tester */
+#badRendering {
+  clear: both;
+  text-align: center;
+  font-weight: bold;
+  color: brown;
+  display: none;
+}
