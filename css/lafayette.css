@@ -1,3 +1,8 @@
+
+/******************************************************************************
+ * Keyboard layout
+ */
+
 /* lowercase letters */
 ul#keyboard li.letter em {
   display: none;
@@ -80,7 +85,13 @@ ul#keyboard li strong.lafayette.secondary {
   background-color: #fdd !important;
 }
 
+
+/******************************************************************************
+ * Description
+ */
+
 /* description block */
+
 div#description {
   overflow: hidden;
   position: relative;
@@ -90,6 +101,7 @@ div#description {
   margin: 0 -20px;
   /*border: 1px solid;*/
 }
+
 div#description div {
   position: absolute;
   top: 0;
@@ -104,19 +116,23 @@ div#description div {
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
 }
+
 div#description li {
   margin-bottom: 0.5em;
 }
+
 div#description a {
   color: brown !important;
 }
 
 /* description selector */
+
 p#selector {
   clear: both;
   padding-top: 20px;
   text-align: center;
 }
+
 p#selector a {
   color: brown;
   background-color: white;
@@ -125,9 +141,11 @@ p#selector a {
   margin-left: 1px;
   padding: 4px 8px;
 }
+
 p#selector a:hover {
   background-color: #fff0f0;
 }
+
 p#selector a:first-child {
   border-top-left-radius         : 8px;
   -o-border-top-left-radius      : 8px;
@@ -138,6 +156,7 @@ p#selector a:first-child {
   -moz-border-radius-bottomleft     : 8px;
   -webkit-border-bottom-left-radius : 8px;
 }
+
 p#selector a:last-child {
   border-top-right-radius         : 8px;
   -o-border-top-right-radius      : 8px;
@@ -149,11 +168,20 @@ p#selector a:last-child {
   -webkit-border-bottom-right-radius : 8px;
 }
 
-/* AdBlockPlus tester */
-#badRendering {
-  clear: both;
-  text-align: center;
-  font-weight: bold;
-  color: brown;
-  display: none;
+
+/******************************************************************************
+ * Download
+ */
+
+dl#download dd {
+  padding-bottom: 10px;
 }
+
+dl#download dt a {
+  color: brown !important;
+}
+
+code {
+  background-color: #dde;
+}
+

@@ -59,10 +59,11 @@ ul#keyboard li li {
   height: 40px;
   margin: 2px;
   border: 1px solid black;
-           border-radius: 5px;
-        -o-border-radius: 5px;
-      -moz-border-radius: 5px;
    -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+       -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+           border-radius: 5px;
 }
 ul#keyboard li strong {
   position: absolute;
@@ -246,6 +247,7 @@ li#key_LFSH, li#key_RTSH {
  */
 
 #badRendering {
+  clear: both;
   text-align: center;
   font-weight: bold;
   color: brown;

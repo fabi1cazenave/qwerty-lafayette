@@ -2,78 +2,16 @@
 <html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
+  <meta name="description" content="a QWERTY keyboard layout for French-speaking users" />
   <title> Lafayette Keyboard Layout </title>
 
-  <link type="text/css" rel="stylesheet" href="css/layout.css" />
-  <link type="text/css" rel="stylesheet" href="css/keyboard.css" />
-  <link type="text/css" rel="stylesheet" href="css/lafayette.css" />
-  <style type="text/css">
-    dl#download dd {
-      padding-bottom: 10px;
-    }
-    dl#download dt a {
-      color: brown !important;
-    }
-    code {
-      background-color: #dde;
-    }
-    /* transitions -- ignored by IE and older browsers */
-    ul#keyboard * {
-      -o-transition-duration      : 1s;
-      -moz-transition-duration    : 1s;
-      -webkit-transition-duration : 1s;
-      -o-transition-property      : opacity, background-color;
-      -moz-transition-property    : opacity, background-color;
-      -webkit-transition-property : opacity, background-color;
-    }
-    div#description div {
-      -o-transition-duration      : 1s;
-      -moz-transition-duration    : 1s;
-      -webkit-transition-duration : 1s;
-      -o-transition-property      :      -o-transform, opacity;
-      -moz-transition-property    :    -moz-transform, opacity;
-      -webkit-transition-property : -webkit-transform, opacity;
-    }
-    div#description div[smil=idle] {
-      opacity: 0;
-      transform         : scale(0.3) translate(+160%);
-      -o-transform      : scale(0.3) translate(+160%);
-      -moz-transform    : scale(0.3) translate(+160%);
-      -webkit-transform : scale(0.3) translate(+160%);
-    }
-    div#description div[smil=active] {
-      opacity: 1;
-    }
-    div#description div[smil=done] {
-      opacity: 0;
-      -o-transform      : scale(0.3) translate(-160%);
-      -moz-transform    : scale(0.3) translate(-160%);
-      -webkit-transform : scale(0.3) translate(-160%);
-    }
-  </style>
-  <!--[if lt IE 9]><style type="text/css">
-    /* tweaks for IE6/7/8 */
-    ul#keyboard li .altgr,
-    ul#keyboard li .lafayette,
-    ul#keyboard li .secondary {
-      display: none;
-    }
-    .altgr     ul#keyboard li .altgr,
-    .home      ul#keyboard li .lafayette,
-    .extra     ul#keyboard li .lafayette,
-    .extra     ul#keyboard li .secondary,
-    .lafayette ul#keyboard li .lafayette {
-      display: block;
-    }
-    ul#keyboard li.letter em.lafayette.secondary,
-    ul#keyboard li.letter strong.lafayette.secondary {
-      display: none;
-    }
-    .extra ul#keyboard li.letter em.lafayette.secondary,
-    .extra ul#keyboard li.letter strong.lafayette.secondary {
-      display: block;
-    }
-  </style><![endif]-->
+  <link type="text/css" rel="stylesheet" href="css/layout.css"      />
+  <link type="text/css" rel="stylesheet" href="css/keyboard.css"    />
+  <link type="text/css" rel="stylesheet" href="css/lafayette.css"   />
+  <link type="text/css" rel="stylesheet" href="css/transitions.css" />
+  <!--[if lt IE 9]>
+    <link type="text/css" rel="stylesheet" href="css/lafayette-oldie.css" />
+  <![endif]-->
 
   <script type="text/javascript" src="js/timesheets-min.js"></script>
   <script type="text/javascript" src="js/adblock-tester.js"></script>
