@@ -1,0 +1,68 @@
+h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 30px;
+}
+
+h1 + p {
+  margin-top: 0.5em;
+  color: #c8a;
+}
+
+h1, h2 {
+  color: brown;
+  border-bottom: 1px inset brown;
+}
+
+dd, dt {
+  margin-bottom: 0.5em;
+}
+
+
+/******************************************************************************
+ * Fixed width layout (780px)
+ */
+
+html {
+  background-color: #ccc;
+}
+
+body {
+  width: 740px;
+  margin: auto;
+  padding: 20px;
+  font-family: sans-serif;
+  border-left: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+  background-color: white;
+   -webkit-box-shadow: 0px 1px 10px #888;
+      -moz-box-shadow: 0px 1px 10px #888;
+       -ms-box-shadow: 0px 1px 10px #888;
+        -o-box-shadow: 0px 1px 10px #888;
+           box-shadow: 0px 1px 10px #888;
+}
+
+
+/******************************************************************************
+ * "Fork me" ribbon
+ */
+
+#github {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  display: block;
+  width: 149px;
+  height: 149px;
+  background-image: url(images/forkme.png);
+}
+
+* html #github { /* IE6 */
+  background-image: url(images/forkme.gif);
+}
+
+#github span {
+  display: none;
+}
+

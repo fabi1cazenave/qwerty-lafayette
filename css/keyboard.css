@@ -22,7 +22,7 @@ ul#keyboard {
 }
 
 
-/*****************************************************************************
+/******************************************************************************
  * Default Keyboard Geometry (pc104)
  */
 
@@ -117,7 +117,7 @@ li#key_LSGT, li#key_CAPS105, li#key_RTRN105 {
 }
 
 
-/*****************************************************************************
+/******************************************************************************
  * European Keyboard Geometry (pc105)
  */
 
@@ -159,7 +159,7 @@ li#key_LSGT, li#key_CAPS105, li#key_RTRN105 {
 }
 
 
-/*****************************************************************************
+/******************************************************************************
  * Ergonomic Keyboard Geometry (TMx)
  */
 
@@ -210,7 +210,7 @@ li#key_LSGT, li#key_CAPS105, li#key_RTRN105 {
 }
 
 
-/*****************************************************************************
+/******************************************************************************
  * Background Images for Tab, Backspace, Caps, Return, Shift
  */
 
@@ -223,20 +223,32 @@ li.specialKey {
   background-position: bottom left;
 }
 
-li#key_TAB  { background-image: url(images/key-tab.png);  }
-li#key_BKSP { background-image: url(images/key-bksp.png); }
-li#key_CAPS { background-image: url(images/key-caps.png); }
-li#key_RTRN { background-image: url(images/key-rtrn.png); }
+li#key_TAB  { background-image: url(keyboard/key-tab.png);  }
+li#key_BKSP { background-image: url(keyboard/key-bksp.png); }
+li#key_CAPS { background-image: url(keyboard/key-caps.png); }
+li#key_RTRN { background-image: url(keyboard/key-rtrn.png); }
 li#key_LFSH, li#key_RTSH {
-  background-image: url(images/key-shift.png);
+  background-image: url(keyboard/key-shift.png);
 }
 
 /* IE6 hack, using GIF instead of PNG */
-* html li#key_TAB  { background-image: url(images/key-tab.gif);  }
-* html li#key_BKSP { background-image: url(images/key-bksp.gif); }
-* html li#key_CAPS { background-image: url(images/key-caps.gif); }
-* html li#key_RTRN { background-image: url(images/key-rtrn.gif); }
+* html li#key_TAB  { background-image: url(keyboard/key-tab.gif);  }
+* html li#key_BKSP { background-image: url(keyboard/key-bksp.gif); }
+* html li#key_CAPS { background-image: url(keyboard/key-caps.gif); }
+* html li#key_RTRN { background-image: url(keyboard/key-rtrn.gif); }
 * html li#key_LFSH, * html li#key_RTSH {
-  background-image: url(images/key-shift.gif);
+  background-image: url(keyboard/key-shift.gif);
+}
+
+
+/******************************************************************************
+ * Displayed if the keyboard rendering is altered by an ad blocker
+ */
+
+#badRendering {
+  text-align: center;
+  font-weight: bold;
+  color: brown;
+  display: none;
 }
 
