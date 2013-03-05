@@ -1,6 +1,6 @@
 
 /**
- * Transitions -- ignored by IE and older browsers
+ * Transitions -- ignored by IE<10 and older browsers
  */
 
 ul#keyboard * {
