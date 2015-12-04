@@ -1,12 +1,13 @@
-# Qwerty-Lafayette compose sequences
+# Qwerty-Lafayette Compose Sequences
 #
-# Copy this file to ~/.XCompose
+# MacOSX users: copy this file to ~/.XCompose
 # to enable the Qwerty-Lafayette dead key in your X11 applications.
 #
 
-# Manual definitions (latin scripts) {{{
+# Manual definitions (latin scripts)
+#==============================================================================
 
-# spacing versions of dead accents
+# spacing versions of dead accents {{{
 <dead_abovedot> <dead_abovedot>       : "˙"   abovedot      # DOT ABOVE
 <dead_abovedot> <space>               : "˙"   abovedot      # DOT ABOVE
 <dead_abovering> <dead_abovering>     : "°"   degree        # DEGREE SIGN
@@ -33,8 +34,9 @@
 <dead_ogonek> <space>                 : "˛"   ogonek        # OGONEK
 <dead_tilde> <dead_tilde>             : "~"   asciitilde    # TILDE
 <dead_tilde> <space>                  : "~"   asciitilde    # TILDE
+#}}}
 
-# abovedot
+# abovedot {{{
 <dead_abovedot> <A>                   : "Ȧ"   U0226         # LATIN CAPITAL LETTER A WITH DOT ABOVE
 <dead_abovedot> <B>                   : "Ḃ"   U1E02         # LATIN CAPITAL LETTER B WITH DOT ABOVE
 <dead_abovedot> <C>                   : "Ċ"   U010A         # LATIN CAPITAL LETTER C WITH DOT ABOVE
@@ -75,16 +77,18 @@
 <dead_abovedot> <x>                   : "ẋ"   U1E8B         # LATIN SMALL LETTER X WITH DOT ABOVE
 <dead_abovedot> <y>                   : "ẏ"   U1E8F         # LATIN SMALL LETTER Y WITH DOT ABOVE
 <dead_abovedot> <z>                   : "ż"   U017C         # LATIN SMALL LETTER Z WITH DOT ABOVE
+#}}}
 
-# abovering
+# abovering {{{
 <dead_abovering> <A>                  : "Å"   Aring         # LATIN CAPITAL LETTER A WITH RING ABOVE
 <dead_abovering> <U>                  : "Ů"   U016E         # LATIN CAPITAL LETTER U WITH RING ABOVE
 <dead_abovering> <a>                  : "å"   aring         # LATIN SMALL LETTER A WITH RING ABOVE
 <dead_abovering> <u>                  : "ů"   U016F         # LATIN SMALL LETTER U WITH RING ABOVE
 <dead_abovering> <w>                  : "ẘ"   U1E98         # LATIN SMALL LETTER W WITH RING ABOVE
 <dead_abovering> <y>                  : "ẙ"   U1E99         # LATIN SMALL LETTER Y WITH RING ABOVE
+#}}}
 
-# acute
+# acute {{{
 <dead_acute> <A>                      : "Á"   Aacute        # LATIN CAPITAL LETTER A WITH ACUTE
 <dead_acute> <C>                      : "Ć"   U0106         # LATIN CAPITAL LETTER C WITH ACUTE
 <dead_acute> <E>                      : "É"   Eacute        # LATIN CAPITAL LETTER E WITH ACUTE
@@ -119,12 +123,14 @@
 <dead_acute> <w>                      : "ẃ"   U1E83         # LATIN SMALL LETTER W WITH ACUTE
 <dead_acute> <y>                      : "ý"   yacute        # LATIN SMALL LETTER Y WITH ACUTE
 <dead_acute> <z>                      : "ź"   U017A         # LATIN SMALL LETTER Z WITH ACUTE
+#}}}
 
-# belowbreve
+# belowbreve {{{
 <dead_belowbreve> <H>                 : "Ḫ"   U1E2A         # LATIN CAPITAL LETTER H WITH BREVE BELOW
 <dead_belowbreve> <h>                 : "ḫ"   U1E2B         # LATIN SMALL LETTER H WITH BREVE BELOW
+#}}}
 
-# belowcircumflex
+# belowcircumflex {{{
 <dead_belowcircumflex> <D>            : "Ḓ"   U1E12         # LATIN CAPITAL LETTER D WITH CIRCUMFLEX BELOW
 <dead_belowcircumflex> <E>            : "Ḙ"   U1E18         # LATIN CAPITAL LETTER E WITH CIRCUMFLEX BELOW
 <dead_belowcircumflex> <L>            : "Ḽ"   U1E3C         # LATIN CAPITAL LETTER L WITH CIRCUMFLEX BELOW
@@ -137,12 +143,14 @@
 <dead_belowcircumflex> <n>            : "ṋ"   U1E4B         # LATIN SMALL LETTER N WITH CIRCUMFLEX BELOW
 <dead_belowcircumflex> <t>            : "ṱ"   U1E71         # LATIN SMALL LETTER T WITH CIRCUMFLEX BELOW
 <dead_belowcircumflex> <u>            : "ṷ"   U1E77         # LATIN SMALL LETTER U WITH CIRCUMFLEX BELOW
+#}}}
 
-# belowdiaeresis
+# belowdiaeresis {{{
 <dead_belowdiaeresis> <U>             : "Ṳ"   U1E72         # LATIN CAPITAL LETTER U WITH DIAERESIS BELOW
 <dead_belowdiaeresis> <u>             : "ṳ"   U1E73         # LATIN SMALL LETTER U WITH DIAERESIS BELOW
+#}}}
 
-# belowdot
+# belowdot {{{
 <dead_belowdot> <A>                   : "Ạ"   U1EA0         # LATIN CAPITAL LETTER A WITH DOT BELOW
 <dead_belowdot> <B>                   : "Ḅ"   U1E04         # LATIN CAPITAL LETTER B WITH DOT BELOW
 <dead_belowdot> <D>                   : "Ḍ"   U1E0C         # LATIN CAPITAL LETTER D WITH DOT BELOW
@@ -184,8 +192,9 @@
 <dead_belowdot> <equal>               : "⩦"   U2A66         # EQUALS SIGN WITH DOT BELOW
 <dead_belowdot> <minus>               : "⨪"   U2A2A         # MINUS SIGN WITH DOT BELOW
 <dead_belowdot> <plus>                : "⨥"   U2A25         # PLUS SIGN WITH DOT BELOW
+#}}}
 
-# belowmacron
+# belowmacron {{{
 <dead_belowmacron> <B>                : "Ḇ"   U1E06         # LATIN CAPITAL LETTER B WITH LINE BELOW
 <dead_belowmacron> <D>                : "Ḏ"   U1E0E         # LATIN CAPITAL LETTER D WITH LINE BELOW
 <dead_belowmacron> <K>                : "Ḵ"   U1E34         # LATIN CAPITAL LETTER K WITH LINE BELOW
@@ -203,13 +212,15 @@
 <dead_belowmacron> <r>                : "ṟ"   U1E5F         # LATIN SMALL LETTER R WITH LINE BELOW
 <dead_belowmacron> <t>                : "ṯ"   U1E6F         # LATIN SMALL LETTER T WITH LINE BELOW
 <dead_belowmacron> <z>                : "ẕ"   U1E95         # LATIN SMALL LETTER Z WITH LINE BELOW
+#}}}
 
-# belowring
+# belowring {{{
 <dead_belowring> <A>                  : "Ḁ"   U1E00         # LATIN CAPITAL LETTER A WITH RING BELOW
 <dead_belowring> <a>                  : "ḁ"   U1E01         # LATIN SMALL LETTER A WITH RING BELOW
 <dead_belowring> <bar>                : "⫰"   U2AF0         # VERTICAL LINE WITH CIRCLE BELOW
+#}}}
 
-# belowtilde
+# belowtilde {{{
 <dead_belowtilde> <E>                 : "Ḛ"   U1E1A         # LATIN CAPITAL LETTER E WITH TILDE BELOW
 <dead_belowtilde> <I>                 : "Ḭ"   U1E2C         # LATIN CAPITAL LETTER I WITH TILDE BELOW
 <dead_belowtilde> <U>                 : "Ṵ"   U1E74         # LATIN CAPITAL LETTER U WITH TILDE BELOW
@@ -217,8 +228,9 @@
 <dead_belowtilde> <i>                 : "ḭ"   U1E2D         # LATIN SMALL LETTER I WITH TILDE BELOW
 <dead_belowtilde> <u>                 : "ṵ"   U1E75         # LATIN SMALL LETTER U WITH TILDE BELOW
 <dead_belowtilde> <plus>              : "⨦"   U2A26         # PLUS SIGN WITH TILDE BELOW
+#}}}
 
-# breve
+# breve {{{
 <dead_breve> <A>                      : "Ă"   U0102         # LATIN CAPITAL LETTER A WITH BREVE
 <dead_breve> <E>                      : "Ĕ"   U0114         # LATIN CAPITAL LETTER E WITH BREVE
 <dead_breve> <G>                      : "Ğ"   U011E         # LATIN CAPITAL LETTER G WITH BREVE
@@ -231,8 +243,9 @@
 <dead_breve> <i>                      : "ĭ"   U012D         # LATIN SMALL LETTER I WITH BREVE
 <dead_breve> <o>                      : "ŏ"   U014F         # LATIN SMALL LETTER O WITH BREVE
 <dead_breve> <u>                      : "ŭ"   U016D         # LATIN SMALL LETTER U WITH BREVE
+#}}}
 
-# caron
+# caron {{{
 <dead_caron> <A>                      : "Ǎ"   U01CD         # LATIN CAPITAL LETTER A WITH CARON
 <dead_caron> <C>                      : "Č"   U010C         # LATIN CAPITAL LETTER C WITH CARON
 <dead_caron> <D>                      : "Ď"   U010E         # LATIN CAPITAL LETTER D WITH CARON
@@ -266,8 +279,9 @@
 <dead_caron> <t>                      : "ť"   U0165         # LATIN SMALL LETTER T WITH CARON
 <dead_caron> <u>                      : "ǔ"   U01D4         # LATIN SMALL LETTER U WITH CARON
 <dead_caron> <z>                      : "ž"   U017E         # LATIN SMALL LETTER Z WITH CARON
+#}}}
 
-# cedilla
+# cedilla {{{
 <dead_cedilla> <C>                    : "Ç"   Ccedilla      # LATIN CAPITAL LETTER C WITH CEDILLA
 <dead_cedilla> <D>                    : "Ḑ"   U1E10         # LATIN CAPITAL LETTER D WITH CEDILLA
 <dead_cedilla> <E>                    : "Ȩ"   U0228         # LATIN CAPITAL LETTER E WITH CEDILLA
@@ -290,8 +304,9 @@
 <dead_cedilla> <r>                    : "ŗ"   U0157         # LATIN SMALL LETTER R WITH CEDILLA
 <dead_cedilla> <s>                    : "ş"   U015F         # LATIN SMALL LETTER S WITH CEDILLA
 <dead_cedilla> <t>                    : "ţ"   U0163         # LATIN SMALL LETTER T WITH CEDILLA
+#}}}
 
-# circumflex
+# circumflex {{{
 <dead_circumflex> <0>                 : "⁰"   U2070         # SUPERSCRIPT ZERO
 <dead_circumflex> <1>                 : "¹"   onesuperior   # SUPERSCRIPT ONE
 <dead_circumflex> <2>                 : "²"   twosuperior   # SUPERSCRIPT TWO
@@ -344,8 +359,9 @@
 <dead_circumflex> <w>                 : "ŵ"   U0175         # LATIN SMALL LETTER W WITH CIRCUMFLEX
 <dead_circumflex> <y>                 : "ŷ"   U0177         # LATIN SMALL LETTER Y WITH CIRCUMFLEX
 <dead_circumflex> <z>                 : "ẑ"   U1E91         # LATIN SMALL LETTER Z WITH CIRCUMFLEX
+#}}}
 
-# diaeresis
+# diaeresis {{{
 <dead_diaeresis> <A>                  : "Ä"   Adiaeresis    # LATIN CAPITAL LETTER A WITH DIAERESIS
 <dead_diaeresis> <E>                  : "Ë"   Ediaeresis    # LATIN CAPITAL LETTER E WITH DIAERESIS
 <dead_diaeresis> <H>                  : "Ḧ"   U1E26         # LATIN CAPITAL LETTER H WITH DIAERESIS
@@ -365,14 +381,16 @@
 <dead_diaeresis> <w>                  : "ẅ"   U1E85         # LATIN SMALL LETTER W WITH DIAERESIS
 <dead_diaeresis> <x>                  : "ẍ"   U1E8D         # LATIN SMALL LETTER X WITH DIAERESIS
 <dead_diaeresis> <y>                  : "ÿ"   ydiaeresis    # LATIN SMALL LETTER Y WITH DIAERESIS
+#}}}
 
-# doubleacute
+# doubleacute {{{
 <dead_doubleacute> <O>                : "Ő"   U0150         # LATIN CAPITAL LETTER O WITH DOUBLE ACUTE
 <dead_doubleacute> <U>                : "Ű"   U0170         # LATIN CAPITAL LETTER U WITH DOUBLE ACUTE
 <dead_doubleacute> <o>                : "ő"   U0151         # LATIN SMALL LETTER O WITH DOUBLE ACUTE
 <dead_doubleacute> <u>                : "ű"   U0171         # LATIN SMALL LETTER U WITH DOUBLE ACUTE
+#}}}
 
-# grave
+# grave {{{
 <dead_grave> <A>                      : "À"   Agrave        # LATIN CAPITAL LETTER A WITH GRAVE
 <dead_grave> <E>                      : "È"   Egrave        # LATIN CAPITAL LETTER E WITH GRAVE
 <dead_grave> <I>                      : "Ì"   Igrave        # LATIN CAPITAL LETTER I WITH GRAVE
@@ -389,8 +407,9 @@
 <dead_grave> <u>                      : "ù"   ugrave        # LATIN SMALL LETTER U WITH GRAVE
 <dead_grave> <w>                      : "ẁ"   U1E81         # LATIN SMALL LETTER W WITH GRAVE
 <dead_grave> <y>                      : "ỳ"   U1EF3         # LATIN SMALL LETTER Y WITH GRAVE
+#}}}
 
-# hook
+# hook {{{
 <dead_hook> <A>                       : "Ả"   U1EA2         # LATIN CAPITAL LETTER A WITH HOOK ABOVE
 <dead_hook> <E>                       : "Ẻ"   U1EBA         # LATIN CAPITAL LETTER E WITH HOOK ABOVE
 <dead_hook> <I>                       : "Ỉ"   U1EC8         # LATIN CAPITAL LETTER I WITH HOOK ABOVE
@@ -403,14 +422,16 @@
 <dead_hook> <o>                       : "ỏ"   U1ECF         # LATIN SMALL LETTER O WITH HOOK ABOVE
 <dead_hook> <u>                       : "ủ"   U1EE7         # LATIN SMALL LETTER U WITH HOOK ABOVE
 <dead_hook> <y>                       : "ỷ"   U1EF7         # LATIN SMALL LETTER Y WITH HOOK ABOVE
+#}}}
 
-# horn
+# horn {{{
 <dead_horn> <O>                       : "Ơ"   U01A0         # LATIN CAPITAL LETTER O WITH HORN
 <dead_horn> <U>                       : "Ư"   U01AF         # LATIN CAPITAL LETTER U WITH HORN
 <dead_horn> <o>                       : "ơ"   U01A1         # LATIN SMALL LETTER O WITH HORN
 <dead_horn> <u>                       : "ư"   U01B0         # LATIN SMALL LETTER U WITH HORN
+#}}}
 
-# macron
+# macron {{{
 <dead_macron> <A>                     : "Ā"   U0100         # LATIN CAPITAL LETTER A WITH MACRON
 <dead_macron> <E>                     : "Ē"   U0112         # LATIN CAPITAL LETTER E WITH MACRON
 <dead_macron> <G>                     : "Ḡ"   U1E20         # LATIN CAPITAL LETTER G WITH MACRON
@@ -425,8 +446,9 @@
 <dead_macron> <o>                     : "ō"   U014D         # LATIN SMALL LETTER O WITH MACRON
 <dead_macron> <u>                     : "ū"   U016B         # LATIN SMALL LETTER U WITH MACRON
 <dead_macron> <y>                     : "ȳ"   U0233         # LATIN SMALL LETTER Y WITH MACRON
+#}}}
 
-# ogonek
+# ogonek {{{
 <dead_ogonek> <A>                     : "Ą"   U0104         # LATIN CAPITAL LETTER A WITH OGONEK
 <dead_ogonek> <E>                     : "Ę"   U0118         # LATIN CAPITAL LETTER E WITH OGONEK
 <dead_ogonek> <I>                     : "Į"   U012E         # LATIN CAPITAL LETTER I WITH OGONEK
@@ -437,8 +459,9 @@
 <dead_ogonek> <i>                     : "į"   U012F         # LATIN SMALL LETTER I WITH OGONEK
 <dead_ogonek> <o>                     : "ǫ"   U01EB         # LATIN SMALL LETTER O WITH OGONEK
 <dead_ogonek> <u>                     : "ų"   U0173         # LATIN SMALL LETTER U WITH OGONEK
+#}}}
 
-# stroke
+# stroke {{{
 <dead_stroke> <D>                     : "Đ"   U0110         # LATIN CAPITAL LETTER D WITH STROKE
 <dead_stroke> <G>                     : "Ǥ"   U01E4         # LATIN CAPITAL LETTER G WITH STROKE
 <dead_stroke> <H>                     : "Ħ"   U0126         # LATIN CAPITAL LETTER H WITH STROKE
@@ -456,8 +479,9 @@
 <dead_stroke> <o>                     : "ø"   oslash        # LATIN SMALL LETTER O WITH STROKE
 <dead_stroke> <t>                     : "ŧ"   U0167         # LATIN SMALL LETTER T WITH STROKE
 <dead_stroke> <z>                     : "ƶ"   U01B6         # LATIN SMALL LETTER Z WITH STROKE
+#}}}
 
-# tilde
+# tilde {{{
 <dead_tilde> <A>                      : "Ã"   Atilde        # LATIN CAPITAL LETTER A WITH TILDE
 <dead_tilde> <E>                      : "Ẽ"   U1EBC         # LATIN CAPITAL LETTER E WITH TILDE
 <dead_tilde> <I>                      : "Ĩ"   U0128         # LATIN CAPITAL LETTER I WITH TILDE
@@ -474,12 +498,10 @@
 <dead_tilde> <u>                      : "ũ"   U0169         # LATIN SMALL LETTER U WITH TILDE
 <dead_tilde> <v>                      : "ṽ"   U1E7D         # LATIN SMALL LETTER V WITH TILDE
 <dead_tilde> <y>                      : "ỹ"   U1EF9         # LATIN SMALL LETTER Y WITH TILDE
-
 #}}}
 
-#
 # Qwerty-Lafayette
-#
+#==============================================================================
 
 # By default, the Lafayette-specific dead key is mapped to dead_grave
 # but we could also use dead_currency or a specific UTF8 character, e.g.:
@@ -512,6 +534,8 @@
 <dead_grave> <N>                      : "Ñ"  Ntilde
 <dead_grave> <s>                      : "ß"  ssharp
 <dead_grave> <S>                      : "ß"  ssharp
+<dead_grave> <i>                      : "ĳ"  U0133
+<dead_grave> <I>                      : "Ĳ"  U0132
 <dead_grave> <d>                      : "ð"  dstroke
 <dead_grave> <D>                      : "Ð"  Dstroke
 <dead_grave> <t>                      : "Þ"  thorn
@@ -548,16 +572,17 @@
 <dead_grave> <G>                      : "¢"  cent
 <dead_grave> <r>                      : "®"  registered
 <dead_grave> <R>                      : "™"  U2122
-<dead_grave> <h>                      : "†"  U2020
-<dead_grave> <H>                      : "‡"  U2021
+<dead_grave> <b>                      : "†"  U2020
+<dead_grave> <B>                      : "‡"  U2021
 
 # extended map: arrows
-<dead_grave> <j>                      : "←"  U2190
-<dead_grave> <i>                      : "↑"  U2191
+<dead_grave> <h>                      : "←"  U2190
+<dead_grave> <j>                      : "↓"  U2193
+<dead_grave> <k>                      : "↑"  U2191
 <dead_grave> <l>                      : "→"  U2192
-<dead_grave> <k>                      : "↓"  U2193
-<dead_grave> <J>                      : "⇐"  U21d0
-<dead_grave> <I>                      : "⇑"  U21d1
+<dead_grave> <H>                      : "⇐"  U21d0
+<dead_grave> <J>                      : "⇓"  U21d3
+<dead_grave> <K>                      : "⇑"  U21d1
 <dead_grave> <L>                      : "⇒"  U21d2
-<dead_grave> <K>                      : "⇓"  U21d3
 
+# vim: fdm=marker fmr={{{,}}}
