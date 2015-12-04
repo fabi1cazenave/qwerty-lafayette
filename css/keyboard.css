@@ -2,20 +2,20 @@
  * graphical keyboard layout, fixed size (664*230px)
  */
 
-ul#keyboard, ul#keyboard ul {
+#keyboard, #keyboard ul {
   margin: 0;
   padding: 0;
   width: 664px;
 }
-* html ul#keyboard ul {
+* html #keyboard ul {
   /**
    * IE6-specific hack:
    * required for the pc104/pc105 layouts
-   * the TMx layout requires another hack on li#ac01, see below
+   * the TMx layout requires another hack on #key_AC01, see below
    */
   width: 672px;
 }
-ul#keyboard {
+#keyboard {
   margin: 20px auto;
   position: relative;
   height: 230px;
@@ -27,31 +27,31 @@ ul#keyboard {
  */
 
 /* rows */
-ul#keyboard li {
+#keyboard li {
   list-style-type: none;
   clear: both;
   margin: 0;
   padding: 0;
 }
-ul#keyboard li#row_AD {
+#keyboard #row_AD {
   position: absolute;
   top: 46px;
 }
-ul#keyboard li#row_AC {
+#keyboard #row_AC {
   position: absolute;
   top: 92px;
 }
-ul#keyboard li#row_AB {
+#keyboard #row_AB {
   position: absolute;
   top: 138px;
 }
-ul#keyboard li#row_AA {
+#keyboard #row_AA {
   position: absolute;
   top: 184px;
 }
 
 /* keys */
-ul#keyboard li li {
+#keyboard li li {
   position: relative;
   float: left;
   clear: none;
@@ -65,55 +65,59 @@ ul#keyboard li li {
         -o-border-radius: 5px;
            border-radius: 5px;
 }
-ul#keyboard li strong {
+#keyboard li strong {
   position: absolute;
   font-weight: normal;
   top: 2px;
   left: 3px;
 }
-ul#keyboard li em {
+#keyboard li em {
   position: absolute;
   font-style: normal;
   bottom: 2px;
   left: 3px;
 }
-ul#keyboard li .deadKey {
+#keyboard li .deadKey {
   font-size: larger;
+  font-weight: bold;
   color: red;
+}
+#keyboard li em.deadKey {
+  bottom: -2px;
 }
 
 /* special keys */
-ul#keyboard li.specialKey {
+#keyboard li.specialKey {
   background-color: #ddd;
 }
-ul#keyboard li.specialKey * {
+#keyboard li.specialKey * {
   font-size: 13px;
   font-style: italic;
 }
-li#row_AA li.specialKey {
+#row_AA li.specialKey {
   width: 56px;
 }
-ul#keyboard li#key_TAB,
-ul#keyboard li#key_BKSP {
+#keyboard #key_TAB,
+#keyboard #key_BKSP {
   width: 60px;
 }
-ul#keyboard li#key_CAPS,
-ul#keyboard li#key_RTRN {
+#keyboard #key_CAPS,
+#keyboard #key_RTRN {
   width: 73px;
 }
-ul#keyboard li#key_LFSH,
-ul#keyboard li#key_RTSH {
+#keyboard #key_LFSH,
+#keyboard #key_RTSH {
   width: 96px;
 }
-ul#keyboard li#key_SPCE {
+#keyboard #key_SPCE {
   width: 240px;
 }
-ul#keyboard li#key_MENU {
+#keyboard #key_MENU {
   width: 40px;
 }
 
 /* hide LSGT for pc104 (default) */
-li#key_LSGT, li#key_CAPS105, li#key_RTRN105 {
+#key_LSGT, #key_CAPS105, #key_RTRN105 {
   display: none;
 }
 
@@ -122,38 +126,38 @@ li#key_LSGT, li#key_CAPS105, li#key_RTRN105 {
  * European Keyboard Geometry (pc105)
  */
 
-.pc105 li#key_LFSH {
+.pc105 #key_LFSH {
   width: 50px !important;
 }
-.pc105 li#key_RTRN {
+.pc105 #key_RTRN {
   width: 27px !important;
   height: 86px !important;
   margin-top: -44px;
   margin-left: 48px;
 }
-.pc105 li#key_BKSL {
+.pc105 #key_BKSL {
   margin-top: 48px;
   margin-left: -31px;
 }
-.pc105 li#key_LSGT {
+.pc105 #key_LSGT {
   display: block;
 }
 /* visual tweaks for CapsLock and Return */
-.pc105 li#key_CAPS105, .pc105 li#key_RTRN105 {
+.pc105 #key_CAPS105, .pc105 #key_RTRN105 {
   background-color: #e8e8e8 !important;
   display: block;
 }
-.pc105 li#key_CAPS {
+.pc105 #key_CAPS {
   width: 60px !important;
 }
-.pc105 li#key_CAPS, .pc105 li#key_RTRN {
+.pc105 #key_CAPS, .pc105 #key_RTRN {
   z-index: 1;
 }
-.pc105 li#key_CAPS105 {
+.pc105 #key_CAPS105 {
   margin-left: -64px;
   width: 73px !important;
 }
-.pc105 li#key_RTRN105 {
+.pc105 #key_RTRN105 {
   margin-top: -44px;
   margin-left: -44px;
   width: 40px !important;
@@ -164,49 +168,49 @@ li#key_LSGT, li#key_CAPS105, li#key_RTRN105 {
  * Ergonomic Keyboard Geometry (TMx)
  */
 
-.tmx li#key_CAPS {
+.tmx #key_CAPS {
   display: none;
 }
-.tmx li#key_BKSL {
+.tmx #key_BKSL {
   margin-top: 94px;
   margin-left: -96px;
 }
-.tmx li#key_TLDE, .tmx li#key_TAB,  .tmx li#key_LFSH, .tmx li#key_LCTL,
-.tmx li#key_AE12, .tmx li#key_AD12, .tmx li#key_RTSH, .tmx li#key_RCTL,
-.tmx li#key_BKSP, .tmx li#key_RTRN {
+.tmx #key_TLDE, .tmx #key_TAB,  .tmx #key_LFSH, .tmx #key_LCTL,
+.tmx #key_AE12, .tmx #key_AD12, .tmx #key_RTSH, .tmx #key_RCTL,
+.tmx #key_BKSP, .tmx #key_RTRN {
   width: 46px !important;
 }
-.tmx li#key_LWIN, .tmx li#key_LALT, .tmx li#key_RWIN, .tmx li#key_RALT {
+.tmx #key_LWIN, .tmx #key_LALT, .tmx #key_RWIN, .tmx #key_RALT {
   width: 63px !important;
 }
-.tmx li#key_TLDE, .tmx li#key_TAB, .tmx li#key_LFSH, .tmx li#key_LCTL {
+.tmx #key_TLDE, .tmx #key_TAB, .tmx #key_LFSH, .tmx #key_LCTL {
   margin-left: 3px;
 }
-.tmx li#key_AC01 {
+.tmx #key_AC01 {
   margin-left: 55px;
 }
-* html .tmx li#key_AC01 { /* IE6-specific hack */
+* html .tmx #key_AC01 { /* IE6-specific hack */
   margin-left: 29px;
 }
-.tmx li#key_AE06, .tmx li#key_AD06, .tmx li#key_AC06, .tmx li#key_AB06 {
+.tmx #key_AE06, .tmx #key_AD06, .tmx #key_AC06, .tmx #key_AB06 {
   margin-left: 54px;
 }
-.tmx li#key_BKSP {
+.tmx #key_BKSP {
   margin-left: -378px;
   height: 86px !important;
 }
-.tmx li#key_RTRN {
+.tmx #key_RTRN {
   margin-left: -326px;
   height: 86px !important;
 }
-.tmx li#key_LFSH, .tmx li#key_RTSH {
+.tmx #key_LFSH, .tmx #key_RTSH {
   height: 86px !important;
   margin-top: -44px;
 }
-.tmx li#key_RTSH {
+.tmx #key_RTSH {
   margin-left: 48px;
 }
-.tmx li#key_SPCE {
+.tmx #key_SPCE {
   width: 230px !important;
 }
 
@@ -215,8 +219,8 @@ li#key_LSGT, li#key_CAPS105, li#key_RTRN105 {
  * Background Images for Tab, Backspace, Caps, Return, Shift
  */
 
-li#key_TAB *, li#key_BKSP *, li#key_CAPS *,
-li#key_LFSH *, li#key_RTSH *, li#key_RTRN * {
+#key_TAB *, #key_BKSP *, #key_CAPS *,
+#key_LFSH *, #key_RTSH *, #key_RTRN * {
   display: none;
 }
 li.specialKey {
@@ -224,20 +228,20 @@ li.specialKey {
   background-position: bottom left;
 }
 
-li#key_TAB  { background-image: url(keyboard/key-tab.png);  }
-li#key_BKSP { background-image: url(keyboard/key-bksp.png); }
-li#key_CAPS { background-image: url(keyboard/key-caps.png); }
-li#key_RTRN { background-image: url(keyboard/key-rtrn.png); }
-li#key_LFSH, li#key_RTSH {
+#key_TAB  { background-image: url(keyboard/key-tab.png);  }
+#key_BKSP { background-image: url(keyboard/key-bksp.png); }
+#key_CAPS { background-image: url(keyboard/key-caps.png); }
+#key_RTRN { background-image: url(keyboard/key-rtrn.png); }
+#key_LFSH, #key_RTSH {
   background-image: url(keyboard/key-shift.png);
 }
 
 /* IE6 hack, using GIF instead of PNG */
-* html li#key_TAB  { background-image: url(keyboard/key-tab.gif);  }
-* html li#key_BKSP { background-image: url(keyboard/key-bksp.gif); }
-* html li#key_CAPS { background-image: url(keyboard/key-caps.gif); }
-* html li#key_RTRN { background-image: url(keyboard/key-rtrn.gif); }
-* html li#key_LFSH, * html li#key_RTSH {
+* html #key_TAB  { background-image: url(keyboard/key-tab.gif);  }
+* html #key_BKSP { background-image: url(keyboard/key-bksp.gif); }
+* html #key_CAPS { background-image: url(keyboard/key-caps.gif); }
+* html #key_RTRN { background-image: url(keyboard/key-rtrn.gif); }
+* html #key_LFSH, * html #key_RTSH {
   background-image: url(keyboard/key-shift.gif);
 }
 

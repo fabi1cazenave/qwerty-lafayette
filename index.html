@@ -79,15 +79,15 @@
           <li id="key_AE04">
             <strong> $ </strong>
             <em> 4 </em>
-            <strong class="lafayette secondary"> £ </strong>
-            <em class="lafayette"> € </em>
+            <em class="lafayette secondary"> £ </em>
+            <strong class="lafayette secondary"> ¢ </strong>
             <em class="altgr"> = </em>
           </li>
           <li id="key_AE05">
             <strong> % </strong>
             <em> 5 </em>
             <strong class="lafayette secondary"> ‰ </strong>
-            <em class="lafayette secondary"> ¥ </em>
+            <em class="lafayette"> € </em>
           </li>
           <li id="key_AE06">
             <strong> ^ </strong>
@@ -169,6 +169,8 @@
           <li id="key_AD06" class="letter">
             <strong> Y </strong>
             <em> y </em>
+            <strong class="lafayette secondary"> ¤ </strong>
+            <em class="lafayette secondary"> ¥ </em>
           </li>
           <li id="key_AD07" class="letter">
             <strong> U </strong>
@@ -179,7 +181,7 @@
           <li id="key_AD08" class="letter">
             <strong> I </strong>
             <em> i </em>
-            <em class="lafayette secondary"> ↑ </em>
+            <em class="lafayette secondary"> ĳ </em>
             <em class="altgr"> 5 </em>
           </li>
           <li id="key_AD09" class="letter">
@@ -203,7 +205,7 @@
           </li>
           <li id="key_AD12" class="qwerty">
             <strong> » </strong>
-            <em class="deadKey"> ´ </em>
+            <em class="deadKey"> ¨ </em>
             <strong class="lafayette"> } </strong>
             <em class="lafayette"> ] </em>
           </li>
@@ -255,18 +257,18 @@
           <li id="key_AC06" class="letter">
             <strong> H </strong>
             <em> h </em>
-            <em class="lafayette secondary"> † </em>
+            <em class="lafayette secondary"> ← </em>
           </li>
           <li id="key_AC07" class="letter">
             <strong> J </strong>
             <em> j </em>
-            <em class="lafayette secondary"> ← </em>
+            <em class="lafayette secondary"> ↓ </em>
             <em class="altgr"> 1 </em>
           </li>
           <li id="key_AC08" class="letter">
             <strong> K </strong>
             <em> k </em>
-            <em class="lafayette secondary"> ↓ </em>
+            <em class="lafayette secondary"> ↑ </em>
             <em class="altgr"> 2 </em>
           </li>
           <li id="key_AC09" class="letter">
@@ -276,9 +278,7 @@
             <em class="altgr"> 3 </em>
           </li>
           <li id="key_AC10" class="qwerty">
-            <strong class="deadKey"> ¨ </strong>
-            <em class="deadKey"> ★ </em>
-            <em class="deadKey" style="display: none;"> ☆ </em>
+            <strong class="deadKey" style="margin: 6px;"> ★ </strong>
             <em class="altgr"> - </em>
           </li>
           <li id="key_AC11">
@@ -327,6 +327,7 @@
           <li id="key_AB05" class="letter">
             <strong> B </strong>
             <em> b </em>
+            <em class="lafayette secondary"> † </em>
           </li>
           <li id="key_AB06" class="letter">
             <strong> N </strong>
@@ -416,7 +417,7 @@
       <ul>
         <li>
           pour un <a href="#_qwerty">accès direct aux chiffres</a>, sans [Shift]
-          ni [CapsLock] ; 
+          ni [CapsLock] ;
         </li>
         <li>
           pour une <a href="#_lafayette">typographie soignée</a> en français :
@@ -443,7 +444,8 @@
       <p>
         Cette disposition de clavier ne diffère que très peu du Qwerty-US :
         seules 5 touches sont affectées. Elle convient donc particulièrement aux
-        claviers Qwerty, mais s’utilise tout aussi bien sur un clavier Azerty.
+        claviers Qwerty, mais s’utilise tout aussi bien sur un clavier Azerty
+        pour ceux qui savent taper en méthode dactylo.
       </p>
       <p>
         Le principal intéret de cette modification est de permettre une saisie
@@ -525,8 +527,8 @@
     </div>
   </div>
 
-  <h2> Téléchargement (v0.2.1) </h2>
-  <dl id="download">
+  <h2 id="download"> Téléchargement (v0.2.1) </h2>
+  <dl class="download">
     <dt>
       <strong> Windows : </strong>
       <a href="v0.2.1/lafayette.zip">lafayette.zip</a> (258 Ko)
@@ -569,7 +571,36 @@
     </dd>
   </dl>
 
-  <h2> Notes de version </h2>
+  <h2 id="beta"> Version en cours de développement (v0.5pre) </h2>
+  <p>
+    Quelques changements sur les caractères spéciaux : <br />
+  </p>
+  <ul>
+    <li> le tréma mort (¨) passe sur la touche ],
+      pour éviter les touches mortes en majuscule (source de confusion) ; </li>
+    <li> le symbole Euro (€) passe sur la touche 5
+      pour mieux coller aux claviers Qwerty récents ; </li>
+    <li> les flèches ←↓↑→ passent sur les touches HJKL —
+      <i>Vim powwa!</i> </li>
+    <li> AltGr+Espace fait désormais… Espace, au lieu de Échapp,
+      pour être plus intuitif. </li>
+  </ul>
+  <dl class="download">
+    <dt>
+      <strong> GNU/Linux : </strong>
+      <a href="v0.5pre/lafayette-20131226.xkb">lafayette-20131226.xkb</a> (15 Ko)
+    </dt>
+    <dd>
+      <p>
+        enregistrer et appliquer avec « <code>xkbcomp -w9 lafayette.xkb $DISPLAY</code> ».
+      </p>
+      <p>
+        Pour revenir à la disposition Azerty : « <code>setxkbmap fr</code> ».
+      </p>
+    </dd>
+  </dl>
+
+  <h2 id="changelog"> Notes de version </h2>
   <dl>
     <dt> v0.2.1 (2013-03-05) </dt>
     <dd>
@@ -617,7 +648,7 @@
     « AltGr » sont susceptibles d’être modifiés dans une version ultérieure.
   </p>
 
-  <h2> Licence </h2>
+  <h2 id="license"> Licence </h2>
   <p>
     <a href="http://sam.zoy.org/wtfpl/">WTFPL</a> pour l’instant. Une licence
     plus appropriée sera choisie ultérieurement si besoin est (intégration dans
