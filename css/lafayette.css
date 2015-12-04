@@ -4,16 +4,16 @@
  */
 
 /* lowercase letters */
-ul#keyboard li.letter em {
+#keyboard li.letter em {
   display: none;
 }
-ul#keyboard li.letter em.lafayette,
-ul#keyboard li.letter em.altgr {
+#keyboard li.letter em.lafayette,
+#keyboard li.letter em.altgr {
   display: block;
 }
 
 /* AltGr keys */
-ul#keyboard li .altgr {
+#keyboard li .altgr {
   opacity: 0;
   filter: alpha(opacity=0);
   left: auto;
@@ -22,66 +22,66 @@ ul#keyboard li .altgr {
 }
 
 /* primary lafayette keys */
-ul#keyboard li .lafayette {
+#keyboard li .lafayette {
   opacity: 0;
   left: auto;
   right: 5px;
   color: green;
 }
 /* secondary lafayette keys
-ul#keyboard li em.lafayette.secondary,
-ul#keyboard li strong.lafayette.secondary {
+#keyboard li em.lafayette.secondary,
+#keyboard li strong.lafayette.secondary {
   opacity: 0;
 } */
 
-/* qwerty/lafayette/altgr class switcher */
-.qwerty li.qwerty,
-.extra li#ac10,
-.lafayette li#ac10 {
+/* qwerty|lafayette|altgr class switcher */
+.qwerty    li.qwerty,
+.extra     #key_AC10,
+.lafayette #key_AC10 {
   background-color: #fdd;
 }
-.altgr     ul#keyboard li .altgr,
-.home      ul#keyboard li .lafayette,
-.extra     ul#keyboard li .lafayette,
-.lafayette ul#keyboard li .lafayette {
+.altgr     #keyboard li .altgr,
+.home      #keyboard li .lafayette,
+.extra     #keyboard li .lafayette,
+.lafayette #keyboard li .lafayette {
   opacity: 1;
 }
-.altgr li#ralt {
+.altgr #ralt {
   background-color: #ddf;
 }
-.altgr ul#keyboard li em,
-.altgr ul#keyboard li strong {
+.altgr #keyboard li em,
+.altgr #keyboard li strong {
   opacity: 0.2;
   filter: alpha(opacity=20);
 }
-.altgr ul#keyboard li .lafayette {
+.altgr #keyboard li .lafayette {
   opacity: 0;
   filter: alpha(opacity=0);
 }
-.altgr ul#keyboard li .altgr {
+.altgr #keyboard li .altgr {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-.altgr li#ralt em {
+.altgr #ralt em {
   opacity: 1;
   filter: alpha(opacity=100);
   color: blue;
 }
 
-ul#keyboard li em.lafayette.secondary,
-ul#keyboard li strong.lafayette.secondary {
+#keyboard li em.lafayette.secondary,
+#keyboard li strong.lafayette.secondary {
   opacity: 0;
 }
-.extra ul#keyboard li em.lafayette.secondary,
-.extra ul#keyboard li strong.lafayette.secondary {
+.extra #keyboard li em.lafayette.secondary,
+.extra #keyboard li strong.lafayette.secondary {
   opacity: 1;
 }
 
-.home a#navHome,
-.extra a#navExtra,
-.lafayette a#navLafayette,
-.qwerty a#navQwerty,
-.altgr a#navAltGr {
+.home      #navHome,
+.extra     #navExtra,
+.lafayette #navLafayette,
+.qwerty    #navQwerty,
+.altgr     #navAltGr {
   background-color: #fdd !important;
 }
 
@@ -92,7 +92,7 @@ ul#keyboard li strong.lafayette.secondary {
 
 /* description block */
 
-div#description {
+#description {
   overflow: hidden;
   position: relative;
   height: 350px;
@@ -102,7 +102,7 @@ div#description {
   /*border: 1px solid;*/
 }
 
-div#description div {
+#description div {
   position: absolute;
   top: 0;
   width: 620px;
@@ -120,23 +120,23 @@ div#description div {
   overflow-y: auto;
 }
 
-div#description li {
+#description li {
   margin-bottom: 0.5em;
 }
 
-div#description a {
+#description a {
   color: brown !important;
 }
 
 /* description selector */
 
-p#selector {
+#selector {
   clear: both;
   padding-top: 20px;
   text-align: center;
 }
 
-p#selector a {
+#selector a {
   color: brown;
   background-color: white;
   text-decoration: none;
@@ -145,11 +145,11 @@ p#selector a {
   padding: 4px 8px;
 }
 
-p#selector a:hover {
+#selector a:hover {
   background-color: #fff0f0;
 }
 
-p#selector a:first-child {
+#selector a:first-child {
    -webkit-border-top-left-radius: 8px;
        -moz-border-radius-topleft: 8px;
        -ms-border-top-left-radius: 8px;
@@ -162,7 +162,7 @@ p#selector a:first-child {
            border-bottom-left-radius: 8px;
 }
 
-p#selector a:last-child {
+#selector a:last-child {
    -webkit-border-top-right-radius: 8px;
        -moz-border-radius-topright: 8px;
        -ms-border-top-right-radius: 8px;
@@ -180,11 +180,11 @@ p#selector a:last-child {
  * Download
  */
 
-dl#download dd {
+.download dd {
   padding-bottom: 10px;
 }
 
-dl#download dt a {
+.download dt a {
   color: brown !important;
 }
 
