@@ -6,8 +6,8 @@
   <title> Lafayette Keyboard Layout </title>
 
   <link type="text/css" rel="stylesheet" href="css/layout.css"      />
-  <link type="text/css" rel="stylesheet" href="css/keyboard.css"    />
   <link type="text/css" rel="stylesheet" href="css/lafayette.css"   />
+  <link type="text/css" rel="stylesheet" href="css/keyboard.css"    />
   <link type="text/css" rel="stylesheet" href="css/transitions.css" />
   <!--[if lt IE 9]>
     <link type="text/css" rel="stylesheet" href="css/lafayette-oldie.css" />
@@ -29,7 +29,7 @@
     id="github"><span>Fork me on GitHub</span></a>
 
   <h1> Qwerty-Lafayette </h1>
-  <p> Écrire confortablement en français sur un clavier QWERTY, c’est possible ! </p>
+  <p> Un Qwerty pour les développeurs francophones et les <i>grammar nazis</i>. </p>
 
   <div style="position: relative; margin: 0 auto; width: 664px;">
     <form style="float: right; margin-bottom: 5px;">
@@ -54,6 +54,8 @@
           <li id="key_TLDE">
             <strong> ~ </strong>
             <em> ` </em>
+            <strong class="altgr deadKey"> ~ </strong>
+            <em class="altgr deadKey"> ` </em>
           </li>
           <li id="key_AE01">
             <strong> ! </strong>
@@ -284,6 +286,8 @@
           <li id="key_AC11">
             <strong> " </strong>
             <em> ' </em>
+            <strong class="altgr deadKey"> ˙ </strong>
+            <em class="altgr deadKey"> ´ </em>
           </li>
           <li id="key_RTRN" class="specialKey">
             <em> return </em>
@@ -458,7 +462,7 @@
         Par rapport au layout Azerty de référence pour les francophones, l’autre
         avantage de cette disposition est d’accéder aux <strong>chiffres en
         direct</strong> — sans Shift ni CapsLock. Le pavé numérique n’est plus
-        indispensable !
+        indispensable.
       </p>
     </div>
 
@@ -472,7 +476,7 @@
         Cette touche morte permet aussi de saisir facilement les majuscules accentuées
         ansi que des caractères tels que Œ, Æ ou les points de suspension (…).
         Contrairement aux apparences, cette disposition de clavier est donc
-        <strong>plus adaptée au français que l’Azerty</strong> !
+        <strong>plus adaptée au français que l’Azerty</strong>.
       </p>
       <p>
         Cela augmente d’environ 3% le nombre de frappes sur un texte
@@ -527,7 +531,31 @@
     </div>
   </div>
 
-  <h2 id="download"> Téléchargement (v0.2.1) </h2>
+  <h2 id="download"> Téléchargement (v0.5) </h2>
+  <dl class="download">
+    <dt>
+      <strong> Windows : </strong>
+    </dt>
+    <dd> portage en cours… </dd>
+    <dt>
+      <strong> Mac OSX : </strong>
+    </dt>
+    <dd> portage en cours… </dd>
+    <dt>
+      <strong> GNU/Linux : </strong>
+      <a href="v0.5/lafayette.xkb">lafayette.xkb</a> (16 Ko)
+    </dt>
+    <dd>
+      <p>
+        enregistrer et appliquer avec « <code>xkbcomp -w9 lafayette.xkb $DISPLAY</code> ».
+      </p>
+      <p>
+        Pour revenir à la disposition Azerty : « <code>setxkbmap fr</code> ».
+      </p>
+    </dd>
+  </dl>
+
+  <h2 id="download_old"> Téléchargement (v0.2.1) </h2>
   <dl class="download">
     <dt>
       <strong> Windows : </strong>
@@ -571,37 +599,20 @@
     </dd>
   </dl>
 
-  <h2 id="beta"> Version en cours de développement (v0.5pre) </h2>
-  <p>
-    Quelques changements sur les caractères spéciaux : <br />
-  </p>
-  <ul>
-    <li> le tréma mort (¨) passe sur la touche ],
-      pour éviter les touches mortes en majuscule (source de confusion) ; </li>
-    <li> le symbole Euro (€) passe sur la touche 5
-      pour mieux coller aux claviers Qwerty récents ; </li>
-    <li> les flèches ←↓↑→ passent sur les touches HJKL —
-      <i>Vim powwa!</i> </li>
-    <li> AltGr+Espace fait désormais… Espace, au lieu de Échapp,
-      pour être plus intuitif. </li>
-  </ul>
-  <dl class="download">
-    <dt>
-      <strong> GNU/Linux : </strong>
-      <a href="v0.5pre/lafayette-20151207.xkb">lafayette-20151207.xkb</a>
-    </dt>
-    <dd>
-      <p>
-        enregistrer et appliquer avec « <code>xkbcomp -w9 lafayette.xkb $DISPLAY</code> ».
-      </p>
-      <p>
-        Pour revenir à la disposition Azerty : « <code>setxkbmap fr</code> ».
-      </p>
-    </dd>
-  </dl>
-
   <h2 id="changelog"> Notes de version </h2>
   <dl>
+    <dt> v0.5 (2015-12-10) </dt>
+    <dd>
+      Quelques changements sur les caractères spéciaux :
+      <ul>
+        <li> le tréma mort (¨) passe sur la touche <code>]</code>,
+          pour éviter les touches mortes en majuscule (source de confusion) ; </li>
+        <li> le symbole Euro (€) passe sur la touche <code>5</code>
+          pour mieux coller aux claviers Qwerty récents ; </li>
+        <li> les flèches ←↓↑→ passent sur les touches HJKL —
+          <i>Vim powwa!</i> </li>
+      </ul>
+    </dd>
     <dt> v0.2.1 (2013-03-05) </dt>
     <dd>
       Linux : correction mineure (antislash)
@@ -643,16 +654,19 @@
     </li>
   </ul>
   <p>
-    <strong>Nota :</strong> la disposition de clavier n’est pas encore
-    totalement figée, certains caractères secondaires des couches « Extra » et
-    « AltGr » sont susceptibles d’être modifiés dans une version ultérieure.
+    <strong>Nota :</strong> cette disposition de clavier est encore susceptible
+    d’évoluer. La couche Qwerty est figée, mais certains caractères secondaires
+    pourront être ajoutés ou modifiés dans la couche « Extra ». Quant à la
+    couche « AltGr », elle est faite pour être reconfigurée : <a
+      href="https://github.com/fabi1cazenave/qwerty-lafayette/wiki/AltGr">proposez
+      votre disposition sur le wiki</a> pour contribuer à ce que sera la version
+    1.0 finale.
   </p>
 
   <h2 id="license"> Licence </h2>
   <p>
-    <a href="http://sam.zoy.org/wtfpl/">WTFPL</a> pour l’instant. Une licence
-    plus appropriée sera choisie ultérieurement si besoin est (intégration dans
-    Xorg…).
+    <a href="http://wtfpl.net/">WTFPL</a>
+    – Do What the Fuck You Want to Public License.
   </p>
 </body>
 </html>
