@@ -2,7 +2,7 @@
 // File          : lafayette.xkb
 // Project page  : http://fabi1cazenave.github.com/qwerty-lafayette/
 // Author        : Fabien Cazenave
-// Licence       : WTFPL
+// License       : WTFPL
 //
 // US-QWERTY layout, French variant
 //
@@ -17,7 +17,7 @@ xkb_keymap {
 
   // Qwerty layer, ANSI/pc104
   // ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━┓
-  // │ ~   │ ! ¡ │ @ ‘ │ # ’ │ $ ¢ │ % ‰ │ ^   │ & ¦ │ *   │ (   │ )   │ _ – │ + ± ┃          ┃
+  // │ ~   │ ! ¡ │ @ ‘ │ # ’ │ $ ¢ │ % ‰ │ ^   │ & ¦ │ * ★ │ (   │ )   │ _ – │ + ± ┃          ┃
   // │ `   │ 1 „ │ 2 “ │ 3 ” │ 4 £ │ 5 € │ 6   │ 7 | │ 8 ∞ │ 9   │ 0 ° │ - — │ = ≠ ┃ ⌫        ┃
   // ┢━━━━━┷━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┺━━┯━━━━━━━┩
   // ┃        ┃ Q   │ W   │ E   │ R ™ │ T   │ Y   │ U   │ I   │ O   │ P   │ « { │ » } │ |     │
@@ -35,7 +35,7 @@ xkb_keymap {
 
   // Qwerty layer, ISO/pc105
   // ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━┓
-  // │ ~   │ ! ¡ │ @ ‘ │ # ’ │ $ ¢ │ % ‰ │ ^   │ & ¦ │ *   │ (   │ )   │ _ – │ + ± ┃          ┃
+  // │ ~   │ ! ¡ │ @ ‘ │ # ’ │ $ ¢ │ % ‰ │ ^   │ & ¦ │ * ★ │ (   │ )   │ _ – │ + ± ┃          ┃
   // │ `   │ 1 „ │ 2 “ │ 3 ” │ 4 £ │ 5 € │ 6   │ 7 | │ 8 ∞ │ 9   │ 0 ° │ - — │ = ≠ ┃ ⌫        ┃
   // ┢━━━━━┷━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┺━━┳━━━━━━━┫
   // ┃        ┃ Q   │ W   │ E   │ R ™ │ T   │ Y   │ U   │ I   │ O   │ P   │ « { │ » } ┃       ┃
@@ -99,7 +99,7 @@ xkb_keymap {
     key <AE05> {[ 5 , percent     , EuroSign             , U2030                ],[ question   , questiondown ]};
     key <AE06> {[ 6 , asciicircum , VoidSymbol           , VoidSymbol           ],[ VoidSymbol , VoidSymbol   ]};
     key <AE07> {[ 7 , ampersand   , bar                  , brokenbar            ],[ 7          , VoidSymbol   ]};
-    key <AE08> {[ 8 , asterisk    , infinity             , VoidSymbol           ],[ 8          , VoidSymbol   ]};
+    key <AE08> {[ 8 , asterisk    , infinity             , U2605                ],[ 8          , VoidSymbol   ]};
     key <AE09> {[ 9 , parenleft   , VoidSymbol           , VoidSymbol           ],[ 9          , VoidSymbol   ]};
     key <AE10> {[ 0 , parenright  , degree               , VoidSymbol           ],[ slash      , VoidSymbol   ]};
 
@@ -117,7 +117,7 @@ xkb_keymap {
 
     // Letters, second row
     key <AC01> {[ a , A , agrave     , Agrave      ],[ braceleft    , VoidSymbol ]};
-    key <AC02> {[ s , S , ssharp     , VoidSymbol  ],[ bracketleft  , VoidSymbol ]};
+    key <AC02> {[ s , S , ssharp     , U1E9E       ],[ bracketleft  , VoidSymbol ]};
     key <AC03> {[ d , D , eth        , Eth         ],[ bracketright , VoidSymbol ]};
     key <AC04> {[ f , F , U017F      , ordfeminine ],[ braceright   , VoidSymbol ]};
     key <AC05> {[ g , G , copyright  , cent        ],[ bar          , brokenbar  ]};
