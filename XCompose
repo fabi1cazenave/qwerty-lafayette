@@ -516,7 +516,8 @@
 <dead_grave> <O>                      : "Œ"  OE
 <dead_grave> <q>                      : "æ"  ae
 <dead_grave> <Q>                      : "Æ"  AE
-<dead_grave> <4>                      : "€"  EuroSign
+<dead_grave> <4>                      : "£"  sterling
+<dead_grave> <5>                      : "€"  EuroSign
 <dead_grave> <period>                 : "…"  ellipsis
 <dead_grave> <minus>                  : "—"  U2014
 <dead_grave> <z>                      : "<"  less
@@ -524,7 +525,7 @@
 <dead_grave> <x>                      : ">"  greater
 <dead_grave> <X>                      : "≥"  greaterthanequal
 <dead_grave> <dead_circumflex>        : "["  bracketleft
-<dead_grave> <dead_acute>             : "]"  bracketright
+<dead_grave> <diaeresis>              : "]"  bracketright
 <dead_grave> <guillemotleft>          : "{"  braceleft
 <dead_grave> <guillemotright>         : "}"  braceright
 <dead_grave> <space>                  : "’"  U2019
@@ -564,12 +565,11 @@
 <dead_grave> <equal>                  : "≠"  notequal
 <dead_grave> <plus>                   : "±"  plusminus
 <dead_grave> <percent>                : "‰"  U2030
-<dead_grave> <dollar>                 : "₤"  sterling
-<dead_grave> <5>                      : "¥"  yen
+<dead_grave> <dollar>                 : "¢"  cent
+<dead_grave> <y>                      : "¥"  yen
 <dead_grave> <0>                      : "°"  degree
 <dead_grave> <m>                      : "μ"  mu
 <dead_grave> <g>                      : "©"  copyright
-<dead_grave> <G>                      : "¢"  cent
 <dead_grave> <r>                      : "®"  registered
 <dead_grave> <R>                      : "™"  U2122
 <dead_grave> <b>                      : "†"  U2020
