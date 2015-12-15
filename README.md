@@ -1,4 +1,4 @@
-qwerty-Lafayette
+Qwerty-Lafayette
 ================
 
 A Qwerty layout for French-speaking users.
@@ -68,8 +68,8 @@ Alternatives
 
 There are other ways to use a Qwerty-US keyboard for French. Here are the two most intuitive ones:
 
-* [qwerty-intl](https://fr.wikipedia.org/wiki/Disposition_des_touches_des_claviers_informatiques#/media/File:KB_USA-international.svg) — turns `~'"^` into dead keys;
-* [qwerty-fr](http://marin.jb.free.fr/qwerty-fr/) — smart use of the AltGr layer for all accented characters.
+* [qwerty-intl](https://en.wikipedia.org/wiki/QWERTY#US-International) — turns ``~`'"^`` into dead keys;
+* [qwerty-fr](http://marin.jb.free.fr/qwerty-fr/) — no dead keys, and a smart use of the AltGr layer for all French accented characters.
 
 The Qwerty-Lafayette project aims to provide sharper typography and better ergonomics in the long run, but has a steeper learning curve.
 
