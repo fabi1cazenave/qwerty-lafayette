@@ -486,13 +486,13 @@
       <key code="36"  output="&#x000D;"/>
       <key code="37"  output="3"/>
       <key code="38"  output="1"/>
-      <key code="39"  output="&#x0010;"/>
+      <key code="39"  output="deadAcute"/>
       <key code="40"  output="2"/>
       <key code="41"  output="-"/>
       <key code="42"  output="&#x0010;"/>
       <key code="43"  output=","/>
       <key code="44"  output="+"/>
-      <key code="45"  action="deadTilde"/>
+      <key code="45"  action="&#x0010;"/>
       <key code="46"  output="0"/>
       <key code="47"  output="."/>
       <key code="48"  output="&#x0009;"/>
@@ -611,7 +611,7 @@
       <key code="47"  output="."/>
       <key code="48"  output="&#x0009;"/>
       <key code="49"  output=" "/>
-      <key code="50"  output="&#x0010;"/>
+      <key code="50"  output="deadTilde"/>
       <key code="51"  output="&#x0008;"/>
       <key code="52"  output="&#x0003;"/>
       <key code="53"  output="&#x001B;"/>
@@ -1020,11 +1020,10 @@
     <!-- dead keys -->
     <action id="deadLafayette">
       <when state="none" next="s0"/>
-      <when state="s0" output="★"/>
+      <when state="s0" output="`"/>
     </action>
     <action id="deadAcute">
       <when state="none" next="s1"/>
-      <when state="s0" output="]"/>
     </action>
     <action id="deadGrave">
       <when state="none" next="s2"/>
@@ -1035,6 +1034,7 @@
     </action>
     <action id="deadDiaeresis">
       <when state="none" next="s4"/>
+      <when state="s0" output="]"/>
     </action>
     <action id="deadTilde">
       <when state="none" next="s5"/>
