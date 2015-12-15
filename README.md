@@ -71,5 +71,5 @@ There are other ways to use a Qwerty-US keyboard for French. Here are the two mo
 * [qwerty-intl](https://en.wikipedia.org/wiki/QWERTY#US-International) — turns ``~`'"^`` into dead keys;
 * [qwerty-fr](http://marin.jb.free.fr/qwerty-fr/) — no dead keys, and a smart use of the AltGr layer for all French accented characters.
 
-The Qwerty-Lafayette project aims to provide sharper typography and better ergonomics in the long run, but has a steeper learning curve.
+Qwerty-Lafayette provides sharper typography and better ergonomics in the long run, but has a steeper learning curve for non-touch-typists.
 
