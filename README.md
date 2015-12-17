@@ -61,7 +61,7 @@ More information on the website (in French): http://fabi1cazenave.github.io/qwer
 Why the name?
 -------------
 
-https://en.wikipedia.org/wiki/Gilbert_du_Motier,_Marquis_de_Lafayette
+Because of [Gilbert du Motier, Marquis de Lafayette](https://en.wikipedia.org/wiki/Gilbert_du_Motier,_Marquis_de_Lafayette).
 
 Alternatives
 ------------
