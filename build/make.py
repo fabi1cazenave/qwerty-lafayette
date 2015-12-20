@@ -657,6 +657,11 @@ def export_geometry_dead(geometry, prepend=''):
     template = get_template(template, geometry['rows'], 2)
     return '\n'.join([ (prepend + '{0}').format(line) for line in template ])
 
+def export_geometry(geometry, prepend=''):
+    return \
+        export_geometry_dead(geometry, prepend) + '\n\n' + \
+        export_geometry_altgr(geometry, prepend)
+
 ##
 # Main
 #
@@ -666,23 +671,30 @@ import re
 input_path = 'lafayette'
 import_layout(input_path)
 
-xkb_layout  = export_xkb()
-klc_layout  = export_klc_layout()
-klc_deadkey = export_klc_deadkey()
+# Linux (xkb) driver
+xkb_layout   = export_xkb()
+xkb_geometry = export_geometry(GEOMETRY_ISO, '    // ')
 
 xkb_path = input_path + '.xkb'
-xkb_template = open('template.xkb').read()
-xkb_out = re.sub(r'.*LAFAYETTE::LAYOUT.*', xkb_layout, xkb_template)
+xkb_out = open('template.xkb').read()
+xkb_out = re.sub(r'.*LAFAYETTE::LAYOUT.*',   xkb_layout,   xkb_out)
+xkb_out = re.sub(r'.*LAFAYETTE::GEOMETRY.*', xkb_geometry, xkb_out)
 open(xkb_path, 'w').write(xkb_out)
 print(xkb_path)
 
+# Windows (klc) driver
+klc_layout   = export_klc_layout()
+klc_deadkey  = export_klc_deadkey()
+klc_geometry = export_geometry(GEOMETRY_ANSI, '// ')
+
 klc_path = input_path + '.klc'
-klc_template = open('template.klc', 'r', encoding='utf-16le').read()
-klc_out = re.sub(r'.*LAFAYETTE::LAYOUT.*',  klc_layout,  klc_template)
-klc_out = re.sub(r'.*LAFAYETTE::DEADKEY.*', klc_deadkey, klc_out)
+klc_out = open('template.klc', 'r', encoding='utf-16le').read()
+klc_out = re.sub(r'.*LAFAYETTE::LAYOUT.*',   klc_layout,   klc_out)
+klc_out = re.sub(r'.*LAFAYETTE::DEADKEY.*',  klc_deadkey,  klc_out)
+klc_out = re.sub(r'.*LAFAYETTE::GEOMETRY.*', klc_geometry, klc_out)
 open(klc_path, 'w', encoding='utf-16le').write(klc_out.replace('\n', '\r\n'))
 print(klc_path)
 
-print(export_geometry_dead(GEOMETRY_ANSI, '// '))
-print(export_geometry_altgr(GEOMETRY_ANSI))
+# A quick visual control never hurts
+print(export_geometry_dead(GEOMETRY_ERGO))
 

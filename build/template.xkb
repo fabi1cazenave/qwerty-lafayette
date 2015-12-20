@@ -37,6 +37,8 @@ xkb_keymap {
     // include "capslock(swapescape)"  // Swap CapsLock and Escape -- Vim powwa!
     // include "compose(menu)"         // Compose on the 'Menu' key
 
+    // LAFAYETTE::GEOMETRY
+
     // LAFAYETTE::LAYOUT
 
     // Spacebar
