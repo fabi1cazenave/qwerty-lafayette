@@ -1,17 +1,19 @@
 #!/usr/bin/python3
 
+layers = []
+
 DEAD_KEYS = {                                            # combining diacritics
-    '\u20e1': { 'klc': '¤', 'xkb': 'ISO_Level3_Latch' }, #  ⃡
-    '\u0300': { 'klc': '`', 'xkb': 'dead_grave'       }, #  ̀
-    '\u0301': { 'klc': '´', 'xkb': 'dead_acute'       }, #  ́
-    '\u0302': { 'klc': '^', 'xkb': 'dead_circumflex'  }, #  ̂
-    '\u0303': { 'klc': '~', 'xkb': 'dead_tilde'       }, #  ̃
-    '\u0307': { 'klc': '˙', 'xkb': 'dead_abovedot'    }, #  ̇
-    '\u0308': { 'klc': '¨', 'xkb': 'dead_diaeresis'   }, #  ̈
-    '\u030a': { 'klc': '˚', 'xkb': 'dead_abovering'   }, #  ̊
-    '\u0326': { 'klc': ',', 'xkb': 'dead_commabelow'  }, #  ̦
-    '\u0327': { 'klc': '¸', 'xkb': 'dead_cedilla'     }, #  ̧
-    '\u0328': { 'klc': '˛', 'xkb': 'dead_ogonek'      }  #  ̨
+    '\u20e1': { 'klc': '¤', 'xkb': 'ISO_Level3_Latch' }, #  ⃡ #
+    '\u0300': { 'klc': '`', 'xkb': 'dead_grave'       }, #  ̀ #
+    '\u0301': { 'klc': '´', 'xkb': 'dead_acute'       }, #  ́ #
+    '\u0302': { 'klc': '^', 'xkb': 'dead_circumflex'  }, #  ̂ #
+    '\u0303': { 'klc': '~', 'xkb': 'dead_tilde'       }, #  ̃ #
+    '\u0307': { 'klc': '˙', 'xkb': 'dead_abovedot'    }, #  ̇ #
+    '\u0308': { 'klc': '¨', 'xkb': 'dead_diaeresis'   }, #  ̈ #
+    '\u030a': { 'klc': '˚', 'xkb': 'dead_abovering'   }, #  ̊ #
+    '\u0326': { 'klc': ',', 'xkb': 'dead_commabelow'  }, #  ̦ #
+    '\u0327': { 'klc': '¸', 'xkb': 'dead_cedilla'     }, #  ̧ #
+    '\u0328': { 'klc': '˛', 'xkb': 'dead_ogonek'      }  #  ̨ #
 }
 
 LAYER_KEYS = [
@@ -37,7 +39,6 @@ LAYER_KEYS = [
 
 def import_layout(filePath):
     layout = open(filePath).read()
-    importedLayers = []
 
     keys = [
         '', 'tlde',
@@ -80,9 +81,7 @@ def import_layout(filePath):
                 layer[keyName] = keyValue
             i = i + 1
             keyValue = nextValue
-        importedLayers.append(layer)
-
-    return importedLayers
+        layers.append(layer)
 
 def hex_ord(char):
     return hex(ord(char))[2:].zfill(4)
@@ -91,7 +90,7 @@ def hex_ord(char):
 # Linux layout
 #
 
-def export_xkb(layers):
+def export_xkb():
     supportedSymbols = { # /usr/include/X11/keysymdef.h
         '\u0020': 'space',
         '\u0021': 'exclam',
@@ -343,7 +342,7 @@ def export_xkb(layers):
 # Windows layout - should be converted to UTF-16LE
 #
 
-def export_klc_layout(layers):
+def export_klc_layout():
     supportedSymbols = [
         '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
         'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P',
@@ -450,7 +449,7 @@ def export_klc_layout(layers):
 
     return '\n'.join(output)
 
-def export_klc_deadkey(layers):
+def export_klc_deadkey():
     output = []
 
     for i in [ 0, 1 ]:
@@ -479,17 +478,197 @@ def export_klc_deadkey(layers):
     return '\n'.join(output)
 
 ##
+# Geometry views
+#
+
+GEOMETRY_ANSI = {
+    'template': [
+        "┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━┓",
+        "│     │     │     │     │     │     │     │     │     │     │     │     │     ┃          ┃",
+        "│     │     │     │     │     │     │     │     │     │     │     │     │     ┃ ⌫        ┃",
+        "┢━━━━━┷━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┺━━┯━━━━━━━┩",
+        "┃        ┃     │     │     │     │     │     │     │     │     │     │     │     │       │",
+        "┃ ↹      ┃     │     │     │     │     │     │     │     │     │     │     │     │       │",
+        "┣━━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┲━━━━┷━━━━━━━┪",
+        "┃         ┃     │     │     │     │     │     │     │     │     │     │     ┃            ┃",
+        "┃ ⇬       ┃     │     │     │     │     │     │     │     │     │     │     ┃ ⏎          ┃",
+        "┣━━━━━━━━━┻━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┲━━┻━━━━━━━━━━━━┫",
+        "┃            ┃     │     │     │     │     │     │     │     │     │     ┃               ┃",
+        "┃ ⇧          ┃     │     │     │     │     │     │     │     │     │     ┃ ⇧             ┃",
+        "┣━━━━━━━┳━━━━┻━━┳━━┷━━━━┱┴─────┴─────┴─────┴─────┴─────┴─┲━━━┷━━━┳━┷━━━━━╋━━━━━━━┳━━━━━━━┫",
+        "┃       ┃       ┃       ┃ ⍽ nbsp                         ┃       ┃       ┃       ┃       ┃",
+        "┃ Ctrl  ┃ super ┃ Alt   ┃ ␣                            ’ ┃ AltGr ┃ super ┃ menu  ┃ Ctrl  ┃",
+        "┗━━━━━━━┻━━━━━━━┻━━━━━━━┹────────────────────────────────┺━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛"
+    ],
+    'rows': [
+        { 'offset': 2, 'keys': [
+            'tlde',
+            'ae01', 'ae02', 'ae03', 'ae04', 'ae05',
+            'ae06', 'ae07', 'ae08', 'ae09', 'ae10',
+            'ae11', 'ae12'
+        ]},
+        { 'offset': 11, 'keys': [
+            'ad01', 'ad02', 'ad03', 'ad04', 'ad05',
+            'ad06', 'ad07', 'ad08', 'ad09', 'ad10',
+            'ad11', 'ad12', 'bksl'
+        ]},
+        { 'offset': 12, 'keys': [
+            'ac01', 'ac02', 'ac03', 'ac04', 'ac05',
+            'ac06', 'ac07', 'ac08', 'ac09', 'ac10',
+            'ac11'
+        ]},
+        { 'offset': 15, 'keys': [
+            'ab01', 'ab02', 'ab03', 'ab04', 'ab05',
+            'ab06', 'ab07', 'ab08', 'ab09', 'ab10'
+        ]}
+    ]
+}
+
+GEOMETRY_ISO = {
+    'template': [
+        "┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━┓",
+        "│     │     │     │     │     │     │     │     │     │     │     │     │     ┃          ┃",
+        "│     │     │     │     │     │     │     │     │     │     │     │     │     ┃ ⌫        ┃",
+        "┢━━━━━┷━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┺━━┳━━━━━━━┫",
+        "┃        ┃     │     │     │     │     │     │     │     │     │     │     │     ┃       ┃",
+        "┃ ↹      ┃     │     │     │     │     │     │     │     │     │     │     │     ┃       ┃",
+        "┣━━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┺┓  ⏎   ┃",
+        "┃         ┃     │     │     │     │     │     │     │     │     │     │     │     ┃      ┃",
+        "┃ ⇬       ┃     │     │     │     │     │     │     │     │     │     │     │     ┃      ┃",
+        "┣━━━━━━┳━━┹──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┲━━┷━━━━━┻━━━━━━┫",
+        "┃      ┃     │     │     │     │     │     │     │     │     │     │     ┃               ┃",
+        "┃ ⇧    ┃     │     │     │     │     │     │     │     │     │     │     ┃ ⇧             ┃",
+        "┣━━━━━━┻┳━━━━┷━━┳━━┷━━━━┱┴─────┴─────┴─────┴─────┴─────┴─┲━━━┷━━━┳━┷━━━━━╋━━━━━━━┳━━━━━━━┫",
+        "┃       ┃       ┃       ┃ ⍽ nbsp                         ┃       ┃       ┃       ┃       ┃",
+        "┃ Ctrl  ┃ super ┃ Alt   ┃ ␣                            ’ ┃ AltGr ┃ super ┃ menu  ┃ Ctrl  ┃",
+        "┗━━━━━━━┻━━━━━━━┻━━━━━━━┹────────────────────────────────┺━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛"
+    ],
+    'rows': [
+        { 'offset': 2, 'keys': [
+            'tlde',
+            'ae01', 'ae02', 'ae03', 'ae04', 'ae05',
+            'ae06', 'ae07', 'ae08', 'ae09', 'ae10',
+            'ae11', 'ae12'
+        ]},
+        { 'offset': 11, 'keys': [
+            'ad01', 'ad02', 'ad03', 'ad04', 'ad05',
+            'ad06', 'ad07', 'ad08', 'ad09', 'ad10',
+            'ad11', 'ad12'
+        ]},
+        { 'offset': 12, 'keys': [
+            'ac01', 'ac02', 'ac03', 'ac04', 'ac05',
+            'ac06', 'ac07', 'ac08', 'ac09', 'ac10',
+            'ac11', 'bksl',
+        ]},
+        { 'offset': 9, 'keys': [
+            'lsgt',
+            'ab01', 'ab02', 'ab03', 'ab04', 'ab05',
+            'ab06', 'ab07', 'ab08', 'ab09', 'ab10'
+        ]}
+    ]
+}
+
+GEOMETRY_ERGO = {
+    'template': [
+        "╭╌╌╌╌╌┰─────┬─────┬─────┬─────┬─────┰─────┬─────┬─────┬─────┬─────┰╌╌╌╌╌┬╌╌╌╌╌╮",
+        "┆     ┃     │     │     │     │     ┃     │     │     │     │     ┃     ┆     ┆",
+        "┆     ┃     │     │     │     │     ┃     │     │     │     │     ┃     ┆     ┆",
+        "╰╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤",
+        "      ┃     │     │     │     │     ┃     │     │     │     │     ┃     ┆     ┆",
+        "      ┃     │     │     │     │     ┃     │     │     │     │     ┃     ┆     ┆",
+        "      ┠─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤",
+        "      ┃     │     │     │     │     ┃     │     │     │     │     ┃     ┆     ┆",
+        "      ┃     │     │     │     │     ┃     │     │     │     │     ┃     ┆     ┆",
+        "╭╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┴╌╌╌╌╌╯",
+        "┆     ┃     │     │     │     │     ┃     │     │     │     │     ┃            ",
+        "┆     ┃     │     │     │     │     ┃     │     │     │     │     ┃            ",
+        "╰╌╌╌╌╌┸─────┴─────┴─────┴─────┴─────┸─────┴─────┴─────┴─────┴─────┚            ",
+        "                ╭───────┬───────────────────────┬───────╮                      ",
+        "                │  Alt  │                       │ AltGr │                      ",
+        "                ╰───────┴───────────────────────┴───────╯                      "
+    ],
+    'rows': [
+        { 'offset': 2, 'keys': GEOMETRY_ISO['rows'][0]['keys'] },
+        { 'offset': 8, 'keys': GEOMETRY_ISO['rows'][1]['keys'] },
+        { 'offset': 8, 'keys': GEOMETRY_ISO['rows'][2]['keys'] },
+        { 'offset': 2, 'keys': GEOMETRY_ISO['rows'][3]['keys'] }
+    ]
+}
+
+def get_template(template, rows, layerNumber):
+    if layerNumber == 0: # base layer
+        colOffset = 0
+        shiftPrevails = True
+    else: # AltGr or dead key (lafayette)
+        colOffset = 2
+        shiftPrevails = False
+
+    j = 0
+    for row in rows:
+        i = row['offset'] + colOffset
+        keys = row['keys']
+
+        base = list(template[2 + j * 3])
+        shift = list(template[1 + j * 3])
+
+        for key in keys:
+            baseKey = ' '
+            if key in layers[layerNumber]:
+                baseKey = layers[layerNumber][key]
+                if baseKey in DEAD_KEYS:
+                    # baseKey = ' ' + baseKey
+                    baseKey = DEAD_KEYS[baseKey]['klc']
+
+            shiftKey = ' '
+            if key in layers[layerNumber + 1]:
+                shiftKey = layers[layerNumber + 1][key]
+                if shiftKey in DEAD_KEYS:
+                    # shiftKey = ' ' + shiftKey
+                    shiftKey = DEAD_KEYS[shiftKey]['klc']
+
+            if shiftPrevails:
+                shift[i] = shiftKey
+                if baseKey.upper() != shiftKey:
+                    base[i] = baseKey
+            else:
+                base[i] = baseKey
+                if baseKey.upper() != shiftKey:
+                    shift[i] = shiftKey
+
+            i = i + 6
+
+        template[2 + j * 3] = ''.join(base)
+        template[1 + j * 3] = ''.join(shift)
+        j = j + 1
+
+    return template
+
+def export_geometry_base(geometry, prepend=''):
+    template = get_template(geometry['template'][:], geometry['rows'], 0)
+    return '\n'.join([ (prepend + '{0}').format(line) for line in template ])
+
+def export_geometry_altgr(geometry, prepend=''):
+    template = get_template(geometry['template'][:], geometry['rows'], 4)
+    return '\n'.join([ (prepend + '{0}').format(line) for line in template ])
+
+def export_geometry_dead(geometry, prepend=''):
+    template = geometry['template'][:]
+    template = get_template(template, geometry['rows'], 0)
+    template = get_template(template, geometry['rows'], 2)
+    return '\n'.join([ (prepend + '{0}').format(line) for line in template ])
+
+##
 # Main
 #
 
-input_path = 'lafayette'
-imported = import_layout(input_path)
-
-xkb_layout  = export_xkb(imported)
-klc_layout  = export_klc_layout(imported)
-klc_deadkey = export_klc_deadkey(imported)
-
 import re
+
+input_path = 'lafayette'
+import_layout(input_path)
+
+xkb_layout  = export_xkb()
+klc_layout  = export_klc_layout()
+klc_deadkey = export_klc_deadkey()
 
 xkb_path = input_path + '.xkb'
 xkb_template = open('template.xkb').read()
@@ -503,4 +682,7 @@ klc_out = re.sub(r'.*LAFAYETTE::LAYOUT.*',  klc_layout,  klc_template)
 klc_out = re.sub(r'.*LAFAYETTE::DEADKEY.*', klc_deadkey, klc_out)
 open(klc_path, 'w', encoding='utf-16le').write(klc_out.replace('\n', '\r\n'))
 print(klc_path)
+
+print(export_geometry_dead(GEOMETRY_ANSI, '// '))
+print(export_geometry_altgr(GEOMETRY_ANSI))
 
