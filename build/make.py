@@ -595,6 +595,12 @@ GEOMETRY_ERGO = {
     ]
 }
 
+def upper_key(letter):
+    if letter == '\u00df': # ß
+        return '\u1e9e'    # ẞ
+    else:
+        return letter.upper()
+
 def get_template(template, rows, layerNumber):
     if layerNumber == 0: # base layer
         colOffset = 0
@@ -628,11 +634,11 @@ def get_template(template, rows, layerNumber):
 
             if shiftPrevails:
                 shift[i] = shiftKey
-                if baseKey.upper() != shiftKey:
+                if upper_key(baseKey) != shiftKey:
                     base[i] = baseKey
             else:
                 base[i] = baseKey
-                if baseKey.upper() != shiftKey:
+                if upper_key(baseKey) != shiftKey:
                     shift[i] = shiftKey
 
             i = i + 6
