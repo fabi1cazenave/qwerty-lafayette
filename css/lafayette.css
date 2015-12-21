@@ -46,7 +46,7 @@
 .lafayette #keyboard li .lafayette {
   opacity: 1;
 }
-.altgr #ralt {
+.altgr #keyboard #key_RALT {
   background-color: #ddf;
 }
 .altgr #keyboard li em,
@@ -62,7 +62,7 @@
   opacity: 1;
   filter: alpha(opacity=100);
 }
-.altgr #ralt em {
+.altgr #keyboard #key_RALT em {
   opacity: 1;
   filter: alpha(opacity=100);
   color: blue;
