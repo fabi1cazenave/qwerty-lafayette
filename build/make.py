@@ -37,8 +37,28 @@ LAYER_KEYS = [
     'tlde', 'ae11', 'ae12', 'ad11', 'ad12', 'bksl', 'ac11', 'lsgt'
 ]
 
+import unicodedata
+
+def add_spaces_before_combining_characters(text):
+    out = ''
+    for char in text:
+        if unicodedata.combining(char):
+            out = out + ' ' + char
+        else:
+            out = out + char
+    return out
+
+def remove_spaces_before_combining_characters(text):
+    out = list('')
+    for char in text:
+        if unicodedata.combining(char):
+            out[-1] = char
+        else:
+            out.append(char)
+    return ''.join(out)
+
 def import_layout(filePath):
-    layout = open(filePath).read()
+    layout = remove_spaces_before_combining_characters(open(filePath).read())
 
     keys = [
         '', 'tlde',
@@ -68,19 +88,14 @@ def import_layout(filePath):
         lines[35] + lines[39] + lines[43] + lines[47]  # shift AltGr
     ]
 
-    for level in range(6):
+    for level in levels:
         layer = {}
         i = 0
-        keyValue = levels[level][0]
         for keyName in keys:
-            nextValue = levels[level][i + 1]
-            if (nextValue in DEAD_KEYS):
-                layer[keyName] = nextValue
-                i = i + 1
-            elif (keyName != '' and keyValue != ' ' and keyValue != ' '):
+            keyValue = level[i]
+            if (keyName != '' and keyValue != ' ' and keyValue != ' '):
                 layer[keyName] = keyValue
             i = i + 1
-            keyValue = nextValue
         layers.append(layer)
 
 def hex_ord(char):
@@ -621,16 +636,10 @@ def get_template(template, rows, layerNumber):
             baseKey = ' '
             if key in layers[layerNumber]:
                 baseKey = layers[layerNumber][key]
-                if baseKey in DEAD_KEYS:
-                    # baseKey = ' ' + baseKey
-                    baseKey = DEAD_KEYS[baseKey]['klc']
 
             shiftKey = ' '
             if key in layers[layerNumber + 1]:
                 shiftKey = layers[layerNumber + 1][key]
-                if shiftKey in DEAD_KEYS:
-                    # shiftKey = ' ' + shiftKey
-                    shiftKey = DEAD_KEYS[shiftKey]['klc']
 
             if shiftPrevails:
                 shift[i] = shiftKey
@@ -649,24 +658,31 @@ def get_template(template, rows, layerNumber):
 
     return template
 
-def export_geometry_base(geometry, prepend=''):
+def template_to_text(template, indent=''):
+    out = ''
+    for line in template:
+        out = out + indent + add_spaces_before_combining_characters(line) + '\n'
+    # return '\n'.join([ (indent + '{0}').format(line) for line in lines ])
+    return out
+
+def export_geometry_base(geometry, indent=''):
     template = get_template(geometry['template'][:], geometry['rows'], 0)
-    return '\n'.join([ (prepend + '{0}').format(line) for line in template ])
+    return template_to_text(template)
 
-def export_geometry_altgr(geometry, prepend=''):
+def export_geometry_altgr(geometry, indent=''):
     template = get_template(geometry['template'][:], geometry['rows'], 4)
-    return '\n'.join([ (prepend + '{0}').format(line) for line in template ])
+    return template_to_text(template)
 
-def export_geometry_dead(geometry, prepend=''):
+def export_geometry_dead(geometry, indent=''):
     template = geometry['template'][:]
     template = get_template(template, geometry['rows'], 0)
     template = get_template(template, geometry['rows'], 2)
-    return '\n'.join([ (prepend + '{0}').format(line) for line in template ])
+    return template_to_text(template)
 
-def export_geometry(geometry, prepend=''):
+def export_geometry(geometry, indent=''):
     return \
-        export_geometry_dead(geometry, prepend) + '\n\n' + \
-        export_geometry_altgr(geometry, prepend)
+        export_geometry_dead(geometry, indent) + '\n\n' + \
+        export_geometry_altgr(geometry, indent)
 
 ##
 # Main
