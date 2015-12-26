@@ -496,119 +496,8 @@ def export_klc_deadkey():
 # Geometry views
 #
 
-GEOMETRY_ANSI = {
-    'template': [
-        "┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━┓",
-        "│     │     │     │     │     │     │     │     │     │     │     │     │     ┃          ┃",
-        "│     │     │     │     │     │     │     │     │     │     │     │     │     ┃ ⌫        ┃",
-        "┢━━━━━┷━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┺━━┯━━━━━━━┩",
-        "┃        ┃     │     │     │     │     │     │     │     │     │     │     │     │       │",
-        "┃ ↹      ┃     │     │     │     │     │     │     │     │     │     │     │     │       │",
-        "┣━━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┲━━━━┷━━━━━━━┪",
-        "┃         ┃     │     │     │     │     │     │     │     │     │     │     ┃            ┃",
-        "┃ ⇬       ┃     │     │     │     │     │     │     │     │     │     │     ┃ ⏎          ┃",
-        "┣━━━━━━━━━┻━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┲━━┻━━━━━━━━━━━━┫",
-        "┃            ┃     │     │     │     │     │     │     │     │     │     ┃               ┃",
-        "┃ ⇧          ┃     │     │     │     │     │     │     │     │     │     ┃ ⇧             ┃",
-        "┣━━━━━━━┳━━━━┻━━┳━━┷━━━━┱┴─────┴─────┴─────┴─────┴─────┴─┲━━━┷━━━┳━┷━━━━━╋━━━━━━━┳━━━━━━━┫",
-        "┃       ┃       ┃       ┃ ⍽ nbsp                         ┃       ┃       ┃       ┃       ┃",
-        "┃ Ctrl  ┃ super ┃ Alt   ┃ ␣                            ’ ┃ AltGr ┃ super ┃ menu  ┃ Ctrl  ┃",
-        "┗━━━━━━━┻━━━━━━━┻━━━━━━━┹────────────────────────────────┺━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛"
-    ],
-    'rows': [
-        { 'offset': 2, 'keys': [
-            'tlde',
-            'ae01', 'ae02', 'ae03', 'ae04', 'ae05',
-            'ae06', 'ae07', 'ae08', 'ae09', 'ae10',
-            'ae11', 'ae12'
-        ]},
-        { 'offset': 11, 'keys': [
-            'ad01', 'ad02', 'ad03', 'ad04', 'ad05',
-            'ad06', 'ad07', 'ad08', 'ad09', 'ad10',
-            'ad11', 'ad12', 'bksl'
-        ]},
-        { 'offset': 12, 'keys': [
-            'ac01', 'ac02', 'ac03', 'ac04', 'ac05',
-            'ac06', 'ac07', 'ac08', 'ac09', 'ac10',
-            'ac11'
-        ]},
-        { 'offset': 15, 'keys': [
-            'ab01', 'ab02', 'ab03', 'ab04', 'ab05',
-            'ab06', 'ab07', 'ab08', 'ab09', 'ab10'
-        ]}
-    ]
-}
-
-GEOMETRY_ISO = {
-    'template': [
-        "┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━┓",
-        "│     │     │     │     │     │     │     │     │     │     │     │     │     ┃          ┃",
-        "│     │     │     │     │     │     │     │     │     │     │     │     │     ┃ ⌫        ┃",
-        "┢━━━━━┷━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┺━━┳━━━━━━━┫",
-        "┃        ┃     │     │     │     │     │     │     │     │     │     │     │     ┃       ┃",
-        "┃ ↹      ┃     │     │     │     │     │     │     │     │     │     │     │     ┃       ┃",
-        "┣━━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┺┓  ⏎   ┃",
-        "┃         ┃     │     │     │     │     │     │     │     │     │     │     │     ┃      ┃",
-        "┃ ⇬       ┃     │     │     │     │     │     │     │     │     │     │     │     ┃      ┃",
-        "┣━━━━━━┳━━┹──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┲━━┷━━━━━┻━━━━━━┫",
-        "┃      ┃     │     │     │     │     │     │     │     │     │     │     ┃               ┃",
-        "┃ ⇧    ┃     │     │     │     │     │     │     │     │     │     │     ┃ ⇧             ┃",
-        "┣━━━━━━┻┳━━━━┷━━┳━━┷━━━━┱┴─────┴─────┴─────┴─────┴─────┴─┲━━━┷━━━┳━┷━━━━━╋━━━━━━━┳━━━━━━━┫",
-        "┃       ┃       ┃       ┃ ⍽ nbsp                         ┃       ┃       ┃       ┃       ┃",
-        "┃ Ctrl  ┃ super ┃ Alt   ┃ ␣                            ’ ┃ AltGr ┃ super ┃ menu  ┃ Ctrl  ┃",
-        "┗━━━━━━━┻━━━━━━━┻━━━━━━━┹────────────────────────────────┺━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛"
-    ],
-    'rows': [
-        { 'offset': 2, 'keys': [
-            'tlde',
-            'ae01', 'ae02', 'ae03', 'ae04', 'ae05',
-            'ae06', 'ae07', 'ae08', 'ae09', 'ae10',
-            'ae11', 'ae12'
-        ]},
-        { 'offset': 11, 'keys': [
-            'ad01', 'ad02', 'ad03', 'ad04', 'ad05',
-            'ad06', 'ad07', 'ad08', 'ad09', 'ad10',
-            'ad11', 'ad12'
-        ]},
-        { 'offset': 12, 'keys': [
-            'ac01', 'ac02', 'ac03', 'ac04', 'ac05',
-            'ac06', 'ac07', 'ac08', 'ac09', 'ac10',
-            'ac11', 'bksl',
-        ]},
-        { 'offset': 9, 'keys': [
-            'lsgt',
-            'ab01', 'ab02', 'ab03', 'ab04', 'ab05',
-            'ab06', 'ab07', 'ab08', 'ab09', 'ab10'
-        ]}
-    ]
-}
-
-GEOMETRY_ERGO = {
-    'template': [
-        "╭╌╌╌╌╌┰─────┬─────┬─────┬─────┬─────┰─────┬─────┬─────┬─────┬─────┰╌╌╌╌╌┬╌╌╌╌╌╮",
-        "┆     ┃     │     │     │     │     ┃     │     │     │     │     ┃     ┆     ┆",
-        "┆     ┃     │     │     │     │     ┃     │     │     │     │     ┃     ┆     ┆",
-        "╰╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤",
-        "      ┃     │     │     │     │     ┃     │     │     │     │     ┃     ┆     ┆",
-        "      ┃     │     │     │     │     ┃     │     │     │     │     ┃     ┆     ┆",
-        "      ┠─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤",
-        "      ┃     │     │     │     │     ┃     │     │     │     │     ┃     ┆     ┆",
-        "      ┃     │     │     │     │     ┃     │     │     │     │     ┃     ┆     ┆",
-        "╭╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┴╌╌╌╌╌╯",
-        "┆     ┃     │     │     │     │     ┃     │     │     │     │     ┃            ",
-        "┆     ┃     │     │     │     │     ┃     │     │     │     │     ┃            ",
-        "╰╌╌╌╌╌┸─────┴─────┴─────┴─────┴─────┸─────┴─────┴─────┴─────┴─────┚            ",
-        "                ╭───────┬───────────────────────┬───────╮                      ",
-        "                │  Alt  │                       │ AltGr │                      ",
-        "                ╰───────┴───────────────────────┴───────╯                      "
-    ],
-    'rows': [
-        { 'offset': 2, 'keys': GEOMETRY_ISO['rows'][0]['keys'] },
-        { 'offset': 8, 'keys': GEOMETRY_ISO['rows'][1]['keys'] },
-        { 'offset': 8, 'keys': GEOMETRY_ISO['rows'][2]['keys'] },
-        { 'offset': 2, 'keys': GEOMETRY_ISO['rows'][3]['keys'] }
-    ]
-}
+import yaml
+GEOMETRY = yaml.load(open('geometry.yaml'))
 
 def upper_key(letter):
     if letter == '\u00df': # ß
@@ -616,7 +505,7 @@ def upper_key(letter):
     else:
         return letter.upper()
 
-def get_template(template, rows, layerNumber):
+def fill_template(template, rows, layerNumber):
     if layerNumber == 0: # base layer
         colOffset = 0
         shiftPrevails = True
@@ -665,24 +554,27 @@ def template_to_text(template, indent=''):
     # return '\n'.join([ (indent + '{0}').format(line) for line in lines ])
     return out
 
-def export_geometry_base(geometry, indent=''):
-    template = get_template(geometry['template'][:], geometry['rows'], 0)
+def export_geometry_base(name='ISO', indent=''):
+    rows     = GEOMETRY[name]['rows']
+    template = GEOMETRY[name]['template'].split('\n')[:-1]
+    return template_to_text(fill_template(template, rows, 0))
+
+def export_geometry_altgr(name='ISO', indent=''):
+    rows     = GEOMETRY[name]['rows']
+    template = GEOMETRY[name]['template'].split('\n')[:-1]
+    return template_to_text(fill_template(template, rows, 4))
+
+def export_geometry_dead(name='ISO', indent=''):
+    rows     = GEOMETRY[name]['rows']
+    template = GEOMETRY[name]['template'].split('\n')[:-1]
+    template = fill_template(template, rows, 0)
+    template = fill_template(template, rows, 2)
     return template_to_text(template)
 
-def export_geometry_altgr(geometry, indent=''):
-    template = get_template(geometry['template'][:], geometry['rows'], 4)
-    return template_to_text(template)
-
-def export_geometry_dead(geometry, indent=''):
-    template = geometry['template'][:]
-    template = get_template(template, geometry['rows'], 0)
-    template = get_template(template, geometry['rows'], 2)
-    return template_to_text(template)
-
-def export_geometry(geometry, indent=''):
+def export_geometry(name='ISO', indent=''):
     return \
-        export_geometry_dead(geometry, indent) + '\n\n' + \
-        export_geometry_altgr(geometry, indent)
+        export_geometry_dead(name, indent) + '\n\n' + \
+        export_geometry_altgr(name, indent)
 
 ##
 # Main
@@ -695,7 +587,7 @@ import_layout(input_path)
 
 # Linux (xkb) driver
 xkb_layout   = export_xkb()
-xkb_geometry = export_geometry(GEOMETRY_ISO, '    // ')
+xkb_geometry = export_geometry('ISO', '    // ')
 
 xkb_path = input_path + '.xkb'
 xkb_out = open('template.xkb').read()
@@ -707,7 +599,7 @@ print(xkb_path)
 # Windows (klc) driver
 klc_layout   = export_klc_layout()
 klc_deadkey  = export_klc_deadkey()
-klc_geometry = export_geometry(GEOMETRY_ANSI, '// ')
+klc_geometry = export_geometry('ANSI', '// ')
 
 klc_path = input_path + '.klc'
 klc_out = open('template.klc', 'r', encoding='utf-16le').read()
@@ -718,5 +610,5 @@ open(klc_path, 'w', encoding='utf-16le').write(klc_out.replace('\n', '\r\n'))
 print(klc_path)
 
 # A quick visual control never hurts
-print(export_geometry_dead(GEOMETRY_ERGO))
+print(export_geometry_dead('ERGO'))
 
