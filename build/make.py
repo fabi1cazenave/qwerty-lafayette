@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-layers = []
+layers = [ {}, {}, {}, {}, {}, {} ]
 
 DEAD_KEYS = {                                            # combining diacritics
     '\u20e1': { 'klc': '¤', 'xkb': 'ISO_Level3_Latch' }, #  ⃡ #
@@ -37,6 +37,10 @@ LAYER_KEYS = [
     'tlde', 'ae11', 'ae12', 'ad11', 'ad12', 'bksl', 'ac11', 'lsgt'
 ]
 
+##
+# Helper functions
+#
+
 import unicodedata
 
 def add_spaces_before_combining_characters(text):
@@ -57,46 +61,17 @@ def remove_spaces_before_combining_characters(text):
             out.append(char)
     return ''.join(out)
 
-def import_layout(filePath):
-    layout = remove_spaces_before_combining_characters(open(filePath).read())
+def template_to_text(template, indent=''):
+    out = ''
+    for line in template:
+        out = out + indent + add_spaces_before_combining_characters(line) + '\n'
+    return out
 
-    keys = [
-        '', 'tlde',
-        '', 'ae01', 'ae02', 'ae03', 'ae04', 'ae05',
-        '', 'ae06', 'ae07', 'ae08', 'ae09', 'ae10',
-        '', 'ae11', 'ae12', '', '',
-        '', '',
-        '', 'ad01', 'ad02', 'ad03', 'ad04', 'ad05',
-        '', 'ad06', 'ad07', 'ad08', 'ad09', 'ad10',
-        '', 'ad11', 'ad12', 'bksl', '',
-        '', '',
-        '', 'ac01', 'ac02', 'ac03', 'ac04', 'ac05',
-        '', 'ac06', 'ac07', 'ac08', 'ac09', 'ac10',
-        '', 'ac11', '', '', '',
-        '', 'lsgt',
-        '', 'ab01', 'ab02', 'ab03', 'ab04', 'ab05',
-        '', 'ab06', 'ab07', 'ab08', 'ab09', 'ab10'
-    ]
-
-    lines = layout.split('\u2502') # │
-    levels = [
-        lines[9]  + lines[13] + lines[17] + lines[21], #       base
-        lines[33] + lines[37] + lines[41] + lines[45], # shift base
-        lines[10] + lines[14] + lines[18] + lines[22], #       lafayette
-        lines[34] + lines[38] + lines[42] + lines[46], # shift lafayette
-        lines[11] + lines[15] + lines[19] + lines[23], #       AltGr
-        lines[35] + lines[39] + lines[43] + lines[47]  # shift AltGr
-    ]
-
-    for level in levels:
-        layer = {}
-        i = 0
-        for keyName in keys:
-            keyValue = level[i]
-            if (keyName != '' and keyValue != ' ' and keyValue != ' '):
-                layer[keyName] = keyValue
-            i = i + 1
-        layers.append(layer)
+def upper_key(letter):
+    if letter == '\u00df': # ß
+        return '\u1e9e'    # ẞ
+    else:
+        return letter.upper()
 
 def hex_ord(char):
     return hex(ord(char))[2:].zfill(4)
@@ -499,11 +474,7 @@ def export_klc_deadkey():
 import yaml
 GEOMETRY = yaml.load(open('geometry.yaml'))
 
-def upper_key(letter):
-    if letter == '\u00df': # ß
-        return '\u1e9e'    # ẞ
-    else:
-        return letter.upper()
+# exports layout
 
 def fill_template(template, rows, layerNumber):
     if layerNumber == 0: # base layer
@@ -547,13 +518,6 @@ def fill_template(template, rows, layerNumber):
 
     return template
 
-def template_to_text(template, indent=''):
-    out = ''
-    for line in template:
-        out = out + indent + add_spaces_before_combining_characters(line) + '\n'
-    # return '\n'.join([ (indent + '{0}').format(line) for line in lines ])
-    return out
-
 def export_geometry_base(name='ISO', indent=''):
     rows     = GEOMETRY[name]['rows']
     template = GEOMETRY[name]['template'].split('\n')[:-1]
@@ -576,6 +540,49 @@ def export_geometry(name='ISO', indent=''):
         export_geometry_dead(name, indent) + '\n\n' + \
         export_geometry_altgr(name, indent)
 
+# imports layout
+
+def parse_template(template, rows, layerNumber):
+    if layerNumber == 0: # base layer
+        colOffset = 0
+    else: # AltGr or dead key (lafayette)
+        colOffset = 2
+
+    j = 0
+    for row in rows:
+        i = row['offset'] + colOffset
+        keys = row['keys']
+
+        base = list(template[2 + j * 3])
+        shift = list(template[1 + j * 3])
+
+        for key in keys:
+            baseKey = base[i]
+            shiftKey = shift[i]
+
+            if layerNumber == 0 and baseKey == ' ': # 'shift' prevails
+                baseKey = shiftKey.lower()
+            if layerNumber == 2 and shiftKey == ' ':
+                shiftKey = upper_key(baseKey)
+
+            if (baseKey != ' '):
+                layers[layerNumber + 0][key] = baseKey
+            if (shiftKey != ' '):
+                layers[layerNumber + 1][key] = shiftKey
+
+            i = i + 6
+
+        j = j + 1
+
+def import_layout(filePath):
+    cfg = yaml.load(open(filePath))
+    rows = GEOMETRY[cfg['geometry']]['rows']
+    base  = remove_spaces_before_combining_characters(cfg['base']).split('\n')
+    altgr = remove_spaces_before_combining_characters(cfg['altgr']).split('\n')
+    parse_template(base, rows, 0);
+    parse_template(base, rows, 2);
+    parse_template(altgr, rows, 4);
+
 ##
 # Main
 #
@@ -583,7 +590,7 @@ def export_geometry(name='ISO', indent=''):
 import re
 
 input_path = 'lafayette'
-import_layout(input_path)
+import_layout(input_path + '.yaml')
 
 # Linux (xkb) driver
 xkb_layout   = export_xkb()
@@ -611,4 +618,5 @@ print(klc_path)
 
 # A quick visual control never hurts
 print(export_geometry_dead('ERGO'))
+print(export_geometry_altgr('ERGO'))
 
