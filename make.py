@@ -1,6 +1,4 @@
-#!/usr/bin/python3
-
-layers = [ {}, {}, {}, {}, {}, {} ]
+#!/usr/bin/env python3
 
 DEAD_KEYS = {                                            # combining diacritics
     '\u20e1': { 'klc': '¤', 'xkb': 'ISO_Level3_Latch' }, #  ⃡ #
@@ -17,25 +15,32 @@ DEAD_KEYS = {                                            # combining diacritics
 }
 
 LAYER_KEYS = [
-    '- digits',
+    '- Digits',
     'ae01', 'ae02', 'ae03', 'ae04', 'ae05',
     'ae06', 'ae07', 'ae08', 'ae09', 'ae10',
 
-    '- letters, first row',
+    '- Letters, first row',
     'ad01', 'ad02', 'ad03', 'ad04', 'ad05',
     'ad06', 'ad07', 'ad08', 'ad09', 'ad10',
 
-    '- letters, second row',
+    '- Letters, second row',
     'ac01', 'ac02', 'ac03', 'ac04', 'ac05',
     'ac06', 'ac07', 'ac08', 'ac09', 'ac10',
 
-    '- letters, third row',
+    '- Letters, third row',
     'ab01', 'ab02', 'ab03', 'ab04', 'ab05',
     'ab06', 'ab07', 'ab08', 'ab09', 'ab10',
 
-    '- pinky keys',
-    'tlde', 'ae11', 'ae12', 'ad11', 'ad12', 'bksl', 'ac11', 'lsgt'
+    '- Pinky keys',
+    'tlde', 'ae11', 'ae12', 'ad11', 'ad12', 'ac11', 'bksl', 'lsgt'
 ]
+
+# Yes, this is a global, shared, mutable variable. Sue me.
+layout_layers = [ {}, {}, {}, {}, {}, {} ]
+
+import yaml
+GEOMETRY = yaml.load(open('tpl/geometry.yaml'))
+SYMBOLS  = yaml.load(open('tpl/symbols.yaml'))
 
 ##
 # Helper functions
@@ -43,7 +48,7 @@ LAYER_KEYS = [
 
 import unicodedata
 
-def add_spaces_before_combining_characters(text):
+def add_spaces_before_combining_chars(text):
     out = ''
     for char in text:
         if unicodedata.combining(char):
@@ -52,7 +57,7 @@ def add_spaces_before_combining_characters(text):
             out = out + char
     return out
 
-def remove_spaces_before_combining_characters(text):
+def remove_spaces_before_combining_chars(text):
     out = list('')
     for char in text:
         if unicodedata.combining(char):
@@ -64,14 +69,27 @@ def remove_spaces_before_combining_characters(text):
 def template_to_text(template, indent=''):
     out = ''
     for line in template:
-        out = out + indent + add_spaces_before_combining_characters(line) + '\n'
-    return out
+        out = out + indent + add_spaces_before_combining_chars(line) + '\n'
+    return out[:-1]
 
+CUSTOM_ALPHA = {
+    '\u00df': '\u1e9e', # ß ẞ
+    '\u007c': '\u00a6', # | ¦
+    '\u003c': '\u2264', # < ≤
+    '\u003e': '\u2265', # > ≥
+    '\u2020': '\u2021', # † ‡
+    '\u2190': '\u21d0', # ← ⇐
+    '\u2191': '\u21d1', # ↑ ⇑
+    '\u2192': '\u21d2', # → ⇒
+    '\u2193': '\u21d3', # ↓ ⇓
+}
 def upper_key(letter):
-    if letter == '\u00df': # ß
-        return '\u1e9e'    # ẞ
-    else:
+    if letter in CUSTOM_ALPHA:
+        return CUSTOM_ALPHA[letter]
+    elif letter.upper() != letter.lower():
         return letter.upper()
+    else:
+        return ' '
 
 def hex_ord(char):
     return hex(ord(char))[2:].zfill(4)
@@ -80,208 +98,10 @@ def hex_ord(char):
 # Linux layout
 #
 
-def export_xkb():
-    supportedSymbols = { # /usr/include/X11/keysymdef.h
-        '\u0020': 'space',
-        '\u0021': 'exclam',
-        '\u0022': 'quotedbl',
-        '\u0023': 'numbersign',
-        '\u0024': 'dollar',
-        '\u0025': 'percent',
-        '\u0026': 'ampersand',
-        '\u0027': 'apostrophe',
-        '\u0027': 'quoteright',
-        '\u0028': 'parenleft',
-        '\u0029': 'parenright',
-        '\u002a': 'asterisk',
-        '\u002b': 'plus',
-        '\u002c': 'comma',
-        '\u002d': 'minus',
-        '\u002e': 'period',
-        '\u002f': 'slash',
-        '\u0030': '0',
-        '\u0031': '1',
-        '\u0032': '2',
-        '\u0033': '3',
-        '\u0034': '4',
-        '\u0035': '5',
-        '\u0036': '6',
-        '\u0037': '7',
-        '\u0038': '8',
-        '\u0039': '9',
-        '\u003a': 'colon',
-        '\u003b': 'semicolon',
-        '\u003c': 'less',
-        '\u003d': 'equal',
-        '\u003e': 'greater',
-        '\u003f': 'question',
-        '\u0040': 'at',
-        '\u0041': 'A',
-        '\u0042': 'B',
-        '\u0043': 'C',
-        '\u0044': 'D',
-        '\u0045': 'E',
-        '\u0046': 'F',
-        '\u0047': 'G',
-        '\u0048': 'H',
-        '\u0049': 'I',
-        '\u004a': 'J',
-        '\u004b': 'K',
-        '\u004c': 'L',
-        '\u004d': 'M',
-        '\u004e': 'N',
-        '\u004f': 'O',
-        '\u0050': 'P',
-        '\u0051': 'Q',
-        '\u0052': 'R',
-        '\u0053': 'S',
-        '\u0054': 'T',
-        '\u0055': 'U',
-        '\u0056': 'V',
-        '\u0057': 'W',
-        '\u0058': 'X',
-        '\u0059': 'Y',
-        '\u005a': 'Z',
-        '\u005b': 'bracketleft',
-        '\u005c': 'backslash',
-        '\u005d': 'bracketright',
-        '\u005e': 'asciicircum',
-        '\u005f': 'underscore',
-        '\u0060': 'grave',
-        '\u0060': 'quoteleft',
-        '\u0061': 'a',
-        '\u0062': 'b',
-        '\u0063': 'c',
-        '\u0064': 'd',
-        '\u0065': 'e',
-        '\u0066': 'f',
-        '\u0067': 'g',
-        '\u0068': 'h',
-        '\u0069': 'i',
-        '\u006a': 'j',
-        '\u006b': 'k',
-        '\u006c': 'l',
-        '\u006d': 'm',
-        '\u006e': 'n',
-        '\u006f': 'o',
-        '\u0070': 'p',
-        '\u0071': 'q',
-        '\u0072': 'r',
-        '\u0073': 's',
-        '\u0074': 't',
-        '\u0075': 'u',
-        '\u0076': 'v',
-        '\u0077': 'w',
-        '\u0078': 'x',
-        '\u0079': 'y',
-        '\u007a': 'z',
-        '\u007b': 'braceleft',
-        '\u007c': 'bar',
-        '\u007d': 'braceright',
-        '\u007e': 'asciitilde',
+def export_xkb(showDescription=True):
+    global layout_layers
 
-        '\u00a0': 'nobreakspace',
-        '\u00a1': 'exclamdown',
-        '\u00a2': 'cent',
-        '\u00a3': 'sterling',
-        '\u00a4': 'currency',
-        '\u00a5': 'yen',
-        '\u00a6': 'brokenbar',
-        '\u00a7': 'section',
-        '\u00a8': 'diaeresis',
-        '\u00a9': 'copyright',
-        '\u00aa': 'ordfeminine',
-        '\u00ab': 'guillemotleft',
-        '\u00ac': 'notsign',
-        '\u00ad': 'hyphen',
-        '\u00ae': 'registered',
-        '\u00af': 'macron',
-        '\u00b0': 'degree',
-        '\u00b1': 'plusminus',
-        '\u00b2': 'twosuperior',
-        '\u00b3': 'threesuperior',
-        '\u00b4': 'acute',
-        '\u00b5': 'mu',
-        '\u00b6': 'paragraph',
-        '\u00b7': 'periodcentered',
-        '\u00b8': 'cedilla',
-        '\u00b9': 'onesuperior',
-        '\u00ba': 'masculine',
-        '\u00bb': 'guillemotright',
-        '\u00bc': 'onequarter',
-        '\u00bd': 'onehalf',
-        '\u00be': 'threequarters',
-        '\u00bf': 'questiondown',
-        '\u00c0': 'Agrave',
-        '\u00c1': 'Aacute',
-        '\u00c2': 'Acircumflex',
-        '\u00c3': 'Atilde',
-        '\u00c4': 'Adiaeresis',
-        '\u00c5': 'Aring',
-        '\u00c6': 'AE',
-        '\u00c7': 'Ccedilla',
-        '\u00c8': 'Egrave',
-        '\u00c9': 'Eacute',
-        '\u00ca': 'Ecircumflex',
-        '\u00cb': 'Ediaeresis',
-        '\u00cc': 'Igrave',
-        '\u00cd': 'Iacute',
-        '\u00ce': 'Icircumflex',
-        '\u00cf': 'Idiaeresis',
-        '\u00d0': 'ETH',
-        '\u00d0': 'Eth',
-        '\u00d1': 'Ntilde',
-        '\u00d2': 'Ograve',
-        '\u00d3': 'Oacute',
-        '\u00d4': 'Ocircumflex',
-        '\u00d5': 'Otilde',
-        '\u00d6': 'Odiaeresis',
-        '\u00d7': 'multiply',
-        '\u00d8': 'Oslash',
-        '\u00d8': 'Ooblique',
-        '\u00d9': 'Ugrave',
-        '\u00da': 'Uacute',
-        '\u00db': 'Ucircumflex',
-        '\u00dc': 'Udiaeresis',
-        '\u00dd': 'Yacute',
-        '\u00de': 'THORN',
-        '\u00de': 'Thorn',
-        '\u00df': 'ssharp',
-        '\u00e0': 'agrave',
-        '\u00e1': 'aacute',
-        '\u00e2': 'acircumflex',
-        '\u00e3': 'atilde',
-        '\u00e4': 'adiaeresis',
-        '\u00e5': 'aring',
-        '\u00e6': 'ae',
-        '\u00e7': 'ccedilla',
-        '\u00e8': 'egrave',
-        '\u00e9': 'eacute',
-        '\u00ea': 'ecircumflex',
-        '\u00eb': 'ediaeresis',
-        '\u00ec': 'igrave',
-        '\u00ed': 'iacute',
-        '\u00ee': 'icircumflex',
-        '\u00ef': 'idiaeresis',
-        '\u00f0': 'eth',
-        '\u00f1': 'ntilde',
-        '\u00f2': 'ograve',
-        '\u00f3': 'oacute',
-        '\u00f4': 'ocircumflex',
-        '\u00f5': 'otilde',
-        '\u00f6': 'odiaeresis',
-        '\u00f7': 'division',
-        '\u00f8': 'oslash',
-        '\u00f8': 'ooblique',
-        '\u00f9': 'ugrave',
-        '\u00fa': 'uacute',
-        '\u00fb': 'ucircumflex',
-        '\u00fc': 'udiaeresis',
-        '\u00fd': 'yacute',
-        '\u00fe': 'thorn',
-        '\u00ff': 'ydiaeresis',
-    }
-
+    supportedSymbols = SYMBOLS['xkb']
     indent = '    '
     maxLength = 16 # `ISO_Level3_Latch` should be the longest dead key name
 
@@ -290,15 +110,15 @@ def export_xkb():
         if keyName == '':
             continue
 
-        if keyName.startswith('-'):
+        if keyName.startswith('-'): # separator
             if len(output):
                 output.append('')
             output.append(indent + '//' + keyName[1:])
             continue
 
         symbols = []
-        description = '//'
-        for layer in layers:
+        description = ' //'
+        for layer in layout_layers:
             if keyName in layer:
                 symbol = layer[keyName]
                 desc = symbol
@@ -306,7 +126,7 @@ def export_xkb():
                     desc   = DEAD_KEYS[symbol]['klc']
                     symbol = DEAD_KEYS[symbol]['xkb']
                 elif symbol in supportedSymbols \
-                        and len(supportedSymbols[symbol]) < maxLength:
+                        and len(supportedSymbols[symbol]) <= maxLength:
                     symbol = supportedSymbols[symbol]
                 else:
                     symbol = 'U' + hex_ord(symbol).upper()
@@ -316,15 +136,17 @@ def export_xkb():
                 symbols.append('VoidSymbol')
             description = description + ' ' + desc
 
-        output.append(indent + 'key ' +                  \
+        line = indent + 'key ' +                         \
                 '<' + keyName.upper() + '> ' + '{[ '   + \
                 symbols[0].ljust(maxLength)  +  ', '   + \
                 symbols[1].ljust(maxLength)  +  ', '   + \
                 symbols[2].ljust(maxLength)  +  ', '   + \
                 symbols[3].ljust(maxLength)  + '],[ '  + \
                 symbols[4].ljust(maxLength)  +  ', '   + \
-                symbols[5].ljust(maxLength)  + ' ]}; ' + \
-                description.strip())
+                symbols[5].ljust(maxLength)  +  ']};'
+        if showDescription:
+            line = line + description
+        output.append(line)
 
     return '\n'.join(output)
 
@@ -333,16 +155,6 @@ def export_xkb():
 #
 
 def export_klc_layout():
-    supportedSymbols = [
-        '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
-        'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P',
-        'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p',
-        'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L',
-        'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l',
-        'Z', 'X', 'C', 'V', 'B', 'M',
-        'z', 'x', 'c', 'v', 'b', 'm'
-    ]
-
     klcKeys = {
         'ae01': '02	1	0	',
         'ae02': '03	2	0	',
@@ -416,7 +228,7 @@ def export_klc_layout():
         symbols = []
         description = '//'
         for i in [ 0, 1, 4, 5 ]:
-            layer = layers[i]
+            layer = layout_layers[i]
 
             if keyName in layer:
                 symbol = layer[keyName]
@@ -424,7 +236,7 @@ def export_klc_layout():
                 if symbol in DEAD_KEYS:
                     desc = DEAD_KEYS[symbol]['klc']
                     symbol = hex_ord(desc) + '@'
-                elif not symbol in supportedSymbols:
+                elif not symbol in SYMBOLS['klc']:
                     symbol = hex_ord(symbol)
                 symbols.append(symbol)
             else:
@@ -440,11 +252,12 @@ def export_klc_layout():
     return '\n'.join(output)
 
 def export_klc_deadkey():
-    output = []
+    global layout_layers
 
+    output = []
     for i in [ 0, 1 ]:
-        baseLayer = layers[i]
-        extLayer = layers[i + 2]
+        baseLayer = layout_layers[i]
+        extLayer = layout_layers[i + 2]
 
         for keyName in LAYER_KEYS:
             if keyName.startswith('-'):
@@ -471,12 +284,11 @@ def export_klc_deadkey():
 # Geometry views
 #
 
-import yaml
-GEOMETRY = yaml.load(open('geometry.yaml'))
-
 # exports layout
 
 def fill_template(template, rows, layerNumber):
+    global layout_layers
+
     if layerNumber == 0: # base layer
         colOffset = 0
         shiftPrevails = True
@@ -494,12 +306,12 @@ def fill_template(template, rows, layerNumber):
 
         for key in keys:
             baseKey = ' '
-            if key in layers[layerNumber]:
-                baseKey = layers[layerNumber][key]
+            if key in layout_layers[layerNumber]:
+                baseKey = layout_layers[layerNumber][key]
 
             shiftKey = ' '
-            if key in layers[layerNumber + 1]:
-                shiftKey = layers[layerNumber + 1][key]
+            if key in layout_layers[layerNumber + 1]:
+                shiftKey = layout_layers[layerNumber + 1][key]
 
             if shiftPrevails:
                 shift[i] = shiftKey
@@ -521,19 +333,19 @@ def fill_template(template, rows, layerNumber):
 def export_geometry_base(name='ISO', indent=''):
     rows     = GEOMETRY[name]['rows']
     template = GEOMETRY[name]['template'].split('\n')[:-1]
-    return template_to_text(fill_template(template, rows, 0))
+    return template_to_text(fill_template(template, rows, 0), indent)
 
 def export_geometry_altgr(name='ISO', indent=''):
     rows     = GEOMETRY[name]['rows']
     template = GEOMETRY[name]['template'].split('\n')[:-1]
-    return template_to_text(fill_template(template, rows, 4))
+    return template_to_text(fill_template(template, rows, 4), indent)
 
 def export_geometry_dead(name='ISO', indent=''):
     rows     = GEOMETRY[name]['rows']
     template = GEOMETRY[name]['template'].split('\n')[:-1]
     template = fill_template(template, rows, 0)
     template = fill_template(template, rows, 2)
-    return template_to_text(template)
+    return template_to_text(template, indent)
 
 def export_geometry(name='ISO', indent=''):
     return \
@@ -562,23 +374,26 @@ def parse_template(template, rows, layerNumber):
 
             if layerNumber == 0 and baseKey == ' ': # 'shift' prevails
                 baseKey = shiftKey.lower()
-            if layerNumber == 2 and shiftKey == ' ':
+            if layerNumber != 0 and shiftKey == ' ':
                 shiftKey = upper_key(baseKey)
 
             if (baseKey != ' '):
-                layers[layerNumber + 0][key] = baseKey
+                layout_layers[layerNumber + 0][key] = baseKey
             if (shiftKey != ' '):
-                layers[layerNumber + 1][key] = shiftKey
+                layout_layers[layerNumber + 1][key] = shiftKey
 
             i = i + 6
 
         j = j + 1
 
 def import_layout(filePath):
+    global layout_layers
+    layout_layers = [ {}, {}, {}, {}, {}, {} ]
+
     cfg = yaml.load(open(filePath))
     rows = GEOMETRY[cfg['geometry']]['rows']
-    base  = remove_spaces_before_combining_characters(cfg['base']).split('\n')
-    altgr = remove_spaces_before_combining_characters(cfg['altgr']).split('\n')
+    base  = remove_spaces_before_combining_chars(cfg['base']).split('\n')
+    altgr = remove_spaces_before_combining_chars(cfg['altgr']).split('\n')
     parse_template(base, rows, 0);
     parse_template(base, rows, 2);
     parse_template(altgr, rows, 4);
@@ -589,32 +404,37 @@ def import_layout(filePath):
 
 import re
 
-input_path = 'lafayette'
-import_layout(input_path + '.yaml')
+def make_layout(name):
+    import_layout('src/' + name + '.yaml')
 
-# Linux (xkb) driver
-xkb_layout   = export_xkb()
-xkb_geometry = export_geometry('ISO', '    // ')
+    # Linux (xkb) driver
+    xkb_layout   = export_xkb(False)
+    xkb_geometry = export_geometry('ISO', '  // ')
 
-xkb_path = input_path + '.xkb'
-xkb_out = open('template.xkb').read()
-xkb_out = re.sub(r'.*LAFAYETTE::LAYOUT.*',   xkb_layout,   xkb_out)
-xkb_out = re.sub(r'.*LAFAYETTE::GEOMETRY.*', xkb_geometry, xkb_out)
-open(xkb_path, 'w').write(xkb_out)
-print(xkb_path)
+    xkb_path = 'out/' + name + '.xkb'
+    xkb_out = open('tpl/template.xkb').read()
+    xkb_out = re.sub(r'.*LAFAYETTE::LAYOUT.*',   xkb_layout,   xkb_out)
+    xkb_out = re.sub(r'.*LAFAYETTE::GEOMETRY.*', xkb_geometry, xkb_out)
+    open(xkb_path, 'w').write(xkb_out)
+    print(xkb_path)
 
-# Windows (klc) driver
-klc_layout   = export_klc_layout()
-klc_deadkey  = export_klc_deadkey()
-klc_geometry = export_geometry('ANSI', '// ')
+    # Windows (klc) driver
+    klc_layout   = export_klc_layout()
+    klc_deadkey  = export_klc_deadkey()
+    klc_geometry = export_geometry('ANSI', '// ')
 
-klc_path = input_path + '.klc'
-klc_out = open('template.klc', 'r', encoding='utf-16le').read()
-klc_out = re.sub(r'.*LAFAYETTE::LAYOUT.*',   klc_layout,   klc_out)
-klc_out = re.sub(r'.*LAFAYETTE::DEADKEY.*',  klc_deadkey,  klc_out)
-klc_out = re.sub(r'.*LAFAYETTE::GEOMETRY.*', klc_geometry, klc_out)
-open(klc_path, 'w', encoding='utf-16le').write(klc_out.replace('\n', '\r\n'))
-print(klc_path)
+    klc_path = 'out/' + name + '.klc'
+    klc_out = open('tpl/template.klc', 'r', encoding='utf-16le').read()
+    klc_out = re.sub(r'.*LAFAYETTE::LAYOUT.*',   klc_layout,   klc_out)
+    klc_out = re.sub(r'.*LAFAYETTE::DEADKEY.*',  klc_deadkey,  klc_out)
+    klc_out = re.sub(r'.*LAFAYETTE::GEOMETRY.*', klc_geometry, klc_out)
+    open(klc_path, 'w', encoding='utf-16le').write(klc_out.replace('\n', '\r\n'))
+    print(klc_path)
+
+make_layout('dvorak')
+make_layout('qwerty42a')
+make_layout('qwerty42b')
+make_layout('lafayette')
 
 # A quick visual control never hurts
 print(export_geometry_dead('ERGO'))
