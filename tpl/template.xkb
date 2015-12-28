@@ -15,8 +15,10 @@ xkb_keymap {
   xkb_types         { include "complete" };
   xkb_compatibility { include "complete" };
 
+  // LAFAYETTE::GEOMETRY
+
   partial alphanumeric_keys modifier_keys
-  xkb_symbols "lafayette_42" {
+  xkb_symbols "lafayette_group2" {
     include "pc"
 
     // The main dead key is an ISO_Level3_Latch, i.e. a “dead AltGr” key.
@@ -36,8 +38,6 @@ xkb_keymap {
     // Options
     // include "capslock(swapescape)"  // Swap CapsLock and Escape -- Vim powwa!
     // include "compose(menu)"         // Compose on the 'Menu' key
-
-    // LAFAYETTE::GEOMETRY
 
     // LAFAYETTE::LAYOUT
 
