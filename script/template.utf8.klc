@@ -1,0 +1,355 @@
+﻿//
+// File          : lafayette.klc
+// Encoding      : UTF-16LE
+// Project page  : http://fabi1cazenave.github.com/qwerty-lafayette/
+// Author        : Fabien Cazenave
+// License       : WTFPL
+//
+// US-QWERTY layout, French variant, MSKLC source file.
+//
+
+KBD	Qwerty-L	"Qwerty-Lafayette"
+COPYRIGHT	"(c) 2010-2015 Fabien Cazenave"
+COMPANY	"Fabien Cazenave"
+LOCALENAME	"fr-FR"
+LOCALEID	"0000040c"
+VERSION	1.0
+
+// LAFAYETTE::GEOMETRY
+
+SHIFTSTATE
+0	// Column 4
+1	// Column 5: Shft
+2	// Column 6:       Ctrl
+6	// Column 7:       Ctrl Alt
+7	// Column 8: Shft  Ctrl Alt
+
+LAYOUT //{{{
+// an extra '@' at the end is a dead key
+
+//SC	VK_	Cap	0	1	2	6	7
+//--	----	----	----	----	----	----	----
+
+// LAFAYETTE::LAYOUT
+
+// Wishing <AltGr><SPACE> could be mapped to something useful...
+// Apparently, mapping a printable character would be doable (with kbdutool.exe)
+// but mapping <Esc> would not.
+//39	SPACE	0	0020	00a0	-1	005f	005f	// SPACE, NO-BREAK SPACE, <none>, LOW LINE, LOW LINE
+//39	SPACE	0	0020	00a0	-1	001b	001b	// SPACE, NO-BREAK SPACE, <none>, ESCAPE, ESCAPE
+39	SPACE	0	0020	00a0	-1	-1	-1	// SPACE, NO-BREAK SPACE, <none>, <none>, <none>
+53	DECIMAL	0	002e	002e	-1	-1	-1	// FULL STOP, FULL STOP, <none>, <none>, <none>
+//}}}
+
+// Lafayette //{{{
+DEADKEY	00a4
+
+// LAFAYETTE::DEADKEY
+
+00a0	2019	//   -> ’
+0020	2019	//   -> ’
+//}}}
+
+// Dead Circumflex //{{{
+DEADKEY	005e
+
+0061	00e2	// a -> â
+0063	0109	// c -> ĉ
+0065	00ea	// e -> ê
+0067	011d	// g -> ĝ
+0068	0125	// h -> ĥ
+0069	00ee	// i -> î
+006a	0135	// j -> ĵ
+006f	00f4	// o -> ô
+0073	015d	// s -> ŝ
+0075	00fb	// u -> û
+0077	0175	// w -> ŵ
+0079	0177	// y -> ŷ
+007a	1e91	// z -> ẑ
+
+0041	00c2	// A -> Â
+0043	0108	// C -> Ĉ
+0045	00ca	// E -> Ê
+0047	011d	// G -> Ĝ
+0048	0124	// H -> Ĥ
+0049	00ce	// I -> Î
+004a	0134	// J -> Ĵ
+004f	00d4	// O -> Ô
+0053	015c	// S -> Ŝ
+0055	00db	// U -> Û
+0057	0174	// W -> Ŵ
+0059	0176	// Y -> Ŷ
+005a	1e90	// Z -> Ẑ
+
+00a0	005e	//   -> ^
+0020	005e	//   -> ^
+//}}}
+
+// Dead Diaeresis //{{{
+DEADKEY	00a8
+
+0061	00e4	// a -> ä
+0065	00eb	// e -> ë
+0068	1e27	// h -> ḧ
+0069	00ef	// i -> ï
+006f	00f6	// o -> ö
+0074	1e97	// t -> ẗ
+0075	00fc	// u -> ü
+0077	1e85	// w -> ẅ
+0078	1e8d	// x -> ẍ
+0079	00ff	// y -> ÿ
+
+0041	00c4	// A -> Ä
+0045	00cb	// E -> Ë
+0048	1e26	// H -> Ḧ
+0049	00cf	// I -> Ï
+004f	00d6	// O -> Ö
+0055	00dc	// U -> Ü
+0057	1e84	// W -> Ẅ
+0058	1e8c	// X -> Ẍ
+0059	0178	// Y -> Ÿ
+
+00a0	00a8	//   -> ¨
+0020	00a8	//   -> ¨
+//}}}
+
+// Dead Acute //{{{
+DEADKEY	00b4
+
+0061	00e1	// a -> á
+0063	0107	// c -> ć
+0065	00e9	// e -> é
+0069	00ed	// i -> í
+006b	1e31	// k -> ḱ
+006c	013a	// l -> ĺ
+006d	1e3f	// m -> ḿ
+006e	0144	// n -> ń
+006f	00f3	// o -> ó
+0070	1e55	// p -> ṕ
+0072	0155	// r -> ŕ
+0073	015b	// s -> ś
+0075	00fa	// u -> ú
+0077	1e83	// w -> ẃ
+0079	00fd	// y -> ý
+007a	017a	// z -> ź
+
+0041	00c1	// A -> Á
+0043	0106	// C -> Ć
+0045	00c9	// E -> É
+0049	00cd	// I -> Í
+004b	1e30	// K -> Ḱ
+004c	0139	// L -> Ĺ
+004d	1e3e	// M -> Ḿ
+004e	0143	// N -> Ń
+004f	00d3	// O -> Ó
+0050	1e54	// P -> Ṕ
+0052	0154	// R -> Ŕ
+0053	015a	// S -> Ś
+0055	00da	// U -> Ú
+0057	1e82	// W -> Ẃ
+0059	00dd	// Y -> Ý
+005a	0179	// Z -> Ź
+
+00a0	00b4	//   -> ´
+0020	00b4	//   -> ´
+//}}}
+
+// Dead Grave //{{{
+DEADKEY	0060
+
+0061	00e0	// a -> à
+0065	00e8	// e -> è
+0069	00ec	// i -> ì
+006e	01f9	// n -> ǹ
+006f	00f2	// o -> ò
+0075	00f9	// u -> ù
+0077	1e81	// w -> ẁ
+0079	1ef3	// y -> ỳ
+
+0041	00c0	// A -> À
+0045	00c8	// E -> È
+0049	00cc	// I -> Ì
+004e	01f8	// N -> Ǹ
+004f	00d2	// O -> Ò
+0055	00d9	// U -> Ù
+0057	1e80	// W -> Ẁ
+0059	1ef2	// Y -> Ỳ
+
+00a0	0060	//   -> `
+0020	0060	//   -> `
+//}}}
+
+// Dead Tilde //{{{
+DEADKEY	007e
+
+0061	00e3	// a -> ã
+0065	1ebd	// e -> ẽ
+0066	1e7d	// v -> ṽ
+0069	0129	// i -> ĩ
+006e	00f1	// n -> ñ
+006f	00f5	// o -> õ
+0075	0169	// u -> ũ
+0079	1ef9	// y -> ỹ
+
+0041	00c3	// A -> Ã
+0045	1ebc	// E -> Ẽ
+0046	1e7c	// V -> Ṽ
+0049	0128	// I -> Ĩ
+004e	00d1	// N -> Ñ
+004f	00d5	// O -> Õ
+0055	0168	// U -> Ũ
+0059	1ef8	// Y -> Ỹ
+
+00a0	007e	//   -> ~
+0020	007e	//   -> ~
+//}}}
+
+// Dead Abovedot //{{{
+DEADKEY	02d9
+
+0061	0227	// a -> ȧ
+0062	1e03	// b -> ḃ
+0063	010b	// c -> ċ
+0064	1e0b	// d -> ḋ
+0065	0117	// e -> ė
+0066	1e1f	// f -> ḟ
+0067	0121	// g -> ġ
+0068	1e23	// h -> ḣ
+0069	0131	// i -> ı
+006a	0237	// j -> ȷ
+006c	0140	// l -> ŀ
+006d	1e41	// m -> ṁ
+006e	1e45	// n -> ṅ
+006f	022f	// o -> ȯ
+0070	1e57	// p -> ṗ
+0072	1e59	// r -> ṙ
+0073	1e61	// s -> ṡ
+0074	1e6b	// t -> ṫ
+0077	1e87	// w -> ẇ
+0078	1e8b	// x -> ẋ
+0079	1e8f	// y -> ẏ
+007a	017c	// z -> ż
+
+0041	0226	// A -> Ȧ
+0042	1e02	// B -> Ḃ
+0043	010a	// C -> Ċ
+0044	1e0a	// D -> Ḋ
+0045	0116	// E -> Ė
+0046	1e1e	// F -> Ḟ
+0047	0120	// G -> Ġ
+0048	1e22	// H -> Ḣ
+0049	0130	// I -> İ
+004c	013f	// L -> Ŀ
+004d	1e40	// M -> Ṁ
+004e	1e44	// N -> Ṅ
+004f	022e	// O -> Ȯ
+0050	1e5e	// P -> Ṗ
+0052	1e5e	// R -> Ṙ
+0053	1e6e	// S -> Ṡ
+0054	1e6a	// T -> Ṫ
+0057	1e8a	// W -> Ẇ
+0058	1e8a	// X -> Ẋ
+0059	1e8e	// Y -> Ẏ
+005a	017b	// Z -> Ż
+
+00a0	02d9	//   -> ˙
+0020	02d9	//   -> ˙
+//}}}
+
+KEYNAME //{{{
+01	Esc
+0e	Backspace
+0f	Tab
+1c	Enter
+1d	Ctrl
+2a	Shift
+36	"Right Shift"
+37	"Num *"
+38	Alt
+39	Space
+3a	"Caps Lock"
+3b	F1
+3c	F2
+3d	F3
+3e	F4
+3f	F5
+40	F6
+41	F7
+42	F8
+43	F9
+44	F10
+45	Pause
+46	"Scroll Lock"
+47	"Num 7"
+48	"Num 8"
+49	"Num 9"
+4a	"Num -"
+4b	"Num 4"
+4c	"Num 5"
+4d	"Num 6"
+4e	"Num +"
+4f	"Num 1"
+50	"Num 2"
+51	"Num 3"
+52	"Num 0"
+53	"Num Del"
+54	"Sys Req"
+57	F11
+58	F12
+7c	F13
+7d	F14
+7e	F15
+7f	F16
+80	F17
+81	F18
+82	F19
+83	F20
+84	F21
+85	F22
+86	F23
+87	F24
+//}}}
+
+KEYNAME_EXT //{{{
+1c	"Num Enter"
+1d	"Right Ctrl"
+35	"Num /"
+37	"Prnt Scrn"
+38	"Right Alt"
+45	"Num Lock"
+46	Break
+47	Home
+48	Up
+49	"Page Up"
+4b	Left
+4d	Right
+4f	End
+50	Down
+51	"Page Down"
+52	Insert
+53	Delete
+54	<00>
+56	Help
+5b	"Left Windows"
+5c	"Right Windows"
+5d	Application
+//}}}
+
+KEYNAME_DEAD //{{{
+00a4	"LAFAYETTE"
+005e	"CIRCUMFLEX ACCENT"
+00a8	"DIAERESIS"
+00b4	"ACUTE ACCENT"
+0060	"GRAVE ACCENT"
+007e	"TILDE"
+02d9	"DOT ABOVE"
+//}}}
+
+DESCRIPTIONS
+0409	Lafayette
+
+LANGUAGENAMES
+0409	French (France)
+
+ENDKBD
+// vim: ft=xkb:ts=12:fenc=utf-16le:fdm=marker:fmr=//{{{,}}}
