@@ -1,46 +1,10 @@
 #!/usr/bin/env python3
 
+import os
 import re
+import sys
 import unicodedata
 import yaml
-
-DEAD_KEYS = {                                           # combining diacritics
-    '\u20e1': {'klc': '¤', 'xkb': 'ISO_Level3_Latch'},  # | ⃡|
-    '\u0300': {'klc': '`', 'xkb': 'dead_grave'},        # | ̀|
-    '\u0301': {'klc': '´', 'xkb': 'dead_acute'},        # | ́|
-    '\u0302': {'klc': '^', 'xkb': 'dead_circumflex'},   # | ̂|
-    '\u0303': {'klc': '~', 'xkb': 'dead_tilde'},        # | ̃|
-    '\u0307': {'klc': '˙', 'xkb': 'dead_abovedot'},     # | ̇|
-    '\u0308': {'klc': '¨', 'xkb': 'dead_diaeresis'},    # | ̈|
-    '\u030a': {'klc': '˚', 'xkb': 'dead_abovering'},    # | ̊|
-    '\u0326': {'klc': ',', 'xkb': 'dead_commabelow'},   # | ̦|
-    '\u0327': {'klc': '¸', 'xkb': 'dead_cedilla'},      # | ̧|
-    '\u0328': {'klc': '˛', 'xkb': 'dead_ogonek'},       # | ̨|
-}
-
-LAYER_KEYS = [
-    '- Digits',
-    'ae01', 'ae02', 'ae03', 'ae04', 'ae05',
-    'ae06', 'ae07', 'ae08', 'ae09', 'ae10',
-
-    '- Letters, first row',
-    'ad01', 'ad02', 'ad03', 'ad04', 'ad05',
-    'ad06', 'ad07', 'ad08', 'ad09', 'ad10',
-
-    '- Letters, second row',
-    'ac01', 'ac02', 'ac03', 'ac04', 'ac05',
-    'ac06', 'ac07', 'ac08', 'ac09', 'ac10',
-
-    '- Letters, third row',
-    'ab01', 'ab02', 'ab03', 'ab04', 'ab05',
-    'ab06', 'ab07', 'ab08', 'ab09', 'ab10',
-
-    '- Pinky keys',
-    'tlde', 'ae11', 'ae12', 'ad11', 'ad12', 'ac11', 'bksl', 'lsgt'
-]
-
-GEOMETRY = yaml.load(open('tpl/geometry.yaml'))
-SYMBOLS = yaml.load(open('tpl/symbols.yaml'))
 
 
 def add_spaces_before_combining_chars(text):
@@ -92,6 +56,49 @@ def upper_key(letter):
 
 def hex_ord(char):
     return hex(ord(char))[2:].zfill(4)
+
+
+def openLocalFile(fileName):
+    return open(sys.path[0] + '/' + fileName)
+
+
+GEOMETRY = yaml.load(openLocalFile('geometry.yaml'))
+SYMBOLS = yaml.load(openLocalFile('symbols.yaml'))
+
+DEAD_KEYS = {                                           # combining diacritics
+    '\u20e1': {'klc': '¤', 'xkb': 'ISO_Level3_Latch'},  # | ⃡|
+    '\u0300': {'klc': '`', 'xkb': 'dead_grave'},        # | ̀|
+    '\u0301': {'klc': '´', 'xkb': 'dead_acute'},        # | ́|
+    '\u0302': {'klc': '^', 'xkb': 'dead_circumflex'},   # | ̂|
+    '\u0303': {'klc': '~', 'xkb': 'dead_tilde'},        # | ̃|
+    '\u0307': {'klc': '˙', 'xkb': 'dead_abovedot'},     # | ̇|
+    '\u0308': {'klc': '¨', 'xkb': 'dead_diaeresis'},    # | ̈|
+    '\u030a': {'klc': '˚', 'xkb': 'dead_abovering'},    # | ̊|
+    '\u0326': {'klc': ',', 'xkb': 'dead_commabelow'},   # | ̦|
+    '\u0327': {'klc': '¸', 'xkb': 'dead_cedilla'},      # | ̧|
+    '\u0328': {'klc': '˛', 'xkb': 'dead_ogonek'},       # | ̨|
+}
+
+LAYER_KEYS = [
+    '- Digits',
+    'ae01', 'ae02', 'ae03', 'ae04', 'ae05',
+    'ae06', 'ae07', 'ae08', 'ae09', 'ae10',
+
+    '- Letters, first row',
+    'ad01', 'ad02', 'ad03', 'ad04', 'ad05',
+    'ad06', 'ad07', 'ad08', 'ad09', 'ad10',
+
+    '- Letters, second row',
+    'ac01', 'ac02', 'ac03', 'ac04', 'ac05',
+    'ac06', 'ac07', 'ac08', 'ac09', 'ac10',
+
+    '- Letters, third row',
+    'ab01', 'ab02', 'ab03', 'ab04', 'ab05',
+    'ab06', 'ab07', 'ab08', 'ab09', 'ab10',
+
+    '- Pinky keys',
+    'tlde', 'ae11', 'ae12', 'ad11', 'ad12', 'ac11', 'bksl', 'lsgt'
+]
 
 
 class Layout:
@@ -383,20 +390,24 @@ class Layout:
         return '\n'.join(output)
 
 
-def make_layout(name):
-    layout = Layout('src/' + name + '.yaml')
+def make_layout(filePath):
+    layout = Layout(filePath)
+
+    name = os.path.splitext(os.path.basename(filePath))[0]
+    if not os.path.exists('dist'):
+        os.makedirs('dist')
 
     # Linux (xkb) driver
     xkb_layout = layout.xkb
     xkb_geometry = layout.get_geometry([0, 2], 'ISO', '  // ') + '\n\n' \
         + layout.get_geometry([4], 'ISO', '  // ')
 
-    xkb_path = 'out/' + name + '.xkb'
-    xkb_out = open('tpl/template.xkb').read()
+    xkb_path = 'dist/' + name + '.xkb'
+    xkb_out = openLocalFile('template.xkb').read()
     xkb_out = re.sub(r'.*LAFAYETTE::LAYOUT.*', xkb_layout, xkb_out)
     xkb_out = re.sub(r'.*LAFAYETTE::GEOMETRY.*', xkb_geometry, xkb_out)
     open(xkb_path, 'w').write(xkb_out)
-    print(xkb_path)
+    print('... ' + xkb_path)
 
     # Windows (klc) driver
     klc_layout = layout.klc
@@ -404,19 +415,15 @@ def make_layout(name):
     klc_geometry = layout.get_geometry([0, 2], 'ANSI', '// ') + '\n\n' \
         + layout.get_geometry([4], 'ANSI', '// ')
 
-    klc_path = 'out/' + name + '.klc'
-    klc_out = open('tpl/template.klc', 'r', encoding='utf-16le').read()
+    klc_path = 'dist/' + name + '.klc'
+    # klc_out = open('template.klc', 'r', encoding='utf-16le').read()
+    klc_out = openLocalFile('template.utf8.klc').read()
     klc_out = re.sub(r'.*LAFAYETTE::LAYOUT.*', klc_layout, klc_out)
     klc_out = re.sub(r'.*LAFAYETTE::DEADKEY.*', klc_deadkey, klc_out)
     klc_out = re.sub(r'.*LAFAYETTE::GEOMETRY.*', klc_geometry, klc_out)
-    open(klc_path, 'w',
-         encoding='utf-16le').write(klc_out.replace('\n', '\r\n'))
-    print(klc_path)
+    open(klc_path, 'w', encoding='utf-16le') \
+        .write(klc_out.replace('\n', '\r\n'))
+    print('... ' + klc_path)
 
-    # A quick visual control never hurts
-    print(layout.get_geometry([0, 2], 'ERGO'))
-
-make_layout('dvorak')
-make_layout('qwerty42a')
-make_layout('qwerty42b')
-make_layout('lafayette')
+for f in sys.argv[1:]:
+    make_layout(f)
