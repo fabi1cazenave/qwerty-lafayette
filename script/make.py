@@ -27,11 +27,32 @@ def remove_spaces_before_combining_chars(text):
     return ''.join(out)
 
 
-def template_to_text(template, indent=''):
+def lines_to_text(lines, indent=''):
     out = ''
-    for line in template:
-        out = out + indent + add_spaces_before_combining_chars(line) + '\n'
+    for line in lines:
+        if len(line):
+            out = out + indent + add_spaces_before_combining_chars(line)
+        out = out + '\n'
     return out[:-1]
+
+
+def substitute_lines(template, variable, lines):
+    prefix = 'LAFAYETTE::'
+    exp = re.compile('.*' + prefix + variable + '.*')
+
+    indent = ''
+    for line in template.split('\n'):
+        m = exp.match(line)
+        if m:
+            indent = m.group().split(prefix)[0]
+            break
+
+    return exp.sub(lines_to_text(lines, indent), template)
+
+
+def substitute_token(template, token, value):
+    exp = re.compile('\$\{' + token + '(=[^\}]*){0,1}\}')
+    return exp.sub(value, template)
 
 
 def upper_key(letter):
@@ -194,14 +215,14 @@ class Layout:
 
         return template
 
-    def get_geometry(self, layers=[0], name='ISO', indent=''):
+    def get_geometry(self, layers=[0], name='ISO'):
         """ `geometry` view of the requested layers. """
 
         rows = GEOMETRY[name]['rows']
         template = GEOMETRY[name]['template'].split('\n')[:-1]
         for i in layers:
             template = self._fill_template(template, rows, i)
-        return template_to_text(template, indent)
+        return template
 
     @property
     def xkb(self):
@@ -209,7 +230,6 @@ class Layout:
 
         showDescription = True
         supportedSymbols = SYMBOLS['xkb']
-        indent = '    '
         maxLength = 16  # `ISO_Level3_Latch` should be the longest symbol name
 
         output = []
@@ -220,7 +240,7 @@ class Layout:
             if keyName.startswith('-'):  # separator
                 if len(output):
                     output.append('')
-                output.append(indent + '//' + keyName[1:])
+                output.append('//' + keyName[1:])
                 continue
 
             symbols = []
@@ -243,8 +263,7 @@ class Layout:
                     symbols.append('VoidSymbol')
                 description = description + ' ' + desc
 
-            line = indent + 'key ' +                   \
-                '<' + keyName.upper() + '> ' + '{[ ' + \
+            line = 'key <' + keyName.upper() + '> ' + '{[ ' + \
                 symbols[0].ljust(maxLength) + ', ' +   \
                 symbols[1].ljust(maxLength) + ', ' +   \
                 symbols[2].ljust(maxLength) + ', ' +   \
@@ -255,7 +274,7 @@ class Layout:
                 line = line + description
             output.append(line)
 
-        return '\n'.join(output)
+        return output
 
     @property
     def klc(self):
@@ -356,7 +375,7 @@ class Layout:
                 symbols[2] + '\u0009' + symbols[3] + '\u0009' +
                 description.strip())
 
-        return '\n'.join(output)
+        return output
 
     @property
     def klc_deadkey(self):
@@ -387,40 +406,36 @@ class Layout:
                         hex_ord(base) + '\u0009' +
                         lafayette + '\u0009' + '// ' + base + ' -> ' + ext)
 
-        return '\n'.join(output)
+        return output
 
 
 def make_layout(filePath):
     layout = Layout(filePath)
+    layout_qwerty = layout.get_geometry([0, 2])  # base + dead key
+    layout_altgr = layout.get_geometry([4])      # altgr
 
     name = os.path.splitext(os.path.basename(filePath))[0]
     if not os.path.exists('dist'):
         os.makedirs('dist')
 
     # Linux (xkb) driver
-    xkb_layout = layout.xkb
-    xkb_geometry = layout.get_geometry([0, 2], 'ISO', '  // ') + '\n\n' \
-        + layout.get_geometry([4], 'ISO', '  // ')
-
     xkb_path = 'dist/' + name + '.xkb'
     xkb_out = openLocalFile('template.xkb').read()
-    xkb_out = re.sub(r'.*LAFAYETTE::LAYOUT.*', xkb_layout, xkb_out)
-    xkb_out = re.sub(r'.*LAFAYETTE::GEOMETRY.*', xkb_geometry, xkb_out)
+    xkb_out = substitute_lines(xkb_out, 'LAYOUT', layout.xkb)
+    xkb_out = substitute_lines(xkb_out, 'GEOMETRY_qwerty', layout_qwerty)
+    xkb_out = substitute_lines(xkb_out, 'GEOMETRY_altgr', layout_altgr)
     open(xkb_path, 'w').write(xkb_out)
     print('... ' + xkb_path)
 
     # Windows (klc) driver
-    klc_layout = layout.klc
-    klc_deadkey = layout.klc_deadkey
-    klc_geometry = layout.get_geometry([0, 2], 'ANSI', '// ') + '\n\n' \
-        + layout.get_geometry([4], 'ANSI', '// ')
-
     klc_path = 'dist/' + name + '.klc'
     # klc_out = open('template.klc', 'r', encoding='utf-16le').read()
     klc_out = openLocalFile('template.utf8.klc').read()
-    klc_out = re.sub(r'.*LAFAYETTE::LAYOUT.*', klc_layout, klc_out)
-    klc_out = re.sub(r'.*LAFAYETTE::DEADKEY.*', klc_deadkey, klc_out)
-    klc_out = re.sub(r'.*LAFAYETTE::GEOMETRY.*', klc_geometry, klc_out)
+    klc_out = substitute_lines(klc_out, 'LAYOUT', layout.klc)
+    klc_out = substitute_lines(klc_out, 'DEADKEY', layout.klc_deadkey)
+    klc_out = substitute_lines(klc_out, 'GEOMETRY_qwerty', layout_qwerty)
+    klc_out = substitute_lines(klc_out, 'GEOMETRY_altgr', layout_altgr)
+    klc_out = substitute_token(klc_out, 'encoding', 'UTF-16LE')
     open(klc_path, 'w', encoding='utf-16le') \
         .write(klc_out.replace('\n', '\r\n'))
     print('... ' + klc_path)
