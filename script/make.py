@@ -7,6 +7,11 @@ import unicodedata
 import yaml
 
 
+##
+# Helpers and constants used by the `Layout` class
+#
+
+
 def add_spaces_before_combining_chars(text):
     out = ''
     for char in text:
@@ -36,25 +41,6 @@ def lines_to_text(lines, indent=''):
     return out[:-1]
 
 
-def substitute_lines(template, variable, lines):
-    prefix = 'LAFAYETTE::'
-    exp = re.compile('.*' + prefix + variable + '.*')
-
-    indent = ''
-    for line in template.split('\n'):
-        m = exp.match(line)
-        if m:
-            indent = m.group().split(prefix)[0]
-            break
-
-    return exp.sub(lines_to_text(lines, indent), template)
-
-
-def substitute_token(template, token, value):
-    exp = re.compile('\$\{' + token + '(=[^\}]*){0,1}\}')
-    return exp.sub(value, template)
-
-
 def upper_key(letter):
     customAlpha = {
         '\u00df': '\u1e9e',  # ß ẞ
@@ -79,26 +65,23 @@ def hex_ord(char):
     return hex(ord(char))[2:].zfill(4)
 
 
+def xml_proof(char):
+    if char not in '<&"\u00a0>':
+        return char
+    else:
+        return '&#x{0};'.format(hex_ord(char))
+
+
 def openLocalFile(fileName):
     return open(sys.path[0] + '/' + fileName)
 
 
 GEOMETRY = yaml.load(openLocalFile('geometry.yaml'))
-SYMBOLS = yaml.load(openLocalFile('symbols.yaml'))
+DEAD_KEYS = yaml.load(openLocalFile('dead_keys.yaml'))
+KEY_CODES = yaml.load(openLocalFile('key_codes.yaml'))
+XKB_KEY_SYM = yaml.load(openLocalFile('key_sym.yaml'))
 
-DEAD_KEYS = {                                           # combining diacritics
-    '\u20e1': {'klc': '¤', 'xkb': 'ISO_Level3_Latch'},  # | ⃡|
-    '\u0300': {'klc': '`', 'xkb': 'dead_grave'},        # | ̀|
-    '\u0301': {'klc': '´', 'xkb': 'dead_acute'},        # | ́|
-    '\u0302': {'klc': '^', 'xkb': 'dead_circumflex'},   # | ̂|
-    '\u0303': {'klc': '~', 'xkb': 'dead_tilde'},        # | ̃|
-    '\u0307': {'klc': '˙', 'xkb': 'dead_abovedot'},     # | ̇|
-    '\u0308': {'klc': '¨', 'xkb': 'dead_diaeresis'},    # | ̈|
-    '\u030a': {'klc': '˚', 'xkb': 'dead_abovering'},    # | ̊|
-    '\u0326': {'klc': ',', 'xkb': 'dead_commabelow'},   # | ̦|
-    '\u0327': {'klc': '¸', 'xkb': 'dead_cedilla'},      # | ̧|
-    '\u0328': {'klc': '˛', 'xkb': 'dead_ogonek'},       # | ̨|
-}
+LAFAYETTE_KEY = '\u20e1'  # must match the value in dead_keys.yaml
 
 LAYER_KEYS = [
     '- Digits',
@@ -129,6 +112,9 @@ class Layout:
         """ Import a keyboard layout to instanciate the object. """
 
         self.layers = [{}, {}, {}, {}, {}, {}]
+        self.dead_keys = {}  # dictionary subset of DEAD_KEYS
+        self.dk_index = []
+
         cfg = yaml.load(open(filePath))
         rows = GEOMETRY[cfg['geometry']]['rows']
         base = remove_spaces_before_combining_chars(cfg['base']).split('\n')
@@ -136,6 +122,38 @@ class Layout:
         self._parse_template(base, rows, 0)
         self._parse_template(base, rows, 2)
         self._parse_template(altgr, rows, 4)
+        self._parse_lafayette_keys()
+
+        for dk in DEAD_KEYS:
+            if dk['char'] in self.dead_keys:
+                self.dk_index.append(dk['char'])
+
+    def _parse_lafayette_keys(self):
+        """ populates the `base` and `alt` props for the Lafayette dead key """
+
+        if LAFAYETTE_KEY not in self.dead_keys:
+            return
+
+        base0 = list('')
+        base1 = list('')
+        alt0 = list('')
+        alt1 = list('')
+
+        for keyName in LAYER_KEYS:
+            if keyName.startswith('-'):
+                continue
+
+            if keyName in self.layers[2]:
+                base0.append(self.layers[0][keyName])
+                alt0.append(self.layers[2][keyName])
+
+            if keyName in self.layers[3]:
+                base1.append(self.layers[1][keyName])
+                alt1.append(self.layers[3][keyName])
+
+        lafayette = self.dead_keys[LAFAYETTE_KEY]
+        lafayette['base'] = ''.join(base0) + ''.join(base1)
+        lafayette['alt'] = ''.join(alt0) + ''.join(alt1)
 
     def _parse_template(self, template, rows, layerNumber):
         """ Extract a keyboard layer from a template. """
@@ -166,6 +184,12 @@ class Layout:
                     self.layers[layerNumber + 0][key] = baseKey
                 if (shiftKey != ' '):
                     self.layers[layerNumber + 1][key] = shiftKey
+
+                for dk in DEAD_KEYS:
+                    if baseKey == dk['char']:
+                        self.dead_keys[baseKey] = dk
+                    if shiftKey == dk['char']:
+                        self.dead_keys[shiftKey] = dk
 
                 i = i + 6
 
@@ -229,14 +253,10 @@ class Layout:
         """ Linux layout. """
 
         showDescription = True
-        supportedSymbols = SYMBOLS['xkb']
         maxLength = 16  # `ISO_Level3_Latch` should be the longest symbol name
 
         output = []
         for keyName in LAYER_KEYS:
-            if keyName == '':
-                continue
-
             if keyName.startswith('-'):  # separator
                 if len(output):
                     output.append('')
@@ -249,12 +269,17 @@ class Layout:
                 if keyName in layer:
                     symbol = layer[keyName]
                     desc = symbol
-                    if symbol in DEAD_KEYS:
-                        desc = DEAD_KEYS[symbol]['klc']
-                        symbol = DEAD_KEYS[symbol]['xkb']
-                    elif symbol in supportedSymbols \
-                            and len(supportedSymbols[symbol]) <= maxLength:
-                        symbol = supportedSymbols[symbol]
+                    if symbol in self.dead_keys:
+                        dk = self.dead_keys[symbol]
+                        if dk['char'] == LAFAYETTE_KEY:
+                            desc = dk['alt_space']
+                            symbol = 'ISO_Level3_Latch'
+                        else:
+                            desc = dk['alt_self']
+                            symbol = 'dead_' + dk['code']
+                    elif symbol in XKB_KEY_SYM \
+                            and len(XKB_KEY_SYM[symbol]) <= maxLength:
+                        symbol = XKB_KEY_SYM[symbol]
                     else:
                         symbol = 'U' + hex_ord(symbol).upper()
                     symbols.append(symbol)
@@ -280,70 +305,11 @@ class Layout:
     def klc(self):
         """ Windows layout, main part. """
 
-        klcKeys = {
-            'ae01': '02	1	0	',
-            'ae02': '03	2	0	',
-            'ae03': '04	3	0	',
-            'ae04': '05	4	0	',
-            'ae05': '06	5	0	',
-            'ae06': '07	6	0	',
-            'ae07': '08	7	0	',
-            'ae08': '09	8	0	',
-            'ae09': '0a	9	0	',
-            'ae10': '0b	0	0	',
-
-            # letters, first row
-            'ad01': '10	Q	1	',
-            'ad02': '11	W	1	',
-            'ad03': '12	E	1	',
-            'ad04': '13	R	1	',
-            'ad05': '14	T	1	',
-            'ad06': '15	Y	1	',
-            'ad07': '16	U	1	',
-            'ad08': '17	I	1	',
-            'ad09': '18	O	1	',
-            'ad10': '19	P	1	',
-
-            # letters, second row
-            'ac01': '1e	A	1	',
-            'ac02': '1f	S	1	',
-            'ac03': '20	D	1	',
-            'ac04': '21	F	1	',
-            'ac05': '22	G	1	',
-            'ac06': '23	H	1	',
-            'ac07': '24	J	1	',
-            'ac08': '25	K	1	',
-            'ac09': '26	L	1	',
-            'ac10': '27	OEM_1	0	',
-
-            # letters, third row
-            'ab01': '2c	Z	1	',
-            'ab02': '2d	X	1	',
-            'ab03': '2e	C	1	',
-            'ab04': '2f	V	1	',
-            'ab05': '30	B	1	',
-            'ab06': '31	N	1	',
-            'ab07': '32	M	1	',
-            'ab08': '33	OEM_COMMA	0	',
-            'ab09': '34	OEM_PERIOD	0	',
-            'ab10': '35	OEM_2	0	',
-
-            # pinky keys
-            'ae11': '0c	OEM_MINUS	0	',
-            'ae12': '0d	OEM_PLUS	0	',
-            'ad11': '1a	OEM_4	0	',
-            'ad12': '1b	OEM_6	0	',
-            'ac11': '28	OEM_7	0	',
-            'tlde': '29	OEM_3	0	',
-            'bksl': '2b	OEM_5	0	',
-            'lsgt': '56	OEM_102	0	'
-        }
+        supportedSymbols = \
+            '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
         output = []
         for keyName in LAYER_KEYS:
-            if keyName == '':
-                continue
-
             if keyName.startswith('-'):
                 if len(output):
                     output.append('')
@@ -352,28 +318,35 @@ class Layout:
 
             symbols = []
             description = '//'
+            alpha = False
+
             for i in [0, 1, 4, 5]:
                 layer = self.layers[i]
 
                 if keyName in layer:
                     symbol = layer[keyName]
                     desc = symbol
-                    if symbol in DEAD_KEYS:
-                        desc = DEAD_KEYS[symbol]['klc']
+                    if symbol in self.dead_keys:
+                        desc = self.dead_keys[symbol]['alt_space']
                         symbol = hex_ord(desc) + '@'
-                    elif symbol not in SYMBOLS['klc']:
-                        symbol = hex_ord(symbol)
+                    else:
+                        if i == 0:
+                            alpha = symbol.upper() != symbol
+                        if symbol not in supportedSymbols:
+                            symbol = hex_ord(symbol)
                     symbols.append(symbol)
                 else:
                     desc = ' '
                     symbols.append('-1')
                 description = description + ' ' + desc
 
-            output.append(
-                klcKeys[keyName] +
-                symbols[0] + '\u0009' + symbols[1] + '\u0009-1\u0009' +
-                symbols[2] + '\u0009' + symbols[3] + '\u0009' +
-                description.strip())
+            output.append('\t'.join([
+                KEY_CODES['klc'][keyName],     # scan code & virtual key
+                '1' if alpha else '0',         # affected by CapsLock?
+                symbols[0], symbols[1], '-1',  # base layer
+                symbols[2], symbols[3],        # altgr layer
+                description.strip()
+            ]))
 
         return output
 
@@ -394,19 +367,186 @@ class Layout:
                     continue
                 elif keyName in extLayer:
                     base = baseLayer[keyName]
-                    if base in DEAD_KEYS:
-                        base = DEAD_KEYS[base]['klc']
+                    if base in self.dead_keys:
+                        base = self.dead_keys[base]['alt_space']
                     ext = extLayer[keyName]
-                    if (ext in DEAD_KEYS):
-                        ext = DEAD_KEYS[ext]['klc']
+                    if (ext in self.dead_keys):
+                        ext = self.dead_keys[ext]['alt_space']
                         lafayette = hex_ord(ext) + '@'
                     else:
                         lafayette = hex_ord(ext)
-                    output.append(
-                        hex_ord(base) + '\u0009' +
-                        lafayette + '\u0009' + '// ' + base + ' -> ' + ext)
+
+                    output.append('\t'.join([
+                        hex_ord(base), lafayette, '// ' + base + ' -> ' + ext
+                    ]))
 
         return output
+
+    def get_osx_keyMap(self, index):
+        """ Mac OSX layout, main part. """
+
+        layer = self.layers[[0, 1, 0, 4, 5][index]]
+        caps = index == 2
+
+        def has_dead_keys(letter):
+            for k in self.dead_keys:
+                if letter in self.dead_keys[k]['base']:
+                    return True
+            return False
+
+        output = []
+        for keyName in LAYER_KEYS:
+            if keyName.startswith('-'):
+                if len(output):
+                    output.append('')
+                output.append('<!--' + keyName[1:] + ' -->')
+                continue
+
+            symbol = '&#x0010;'
+            isDeadKey = False
+            hasDeadKey = False
+
+            if keyName in layer:
+                key = layer[keyName]
+                if key in self.dead_keys:
+                    symbol = 'dead_' + self.dead_keys[key]['code']
+                    isDeadKey = True
+                else:
+                    symbol = xml_proof(key.upper() if caps else key)
+                hasDeadKey = isDeadKey or has_dead_keys(key)
+
+            code = 'code="{0}"'.format(KEY_CODES['osx'][keyName]).ljust(10)
+            if hasDeadKey:
+                action = 'action="{0}"'.format(symbol)
+            else:
+                action = 'output="{0}"'.format(symbol)
+            output.append('<key {0} {1} />'.format(code, action))
+
+        return output
+
+    @property
+    def osx_actions(self):
+        """ Mac OSX layout, dead key actions. """
+
+        output = []
+        deadKeys = []
+        dkIndex = []
+
+        def when(state, action):
+            s = 'state="{0}"'.format(state).ljust(18)
+            if action in self.dead_keys:
+                a = 'next="{0}"'.format(self.dead_keys[action]['code'])
+            elif action.startswith('dead_'):
+                a = 'next="{0}"'.format(action[5:])
+            else:
+                a = 'output="{0}"'.format(xml_proof(action))
+            return '  <when {0} {1} />'.format(s, a)
+
+        # spacebar actions
+        output.append('<!-- Spacebar -->')
+        output.append('<action id="space">')
+        output.append(when('none', ' '))
+        for k in self.dk_index:
+            dk = self.dead_keys[k]
+            output.append(when(dk['code'], dk['alt_space']))
+        output.append('</action>')
+        output.append('<action id="nbsp">')
+        output.append(when('none', '&#x00a0;'))
+        for k in self.dk_index:
+            dk = self.dead_keys[k]
+            output.append(when(dk['code'], dk['alt_space']))
+        output.append('</action>')
+
+        # all other actions
+        for keyName in LAYER_KEYS:
+            if keyName.startswith('-'):
+                output.append('')
+                output.append('<!--' + keyName[1:] + ' -->')
+                continue
+
+            for i in [0, 1]:
+                if keyName not in self.layers[i]:
+                    continue
+
+                key = self.layers[i][keyName]
+                if i and key == self.layers[0][keyName]:
+                    continue
+                if key in self.dead_keys:
+                    symbol = 'dead_' + self.dead_keys[key]['code']
+                else:
+                    symbol = xml_proof(key)
+
+                action = []
+                for k in self.dk_index:
+                    dk = self.dead_keys[k]
+                    if key in dk['base']:
+                        idx = dk['base'].index(key)
+                        action.append(when(dk['code'], dk['alt'][idx]))
+
+                if key in self.dead_keys:
+                    deadKeys.append('<action id="{0}">'.format(symbol))
+                    deadKeys.append(when('none', symbol))
+                    deadKeys.extend(action)
+                    deadKeys.append('</action>')
+                    dkIndex.append(symbol)
+                elif len(action):
+                    output.append('<action id="{0}">'.format(symbol))
+                    output.append(when('none', symbol))
+                    output.extend(action)
+                    output.append('</action>')
+
+            for i in [2, 3, 4, 5]:
+                if keyName not in self.layers[i]:
+                    continue
+                key = self.layers[i][keyName]
+                if key not in self.dead_keys:
+                    continue
+                symbol = 'dead_' + self.dead_keys[key]['code']
+                if symbol in dkIndex:
+                    continue
+                deadKeys.append('<action id="{0}">'.format(symbol))
+                deadKeys.append(when('none', symbol))
+                deadKeys.extend(action)
+                deadKeys.append('</action>')
+                dkIndex.append(symbol)
+
+        return deadKeys + [''] + output
+
+    @property
+    def osx_terminators(self):
+        """ Mac OSX layout, dead key terminators. """
+
+        output = []
+        for k in self.dk_index:
+            dk = self.dead_keys[k]
+            s = 'state="{0}"'.format(dk['code']).ljust(18)
+            o = 'output="{0}"'.format(xml_proof(dk['alt_self']))
+            output.append(' <when {0} {1} />'.format(s, o))
+        return output
+
+
+##
+# Main script and related helpers
+#
+
+
+def substitute_lines(template, variable, lines):
+    prefix = 'LAFAYETTE::'
+    exp = re.compile('.*' + prefix + variable + '.*')
+
+    indent = ''
+    for line in template.split('\n'):
+        m = exp.match(line)
+        if m:
+            indent = m.group().split(prefix)[0]
+            break
+
+    return exp.sub(lines_to_text(lines, indent), template)
+
+
+def substitute_token(template, token, value):
+    exp = re.compile('\$\{' + token + '(=[^\}]*){0,1}\}')
+    return exp.sub(value, template)
 
 
 def make_layout(filePath):
@@ -418,27 +558,41 @@ def make_layout(filePath):
     if not os.path.exists('dist'):
         os.makedirs('dist')
 
-    # Linux (xkb) driver
-    xkb_path = 'dist/' + name + '.xkb'
-    xkb_out = openLocalFile('template.xkb').read()
-    xkb_out = substitute_lines(xkb_out, 'LAYOUT', layout.xkb)
-    xkb_out = substitute_lines(xkb_out, 'GEOMETRY_qwerty', layout_qwerty)
-    xkb_out = substitute_lines(xkb_out, 'GEOMETRY_altgr', layout_altgr)
-    open(xkb_path, 'w').write(xkb_out)
-    print('... ' + xkb_path)
-
-    # Windows (klc) driver
+    # Windows driver (the utf-8 template is converted to a utf-16le file)
     klc_path = 'dist/' + name + '.klc'
-    # klc_out = open('template.klc', 'r', encoding='utf-16le').read()
-    klc_out = openLocalFile('template.utf8.klc').read()
-    klc_out = substitute_lines(klc_out, 'LAYOUT', layout.klc)
-    klc_out = substitute_lines(klc_out, 'DEADKEY', layout.klc_deadkey)
+    klc_out = openLocalFile('template.klc').read()
     klc_out = substitute_lines(klc_out, 'GEOMETRY_qwerty', layout_qwerty)
     klc_out = substitute_lines(klc_out, 'GEOMETRY_altgr', layout_altgr)
+    klc_out = substitute_lines(klc_out, 'LAYOUT', layout.klc)
+    klc_out = substitute_lines(klc_out, 'DEADKEY', layout.klc_deadkey)
     klc_out = substitute_token(klc_out, 'encoding', 'UTF-16LE')
     open(klc_path, 'w', encoding='utf-16le') \
         .write(klc_out.replace('\n', '\r\n'))
     print('... ' + klc_path)
 
-for f in sys.argv[1:]:
+    # Mac OSX driver
+    osx_path = 'dist/' + name + '.keylayout'
+    osx_out = openLocalFile('template.keylayout').read()
+    osx_out = substitute_lines(osx_out, 'GEOMETRY_qwerty', layout_qwerty)
+    osx_out = substitute_lines(osx_out, 'GEOMETRY_altgr', layout_altgr)
+    osx_out = substitute_lines(osx_out, 'LAYOUT_0', layout.get_osx_keyMap(0))
+    osx_out = substitute_lines(osx_out, 'LAYOUT_1', layout.get_osx_keyMap(1))
+    osx_out = substitute_lines(osx_out, 'LAYOUT_2', layout.get_osx_keyMap(2))
+    osx_out = substitute_lines(osx_out, 'LAYOUT_3', layout.get_osx_keyMap(3))
+    osx_out = substitute_lines(osx_out, 'LAYOUT_4', layout.get_osx_keyMap(4))
+    osx_out = substitute_lines(osx_out, 'ACTIONS', layout.osx_actions)
+    osx_out = substitute_lines(osx_out, 'TERMINATORS', layout.osx_terminators)
+    open(osx_path, 'w').write(osx_out)
+    print('... ' + osx_path)
+
+    # Linux driver
+    xkb_path = 'dist/' + name + '.xkb'
+    xkb_out = openLocalFile('template.xkb').read()
+    xkb_out = substitute_lines(xkb_out, 'GEOMETRY_qwerty', layout_qwerty)
+    xkb_out = substitute_lines(xkb_out, 'GEOMETRY_altgr', layout_altgr)
+    xkb_out = substitute_lines(xkb_out, 'LAYOUT', layout.xkb)
+    open(xkb_path, 'w').write(xkb_out)
+    print('... ' + xkb_path)
+
+for f in sys.argv[1:]:  # who needs argparse / docopt?
     make_layout(f)
