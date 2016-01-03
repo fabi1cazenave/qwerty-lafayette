@@ -16,9 +16,9 @@ def add_spaces_before_combining_chars(text):
     out = ''
     for char in text:
         if unicodedata.combining(char):
-            out = out + ' ' + char
+            out += ' ' + char
         else:
-            out = out + char
+            out += char
     return out
 
 
@@ -36,8 +36,8 @@ def lines_to_text(lines, indent=''):
     out = ''
     for line in lines:
         if len(line):
-            out = out + indent + add_spaces_before_combining_chars(line)
-        out = out + '\n'
+            out += indent + add_spaces_before_combining_chars(line)
+        out += '\n'
     return out[:-1]
 
 
@@ -191,9 +191,9 @@ class Layout:
                     if shiftKey == dk['char']:
                         self.dead_keys[shiftKey] = dk
 
-                i = i + 6
+                i += 6
 
-            j = j + 1
+            j += 1
 
     def _fill_template(self, template, rows, layerNumber):
         """ Fill a template with a keyboard layer. """
@@ -231,11 +231,11 @@ class Layout:
                     if upper_key(baseKey) != shiftKey:
                         shift[i] = shiftKey
 
-                i = i + 6
+                i += 6
 
             template[2 + j * 3] = ''.join(base)
             template[1 + j * 3] = ''.join(shift)
-            j = j + 1
+            j += 1
 
         return template
 
@@ -286,7 +286,7 @@ class Layout:
                 else:
                     desc = ' '
                     symbols.append('VoidSymbol')
-                description = description + ' ' + desc
+                description += ' ' + desc
 
             line = 'key <' + keyName.upper() + '> ' + '{[ ' + \
                 symbols[0].ljust(maxLength) + ', ' +   \
@@ -338,7 +338,7 @@ class Layout:
                 else:
                     desc = ' '
                     symbols.append('-1')
-                description = description + ' ' + desc
+                description += ' ' + desc
 
             output.append('\t'.join([
                 KEY_CODES['klc'][keyName],     # scan code & virtual key
