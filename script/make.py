@@ -276,7 +276,7 @@ class Layout:
                             symbol = 'ISO_Level3_Latch'
                         else:
                             desc = dk['alt_self']
-                            symbol = 'dead_' + dk['code']
+                            symbol = 'dead_' + dk['name']
                     elif symbol in XKB_KEY_SYM \
                             and len(XKB_KEY_SYM[symbol]) <= maxLength:
                         symbol = XKB_KEY_SYM[symbol]
@@ -351,8 +351,50 @@ class Layout:
         return output
 
     @property
-    def klc_deadkey(self):
-        """ Windows layout, dead key. """
+    def klc_deadkeys(self):
+        """ Windows layout, dead keys. """
+
+        output = []
+
+        def appendLine(base, alt):
+            s = '{0}\t{1}\t// {2} -> {3}'
+            output.append(s.format(hex_ord(base), hex_ord(alt), base, alt))
+
+        for k in self.dk_index:
+            dk = self.dead_keys[k]
+
+            output.append('// DEADKEY: ' + dk['name'].upper() + ' //{{{')
+            output.append('DEADKEY\t' + hex_ord(dk['alt_space']))
+            output.append('')
+
+            if k == LAFAYETTE_KEY:
+                output.extend(self.klc_dkLafayette)
+            else:
+                for i in range(len(dk['base'])):
+                    appendLine(dk['base'][i], dk['alt'][i])
+            output.append('')
+            appendLine('\u00a0', dk['alt_space'])
+            appendLine('\u0020', dk['alt_space'])
+
+            output.append('//}}}')
+            output.append('')
+
+        return output[:-1]
+
+    @property
+    def klc_dkIndex(self):
+        """ Windows layout, dead key index. """
+
+        output = []
+        for k in self.dk_index:
+            dk = self.dead_keys[k]
+            output.append('{0}\t"{1}"'.format(hex_ord(dk['alt_space']),
+                                              dk['name'].upper()))
+        return output
+
+    @property
+    def klc_dkLafayette(self):
+        """ Windows layout, Lafayette key. """
 
         output = []
         for i in [0, 1]:
@@ -409,7 +451,7 @@ class Layout:
             if keyName in layer:
                 key = layer[keyName]
                 if key in self.dead_keys:
-                    symbol = 'dead_' + self.dead_keys[key]['code']
+                    symbol = 'dead_' + self.dead_keys[key]['name']
                     isDeadKey = True
                 else:
                     symbol = xml_proof(key.upper() if caps else key)
@@ -435,7 +477,7 @@ class Layout:
         def when(state, action):
             s = 'state="{0}"'.format(state).ljust(18)
             if action in self.dead_keys:
-                a = 'next="{0}"'.format(self.dead_keys[action]['code'])
+                a = 'next="{0}"'.format(self.dead_keys[action]['name'])
             elif action.startswith('dead_'):
                 a = 'next="{0}"'.format(action[5:])
             else:
@@ -448,13 +490,13 @@ class Layout:
         output.append(when('none', ' '))
         for k in self.dk_index:
             dk = self.dead_keys[k]
-            output.append(when(dk['code'], dk['alt_space']))
+            output.append(when(dk['name'], dk['alt_space']))
         output.append('</action>')
         output.append('<action id="nbsp">')
         output.append(when('none', '&#x00a0;'))
         for k in self.dk_index:
             dk = self.dead_keys[k]
-            output.append(when(dk['code'], dk['alt_space']))
+            output.append(when(dk['name'], dk['alt_space']))
         output.append('</action>')
 
         # all other actions
@@ -472,7 +514,7 @@ class Layout:
                 if i and key == self.layers[0][keyName]:
                     continue
                 if key in self.dead_keys:
-                    symbol = 'dead_' + self.dead_keys[key]['code']
+                    symbol = 'dead_' + self.dead_keys[key]['name']
                 else:
                     symbol = xml_proof(key)
 
@@ -481,7 +523,7 @@ class Layout:
                     dk = self.dead_keys[k]
                     if key in dk['base']:
                         idx = dk['base'].index(key)
-                        action.append(when(dk['code'], dk['alt'][idx]))
+                        action.append(when(dk['name'], dk['alt'][idx]))
 
                 if key in self.dead_keys:
                     deadKeys.append('<action id="{0}">'.format(symbol))
@@ -501,7 +543,7 @@ class Layout:
                 key = self.layers[i][keyName]
                 if key not in self.dead_keys:
                     continue
-                symbol = 'dead_' + self.dead_keys[key]['code']
+                symbol = 'dead_' + self.dead_keys[key]['name']
                 if symbol in dkIndex:
                     continue
                 deadKeys.append('<action id="{0}">'.format(symbol))
@@ -519,7 +561,7 @@ class Layout:
         output = []
         for k in self.dk_index:
             dk = self.dead_keys[k]
-            s = 'state="{0}"'.format(dk['code']).ljust(18)
+            s = 'state="{0}"'.format(dk['name']).ljust(18)
             o = 'output="{0}"'.format(xml_proof(dk['alt_self']))
             output.append(' <when {0} {1} />'.format(s, o))
         return output
@@ -564,10 +606,16 @@ def make_layout(filePath):
     klc_out = substitute_lines(klc_out, 'GEOMETRY_qwerty', layout_qwerty)
     klc_out = substitute_lines(klc_out, 'GEOMETRY_altgr', layout_altgr)
     klc_out = substitute_lines(klc_out, 'LAYOUT', layout.klc)
-    klc_out = substitute_lines(klc_out, 'DEADKEY', layout.klc_deadkey)
+    klc_out = substitute_lines(klc_out, 'DEAD_KEYS', layout.klc_deadkeys)
+    klc_out = substitute_lines(klc_out, 'DEAD_KEY_INDEX', layout.klc_dkIndex)
     klc_out = substitute_token(klc_out, 'encoding', 'UTF-16LE')
-    open(klc_path, 'w', encoding='utf-16le') \
-        .write(klc_out.replace('\n', '\r\n'))
+    klc_out = klc_out.replace('\n', '\r\n')
+    open(klc_path, 'w', encoding='utf-16le').write(klc_out)
+    print('... ' + klc_path)
+
+    # an utf-8 version can't hurt (easier to diff)
+    klc_path = 'dist/' + name + '_utf8.klc'
+    open(klc_path, 'w').write(klc_out)
     print('... ' + klc_path)
 
     # Mac OSX driver
