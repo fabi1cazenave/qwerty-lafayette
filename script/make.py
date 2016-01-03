@@ -296,7 +296,7 @@ class Layout:
                 symbols[4].ljust(maxLength) + ', ' +   \
                 symbols[5].ljust(maxLength) + ']};'
             if showDescription:
-                line = line + description
+                line += description.rstrip()
             output.append(line)
 
         return output
