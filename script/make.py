@@ -282,19 +282,15 @@ class Layout:
                         symbol = XKB_KEY_SYM[symbol]
                     else:
                         symbol = 'U' + hex_ord(symbol).upper()
-                    symbols.append(symbol)
                 else:
                     desc = ' '
-                    symbols.append('VoidSymbol')
-                description += ' ' + desc
+                    symbol = 'VoidSymbol'
 
-            line = 'key <' + keyName.upper() + '> ' + '{[ ' + \
-                symbols[0].ljust(maxLength) + ', ' +   \
-                symbols[1].ljust(maxLength) + ', ' +   \
-                symbols[2].ljust(maxLength) + ', ' +   \
-                symbols[3].ljust(maxLength) + '],[ ' + \
-                symbols[4].ljust(maxLength) + ', ' +   \
-                symbols[5].ljust(maxLength) + ']};'
+                description += ' ' + desc
+                symbols.append(symbol.ljust(maxLength))
+
+            s = 'key <{}> {{[ {}, {}, {}, {}],[ {}, {}]}};'
+            line = s.format(* [keyName.upper()] + symbols)
             if showDescription:
                 line += description.rstrip()
             output.append(line)
