@@ -441,24 +441,20 @@ class Layout:
                 continue
 
             symbol = '&#x0010;'
-            isDeadKey = False
-            hasDeadKey = False
+            finalKey = True
 
             if keyName in layer:
                 key = layer[keyName]
                 if key in self.dead_keys:
                     symbol = 'dead_' + self.dead_keys[key]['name']
-                    isDeadKey = True
+                    finalKey = False
                 else:
                     symbol = xml_proof(key.upper() if caps else key)
-                hasDeadKey = isDeadKey or has_dead_keys(key)
+                    finalKey = not has_dead_keys(key)
 
-            code = 'code="{0}"'.format(KEY_CODES['osx'][keyName]).ljust(10)
-            if hasDeadKey:
-                action = 'action="{0}"'.format(symbol)
-            else:
-                action = 'output="{0}"'.format(symbol)
-            output.append('<key {0} {1} />'.format(code, action))
+            c = 'code="{0}"'.format(KEY_CODES['osx'][keyName]).ljust(10)
+            a = '{0}="{1}"'.format('output' if finalKey else 'action', symbol)
+            output.append('<key {0} {1} />'.format(c, a))
 
         return output
 
