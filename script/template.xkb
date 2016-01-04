@@ -50,7 +50,11 @@ xkb_keymap {
 
     // AltGr
     // Note: the `ISO_Level5_Latch` here is meaningless but helps with Chromium (no idea why).
-    key <RALT> {[ ISO_Level5_Latch, ISO_Level5_Latch ], actions = [ SetGroup(group=2) ]};
+    key <RALT> {
+      type = "TWO_LEVEL",
+      symbols = [ ISO_Level5_Latch, ISO_Level5_Latch ],
+      actions = [ SetGroup(group=2), SetGroup(group=2) ]
+    };
   };
 
   //xkb_geometry { include "pc(pc105)" };
