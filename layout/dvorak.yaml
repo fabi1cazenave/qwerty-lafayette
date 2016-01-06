@@ -1,5 +1,6 @@
+name: Dvorak-Lafayette
+description: US-Dvorak layout, French variant
 version: 0.5pre
-geometry: ISO
 
 base: |
   ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━┓

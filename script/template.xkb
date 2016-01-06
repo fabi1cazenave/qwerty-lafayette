@@ -1,13 +1,15 @@
 //
-// File          : lafayette.xkb
+// File          : ${fileName}.xkb
 // Project page  : http://fabi1cazenave.github.com/qwerty-lafayette/
-// Author        : Fabien Cazenave
-// License       : WTFPL
+// Author        : ${author}
+// Version       : ${version}
+// Last change   : ${lastChange}
+// License       : ${license}
 //
-// US-QWERTY layout, French variant
+// ${description}
 //
 // To apply this keymap, use:
-//   xkbcomp -w9 lafayette.xkb $DISPLAY
+//   xkbcomp -w9 ${fileName}.xkb $DISPLAY
 //
 
 xkb_keymap {

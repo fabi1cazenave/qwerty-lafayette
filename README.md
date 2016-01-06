@@ -14,7 +14,7 @@ This layout claims to be better than Azerty for French and better than Qwerty fo
 Layout
 ------
 
-The `;:` key is turned into a dead key that gives access to all acute accents, grave accents, cedillas and quote signs you’ll need to write in French properly:
+The `;:` key is turned into a dead key that gives access to all acute accents, grave accents, cedillas and quote signs you’ll need to write in proper French:
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━┓
 │ ~   │ !   │ @   │ #   │ $   │ %   │ ^   │ &   │ *   │ (   │ )   │ _   │ +   ┃          ┃
@@ -57,6 +57,11 @@ The `;:` key is turned into a dead key that gives access to all acute accents, g
 The default layout allows to write in English, French, Spanish, Portuguese, Italian, German, Dutch and Esperanto easily.
 
 More information on the website (in French): http://fabi1cazenave.github.io/qwerty-lafayette/
+
+Download
+--------
+
+http://fabi1cazenave.github.io/qwerty-lafayette/#download
 
 Why the name?
 -------------

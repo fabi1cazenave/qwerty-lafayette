@@ -1,5 +1,6 @@
-version: 0.5.0
-geometry: ISO
+name: Qwerty-Lafayette
+description: US-QWERTY layout, French variant
+version: 0.5.1
 
 base: |
   ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━┓
