@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import datetime
 import os
 import re
 import sys
@@ -76,6 +77,12 @@ def openLocalFile(fileName):
     return open(sys.path[0] + '/' + fileName)
 
 
+CONFIG = {
+    'author': 'Fabien Cazenave',
+    'license': 'WTFPL - Do What The Fuck You Want Public License',
+    'geometry': 'ISO'
+}
+
 GEOMETRY = yaml.load(openLocalFile('geometry.yaml'))
 DEAD_KEYS = yaml.load(openLocalFile('dead_keys.yaml'))
 KEY_CODES = yaml.load(openLocalFile('key_codes.yaml'))
@@ -113,10 +120,23 @@ class Layout:
 
         self.layers = [{}, {}, {}, {}, {}, {}]
         self.dead_keys = {}  # dictionary subset of DEAD_KEYS
-        self.dk_index = []
+        self.dk_index = []   # ordered keys of the above dictionary
+        self.meta = CONFIG   # default parameters, hardcoded
 
+        # metadata: self.meta
         cfg = yaml.load(open(filePath))
-        rows = GEOMETRY[cfg['geometry']]['rows']
+        for k in cfg:
+            if k != 'base' and k != 'altgr':
+                self.meta[k] = cfg[k]
+        fileName = os.path.splitext(os.path.basename(filePath))[0]
+        self.meta['name'] = cfg['name'] if 'name' in cfg else fileName
+        self.meta['name8'] = cfg['name8'] if 'name8' in cfg \
+            else self.meta['name'][0:8]
+        self.meta['fileName'] = self.meta['name8'].lower()
+        self.meta['lastChange'] = datetime.date.today().isoformat()
+
+        # keyboard layers: self.layers & self.dead_keys
+        rows = GEOMETRY[self.meta['geometry']]['rows']
         base = remove_spaces_before_combining_chars(cfg['base']).split('\n')
         altgr = remove_spaces_before_combining_chars(cfg['altgr']).split('\n')
         self._parse_template(base, rows, 0)
@@ -124,6 +144,7 @@ class Layout:
         self._parse_template(altgr, rows, 4)
         self._parse_lafayette_keys()
 
+        # active dead keys: self.dk_index
         for dk in DEAD_KEYS:
             if dk['char'] in self.dead_keys:
                 self.dk_index.append(dk['char'])
@@ -583,35 +604,41 @@ def substitute_token(template, token, value):
     return exp.sub(value, template)
 
 
+def substitute_meta(template, meta):
+    for k in meta:
+        template = substitute_token(template, k, meta[k])
+    return template
+
+
 def make_layout(filePath):
     layout = Layout(filePath)
     layout_qwerty = layout.get_geometry([0, 2])  # base + dead key
     layout_altgr = layout.get_geometry([4])      # altgr
 
-    name = os.path.splitext(os.path.basename(filePath))[0]
     if not os.path.exists('dist'):
         os.makedirs('dist')
 
     # Windows driver (the utf-8 template is converted to a utf-16le file)
-    klc_path = 'dist/' + name + '.klc'
+    klc_path = 'dist/' + layout.meta['fileName'] + '.klc'
     klc_out = openLocalFile('template.klc').read()
     klc_out = substitute_lines(klc_out, 'GEOMETRY_qwerty', layout_qwerty)
     klc_out = substitute_lines(klc_out, 'GEOMETRY_altgr', layout_altgr)
     klc_out = substitute_lines(klc_out, 'LAYOUT', layout.klc)
     klc_out = substitute_lines(klc_out, 'DEAD_KEYS', layout.klc_deadkeys)
     klc_out = substitute_lines(klc_out, 'DEAD_KEY_INDEX', layout.klc_dkIndex)
-    klc_out = substitute_token(klc_out, 'encoding', 'UTF-16LE')
+    klc_out = substitute_token(klc_out, 'encoding', 'utf-16le')
+    klc_out = substitute_meta(klc_out, layout.meta)
     klc_out = klc_out.replace('\n', '\r\n')
     open(klc_path, 'w', encoding='utf-16le').write(klc_out)
     print('... ' + klc_path)
 
     # an utf-8 version can't hurt (easier to diff)
-    klc_path = 'dist/' + name + '_utf8.klc'
+    klc_path = 'dist/' + layout.meta['fileName'] + '_utf8.klc'
     open(klc_path, 'w').write(klc_out)
     print('... ' + klc_path)
 
     # Mac OSX driver
-    osx_path = 'dist/' + name + '.keylayout'
+    osx_path = 'dist/' + layout.meta['fileName'] + '.keylayout'
     osx_out = openLocalFile('template.keylayout').read()
     osx_out = substitute_lines(osx_out, 'GEOMETRY_qwerty', layout_qwerty)
     osx_out = substitute_lines(osx_out, 'GEOMETRY_altgr', layout_altgr)
@@ -622,15 +649,17 @@ def make_layout(filePath):
     osx_out = substitute_lines(osx_out, 'LAYOUT_4', layout.get_osx_keyMap(4))
     osx_out = substitute_lines(osx_out, 'ACTIONS', layout.osx_actions)
     osx_out = substitute_lines(osx_out, 'TERMINATORS', layout.osx_terminators)
+    osx_out = substitute_meta(osx_out, layout.meta)
     open(osx_path, 'w').write(osx_out)
     print('... ' + osx_path)
 
     # Linux driver
-    xkb_path = 'dist/' + name + '.xkb'
+    xkb_path = 'dist/' + layout.meta['fileName'] + '.xkb'
     xkb_out = openLocalFile('template.xkb').read()
     xkb_out = substitute_lines(xkb_out, 'GEOMETRY_qwerty', layout_qwerty)
     xkb_out = substitute_lines(xkb_out, 'GEOMETRY_altgr', layout_altgr)
     xkb_out = substitute_lines(xkb_out, 'LAYOUT', layout.xkb)
+    xkb_out = substitute_meta(xkb_out, layout.meta)
     open(xkb_path, 'w').write(xkb_out)
     print('... ' + xkb_path)
 

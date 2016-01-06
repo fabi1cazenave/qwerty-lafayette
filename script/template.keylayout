@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
-<!-- French QWERTY layout
-  File          : lafayette.keylayout
+<!-- ${description}
+  File          : ${fileName}.keylayout
   Project page  : http://fabi1cazenave.github.com/qwerty-lafayette/
-  Author        : Fabien Cazenave
-  Version       : 0.5
-  Last change   : 2016-01-01
-  License       : WTFPL - Do What The Fuck You Want Public License
+  Author        : ${author}
+  Version       : ${version}
+  Last change   : ${lastChange}
+  License       : ${license}
   Reference     : http://developer.apple.com/library/mac/#technotes/tn2002/tn2056.html
 
   Logical layer (Apple keycodes)

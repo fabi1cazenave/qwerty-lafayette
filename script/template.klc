@@ -1,16 +1,18 @@
 ﻿//
-// File          : lafayette.klc
+// File          : ${fileName}.klc
 // Encoding      : ${encoding=utf-8, with BOM}
 // Project page  : http://fabi1cazenave.github.com/qwerty-lafayette/
-// Author        : Fabien Cazenave
-// License       : WTFPL
+// Author        : ${author}
+// Version       : ${version}
+// Last change   : ${lastChange}
+// License       : ${license}
 //
-// US-QWERTY layout, French variant, MSKLC source file.
+// ${description}
 //
 
-KBD	Qwerty-L	"Qwerty-Lafayette"
-COPYRIGHT	"(c) 2010-2016 Fabien Cazenave"
-COMPANY	"Fabien Cazenave"
+KBD	${name8}	"${name}"
+COPYRIGHT	"(c) 2010-2016 ${author}"
+COMPANY	"${author}"
 LOCALENAME	"fr-FR"
 LOCALEID	"0000040c"
 VERSION	1.0
