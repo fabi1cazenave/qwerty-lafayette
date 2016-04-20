@@ -13,7 +13,7 @@
 //
 
 xkb_keymap {
-  xkb_keycodes      { include "evdev" };
+  xkb_keycodes      { include "pc+us+inet(evdev)" };
   xkb_types         { include "complete" };
   xkb_compatibility { include "complete" };
 
