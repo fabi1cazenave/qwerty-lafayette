@@ -1,22 +1,22 @@
-name: Qwerty42-fr
-name8: q42-fr
-description: US-QWERTY layout, compact, French variant
+name: Qwerty42-fr-CH
+name8: q42-frCH
+description: US-QWERTY layout, compact, Swiss variant
 version: 0.6pre
 geometry: ERGO
 
 base: |
   ╭╌╌╌╌╌┰─────┬─────┬─────┬─────┬─────┰─────┬─────┬─────┬─────┬─────┰╌╌╌╌╌┬╌╌╌╌╌╮
   ┆ ~   ┃ ! ¡ │ @ ‘ │ # ’ │ $ ¢ │ % ‰ ┃ ^   │ &   │ *   │ (   │ )   ┃ _ – ┆ + ± ┆
-  ┆ `   ┃ 1 „ │ 2 “ │ 3 ” │ 4 £ │ 5 € ┃ 6   │ 7   │ 8   │ 9   │ 0 ° ┃ - — ┆ = ≠ ┆
+  ┆ `   ┃ 1 „ │ 2 “ │ 3 ” │ 4 £ │ 5 € ┃ 6   │ 7   │ 8   │ 9 œ │ 0 ° ┃ - — ┆ = ≠ ┆
   ╰╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤
         ┃ Q   │ W   │ E   │ R   │ T   ┃ Y ¤ │ U   │ I   │ O   │ P ¶ ┃ « { ┆ » } ┆
-        ┃   æ │   é │   è │   ® │   ™ ┃   ¥ │   ù │     │   œ │   § ┃ < [ ┆ > ] ┆
+        ┃   æ │   é │   è │   ® │   ™ ┃   ¥ │   ù │   ì │   ò │   § ┃ < [ ┆ > ] ┆
         ┠─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤
-        ┃ A   │ S   │ D   │ F ª │ G   ┃ H   │ J   │ K   │ L   │  ̈   ┃ "   ┆ |   ┆
-        ┃   à │   ß │   ê │   ſ │   © ┃   ŷ │   û │   î │   ô │  ⃡ ` ┃ '   ┆ \   ┆
+        ┃ A   │ S   │ D   │ F ª │ G   ┃ H   │ J   │ K   │ L   │  ̂   ┃ "   ┆ |   ┆
+        ┃   à │   ß │   ë │   ſ │   © ┃   ÿ │   ü │   ï │   ö │  ⃡ ` ┃ '   ┆ \   ┆
   ╭╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┴╌╌╌╌╌╯
   ┆ >   ┃ Z   │ X   │ C   │ V   │ B   ┃ N   │ M º │ ;   │ : · │ ? ¿ ┃
-  ┆ <   ┃   â │     │   ç │     │     ┃   ñ │   µ │ , • │ . … │ / \ ┃
+  ┆ <   ┃   ä │     │   ç │   ŭ │     ┃   ñ │   µ │ , • │ . … │ / \ ┃
   ╰╌╌╌╌╌┸─────┴─────┴─────┴─────┴─────┸─────┴─────┴─────┴─────┴─────┚
                   ╭───────┬───────────────────────┬───────╮
                   │  Alt  │                       │ AltGr │
@@ -40,7 +40,13 @@ altgr: |
                   │  Alt  │                       │ AltGr │
                   ╰───────┴───────────────────────┴───────╯
 
-# Supported languages: French, German.
-# - 1dk is a dead grave accent (except for i, o)
-# - 1dk + (key below vowel) = circumflex
-# - shift+1dk is a dead diaeresis
+# Supported languages: German, French, Italian, Esperanto.
+# - 1dk is a dead grave accent
+# - 1dk + (key below vowel) = diaeresis
+# - 1dk + (key above vowel) = digraph   — only for æ, œ
+# - shift+1dk is a dead circumflex
+
+# This is mostly the same layout as the q42-fr, the main difference being that
+# diaeresis and circumflex have been swapped. It makes it a bit trickier for
+# French, as circumflexes now require Shift+1dk (as on the standard Swiss
+# Qwertz).
