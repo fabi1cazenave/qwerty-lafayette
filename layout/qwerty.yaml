@@ -1,6 +1,6 @@
 name: Qwerty-Lafayette
 description: US-QWERTY layout, French variant
-version: 0.5.1
+version: 0.6.0
 
 base: |
   ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━┓
@@ -38,3 +38,9 @@ altgr: |
   ┃ Ctrl  ┃ super ┃ Alt   ┃                           Esc. ┃ AltGr ┃ super ┃ menu  ┃ Ctrl  ┃
   ┗━━━━━━━┻━━━━━━━┻━━━━━━━┹────────────────────────────────┺━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
 
+spacebar:
+  shift:       "\u00a0"  # NO-BREAK SPACE
+  altgr:       "\u00a0"  # NO-BREAK SPACE
+  altgr_shift: "\u202f"  # NARROW NO-BREAK SPACE
+  1dk:         "\u2019"  # RIGHT SINGLE QUOTATION MARK
+  1dk_shift:   "\u2019"  # RIGHT SINGLE QUOTATION MARK

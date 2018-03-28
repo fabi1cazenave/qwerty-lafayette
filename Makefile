@@ -1,15 +1,11 @@
 all:
-	python3 script/make.py layout/*.yaml layout.dev/*.yaml
+	kalamine layout/*.yaml layout.dev/*.yaml
 
 qwerty:
-	python3 script/make.py layout/qwerty.yaml
+	kalamine layout/qwerty.yaml
 
 dvorak:
-	python3 script/make.py layout/dvorak.yaml
+	kalamine layout/dvorak.yaml
 
 clean:
 	rm -f dist/*
-
-lint:
-	flake8 script
-
