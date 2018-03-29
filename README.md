@@ -63,6 +63,21 @@ Download
 
 http://fabi1cazenave.github.io/qwerty-lafayette/#download
 
+Make your own
+-------------
+
+You’ll need the latest version of [kalamine](https://github.com/fabi1cazenave/kalamine) to build your own layout:
+
+```bash
+pip3 install kalamine
+```
+
+And build your custom layout like this:
+
+```bash
+kalamine MyCustomLayout.yaml
+```
+
 Why the name?
 -------------
 
@@ -77,4 +92,3 @@ There are other ways to use a Qwerty-US keyboard for French. Here are the two mo
 * [qwerty-fr](http://marin.jb.free.fr/qwerty-fr/) — no dead keys, and a smart use of the AltGr layer for all French accented characters.
 
 Qwerty-Lafayette provides sharper typography and better ergonomics in the long run, but has a steeper learning curve for non-touch-typists.
-
