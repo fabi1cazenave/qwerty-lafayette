@@ -1,11 +1,13 @@
 all:
-	kalamine layout/*.yaml layout.dev/*.yaml
+	kalamine layouts/*.yaml
 
-qwerty:
-	kalamine layout/qwerty.yaml
-
-dvorak:
-	kalamine layout/dvorak.yaml
+install:
+	@echo "Installer script for XKB (GNU/Linux). Requires super-user privileges."
+	python3 bin/xkb_install.py
+	@echo
+	@echo "Testable with one of the following:"
+	@echo "    setxkbmap fr -variant lafayette"
+	@echo "    setxkbmap fr -variant lafayette42"
 
 clean:
-	rm -f dist/*
+	rm -rf dist/*
