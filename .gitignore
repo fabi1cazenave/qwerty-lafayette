@@ -1,3 +1,7 @@
+*.vim*
+custom/
+xkb/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

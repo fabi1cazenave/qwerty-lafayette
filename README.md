@@ -14,7 +14,7 @@ This layout claims to be better than Azerty for French and better than Qwerty fo
 Layout
 ------
 
-The `;:` key is turned into a dead key that gives access to all acute accents, grave accents, cedillas and quote signs you’ll need to write in proper French:
+The `;:` key is turned into a dead key that gives access to all acute accents, grave accents, cedillas, digraphs and quote signs you’ll need to write in proper French:
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━┓
 │ ~   │ !   │ @   │ #   │ $   │ %   │ ^   │ &   │ *   │ (   │ )   │ _   │ +   ┃          ┃
@@ -37,20 +37,20 @@ The `;:` key is turned into a dead key that gives access to all acute accents, g
 … which leaves the AltGr layer fully available for any customization you have in mind.
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━┓
-│   ~ │     │     │     │     │     │     │     │     │     │     │     │     ┃          ┃
-│   ` │   ! │   ( │   ) │   = │   ? │     │   7 │   8 │   9 │   / │     │     ┃ ⌫        ┃
+│    ̃ │     │     │     │     │     │     │     │     │     │     │     │     ┃          ┃
+│    ̀ │   ! │   ( │   ) │   ' │   " │   ^ │   7 │   8 │   9 │   / │     │     ┃ ⌫        ┃
 ┢━━━━━┷━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┺━━┳━━━━━━━┫
 ┃        ┃     │     │     │     │     │     │     │     │     │     │     │     ┃       ┃
-┃ ↹      ┃   - │   < │   > │   / │   \ │     │   4 │   5 │   6 │   * │     │     ┃       ┃
+┃ ↹      ┃   = │   < │   > │   - │   + │     │   4 │   5 │   6 │   * │     │     ┃       ┃
 ┣━━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┺┓  ⏎   ┃
-┃         ┃     │     │     │     │     │     │     │     │     │     │   ˙ │     ┃      ┃
-┃ ⇬       ┃   { │   [ │   ] │   } │   | │     │   1 │   2 │   3 │   - │   ´ │     ┃      ┃
+┃         ┃     │     │     │     │     │     │     │     │     │     │     │     ┃      ┃
+┃ ⇬       ┃   { │   [ │   ] │   } │   / │     │   1 │   2 │   3 │   - │    ́ │     ┃      ┃
 ┣━━━━━━┳━━┹──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┲━━┷━━━━━┻━━━━━━┫
 ┃      ┃     │     │     │     │     │     │     │     │     │     │     ┃               ┃
-┃ ⇧    ┃     │     │     │     │     │     │     │   0 │   , │   . │   + ┃ ⇧             ┃
+┃ ⇧    ┃     │   ~ │   ` │   | │   _ │   \ │     │   0 │   , │   . │   + ┃ ⇧             ┃
 ┣━━━━━━┻┳━━━━┷━━┳━━┷━━━━┱┴─────┴─────┴─────┴─────┴─────┴─┲━━━┷━━━┳━┷━━━━━╋━━━━━━━┳━━━━━━━┫
 ┃       ┃       ┃       ┃                                ┃       ┃       ┃       ┃       ┃
-┃ Ctrl  ┃ super ┃ Alt   ┃                           Esc. ┃ AltGr ┃ super ┃ menu  ┃ Ctrl  ┃
+┃ Ctrl  ┃ super ┃ Alt   ┃                                ┃ AltGr ┃ super ┃ menu  ┃ Ctrl  ┃
 ┗━━━━━━━┻━━━━━━━┻━━━━━━━┹────────────────────────────────┺━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
 ```
 
