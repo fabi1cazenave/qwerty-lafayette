@@ -9,5 +9,9 @@ install:
 	@echo "    setxkbmap fr -variant lafayette"
 	@echo "    setxkbmap fr -variant lafayette42"
 
+uninstall:
+	@echo "Unistaller script for XKB (GNU/Linux). Requires super-user privileges."
+	python3 bin/xkb_uninstall.py
+
 clean:
 	rm -rf dist/*
