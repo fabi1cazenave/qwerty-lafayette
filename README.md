@@ -72,6 +72,12 @@ You’ll need the latest version of [kalamine](https://github.com/fabi1cazenave/
 pip3 install kalamine
 ```
 
+As [kalamine](https://github.com/fabi1cazenave/kalamine) requires pyyaml:
+
+```bash
+pip3 install pyyaml
+```
+
 And build your custom layout like this:
 
 ```bash
