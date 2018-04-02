@@ -83,13 +83,14 @@
             <em> 4 </em>
             <em class="lafayette secondary"> £ </em>
             <strong class="lafayette secondary"> ¢ </strong>
-            <em class="altgr"> = </em>
+            <em class="altgr"> ' </em>
           </li>
           <li id="key_AE05">
             <strong> % </strong>
             <em> 5 </em>
             <strong class="lafayette secondary"> ‰ </strong>
             <em class="lafayette"> € </em>
+            <em class="altgr"> " </em>
           </li>
           <li id="key_AE06">
             <strong> ^ </strong>
@@ -141,7 +142,7 @@
             <strong> Q </strong>
             <em> q </em>
             <em class="lafayette"> æ </em>
-            <em class="altgr"> - </em>
+            <em class="altgr"> = </em>
           </li>
           <li id="key_AD02" class="letter">
             <strong> W </strong>
@@ -160,13 +161,13 @@
             <em> r </em>
             <strong class="lafayette secondary"> ™ </strong>
             <em class="lafayette secondary"> ® </em>
-            <em class="altgr"> / </em>
+            <em class="altgr"> - </em>
           </li>
           <li id="key_AD05" class="letter">
             <strong> T </strong>
             <em> t </em>
             <em class="lafayette secondary"> þ </em>
-            <em class="altgr"> \ </em>
+            <em class="altgr"> + </em>
           </li>
           <li id="key_AD06" class="letter">
             <strong> Y </strong>
@@ -254,7 +255,7 @@
             <strong> G </strong>
             <em> g </em>
             <em class="lafayette secondary"> © </em>
-            <em class="altgr"> | </em>
+            <em class="altgr"> / </em>
           </li>
           <li id="key_AC06" class="letter">
             <strong> H </strong>
@@ -286,7 +287,6 @@
           <li id="key_AC11">
             <strong> " </strong>
             <em> ' </em>
-            <strong class="altgr deadKey"> ˙ </strong>
             <em class="altgr deadKey"> ´ </em>
           </li>
           <li id="key_RTRN" class="specialKey">
@@ -309,29 +309,32 @@
           <li id="key_AB01" class="letter">
             <strong> Z </strong>
             <em> z </em>
-            <strong class="lafayette secondary"> ≤ </strong>
             <em class="lafayette"> &lt; </em>
+            <em class="altgr"> ~ </em>
           </li>
           <li id="key_AB02" class="letter">
             <strong> X </strong>
             <em> x </em>
-            <strong class="lafayette secondary"> ≥ </strong>
             <em class="lafayette"> &gt; </em>
+            <em class="altgr"> ` </em>
           </li>
           <li id="key_AB03" class="letter">
             <strong> C </strong>
             <em> c </em>
             <em class="lafayette"> ç </em>
+            <em class="altgr"> | </em>
           </li>
           <li id="key_AB04" class="letter">
             <strong> V </strong>
             <em> v </em>
             <em class="lafayette secondary"> ŭ </em>
+            <em class="altgr"> _ </em>
           </li>
           <li id="key_AB05" class="letter">
             <strong> B </strong>
             <em> b </em>
             <em class="lafayette secondary"> † </em>
+            <em class="altgr"> \ </em>
           </li>
           <li id="key_AB06" class="letter">
             <strong> N </strong>
@@ -348,13 +351,13 @@
           <li id="key_AB08" class="qwerty">
             <strong> ; </strong>
             <em> , </em>
-            <em class="lafayette secondary"> • </em>
+            <strong class="lafayette secondary"> • </strong>
+            <em class="lafayette secondary"> · </em>
             <em class="altgr"> , </em>
           </li>
           <li id="key_AB09" class="qwerty">
             <strong> : </strong>
             <em> . </em>
-            <strong class="lafayette secondary"> · </strong>
             <em class="lafayette"> … </em>
             <em class="altgr"> . </em>
           </li>
@@ -385,7 +388,6 @@
             <strong> ⍽ Espace insécable </strong>
             <em> ⍽ Espace </em>
             <em class="lafayette"> ’ </em>
-            <em class="altgr"> Escape </em>
           </li>
           <li id="key_RALT" class="specialKey">
             <em> altgr </em>
@@ -534,7 +536,7 @@
   <h2 id="download"> Téléchargement </h2>
   <dl class="download">
     <dt>
-      <strong> Windows : </strong>
+      <strong> Windows : </strong> (v0.5)
       <a href="./releases/lafayette_windows_v0.5.zip">lafayette_windows_v0.5.zip</a> (264 Ko)
     </dt>
     <dd>
@@ -569,21 +571,52 @@
         github</a>. </p>
     </dd>
     <dt>
-      <strong> GNU/Linux : </strong>
-      <a href="./releases/lafayette_linux_v0.5.xkb">lafayette_linux_v0.5.xkb</a> (16 Ko)
+      <strong> GNU/Linux : </strong> (v0.6)
+      <a href="./releases/lafayette_linux_v0.6.xkb">lafayette_linux_v0.6.xkb</a> (15 Ko)
+    </dt>
+    <dt>
+      <strong> GNU/Linux : </strong> (v0.6)
+      <a href="./releases/lafayette42_linux_v0.6.xkb">lafayette42_linux_v0.6.xkb</a> (15 Ko)
     </dt>
     <dd>
       <p>
-        enregistrer et appliquer avec « <code>xkbcomp -w9 lafayette.xkb $DISPLAY</code> ».
+        enregistrer et appliquer avec <code>xkbcomp lafayette.xkb $DISPLAY</code>.
       </p>
       <p>
-        Pour revenir à la disposition Azerty : « <code>setxkbmap fr</code> ».
+        Un installeur est également disponible, pour que la disposition
+        Lafayette soit activée dès le lancement de session et sélectionnable
+        directement depuis le panneau de configuration (gnome-control-center et
+        autres) :
+      </p>
+      <pre>
+        <code>curl http://qwerty-lafayette.org/releases/lafayette_linux_v0.6.py | sudo python3</code>
+      </pre>
+      <p>
+        L’installeur contient les deux variantes, lafayette et lafayette42. Pour
+        activer la disposition : <code>setxkbmap fr -variant lafayette</code> ou
+        <code>setxkbmap fr -variant lafayette42</code>.
+      </p>
+      <p>
+        Pour revenir à la disposition Azerty : <code>setxkbmap fr</code>.
       </p>
     </dd>
   </dl>
 
   <h2 id="changelog"> Notes de version </h2>
   <dl>
+    <dt> v0.6 (2018-04-02) </dt>
+    <dd>
+      <ul>
+        <li> variante <a
+            href="https://github.com/fabi1cazenave/qwerty-lafayette/blob/master/layouts/qwerty42.yaml">Lafayette42</a>,
+          dédiée aux claviers compacts ; </li>
+        <li> la couche AltGr a été modifiée pour faciliter certains
+          enchaînements : <code>+=</code>, <code>-=</code>, <code>=&gt;</code>,
+          <code>('')</code>, <code>~/</code>, etc. ; </li>
+        <li> AltGr+Espace ne produit plus Escape (impossible à implémenter sous
+        Windows).</li>
+      </ul>
+    </dd>
     <dt> v0.5 (2015-12-10) </dt>
     <dd>
       Quelques changements sur les caractères spéciaux :
@@ -622,10 +655,6 @@
     <li>
       Windows : certains caractères spéciaux risquent de ne pas s’afficher
       correctement avec l’encodage par défaut (cp-1252).
-    </li>
-    <li>
-      Windows : AltGr+<code>Espace</code> donne Espace au lieu d’Escape. C’est
-      une limitation voulue par Microsoft.
     </li>
     <li>
       Mac OSX : tous les raccourcis « Commande » conservent la disposition
