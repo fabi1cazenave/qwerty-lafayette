@@ -216,6 +216,25 @@
 
 
 /******************************************************************************
+ * Compact Keyboard Geometry (TMx42)
+ */
+
+.tmx42 #key_AE11,
+.tmx42 #key_AE12,
+.tmx42 #key_AD11,
+.tmx42 #key_AD12,
+.tmx42 #key_AC11,
+.tmx42 #key_BKSL,
+.tmx42 #key_TLDE { visibility: hidden; }
+.tmx42 #key_MENU { display: none; }
+.tmx42 #key_RTSH { margin-left: 2px; }
+
+#keyboard.tmx42 {
+  margin-left: 23px;
+}
+
+
+/******************************************************************************
  * Background Images for Tab, Backspace, Caps, Return, Shift
  */
 
