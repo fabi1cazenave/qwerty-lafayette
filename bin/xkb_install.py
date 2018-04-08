@@ -11,12 +11,12 @@ LAYOUTS = {
     'fr': [
         {
             'name': 'lafayette',
-            'desc': 'French (Qwerty-Lafayette)',
+            'desc': 'French (Lafayette)',
             'symbols': ''
         },
         {
             'name': 'lafayette42',
-            'desc': 'French (Qwerty-Lafayette, compact variant)',
+            'desc': 'French (Lafayette42)',
             'symbols': ''
         }
     ]
@@ -80,6 +80,9 @@ for locale, layouts in LAYOUTS.items():
         symbols.write('// ' + MARK_END)
         symbols.close()
 
+    # announce modified file
+    print('... ' + path)
+
 
 ###############################################################################
 # XKB/rules: update layout references in {base,evdev}.xml
@@ -119,3 +122,4 @@ for filename in ['base.xml', 'evdev.xml']:
 
     # update the file
     tree.write(path, pretty_print=True, xml_declaration=True, encoding='utf-8')
+    print('... ' + path)
