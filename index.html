@@ -542,11 +542,11 @@
     </dt>
     <dd>
       <p>
-        dézipper et exécuter « <code>setup.exe</code> ».
+        dézipper et exécuter <code>setup.exe</code>.
       </p>
       <p>
-        La disposition de clavier sera disponible dans vos préférences « Options
-        régionales et linguistiques », onglet « Langues », bouton « Détails… ».
+        La disposition de clavier apparaît dans la barre de langues (indicateur
+        de la barre des tâches).
       </p>
     </dd>
     <dt>
@@ -573,33 +573,25 @@
     </dd>
     <dt>
       <strong> GNU/Linux : </strong> (v0.6)
-      <a href="./releases/lafayette_linux_v0.6.xkb">lafayette_linux_v0.6.xkb</a> (15 Ko)
-    </dt>
-    <dt>
-      <strong> GNU/Linux : </strong> (v0.6)
-      <a href="./releases/lafayette42_linux_v0.6.xkb">lafayette42_linux_v0.6.xkb</a> (15 Ko)
+      <a href="./releases/lafayette_linux_v0.6.1.py">lafayette_linux_v0.6.1.py</a> (36 Ko)
     </dt>
     <dd>
       <p>
-        enregistrer et appliquer avec <code>xkbcomp lafayette.xkb $DISPLAY</code>.
-      </p>
-      <p>
-        Un installeur est également disponible, pour que la disposition
-        Lafayette soit activée dès le lancement de session et sélectionnable
-        directement depuis le panneau de configuration (gnome-control-center et
-        autres) :
+        script d’installation, nécessitant Python3 et lxml :
       </p>
       <pre>
-        <code>curl http://qwerty-lafayette.org/releases/lafayette_linux_v0.6.py | sudo python3</code>
+        sudo pip3 install python3-lxml
+        curl -s http://qwerty-lafayette.org/releases/lafayette_linux_v0.6.1.py | sudo python3
       </pre>
       <p>
-        L’installeur contient les deux variantes, lafayette et lafayette42. Pour
-        activer la disposition : <code>setxkbmap fr -variant lafayette</code> ou
-        <code>setxkbmap fr -variant lafayette42</code>.
+        L’installeur contient les deux variantes, lafayette et lafayette42. Ces
+        dispositions sont activables par le gestionnaire de préférences Gnome ou
+        directement en ligne de commande :
       </p>
-      <p>
-        Pour revenir à la disposition Azerty : <code>setxkbmap fr</code>.
-      </p>
+      <pre>
+        setxkbmap fr -variant lafayette
+        setxkbmap fr -variant lafayette42
+      </pre>
     </dd>
   </dl>
 
