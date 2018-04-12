@@ -1,6 +1,5 @@
 *.vim*
-custom/
-xkb/
+dist.custom/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -61,3 +60,8 @@ docs/_build/
 
 # PyBuilder
 target/
+=======
+custom/*
+dist/*
+env/*
+>>>>>>> 67692c40124ab8c963a9f5ea5d0c89c5f3b75474

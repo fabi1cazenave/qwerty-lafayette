@@ -1,0 +1,279 @@
+/**
+ * graphical keyboard layout, fixed size (664*230px)
+ */
+
+#keyboard, #keyboard ul {
+  margin: 0;
+  padding: 0;
+  width: 664px;
+}
+* html #keyboard ul {
+  /**
+   * IE6-specific hack:
+   * required for the pc104/pc105 layouts
+   * the TMx layout requires another hack on #key_AC01, see below
+   */
+  width: 672px;
+}
+#keyboard {
+  margin: 20px auto;
+  position: relative;
+  height: 230px;
+}
+
+
+/******************************************************************************
+ * Default Keyboard Geometry (pc104)
+ */
+
+/* rows */
+#keyboard li {
+  list-style-type: none;
+  clear: both;
+  margin: 0;
+  padding: 0;
+}
+#keyboard #row_AD {
+  position: absolute;
+  top: 46px;
+}
+#keyboard #row_AC {
+  position: absolute;
+  top: 92px;
+}
+#keyboard #row_AB {
+  position: absolute;
+  top: 138px;
+}
+#keyboard #row_AA {
+  position: absolute;
+  top: 184px;
+}
+
+/* keys */
+#keyboard li li {
+  position: relative;
+  float: left;
+  clear: none;
+  width: 40px;
+  height: 40px;
+  margin: 2px;
+  border: 1px solid black;
+   -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+       -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+           border-radius: 5px;
+}
+#keyboard li strong {
+  position: absolute;
+  font-weight: normal;
+  top: 2px;
+  left: 3px;
+}
+#keyboard li em {
+  position: absolute;
+  font-style: normal;
+  bottom: 2px;
+  left: 3px;
+}
+#keyboard li .deadKey {
+  font-size: larger;
+  font-weight: bold;
+  color: red;
+}
+#keyboard li em.deadKey {
+  bottom: -2px;
+}
+
+/* special keys */
+#keyboard li.specialKey {
+  background-color: #ddd;
+}
+#keyboard li.specialKey * {
+  font-size: 13px;
+  font-style: italic;
+}
+#row_AA li.specialKey {
+  width: 56px;
+}
+#keyboard #key_TAB,
+#keyboard #key_BKSP {
+  width: 60px;
+}
+#keyboard #key_CAPS,
+#keyboard #key_RTRN {
+  width: 73px;
+}
+#keyboard #key_LFSH,
+#keyboard #key_RTSH {
+  width: 96px;
+}
+#keyboard #key_SPCE {
+  width: 240px;
+}
+#keyboard #key_MENU {
+  width: 40px;
+}
+
+/* hide LSGT for pc104 (default) */
+#key_LSGT, #key_CAPS105, #key_RTRN105 {
+  display: none;
+}
+
+
+/******************************************************************************
+ * European Keyboard Geometry (pc105)
+ */
+
+.pc105 #key_LFSH {
+  width: 50px !important;
+}
+.pc105 #key_RTRN {
+  width: 27px !important;
+  height: 86px !important;
+  margin-top: -44px;
+  margin-left: 48px;
+}
+.pc105 #key_BKSL {
+  margin-top: 48px;
+  margin-left: -31px;
+}
+.pc105 #key_LSGT {
+  display: block;
+}
+/* visual tweaks for CapsLock and Return */
+.pc105 #key_CAPS105, .pc105 #key_RTRN105 {
+  background-color: #e8e8e8 !important;
+  display: block;
+}
+.pc105 #key_CAPS {
+  width: 60px !important;
+}
+.pc105 #key_CAPS, .pc105 #key_RTRN {
+  z-index: 1;
+}
+.pc105 #key_CAPS105 {
+  margin-left: -64px;
+  width: 73px !important;
+}
+.pc105 #key_RTRN105 {
+  margin-top: -44px;
+  margin-left: -44px;
+  width: 40px !important;
+}
+
+
+/******************************************************************************
+ * Ergonomic Keyboard Geometry (TMx)
+ */
+
+.tmx #key_CAPS {
+  display: none;
+}
+.tmx #key_BKSL {
+  margin-top: 94px;
+  margin-left: -96px;
+}
+.tmx #key_TLDE, .tmx #key_TAB,  .tmx #key_LFSH, .tmx #key_LCTL,
+.tmx #key_AE12, .tmx #key_AD12, .tmx #key_RTSH, .tmx #key_RCTL,
+.tmx #key_BKSP, .tmx #key_RTRN {
+  width: 46px !important;
+}
+.tmx #key_LWIN, .tmx #key_LALT, .tmx #key_RWIN, .tmx #key_RALT {
+  width: 63px !important;
+}
+.tmx #key_TLDE, .tmx #key_TAB, .tmx #key_LFSH, .tmx #key_LCTL {
+  margin-left: 3px;
+}
+.tmx #key_AC01 {
+  margin-left: 55px;
+}
+* html .tmx #key_AC01 { /* IE6-specific hack */
+  margin-left: 29px;
+}
+.tmx #key_AE06, .tmx #key_AD06, .tmx #key_AC06, .tmx #key_AB06 {
+  margin-left: 54px;
+}
+.tmx #key_BKSP {
+  margin-left: -378px;
+  height: 86px !important;
+}
+.tmx #key_RTRN {
+  margin-left: -326px;
+  height: 86px !important;
+}
+.tmx #key_LFSH, .tmx #key_RTSH {
+  height: 86px !important;
+  margin-top: -44px;
+}
+.tmx #key_RTSH {
+  margin-left: 48px;
+}
+.tmx #key_SPCE {
+  width: 230px !important;
+}
+
+
+/******************************************************************************
+ * Compact Keyboard Geometry (TMx42)
+ */
+
+.tmx42 #key_AE11,
+.tmx42 #key_AE12,
+.tmx42 #key_AD11,
+.tmx42 #key_AD12,
+.tmx42 #key_AC11,
+.tmx42 #key_BKSL,
+.tmx42 #key_TLDE { visibility: hidden; }
+.tmx42 #key_MENU { display: none; }
+.tmx42 #key_RTSH { margin-left: 2px; }
+
+#keyboard.tmx42 {
+  margin-left: 23px;
+}
+
+
+/******************************************************************************
+ * Background Images for Tab, Backspace, Caps, Return, Shift
+ */
+
+#key_TAB *, #key_BKSP *, #key_CAPS *,
+#key_LFSH *, #key_RTSH *, #key_RTRN * {
+  display: none;
+}
+li.specialKey {
+  background-repeat: no-repeat;
+  background-position: bottom left;
+}
+
+#key_TAB  { background-image: url(keyboard/key-tab.png);  }
+#key_BKSP { background-image: url(keyboard/key-bksp.png); }
+#key_CAPS { background-image: url(keyboard/key-caps.png); }
+#key_RTRN { background-image: url(keyboard/key-rtrn.png); }
+#key_LFSH, #key_RTSH {
+  background-image: url(keyboard/key-shift.png);
+}
+
+/* IE6 hack, using GIF instead of PNG */
+* html #key_TAB  { background-image: url(keyboard/key-tab.gif);  }
+* html #key_BKSP { background-image: url(keyboard/key-bksp.gif); }
+* html #key_CAPS { background-image: url(keyboard/key-caps.gif); }
+* html #key_RTRN { background-image: url(keyboard/key-rtrn.gif); }
+* html #key_LFSH, * html #key_RTSH {
+  background-image: url(keyboard/key-shift.gif);
+}
+
+
+/******************************************************************************
+ * Displayed if the keyboard rendering is altered by an ad blocker
+ */
+
+#badRendering {
+  clear: both;
+  text-align: center;
+  font-weight: bold;
+  color: brown;
+  display: none;
+}
+

@@ -1,0 +1,204 @@
+
+/******************************************************************************
+ * Keyboard layout
+ */
+
+/* lowercase letters */
+#keyboard li.letter em {
+  display: none;
+}
+#keyboard li.letter em.lafayette,
+#keyboard li.letter em.altgr {
+  display: block;
+}
+
+/* AltGr keys */
+#keyboard li .altgr {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  left: auto;
+  right: 5px;
+  color: blue;
+}
+
+/* primary lafayette keys */
+#keyboard li .lafayette {
+  opacity: 0;
+  left: auto;
+  right: 5px;
+  color: green;
+}
+/* secondary lafayette keys
+#keyboard li em.lafayette.secondary,
+#keyboard li strong.lafayette.secondary {
+  opacity: 0;
+} */
+
+/* qwerty|lafayette|altgr class switcher */
+.qwerty    li.qwerty,
+.extra     #key_AC10,
+.lafayette #key_AC10 {
+  background-color: #fdd;
+}
+.altgr     #keyboard li .altgr,
+.home      #keyboard li .lafayette,
+.extra     #keyboard li .lafayette,
+.lafayette #keyboard li .lafayette {
+  opacity: 1;
+}
+.altgr #keyboard #key_RALT {
+  background-color: #ddf;
+}
+.altgr #keyboard li em,
+.altgr #keyboard li strong {
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+}
+.altgr #keyboard li .lafayette {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.altgr #keyboard li .altgr {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.altgr #keyboard #key_RALT em {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  color: blue;
+}
+
+#keyboard li em.lafayette.secondary,
+#keyboard li strong.lafayette.secondary {
+  opacity: 0;
+}
+.extra #keyboard li em.lafayette.secondary,
+.extra #keyboard li strong.lafayette.secondary {
+  opacity: 1;
+}
+
+.home      #navHome,
+.extra     #navExtra,
+.lafayette #navLafayette,
+.qwerty    #navQwerty,
+.altgr     #navAltGr {
+  background-color: #fdd !important;
+}
+
+
+/******************************************************************************
+ * Description
+ */
+
+/* description block */
+
+#description {
+  overflow: hidden;
+  position: relative;
+  height: 350px;
+  width: 780px;
+  /*margin: 0 auto;*/
+  margin: 0 -20px;
+  /*border: 1px solid;*/
+}
+
+#description div {
+  position: absolute;
+  top: 0;
+  width: 620px;
+  height: 300px;
+  margin: 0 58px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
+   -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+       -ms-border-radius: 15px;
+        -o-border-radius: 15px;
+           border-radius: 15px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#description li {
+  margin-bottom: 0.5em;
+}
+
+#description a {
+  color: brown !important;
+}
+
+#description kbd {
+  background: white;
+  border-color: #ddd #bbb #bbb #ddd;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px 1px 2px;
+  padding: 1px 3px;
+  white-space: nowrap;
+}
+
+/* description selector */
+
+#selector {
+  clear: both;
+  padding-top: 20px;
+  text-align: center;
+}
+
+#selector a {
+  color: brown;
+  background-color: white;
+  text-decoration: none;
+  border: 1px solid brown;
+  margin-left: 1px;
+  padding: 4px 8px;
+}
+
+#selector a:hover {
+  background-color: #fff0f0;
+}
+
+#selector a:first-child {
+   -webkit-border-top-left-radius: 8px;
+       -moz-border-radius-topleft: 8px;
+       -ms-border-top-left-radius: 8px;
+        -o-border-top-left-radius: 8px;
+           border-top-left-radius: 8px;
+   -webkit-border-bottom-left-radius: 8px;
+       -moz-border-radius-bottomleft: 8px;
+       -ms-border-bottom-left-radius: 8px;
+        -o-border-bottom-left-radius: 8px;
+           border-bottom-left-radius: 8px;
+}
+
+#selector a:last-child {
+   -webkit-border-top-right-radius: 8px;
+       -moz-border-radius-topright: 8px;
+       -ms-border-top-right-radius: 8px;
+        -o-border-top-right-radius: 8px;
+           border-top-right-radius: 8px;
+   -webkit-border-bottom-right-radius: 8px;
+       -moz-border-radius-bottomright: 8px;
+       -ms-border-bottom-right-radius: 8px;
+        -o-border-bottom-right-radius: 8px;
+           border-bottom-right-radius: 8px;
+}
+
+
+/******************************************************************************
+ * Download
+ */
+
+.download dd {
+  padding-bottom: 10px;
+}
+
+.download dt a {
+  color: brown !important;
+}
+
+code {
+  background-color: #dde;
+}
+

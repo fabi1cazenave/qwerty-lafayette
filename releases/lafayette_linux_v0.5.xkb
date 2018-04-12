@@ -1,0 +1,163 @@
+//
+// File          : lafayette.xkb
+// Project page  : http://fabi1cazenave.github.com/qwerty-lafayette/
+// Author        : Fabien Cazenave
+// License       : WTFPL
+//
+// US-QWERTY layout, French variant
+//
+// To apply this keymap, use:
+//   xkbcomp -w9 lafayette.xkb $DISPLAY
+//
+
+xkb_keymap {
+  xkb_keycodes      { include "evdev" };
+  xkb_types         { include "complete" };
+  xkb_compatibility { include "complete" };
+
+  // Qwerty layer, ANSI/pc104
+  // ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━┓
+  // │ ~   │ ! ¡ │ @ ‘ │ # ’ │ $ ¢ │ % ‰ │ ^   │ & ¦ │ * ★ │ (   │ )   │ _ – │ + ± ┃          ┃
+  // │ `   │ 1 „ │ 2 “ │ 3 ” │ 4 £ │ 5 € │ 6   │ 7 | │ 8 ∞ │ 9   │ 0 ° │ - — │ = ≠ ┃ ⌫        ┃
+  // ┢━━━━━┷━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┺━━┯━━━━━━━┩
+  // ┃        ┃ Q   │ W   │ E   │ R ™ │ T   │ Y   │ U   │ I   │ O   │ P   │ « { │ » } │ |     │
+  // ┃ ↹      ┃   æ │   é │   è │   ® │   þ │   ¥ │   ù │   ĳ │   œ │   § │ ^ [ │ ¨ ] │ \     │
+  // ┣━━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┲━━━━┷━━━━━━━┪
+  // ┃         ┃ A   │ S   │ D   │ F ª │ G ¢ │ H   │ J   │ K   │ L   │ ★   │ "   ┃            ┃
+  // ┃ ⇬       ┃   à │   ß │   ð │   ſ │   © │   ← │   ↓ │   ↑ │   → │   ` │ '   ┃ ⏎          ┃
+  // ┣━━━━━━━━━┻━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┲━━┻━━━━━━━━━━━━┫
+  // ┃            ┃ Z   │ X   │ C   │ V   │ B   │ N   │ M º │ ;   │ :   │ ? ¿ ┃               ┃
+  // ┃ ⇧          ┃   < │   > │   ç │   ŭ │   † │   ñ │   µ │ , • │ . … │ / \ ┃ ⇧             ┃
+  // ┣━━━━━━━┳━━━━┻━━┳━━┷━━━━┱┴─────┴─────┴─────┴─────┴─────┴─┲━━━┷━━━┳━┷━━━━━╋━━━━━━━┳━━━━━━━┫
+  // ┃       ┃       ┃       ┃ ⍽ nbsp                         ┃       ┃       ┃       ┃       ┃
+  // ┃ Ctrl  ┃ super ┃ Alt   ┃ ␣                            ’ ┃ AltGr ┃ super ┃ menu  ┃ Ctrl  ┃
+  // ┗━━━━━━━┻━━━━━━━┻━━━━━━━┹────────────────────────────────┺━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
+
+  // Qwerty layer, ISO/pc105
+  // ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━┓
+  // │ ~   │ ! ¡ │ @ ‘ │ # ’ │ $ ¢ │ % ‰ │ ^   │ & ¦ │ * ★ │ (   │ )   │ _ – │ + ± ┃          ┃
+  // │ `   │ 1 „ │ 2 “ │ 3 ” │ 4 £ │ 5 € │ 6   │ 7 | │ 8 ∞ │ 9   │ 0 ° │ - — │ = ≠ ┃ ⌫        ┃
+  // ┢━━━━━┷━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┺━━┳━━━━━━━┫
+  // ┃        ┃ Q   │ W   │ E   │ R ™ │ T   │ Y   │ U   │ I   │ O   │ P   │ « { │ » } ┃       ┃
+  // ┃ ↹      ┃   æ │   é │   è │   ® │   þ │   ¥ │   ù │   ĳ │   œ │   § │ ^ [ │ ¨ ] ┃       ┃
+  // ┣━━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┺┓  ⏎   ┃
+  // ┃         ┃ A   │ S   │ D   │ F ª │ G ¢ │ H   │ J   │ K   │ L   │ ★   │ "   │ |   ┃      ┃
+  // ┃ ⇬       ┃   à │   ß │   ð │   ſ │   © │   ← │   ↓ │   ↑ │   → │   ` │ '   │ \   ┃      ┃
+  // ┣━━━━━━┳━━┹──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┲━━┷━━━━━┻━━━━━━┫
+  // ┃      ┃ >   │ Z   │ X   │ C   │ V   │ B   │ N   │ M º │ ;   │ :   │ ? ¿ ┃               ┃
+  // ┃ ⇧    ┃ <   │   < │   > │   ç │   ŭ │   † │   ñ │   µ │ , • │ . … │ / \ ┃ ⇧             ┃
+  // ┣━━━━━━┻┳━━━━┷━━┳━━┷━━━━┱┴─────┴─────┴─────┴─────┴─────┴─┲━━━┷━━━┳━┷━━━━━╋━━━━━━━┳━━━━━━━┫
+  // ┃       ┃       ┃       ┃ ⍽ nbsp                         ┃       ┃       ┃       ┃       ┃
+  // ┃ Ctrl  ┃ super ┃ Alt   ┃ ␣                            ’ ┃ AltGr ┃ super ┃ menu  ┃ Ctrl  ┃
+  // ┗━━━━━━━┻━━━━━━━┻━━━━━━━┹────────────────────────────────┺━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
+
+  // AltGr layer
+  // ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━┓
+  // │   ~ │     │     │     │     │     │     │     │     │     │     │     │     ┃          ┃
+  // │   ` │   ! │   ( │   ) │   = │   ? │     │   7 │   8 │   9 │   / │     │     ┃ ⌫        ┃
+  // ┢━━━━━┷━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┺━━┳━━━━━━━┫
+  // ┃        ┃     │     │     │     │     │     │     │     │     │     │     │     ┃       ┃
+  // ┃ ↹      ┃   - │   < │   > │   / │   \ │     │   4 │   5 │   6 │   * │     │     ┃       ┃
+  // ┣━━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┺┓  ⏎   ┃
+  // ┃         ┃     │     │     │     │     │     │     │     │     │     │   ˙ │     ┃      ┃
+  // ┃ ⇬       ┃   { │   [ │   ] │   } │   | │     │   1 │   2 │   3 │   - │   ´ │     ┃      ┃
+  // ┣━━━━━━┳━━┹──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┲━━┷━━━━━┻━━━━━━┫
+  // ┃      ┃     │     │     │     │     │     │     │     │     │     │     ┃               ┃
+  // ┃ ⇧    ┃     │     │     │     │     │     │     │   0 │   , │   . │   + ┃ ⇧             ┃
+  // ┣━━━━━━┻┳━━━━┷━━┳━━┷━━━━┱┴─────┴─────┴─────┴─────┴─────┴─┲━━━┷━━━┳━┷━━━━━╋━━━━━━━┳━━━━━━━┫
+  // ┃       ┃       ┃       ┃                                ┃       ┃       ┃       ┃       ┃
+  // ┃ Ctrl  ┃ super ┃ Alt   ┃                           Esc. ┃ AltGr ┃ super ┃ menu  ┃ Ctrl  ┃
+  // ┗━━━━━━━┻━━━━━━━┻━━━━━━━┹────────────────────────────────┺━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
+
+  partial alphanumeric_keys modifier_keys
+  xkb_symbols "lafayette_group2" {
+    include "pc"
+
+    // The main dead key is an ISO_Level3_Latch, i.e. a “dead AltGr” key.
+    // This is the only way to have a multi-purpose dead key with XKB.
+
+    // The real AltGr key should be an ISO_Level5_Switch; however,
+    // ISO_Level5_Switch does not work as expected when applying this layout
+    // with xkbcomp, so let’s use two groups instead and make the AltGr key a
+    // group selector.
+
+    name[group1]= "France - Qwerty";
+    name[group2]= "France - AltGr";
+
+    key.type[group1] = "FOUR_LEVEL";
+    key.type[group2] = "TWO_LEVEL";
+
+    // Options
+    // include "capslock(swapescape)"  // Swap CapsLock and Escape -- Vim powwa!
+    // include "compose(menu)"         // Compose on the 'Menu' key
+
+    // Digits
+    key <AE01> {[ 1 , exclam      , doublelowquotemark   , exclamdown           ],[ exclam     , exclamdown   ]};
+    key <AE02> {[ 2 , at          , leftdoublequotemark  , leftsinglequotemark  ],[ parenleft  , VoidSymbol   ]};
+    key <AE03> {[ 3 , numbersign  , rightdoublequotemark , rightsinglequotemark ],[ parenright , VoidSymbol   ]};
+    key <AE04> {[ 4 , dollar      , sterling             , cent                 ],[ equal      , notequal     ]};
+    key <AE05> {[ 5 , percent     , EuroSign             , U2030                ],[ question   , questiondown ]};
+    key <AE06> {[ 6 , asciicircum , VoidSymbol           , VoidSymbol           ],[ VoidSymbol , VoidSymbol   ]};
+    key <AE07> {[ 7 , ampersand   , bar                  , brokenbar            ],[ 7          , VoidSymbol   ]};
+    key <AE08> {[ 8 , asterisk    , infinity             , U2605                ],[ 8          , VoidSymbol   ]};
+    key <AE09> {[ 9 , parenleft   , VoidSymbol           , VoidSymbol           ],[ 9          , VoidSymbol   ]};
+    key <AE10> {[ 0 , parenright  , degree               , VoidSymbol           ],[ slash      , VoidSymbol   ]};
+
+    // Letters, first row
+    key <AD01> {[ q , Q , ae         , AE        ],[ minus      , notsign          ]};
+    key <AD02> {[ w , W , eacute     , Eacute    ],[ less       , lessthanequal    ]};
+    key <AD03> {[ e , E , egrave     , Egrave    ],[ greater    , greaterthanequal ]};
+    key <AD04> {[ r , R , registered , trademark ],[ slash      , VoidSymbol       ]};
+    key <AD05> {[ t , T , thorn      , Thorn     ],[ backslash  , VoidSymbol       ]};
+    key <AD06> {[ y , Y , yen        , currency  ],[ VoidSymbol , VoidSymbol       ]};
+    key <AD07> {[ u , U , ugrave     , Ugrave    ],[ 4          , VoidSymbol       ]};
+    key <AD08> {[ i , I , U0133      , U0132     ],[ 5          , VoidSymbol       ]};
+    key <AD09> {[ o , O , oe         , OE        ],[ 6          , VoidSymbol       ]};
+    key <AD10> {[ p , P , section    , paragraph ],[ asterisk   , VoidSymbol       ]};
+
+    // Letters, second row
+    key <AC01> {[ a , A , agrave     , Agrave      ],[ braceleft    , VoidSymbol ]};
+    key <AC02> {[ s , S , ssharp     , U1E9E       ],[ bracketleft  , VoidSymbol ]};
+    key <AC03> {[ d , D , eth        , Eth         ],[ bracketright , VoidSymbol ]};
+    key <AC04> {[ f , F , U017F      , ordfeminine ],[ braceright   , VoidSymbol ]};
+    key <AC05> {[ g , G , copyright  , cent        ],[ bar          , brokenbar  ]};
+    key <AC06> {[ h , H , leftarrow  , U21D0       ],[ VoidSymbol   , VoidSymbol ]};
+    key <AC07> {[ j , J , downarrow  , U21D3       ],[ 1            , VoidSymbol ]};
+    key <AC08> {[ k , K , uparrow    , U21D1       ],[ 2            , VoidSymbol ]};
+    key <AC09> {[ l , L , rightarrow , U21D2       ],[ 3            , VoidSymbol ]};
+    key <AC10> {[ ISO_Level3_Latch, ISO_Level3_Latch, grave, grave ],[ minus, VoidSymbol ]};
+
+    // Letters, third row
+    key <AB01> {[ z      , Z         , less      , lessthanequal    ],[ VoidSymbol , VoidSymbol ]};
+    key <AB02> {[ x      , X         , greater   , greaterthanequal ],[ VoidSymbol , VoidSymbol ]};
+    key <AB03> {[ c      , C         , ccedilla  , Ccedilla         ],[ VoidSymbol , VoidSymbol ]};
+    key <AB04> {[ v      , V         , ubreve    , Ubreve           ],[ VoidSymbol , VoidSymbol ]};
+    key <AB05> {[ b      , B         , dagger    , doubledagger     ],[ VoidSymbol , VoidSymbol ]};
+    key <AB06> {[ n      , N         , ntilde    , Ntilde           ],[ VoidSymbol , VoidSymbol ]};
+    key <AB07> {[ m      , M         , mu        , masculine        ],[ 0          , VoidSymbol ]};
+    key <AB08> {[ comma  , semicolon , U2022     , VoidSymbol       ],[ comma      , VoidSymbol ]};
+    key <AB09> {[ period , colon     , ellipsis  , U00B7            ],[ period     , VoidSymbol ]};
+    key <AB10> {[ slash  , question  , backslash , questiondown     ],[ plus       , VoidSymbol ]};
+
+    // Painful pinky keys
+    key <TLDE> {[ grave           , asciitilde     , dead_grave    , dead_tilde       ],[ dead_grave    , dead_tilde       ]};
+    key <AE11> {[ minus           , underscore     , emdash        , endash           ],[ VoidSymbol    , VoidSymbol       ]};
+    key <AE12> {[ equal           , plus           , notequal      , plusminus        ],[ VoidSymbol    , VoidSymbol       ]};
+    key <AD11> {[ dead_circumflex , guillemotleft  , bracketleft   , braceleft        ],[ VoidSymbol    , VoidSymbol       ]};
+    key <AD12> {[ dead_diaeresis  , guillemotright , bracketright  , braceright       ],[ VoidSymbol    , VoidSymbol       ]};
+    key <AC11> {[ apostrophe      , quotedbl       , dead_acute    , dead_abovedot    ],[ dead_acute    , dead_abovedot    ]};
+    key <BKSL> {[ backslash       , bar            , VoidSymbol    , VoidSymbol       ],[ backslash     , brokenbar        ]};
+    key <LSGT> {[ less            , greater        , lessthanequal , greaterthanequal ],[ lessthanequal , greaterthanequal ]};
+
+    // Spacebar
+    key <SPCE> {[ space, nobreakspace, rightsinglequotemark, U202F ],[ Escape, nobreakspace ]};
+
+    // AltGr
+    // Note: the `ISO_Level5_Latch` here is meaningless but helps with Chromium (no idea why).
+    key <RALT> {[ ISO_Level5_Latch ], actions = [ SetGroup(group=2) ]};
+  };
+
+  //xkb_geometry { include "pc(pc105)" };
+};
+
+// vim: ft=xkb:fdm=indent:ts=2
