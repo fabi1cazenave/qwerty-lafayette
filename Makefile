@@ -7,15 +7,12 @@ dev:
 clean:
 	rm -rf dist/*
 
-# the install/uninstall targets below require Kalamine v0.4+
+# the install/uninstall targets below require Kalamine v0.4.2+
 
 install:
 	@echo "Installer script for XKB (GNU/Linux). Requires super-user privileges."
 	@echo
-	xkalamine install layouts/qwerty.yaml
-	@echo
-	xkalamine install layouts/qwerty42.yaml
-	@echo
+	xkalamine install layouts/qwerty*.yaml
 
 uninstall:
 	@echo "Unistaller script for XKB (GNU/Linux). Requires super-user privileges."
