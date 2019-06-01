@@ -269,7 +269,7 @@ for locale, layouts in LAYOUTS.items():
     text = ''
     between_marks = False
     modified_text = False
-    with open(path, 'r+') as symbols:
+    with open(path, 'r+', encoding='utf-8') as symbols:
         # load system symbols without any previous 'lafayette' layouts
         for line in symbols:
             if line.endswith(MARK_BEGIN):
