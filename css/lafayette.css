@@ -1,80 +1,68 @@
-
 /******************************************************************************
  * Keyboard layout
  */
 
-/* lowercase letters */
-#keyboard li.letter em {
-  display: none;
-}
-#keyboard li.letter em.lafayette,
-#keyboard li.letter em.altgr {
-  display: block;
+/* primary lafayette keys */
+kbd .level3,
+kbd .level4 {
+  color: green;
+  opacity: 0;
 }
 
 /* AltGr keys */
-#keyboard li .altgr {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  left: auto;
-  right: 5px;
+kbd .level5,
+kbd .level6 {
   color: blue;
-}
-
-/* primary lafayette keys */
-#keyboard li .lafayette {
   opacity: 0;
-  left: auto;
-  right: 5px;
-  color: green;
 }
-/* secondary lafayette keys
-#keyboard li em.lafayette.secondary,
-#keyboard li strong.lafayette.secondary {
-  opacity: 0;
-} */
 
 /* qwerty|lafayette|altgr class switcher */
-.qwerty    li.qwerty,
+.qwerty    kbd.qwerty,
 .extra     #key_AC10,
 .lafayette #key_AC10 {
   background-color: #fdd;
 }
-.altgr     #keyboard li .altgr,
-.home      #keyboard li .lafayette,
-.extra     #keyboard li .lafayette,
-.lafayette #keyboard li .lafayette {
+.home      kbd .level3,
+.home      kbd .level4,
+.lafayette kbd .level3,
+.lafayette kbd .level4,
+.extra     kbd .level3,
+.extra     kbd .secondary,
+.altgr     kbd .level5,
+.altgr     kbd .level6 {
   opacity: 1;
-}
-.altgr #keyboard #key_RALT {
-  background-color: #ddf;
-}
-.altgr #keyboard li em,
-.altgr #keyboard li strong {
-  opacity: 0.2;
-  filter: alpha(opacity=20);
-}
-.altgr #keyboard li .lafayette {
-  opacity: 0;
-  filter: alpha(opacity=0);
-}
-.altgr #keyboard li .altgr {
-  opacity: 1;
-  filter: alpha(opacity=100);
-}
-.altgr #keyboard #key_RALT em {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  color: blue;
 }
 
-#keyboard li em.lafayette.secondary,
-#keyboard li strong.lafayette.secondary {
+/* hide secondary lafayette keys by default */
+.home      kbd .secondary,
+.lafayette kbd .secondary {
   opacity: 0;
 }
-.extra #keyboard li em.lafayette.secondary,
-.extra #keyboard li strong.lafayette.secondary {
+
+/* altgr */
+.altgr #key_AD02,
+.altgr #key_AD03,
+.altgr #key_AC01,
+.altgr #key_AC02,
+.altgr #key_AC03,
+.altgr #key_AC04,
+.altgr #key_RALT {
+  background-color: #ddf;
+}
+.altgr kbd span {
+  opacity: 0.2;
+}
+.altgr kbd .level3,
+.altgr kbd .level4 {
+  opacity: 0;
+}
+.altgr kbd .level5,
+.altgr kbd .level6 {
   opacity: 1;
+}
+.altgr #key_RALT span {
+  opacity: 1;
+  color: blue;
 }
 
 .home      #navHome,
@@ -111,16 +99,12 @@
   padding: 20px;
   border: 1px solid #ddd;
   background-color: #f8f8f8;
-   -webkit-border-radius: 15px;
-      -moz-border-radius: 15px;
-       -ms-border-radius: 15px;
-        -o-border-radius: 15px;
-           border-radius: 15px;
+  border-radius: 15px;
   overflow-x: hidden;
   overflow-y: auto;
 }
 
-#description li {
+#description kbd {
   margin-bottom: 0.5em;
 }
 
@@ -141,8 +125,6 @@
 /* description selector */
 
 #selector {
-  clear: both;
-  padding-top: 20px;
   text-align: center;
 }
 
@@ -160,29 +142,13 @@
 }
 
 #selector a:first-child {
-   -webkit-border-top-left-radius: 8px;
-       -moz-border-radius-topleft: 8px;
-       -ms-border-top-left-radius: 8px;
-        -o-border-top-left-radius: 8px;
-           border-top-left-radius: 8px;
-   -webkit-border-bottom-left-radius: 8px;
-       -moz-border-radius-bottomleft: 8px;
-       -ms-border-bottom-left-radius: 8px;
-        -o-border-bottom-left-radius: 8px;
-           border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 
 #selector a:last-child {
-   -webkit-border-top-right-radius: 8px;
-       -moz-border-radius-topright: 8px;
-       -ms-border-top-right-radius: 8px;
-        -o-border-top-right-radius: 8px;
-           border-top-right-radius: 8px;
-   -webkit-border-bottom-right-radius: 8px;
-       -moz-border-radius-bottomright: 8px;
-       -ms-border-bottom-right-radius: 8px;
-        -o-border-bottom-right-radius: 8px;
-           border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 
@@ -201,4 +167,3 @@
 code {
   background-color: #dde;
 }
-
