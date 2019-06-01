@@ -1,53 +1,28 @@
-
 /**
  * Transitions -- ignored by IE<10 and older browsers
  */
 
-ul#keyboard * {
-   -webkit-transition-duration: 1s;
-      -moz-transition-duration: 1s;
-       -ms-transition-duration: 1s;
-        -o-transition-duration: 1s;
-           transition-duration: 1s;
-   -webkit-transition-property: opacity, background-color;
-      -moz-transition-property: opacity, background-color;
-       -ms-transition-property: opacity, background-color;
-        -o-transition-property: opacity, background-color;
-           transition-property: opacity, background-color;
+#keyboard kbd,
+#keyboard span {
+  transition-duration: 1s;
+  transition-property: opacity, background-color;
 }
 
-div#description div {
-   -webkit-transition-duration: 1s;
-      -moz-transition-duration: 1s;
-       -ms-transition-duration: 1s;
-        -o-transition-duration: 1s;
-           transition-duration: 1s;
-   -webkit-transition-property: -webkit-transform, opacity;
-      -moz-transition-property:    -moz-transform, opacity;
-       -ms-transition-property:     -ms-transform, opacity;
-        -o-transition-property:      -o-transform, opacity;
-           transition-property:         transform, opacity;
+#description div {
+  transition-duration: 1s;
+  transition-property: transform, opacity;
 }
 
-div#description div[smil=idle] {
+#description div[smil=idle] {
   opacity: 0;
-   -webkit-transform: scale(0.3) translate(+160%);
-      -moz-transform: scale(0.3) translate(+160%);
-       -ms-transform: scale(0.3) translate(+160%);
-        -o-transform: scale(0.3) translate(+160%);
-           transform: scale(0.3) translate(+160%);
+  transform: scale(0.3) translate(+160%);
 }
 
-div#description div[smil=active] {
+#description div[smil=active] {
   opacity: 1;
 }
 
-div#description div[smil=done] {
+#description div[smil=done] {
   opacity: 0;
-   -webkit-transform: scale(0.3) translate(-160%);
-      -moz-transform: scale(0.3) translate(-160%);
-       -ms-transform: scale(0.3) translate(-160%);
-        -o-transform: scale(0.3) translate(-160%);
-           transform: scale(0.3) translate(-160%);
+  transform: scale(0.3) translate(-160%);
 }
-

@@ -3,25 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="description" content="a QWERTY keyboard layout for French-speaking users" />
-  <title> Lafayette Keyboard Layout </title>
+  <title> Qwerty-Lafayette </title>
 
   <link type="text/css" rel="stylesheet" href="css/layout.css"      />
   <link type="text/css" rel="stylesheet" href="css/lafayette.css"   />
   <link type="text/css" rel="stylesheet" href="css/keyboard.css"    />
   <link type="text/css" rel="stylesheet" href="css/transitions.css" />
-  <!--[if lt IE 9]>
-    <link type="text/css" rel="stylesheet" href="css/lafayette-oldie.css" />
-  <![endif]-->
 
   <script type="text/javascript" src="js/timesheets-min.js"></script>
   <script type="text/javascript" src="js/adblock-tester.js"></script>
   <script type="text/javascript">
-    function setShape(shape) {
-      document.getElementById('keyboard').className = shape;
-    }
-    function select(element) {
-      document.body.className = element.id;
-    }
+    function select(element) { document.body.className = element.id; }
   </script>
 </head>
 <body class="qwerty">
@@ -32,16 +24,6 @@
   <p> Un Qwerty pour les développeurs francophones et les typographes exigeants. </p>
 
   <div style="position: relative; margin: 0 auto; width: 664px;">
-    <form style="float: right; margin-bottom: 5px;">
-      <span style="font-size: smaller;">géométrie :</span>
-      <select id="shape" onchange="setShape(this.value);">
-        <!-- <option value="tmx tmx42"> compacte </option> -->
-        <option value="tmx"> ergonomique </option>
-        <option value="pc104" selected="selected"> ANSI (pc104) </option>
-        <option value="pc105"> ISO (pc105) </option>
-      </select>
-    </form>
-
     <p id="badRendering">
       Votre navigateur n’affiche pas correctement la disposition de clavier
       ci-dessous. <br />
@@ -49,362 +31,304 @@
       et recharger cette page.
     </p>
 
-    <ul id="keyboard" class="pc104" style="clear: both;">
-      <li id="row_AE">
-        <ul>
-          <li id="key_TLDE">
-            <strong> ~ </strong>
-            <em> ` </em>
-            <strong class="altgr deadKey"> ~ </strong>
-            <em class="altgr deadKey"> ` </em>
-          </li>
-          <li id="key_AE01">
-            <strong> ! </strong>
-            <em> 1 </em>
-            <strong class="lafayette secondary"> ¡ </strong>
-            <em class="lafayette secondary"> „ </em>
-            <em class="altgr"> ! </em>
-          </li>
-          <li id="key_AE02">
-            <strong> @ </strong>
-            <em> 2 </em>
-            <strong class="lafayette secondary"> ‘ </strong>
-            <em class="lafayette secondary"> “ </em>
-            <em class="altgr"> ( </em>
-          </li>
-          <li id="key_AE03">
-            <strong> # </strong>
-            <em> 3 </em>
-            <strong class="lafayette secondary"> ’ </strong>
-            <em class="lafayette secondary"> ” </em>
-            <em class="altgr"> ) </em>
-          </li>
-          <li id="key_AE04">
-            <strong> $ </strong>
-            <em> 4 </em>
-            <em class="lafayette secondary"> £ </em>
-            <strong class="lafayette secondary"> ¢ </strong>
-            <em class="altgr"> ' </em>
-          </li>
-          <li id="key_AE05">
-            <strong> % </strong>
-            <em> 5 </em>
-            <strong class="lafayette secondary"> ‰ </strong>
-            <em class="lafayette"> € </em>
-            <em class="altgr"> " </em>
-          </li>
-          <li id="key_AE06">
-            <strong> ^ </strong>
-            <em> 6 </em>
-          </li>
-          <li id="key_AE07">
-            <strong> &amp; </strong>
-            <em> 7 </em>
-            <em class="altgr"> 7 </em>
-          </li>
-          <li id="key_AE08">
-            <strong> * </strong>
-            <em> 8 </em>
-            <em class="altgr"> 8 </em>
-          </li>
-          <li id="key_AE09">
-            <strong> ( </strong>
-            <em> 9 </em>
-            <em class="altgr"> 9 </em>
-          </li>
-          <li id="key_AE10">
-            <strong> ) </strong>
-            <em> 0 </em>
-            <em class="altgr"> / </em>
-            <em class="lafayette secondary"> ° </em>
-          </li>
-          <li id="key_AE11">
-            <strong> _ </strong>
-            <em> - </em>
-            <em class="lafayette"> — </em>
-          </li>
-          <li id="key_AE12">
-            <strong> + </strong>
-            <em> = </em>
-            <strong class="lafayette secondary"> ± </strong>
-            <em class="lafayette secondary"> ≠ </em>
-          </li>
-          <li id="key_BKSP" class="specialKey">
-            <em> bksp </em>
-          </li>
-        </ul>
-      </li>
-      <li id="row_AD">
-        <ul>
-          <li id="key_TAB" class="specialKey">
-            <em> tab </em>
-          </li>
-          <li id="key_AD01" class="letter">
-            <strong> Q </strong>
-            <em> q </em>
-            <em class="lafayette"> æ </em>
-            <em class="altgr"> = </em>
-          </li>
-          <li id="key_AD02" class="letter">
-            <strong> W </strong>
-            <em> w </em>
-            <em class="lafayette"> é </em>
-            <em class="altgr"> &lt; </em>
-          </li>
-          <li id="key_AD03" class="letter">
-            <strong> E </strong>
-            <em> e </em>
-            <em class="lafayette"> è </em>
-            <em class="altgr"> &gt; </em>
-          </li>
-          <li id="key_AD04" class="letter">
-            <strong> R </strong>
-            <em> r </em>
-            <strong class="lafayette secondary"> ™ </strong>
-            <em class="lafayette secondary"> ® </em>
-            <em class="altgr"> - </em>
-          </li>
-          <li id="key_AD05" class="letter">
-            <strong> T </strong>
-            <em> t </em>
-            <em class="lafayette secondary"> þ </em>
-            <em class="altgr"> + </em>
-          </li>
-          <li id="key_AD06" class="letter">
-            <strong> Y </strong>
-            <em> y </em>
-            <strong class="lafayette secondary"> ¤ </strong>
-            <em class="lafayette secondary"> ¥ </em>
-          </li>
-          <li id="key_AD07" class="letter">
-            <strong> U </strong>
-            <em> u </em>
-            <em class="lafayette"> ù </em>
-            <em class="altgr"> 4 </em>
-          </li>
-          <li id="key_AD08" class="letter">
-            <strong> I </strong>
-            <em> i </em>
-            <em class="lafayette secondary"> ĳ </em>
-            <em class="altgr"> 5 </em>
-          </li>
-          <li id="key_AD09" class="letter">
-            <strong> O </strong>
-            <em> o </em>
-            <em class="lafayette"> œ </em>
-            <em class="altgr"> 6 </em>
-          </li>
-          <li id="key_AD10" class="letter">
-            <strong> P </strong>
-            <em> p </em>
-            <strong class="lafayette secondary"> ¶ </strong>
-            <em class="lafayette secondary"> § </em>
-            <em class="altgr"> * </em>
-          </li>
-          <li id="key_AD11" class="qwerty">
-            <strong> « </strong>
-            <em class="deadKey"> ^ </em>
-            <strong class="lafayette"> { </strong>
-            <em class="lafayette"> [ </em>
-          </li>
-          <li id="key_AD12" class="qwerty">
-            <strong> » </strong>
-            <em class="deadKey"> ¨ </em>
-            <strong class="lafayette"> } </strong>
-            <em class="lafayette"> ] </em>
-          </li>
-          <li id="key_BKSL">
-            <strong> | </strong>
-            <em> \ </em>
-          </li>
-        </ul>
-      </li>
-      <li id="row_AC">
-        <ul>
-          <li id="key_CAPS" class="specialKey">
-            <em> caps </em>
-          </li>
-          <li id="key_CAPS105" class="specialKey">
-             
-          </li>
-          <li id="key_AC01" class="letter">
-            <strong> A </strong>
-            <em> a </em>
-            <em class="lafayette"> à </em>
-            <em class="altgr"> { </em>
-          </li>
-          <li id="key_AC02" class="letter">
-            <strong> S </strong>
-            <em> s </em>
-            <em class="lafayette secondary"> ß </em>
-            <em class="altgr"> [ </em>
-          </li>
-          <li id="key_AC03" class="letter">
-            <strong> D </strong>
-            <em> d </em>
-            <em class="lafayette secondary"> ð </em>
-            <em class="altgr"> ] </em>
-          </li>
-          <li id="key_AC04" class="letter">
-            <strong> F </strong>
-            <em> f </em>
-            <strong class="lafayette secondary"> ª </strong>
-            <em class="lafayette secondary"> ſ </em>
-            <em class="altgr"> } </em>
-          </li>
-          <li id="key_AC05" class="letter">
-            <strong> G </strong>
-            <em> g </em>
-            <em class="lafayette secondary"> © </em>
-            <em class="altgr"> / </em>
-          </li>
-          <li id="key_AC06" class="letter">
-            <strong> H </strong>
-            <em> h </em>
-            <em class="lafayette secondary"> ← </em>
-          </li>
-          <li id="key_AC07" class="letter">
-            <strong> J </strong>
-            <em> j </em>
-            <em class="lafayette secondary"> ↓ </em>
-            <em class="altgr"> 1 </em>
-          </li>
-          <li id="key_AC08" class="letter">
-            <strong> K </strong>
-            <em> k </em>
-            <em class="lafayette secondary"> ↑ </em>
-            <em class="altgr"> 2 </em>
-          </li>
-          <li id="key_AC09" class="letter">
-            <strong> L </strong>
-            <em> l </em>
-            <em class="lafayette secondary"> → </em>
-            <em class="altgr"> 3 </em>
-          </li>
-          <li id="key_AC10" class="qwerty">
-            <strong class="deadKey" style="margin: 6px;"> ★ </strong>
-            <em class="altgr"> - </em>
-          </li>
-          <li id="key_AC11">
-            <strong> " </strong>
-            <em> ' </em>
-            <em class="altgr deadKey"> ´ </em>
-          </li>
-          <li id="key_RTRN" class="specialKey">
-            <em> return </em>
-          </li>
-          <li id="key_RTRN105" class="specialKey">
-             
-          </li>
-        </ul>
-      </li>
-      <li id="row_AB">
-        <ul>
-          <li id="key_LFSH" class="specialKey">
-            <em> shift </em>
-          </li>
-          <li id="key_LSGT" class="left5">
-            <strong> &gt; </strong>
-            <em> &lt; </em>
-          </li>
-          <li id="key_AB01" class="letter">
-            <strong> Z </strong>
-            <em> z </em>
-            <em class="lafayette"> &lt; </em>
-            <em class="altgr"> ~ </em>
-          </li>
-          <li id="key_AB02" class="letter">
-            <strong> X </strong>
-            <em> x </em>
-            <em class="lafayette"> &gt; </em>
-            <em class="altgr"> ` </em>
-          </li>
-          <li id="key_AB03" class="letter">
-            <strong> C </strong>
-            <em> c </em>
-            <em class="lafayette"> ç </em>
-            <em class="altgr"> | </em>
-          </li>
-          <li id="key_AB04" class="letter">
-            <strong> V </strong>
-            <em> v </em>
-            <em class="lafayette secondary"> ŭ </em>
-            <em class="altgr"> _ </em>
-          </li>
-          <li id="key_AB05" class="letter">
-            <strong> B </strong>
-            <em> b </em>
-            <em class="lafayette secondary"> † </em>
-            <em class="altgr"> \ </em>
-          </li>
-          <li id="key_AB06" class="letter">
-            <strong> N </strong>
-            <em> n </em>
-            <em class="lafayette secondary"> ñ </em>
-          </li>
-          <li id="key_AB07" class="letter">
-            <strong> M </strong>
-            <em> m </em>
-            <strong class="lafayette secondary"> º </strong>
-            <em class="lafayette secondary"> µ </em>
-            <em class="altgr"> 0 </em>
-          </li>
-          <li id="key_AB08" class="qwerty">
-            <strong> ; </strong>
-            <em> , </em>
-            <strong class="lafayette secondary"> • </strong>
-            <em class="lafayette secondary"> · </em>
-            <em class="altgr"> , </em>
-          </li>
-          <li id="key_AB09" class="qwerty">
-            <strong> : </strong>
-            <em> . </em>
-            <em class="lafayette"> … </em>
-            <em class="altgr"> . </em>
-          </li>
-          <li id="key_AB10">
-            <strong> ? </strong>
-            <em> / </em>
-            <strong class="lafayette secondary"> ¿ </strong>
-            <em class="lafayette secondary"> ؟ </em>
-            <em class="altgr"> + </em>
-          </li>
-          <li id="key_RTSH" class="specialKey">
-            <em> shift </em>
-          </li>
-        </ul>
-      </li>
-      <li id="row_AA">
-        <ul>
-          <li id="key_LCTL" class="specialKey">
-            <em> ctrl </em>
-          </li>
-          <li id="key_LWIN" class="specialKey">
-            <em> super </em>
-          </li>
-          <li id="key_LALT" class="specialKey">
-            <em> alt </em>
-          </li>
-          <li id="key_SPCE">
-            <strong> ⍽ Espace insécable </strong>
-            <em> ⍽ Espace </em>
-            <em class="lafayette"> ’ </em>
-          </li>
-          <li id="key_RALT" class="specialKey">
-            <em> altgr </em>
-          </li>
-          <li id="key_RWIN" class="specialKey">
-            <em> super </em>
-          </li>
-          <li id="key_MENU" class="specialKey">
-            <em> menu </em>
-          </li>
-          <li id="key_RCTL" class="specialKey">
-            <em> ctrl </em>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <div id="keyboard">
+      <div id="row_AE">
+        <kbd id="key_TLDE">
+          <span class="level1"> ` </span>
+          <span class="level2"> ~ </span>
+          <span class="level5 deadKey"> ` </span>
+          <span class="level6 deadKey"> ~ </span>
+        </kbd>
+        <kbd id="key_AE01">
+          <span class="level1"> 1 </span>
+          <span class="level2"> ! </span>
+          <span class="level3 secondary"> „ </span>
+          <span class="level4 secondary"> ¡ </span>
+          <span class="level5"> ! </span>
+        </kbd>
+        <kbd id="key_AE02">
+          <span class="level1"> 2 </span>
+          <span class="level2"> @ </span>
+          <span class="level3 secondary"> “ </span>
+          <span class="level4 secondary"> ‘ </span>
+          <span class="level5"> ( </span>
+        </kbd>
+        <kbd id="key_AE03">
+          <span class="level1"> 3 </span>
+          <span class="level2"> # </span>
+          <span class="level3 secondary"> ” </span>
+          <span class="level4 secondary"> ’ </span>
+          <span class="level5"> ) </span>
+        </kbd>
+        <kbd id="key_AE04">
+          <span class="level1"> 4 </span>
+          <span class="level2"> $ </span>
+          <span class="level3 secondary"> £ </span>
+          <span class="level4 secondary"> ¢ </span>
+          <span class="level5"> ' </span>
+        </kbd>
+        <kbd id="key_AE05">
+          <span class="level1"> 5 </span>
+          <span class="level2"> % </span>
+          <span class="level3"> € </span>
+          <span class="level4 secondary"> ‰ </span>
+          <span class="level5"> " </span>
+        </kbd>
+        <kbd id="key_AE06">
+          <span class="level1"> 6 </span>
+          <span class="level2"> ^ </span>
+        </kbd>
+        <kbd id="key_AE07">
+          <span class="level1"> 7 </span>
+          <span class="level2"> &amp; </span>
+          <span class="level5"> 7 </span>
+        </kbd>
+        <kbd id="key_AE08">
+          <span class="level1"> 8 </span>
+          <span class="level2"> * </span>
+          <span class="level5"> 8 </span>
+        </kbd>
+        <kbd id="key_AE09">
+          <span class="level1"> 9 </span>
+          <span class="level2"> ( </span>
+          <span class="level5"> 9 </span>
+        </kbd>
+        <kbd id="key_AE10">
+          <span class="level1"> 0 </span>
+          <span class="level2"> ) </span>
+          <span class="level3 secondary"> ° </span>
+          <span class="level5"> / </span>
+        </kbd>
+        <kbd id="key_AE11">
+          <span class="level1"> - </span>
+          <span class="level2"> _ </span>
+          <span class="level3"> — </span>
+        </kbd>
+        <kbd id="key_AE12">
+          <span class="level1"> = </span>
+          <span class="level2"> + </span>
+          <span class="level3 secondary"> ≠ </span>
+          <span class="level4 secondary"> ± </span>
+        </kbd>
+        <kbd id="key_BKSP" class="specialKey"></kbd>
+      </div>
+      <div id="row_AD">
+        <kbd id="key_TAB" class="specialKey"></kbd>
+        <kbd id="key_AD01">
+          <span class="level2"> Q </span>
+          <span class="level3"> æ </span>
+          <span class="level5"> = </span>
+        </kbd>
+        <kbd id="key_AD02">
+          <span class="level2"> W </span>
+          <span class="level3"> é </span>
+          <span class="level5"> &lt; </span>
+        </kbd>
+        <kbd id="key_AD03">
+          <span class="level2"> E </span>
+          <span class="level3"> è </span>
+          <span class="level5"> &gt; </span>
+        </kbd>
+        <kbd id="key_AD04">
+          <span class="level2"> R </span>
+          <span class="level3 secondary"> ® </span>
+          <span class="level4 secondary"> ™ </span>
+          <span class="level5"> - </span>
+        </kbd>
+        <kbd id="key_AD05">
+          <span class="level2"> T </span>
+          <span class="level3 secondary"> þ </span>
+          <span class="level5"> + </span>
+        </kbd>
+        <kbd id="key_AD06">
+          <span class="level2"> Y </span>
+          <span class="level3 secondary"> ¥ </span>
+          <span class="level4 secondary"> ¤ </span>
+        </kbd>
+        <kbd id="key_AD07">
+          <span class="level2"> U </span>
+          <span class="level3"> ù </span>
+          <span class="level5"> 4 </span>
+        </kbd>
+        <kbd id="key_AD08">
+          <span class="level2"> I </span>
+          <span class="level3 secondary"> ĳ </span>
+          <span class="level5"> 5 </span>
+        </kbd>
+        <kbd id="key_AD09">
+          <span class="level2"> O </span>
+          <span class="level3"> œ </span>
+          <span class="level5"> 6 </span>
+        </kbd>
+        <kbd id="key_AD10">
+          <span class="level2"> P </span>
+          <span class="level3 secondary"> § </span>
+          <span class="level4 secondary"> ¶ </span>
+          <span class="level5"> * </span>
+        </kbd>
+        <kbd id="key_AD11" class="qwerty">
+          <span class="level1 deadKey"> ^ </span>
+          <span class="level2"> « </span>
+          <span class="level3"> [ </span>
+          <span class="level4"> { </span>
+        </kbd>
+        <kbd id="key_AD12" class="qwerty">
+          <span class="level1 deadKey"> ¨ </span>
+          <span class="level2"> » </span>
+          <span class="level3"> ] </span>
+          <span class="level4"> } </span>
+        </kbd>
+        <kbd id="key_BKSL">
+          <span class="level1"> \ </span>
+          <span class="level2"> | </span>
+        </kbd>
+      </div>
+      <div id="row_AC">
+        <kbd id="key_CAPS" class="specialKey"></kbd>
+        <kbd id="key_AC01">
+          <span class="level2"> A </span>
+          <span class="level3"> à </span>
+          <span class="level5"> { </span>
+        </kbd>
+        <kbd id="key_AC02">
+          <span class="level2"> S </span>
+          <span class="level3 secondary"> ß </span>
+          <span class="level5"> [ </span>
+        </kbd>
+        <kbd id="key_AC03">
+          <span class="level2"> D </span>
+          <span class="level3 secondary"> ð </span>
+          <span class="level5"> ] </span>
+        </kbd>
+        <kbd id="key_AC04">
+          <span class="level2"> F </span>
+          <span class="level3 secondary"> ſ </span>
+          <span class="level4 secondary"> ª </span>
+          <span class="level5"> } </span>
+        </kbd>
+        <kbd id="key_AC05">
+          <span class="level2"> G </span>
+          <span class="level3 secondary"> © </span>
+          <span class="level5"> / </span>
+        </kbd>
+        <kbd id="key_AC06">
+          <span class="level2"> H </span>
+          <span class="level3 secondary"> ← </span>
+        </kbd>
+        <kbd id="key_AC07">
+          <span class="level2"> J </span>
+          <span class="level3 secondary"> ↓ </span>
+          <span class="level5"> 1 </span>
+        </kbd>
+        <kbd id="key_AC08">
+          <span class="level2"> K </span>
+          <span class="level3 secondary"> ↑ </span>
+          <span class="level5"> 2 </span>
+        </kbd>
+        <kbd id="key_AC09">
+          <span class="level2"> L </span>
+          <span class="level3 secondary"> → </span>
+          <span class="level5"> 3 </span>
+        </kbd>
+        <kbd id="key_AC10" class="qwerty">
+          <span class="level2 deadKey" style="margin: 6px;"> ★ </span>
+          <span class="level5"> - </span>
+        </kbd>
+        <kbd id="key_AC11">
+          <span class="level1"> ' </span>
+          <span class="level2"> " </span>
+          <span class="level5 deadKey"> ´ </span>
+        </kbd>
+        <kbd id="key_RTRN" class="specialKey"></kbd>
+      </div>
+      <div id="row_AB">
+        <kbd id="key_LFSH" class="specialKey"></kbd>
+        <kbd id="key_AB01">
+          <span class="level2"> Z </span>
+          <span class="level3"> &lt; </span>
+          <span class="level5"> ~ </span>
+        </kbd>
+        <kbd id="key_AB02">
+          <span class="level2"> X </span>
+          <span class="level3"> &gt; </span>
+          <span class="level5"> ` </span>
+        </kbd>
+        <kbd id="key_AB03">
+          <span class="level2"> C </span>
+          <span class="level3"> ç </span>
+          <span class="level5"> | </span>
+        </kbd>
+        <kbd id="key_AB04">
+          <span class="level2"> V </span>
+          <span class="level3 secondary"> ŭ </span>
+          <span class="level5"> _ </span>
+        </kbd>
+        <kbd id="key_AB05">
+          <span class="level2"> B </span>
+          <span class="level3 secondary"> † </span>
+          <span class="level5"> \ </span>
+        </kbd>
+        <kbd id="key_AB06">
+          <span class="level2"> N </span>
+          <span class="level3 secondary"> ñ </span>
+        </kbd>
+        <kbd id="key_AB07">
+          <span class="level2"> M </span>
+          <span class="level3 secondary"> µ </span>
+          <span class="level4 secondary"> º </span>
+          <span class="level5"> 0 </span>
+        </kbd>
+        <kbd id="key_AB08" class="qwerty">
+          <span class="level1"> , </span>
+          <span class="level2"> ; </span>
+          <span class="level3 secondary"> · </span>
+          <span class="level4 secondary"> • </span>
+          <span class="level5"> , </span>
+        </kbd>
+        <kbd id="key_AB09" class="qwerty">
+          <span class="level1"> . </span>
+          <span class="level2"> : </span>
+          <span class="level3"> … </span>
+          <span class="level5"> . </span>
+        </kbd>
+        <kbd id="key_AB10">
+          <span class="level1"> / </span>
+          <span class="level2"> ? </span>
+          <span class="level3 secondary"> ؟ </span>
+          <span class="level4 secondary"> ¿ </span>
+          <span class="level5"> + </span>
+        </kbd>
+        <kbd id="key_RTSH" class="specialKey"></kbd>
+      </div>
+      <div id="row_AA">
+        <kbd id="key_LCTL" class="specialKey">
+          <span class="level1"> ctrl </span>
+        </kbd>
+        <kbd id="key_LWIN" class="specialKey">
+          <span class="level1"> super </span>
+        </kbd>
+        <kbd id="key_LALT" class="specialKey">
+          <span class="level1"> alt </span>
+        </kbd>
+        <kbd id="key_SPCE">
+          <span class="level1"> ⍽ espace </span>
+          <span class="level2"> ⍽ espace insécable </span>
+          <span class="level3"> ’ </span>
+        </kbd>
+        <kbd id="key_RALT" class="specialKey">
+          <span class="level1"> altgr </span>
+        </kbd>
+        <kbd id="key_RWIN" class="specialKey">
+          <span class="level1"> super </span>
+        </kbd>
+        <kbd id="key_MENU" class="specialKey">
+          <span class="level1"> menu </span>
+        </kbd>
+        <kbd id="key_RCTL" class="specialKey">
+          <span class="level1"> ctrl </span>
+        </kbd>
+      </div>
+    </div>
   </div>
 
   <p id="selector">
@@ -657,8 +581,8 @@
     </li>
     <li>
       Mac OSX : tous les raccourcis « Commande » conservent la disposition
-      Qwerty-US, notamment pour les raccourcis Cmd+<code>[</code> et
-      Cmd+<code>]</code> qui sont très courants sur cette plate-forme.
+      Qwerty-US, notamment pour les raccourcis <kbd>Cmd</kbd>+<kbd>[</kbd> et
+      <kbd>Cmd</kbd>+<kbd>]</kbd> qui sont très courants sur cette plate-forme.
     </li>
     <li>
       Mac OSX : la touche morte <code>★</code> se comporte comme un accent grave
