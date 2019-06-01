@@ -36,11 +36,7 @@ body {
   border-right: 1px solid #aaa;
   background-color: white;
   color: black;
-   -webkit-box-shadow: 0px 1px 10px #888;
-      -moz-box-shadow: 0px 1px 10px #888;
-       -ms-box-shadow: 0px 1px 10px #888;
-        -o-box-shadow: 0px 1px 10px #888;
-           box-shadow: 0px 1px 10px #888;
+  box-shadow: 0px 1px 10px #888;
 }
 
 
@@ -57,10 +53,6 @@ body {
   width: 149px;
   height: 149px;
   background-image: url(images/forkme.png);
-}
-
-* html #github { /* IE6 */
-  background-image: url(images/forkme.gif);
 }
 
 #github span {
