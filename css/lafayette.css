@@ -27,7 +27,7 @@ kbd .level6 {
 .lafayette kbd .level3,
 .lafayette kbd .level4,
 .extra     kbd .level3,
-.extra     kbd .secondary,
+.extra     kbd .level4,
 .altgr     kbd .level5,
 .altgr     kbd .level6 {
   opacity: 1;
@@ -85,9 +85,7 @@ kbd .level6 {
   position: relative;
   height: 350px;
   width: 780px;
-  /*margin: 0 auto;*/
   margin: 0 -20px;
-  /*border: 1px solid;*/
 }
 
 #description div {

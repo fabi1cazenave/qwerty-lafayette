@@ -9,9 +9,12 @@
   <link type="text/css" rel="stylesheet" href="css/lafayette.css"   />
   <link type="text/css" rel="stylesheet" href="css/keyboard.css"    />
   <link type="text/css" rel="stylesheet" href="css/transitions.css" />
+  <link type="text/css" rel="stylesheet" href="css/demo.css"        />
 
+  <script type="module" src="https://fabi1cazenave.github.io/x-keyboard/index.js"></script>
   <script type="text/javascript" src="js/timesheets-min.js"></script>
   <script type="text/javascript" src="js/adblock-tester.js"></script>
+  <script type="text/javascript" src="js/demo.js"></script>
   <script type="text/javascript">
     function select(element) { document.body.className = element.id; }
   </script>
@@ -20,8 +23,25 @@
   <a href="https://github.com/fabi1cazenave/qwerty-lafayette"
     id="github"><span>Fork me on GitHub</span></a>
 
-  <h1> Qwerty-Lafayette </h1>
+  <h1> <button hidden>démo !</button> Qwerty-Lafayette </h1>
   <p> Un Qwerty pour les développeurs francophones et les typographes exigeants. </p>
+
+  <div id="demo" hidden>
+    <div>
+      <input spellcheck="false">
+      <x-keyboard></x-keyboard>
+      <p>
+        <span> powered by
+          <a href="https://fabi1cazenave.github.io/x-keyboard/">x-keyboard</a>
+        </span> géométrie :
+        <select>
+          <option value="iso">  ISO  </option>
+          <option value="ansi"> ANSI </option>
+          <option value="ol60"> TMx  </option>
+        </select>
+      </p>
+    </div>
+  </div>
 
   <div style="position: relative; margin: 0 auto; width: 664px;">
     <p id="badRendering">
@@ -332,12 +352,11 @@
   </div>
 
   <p id="selector">
-    <a
-    id="navHome" href="#_home">Objectif</a><a
-    id="navQwerty" href="#_qwerty">Qwerty</a><a
-    id="navLafayette" href="#_lafayette">Accents</a><a
-    id="navExtra" href="#_extra">Extra</a><a
-    id="navAltGr" href="#_altgr">AltGr</a>
+    <a id="navHome"      href="#_home">      Objectif </a>
+    <a id="navQwerty"    href="#_qwerty">    Qwerty   </a>
+    <a id="navLafayette" href="#_lafayette"> Accents  </a>
+    <a id="navExtra"     href="#_extra">     Extra    </a>
+    <a id="navAltGr"     href="#_altgr">     AltGr    </a>
   </p>
 
   <div id="description" data-timecontainer="seq">

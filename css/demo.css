@@ -1,0 +1,55 @@
+body.demo {
+  overflow: hidden;
+}
+
+h1 button {
+  float: right;
+}
+
+#demo[hidden] {
+  display: none;
+}
+
+#demo {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  text-align: center;
+}
+
+#demo div {
+  width: 100%;
+  max-width: 54em;
+  background-color: #f4f4f0;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 2em;
+  border-radius: 5px;
+}
+
+#demo input {
+  box-sizing: border-box;
+  width: calc(100% - 8px); /* to match the <x-keyboard> 4px padding */
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+#demo p {
+  margin: 1em 4px 0; /* to match the <x-keyboard> 4px padding */
+  text-align: right;
+}
+
+#demo p span {
+  float: left;
+  font-size: small;
+}
+
+#demo p a {
+  color: brown;
+}
