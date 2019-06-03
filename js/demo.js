@@ -30,14 +30,12 @@ window.addEventListener('DOMContentLoaded', () => {
    * Open/Close modal
    */
   function open() {
-    document.body.classList.add('demo');
     demo.hidden = false;
     input.value = '';
     input.focus();
   }
   function close() {
     keyboard.clearStyle()
-    document.body.classList.remove('demo');
     demo.hidden = true;
   }
   button.onclick = open;
