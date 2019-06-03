@@ -38,7 +38,7 @@ https://qwerty-lafayette.org/#download
 Make your own
 --------------------------------------------------------------------------------
 
-You’ll need the latest version of [kalamine](https://github.com/fabi1cazenave/kalamine) to build your own layout:
+You’ll need the latest version of [Kalamine](https://github.com/fabi1cazenave/kalamine) to build your own layout:
 
 ```bash
 pip3 install kalamine
