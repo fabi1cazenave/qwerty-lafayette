@@ -46,24 +46,21 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   /**
-   * Keyboard emulation
+   * Keyboard highlighting & layout emulation
    */
   input.onkeyup = event => keyboard.keyUp(event.code);
   input.onkeydown = (event) => {
-    if (event.code === 'Tab' || event.code === 'Escape') {
-      close();
-      return false;
-    }
     const value = keyboard.keyDown(event.code);
-    if (event.code === 'Enter') { // clear text input on <Enter>
-      event.target.value = '';
-      return false;
-    }
     if (value && !(event.ctrlKey || event.altKey || event.metaKey)) {
       event.target.value += value;
-      return false;
+    } else if (event.code === 'Enter') {
+      event.target.value = '';
+    } else if (event.code === 'Escape' || event.code === 'Tab') {
+      setTimeout(close, 100);
+    } else {
+      return true; // don't intercept special keys or key shortcuts
     }
-    return true;
+    return false; // event has been consumed, stop propagation
   };
 
   /**
@@ -76,6 +73,8 @@ window.addEventListener('DOMContentLoaded', () => {
    *    => the code below works around that.
    */
   input.oninput = (event) => {
-    event.target.value = event.target.value.slice(0, -event.data.length);
+    if (event.data && event.inputType === 'insertCompositionText') {
+      event.target.value = event.target.value.slice(0, -event.data.length);
+    }
   };
 });
