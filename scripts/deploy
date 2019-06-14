@@ -1,0 +1,43 @@
+#!/bin/sh
+
+abort() {
+  exit $?
+}
+
+# Exit on error
+trap abort ERR
+
+# Colors
+green='\033[32m'
+default='\033[0m'
+
+message() {
+  printf "${green}%s${default}\n" "${*}"
+}
+
+message Deploying updates to GitHub…
+
+# Variables
+branch=$(git rev-parse --abbrev-ref HEAD)
+revision=$(git rev-parse HEAD)
+revision_short=$(git rev-parse --short HEAD)
+
+# Script
+rm -Rf build
+git init build
+cd build
+git remote add origin git@github.com:fabi1cazenave/qwerty-lafayette
+git checkout -b build
+kalamine ../layouts/*.yaml
+mv dist/* .
+rmdir dist
+git add .
+git commit --file - <<'EOF'
+Build $branch/$revision_short
+
+https://github.com/fabi1cazenave/qwerty-lafayette/commit/$revision
+EOF
+git push --force --set-upstream origin build
+
+message Successfully built $branch/$revision_short
+message https://github.com/fabi1cazenave/qwerty-lafayette/commit/$revision

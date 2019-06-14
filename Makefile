@@ -4,8 +4,11 @@ all:
 dev:
 	pip3 install kalamine
 
+deploy:
+	scripts/deploy
+
 clean:
-	rm -rf dist/*
+	rm -rf build dist/*
 
 # the install/uninstall targets below require Kalamine v0.4.2+
 

@@ -1,6 +1,8 @@
 Qwerty-Lafayette
 ================================================================================
 
+###### [Builds]
+
 A Qwerty layout for French-speaking users.
 
 
@@ -66,3 +68,5 @@ There are other ways to use a Qwerty-US keyboard for French. Here are the two mo
 * [qwerty-fr](http://marin.jb.free.fr/qwerty-fr/) — no dead keys, and a smart use of the AltGr layer for all French accented characters.
 
 Qwerty-Lafayette provides sharper typography and better ergonomics in the long run, but has a steeper learning curve for non-touch-typists.
+
+[Builds]: https://github.com/fabi1cazenave/qwerty-lafayette/tree/build
