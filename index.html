@@ -332,7 +332,7 @@
         </kbd>
         <kbd id="key_SPCE">
           <span class="level1"> ⍽ espace </span>
-          <span class="level2"> ⍽ espace insécable </span>
+          <span class="level2"> ⍽ espace insécable fine </span>
           <span class="level3"> ’ </span>
         </kbd>
         <kbd id="key_RALT" class="specialKey">
@@ -379,15 +379,18 @@
           (« ») ;
         </li>
         <li>
-          pour disposer d’une couche <a href="#_altgr">AltGr personnalisable</a>,
-          notamment pour les langages de programmation.
+          pour bénéficier d’une couche <a href="#_altgr">AltGr optimisée pour les
+          langages de programmation</a>.
         </li>
       </ul>
       <p>
         L’objectif est de conserver l’efficacité du QWERTY (chiffres en direct,
-        développement) tout en proposant une disposition de clavier plus
-        efficace que l’AZERTY pour le français.
+        raccourcis clavier) tout en proposant une disposition :
       </p>
+      <ul>
+        <li> plus efficace que l’AZERTY pour le français ; </li>
+        <li> plus efficace que le QWERTY pour la programmation. </li>
+      </ul>
     </div>
 
     <div data-onbegin="select(this)" id="qwerty">
@@ -436,43 +439,43 @@
 
     <div data-onbegin="select(this)" id="extra">
       <p>
-        Cette disposition de clavier a été pensée pour une utilisation
-        occasionnelle en allemand (ß), néerlandais (ĳ), espagnol (ñ), catalan (l·l), portugais,
-        italien et espéranto : accents, tildes, cédilles, umlauts, guillemets spécifiques…
+        Cette disposition de clavier a été pensée pour une utilisation régulière
+        en allemand, néerlandais et espéranto : contrairement à la plupart des
+        dispositions de clavier, les caractères spéciaux requis pour ces langues
+        ne sont pas obtenus avec <kbd>AltGr</kbd> mais avec la touche morte
+        <kbd>★</kbd>, afin de privilégier la fluidité de saisie.
       </p>
       <p>
-        Contrairement à la plupart des dispositions de clavier, les caractères
-        spéciaux requis pour ces langues ne sont pas obtenus avec <kbd>AltGr</kbd> mais
-        avec la touche morte <kbd>★</kbd>, afin de privilégier le confort et la fluidité de
-        la saisie.
-      </p>
-      <p>
-        De même, tous les caractères spéciaux tels que ≤≠±≥©®™μ… sont obtenus
-        avec la même touche morte. <a href="#_altgr">La couche AltGr</a> est donc optionnelle, et peut
-        être entièrement personnalisée.
+        De même, les caractères spéciaux tels que <code>≤≠±≥©®™μ</code> sont
+        obtenus avec la même touche morte. <a href="#_altgr">La couche AltGr</a>
+        contient les accents morts spécifiques aux autres langues utilisant
+        l’alphabet roman, mais est essentiellement pensée pour faciliter
+        l’accès aux symboles de programmation.
       </p>
     </div>
 
     <div data-onbegin="select(this)" id="altgr">
       <p>
-        La couche AltGr n’est pas indispensable, puisque tous les caractères
-        techniques (`~@#[]{}) sont accessibles soit directement, soit avec la
-        touche morte <kbd>★</kbd> . Néanmoins, elle peut s’avérer très pratique pour les
-        développeurs, qui pourront l’adapter librement à leurs besoins.
+        La couche AltGr n’est pas indispensable mais elle constitue le
+        principal <strong>atout ergonomique</strong> de la disposition pour
+        les langages de programmation :
       </p>
-      <p>
-        Dans la version de base ci-dessus, les caractères les plus utilisés en
-        C/C++ (ou Java, JavaScript…) et HTML/XML sont disponibles en <kbd>AltGr</kbd> +
-        main gauche. Cela permet de saisir rapidement des digrammes du type -&gt;,
-        &lt;/, /&gt;. Les accolades {} et crochets [] sont sur la rangée de base,
-        bien plus accessibles qu’en QWERTY classique.
-      </p>
+      <ul>
+        <li> les symboles des touches excentrées <kbd>`~</kbd>, <kbd>-_</kbd>,
+          <kbd>=+</kbd>, <kbd>[{</kbd>,<kbd>]}</kbd>, <kbd>\|</kbd>,
+          <kbd>'"</kbd> sont accessibles en <kbd>AltGr</kbd> + main gauche ; </li>
+        <li> la disposition de ces symboles en <kbd>AltGr</kbd> a été
+          <strong>optimisée</strong> pour les enchaînements du type
+          <code>&lt;/</code>, <code>/&gt;</code>, <code>-&gt;</code>,
+          <code>=&gt;</code>, <code>~/</code>, <code>('')</code>,
+          <code>("")</code>, <code>+=</code>, <code>-=</code>… </li>
+        <li> les symboles les plus courants <code>[]{}&lt;&gt;</code> sont
+          sur la rangée de base — mieux qu’en QWERTY-US ! </li>
+      </ul>
       <p>
         Sous la main droite, un pavé numérique virtuel (comparable à ceux des
-        portables) est proposé. Il n’est pas très facile d’accès sous Linux (pas
-        de touche <kbd>AltGr</kbd> / <kbd>Ctrl+Alt</kbd> à gauche) mais permet
-        néanmoins de saisir rapidement des (0) ou [0], très fréquents dans les
-        langages de programmation.
+        portables) est proposé. Il permet notamment de saisir rapidement des
+        <code>(0)</code> ou <code>[0]</code>, fréquents en programmation.
       </p>
     </div>
   </div>
@@ -546,19 +549,48 @@
 
   <h2 id="changelog"> Notes de version </h2>
   <dl>
-    <dt> v0.6 (2018-04-02) </dt>
+    <dt> v0.7 (2019-xx-xx) </dt>
     <dd>
+      Modification du comportement de la barre d’espace :
       <ul>
-        <li> variante <a
-            href="https://github.com/fabi1cazenave/qwerty-lafayette/blob/master/layouts/qwerty42.yaml">Lafayette42</a>,
-          dédiée aux claviers compacts ; </li>
-        <li> la couche AltGr a été modifiée pour faciliter certains
-          enchaînements : <code>+=</code>, <code>-=</code>, <code>=&gt;</code>,
-          <code>('')</code>, <code>~/</code>, etc. ; </li>
-        <li> <kbd>AltGr</kbd>+<kbd>Espace</kbd> ne produit plus Escape
-          (impossible à implémenter sous Windows).</li>
+        <li><kbd>Shift</kbd>+<kbd>Espace</kbd>
+          = <code>U+202f</code> espace insécable <strong>fine</strong> (nnbsp)</li>
+        <li><kbd>AltGr</kbd>+<kbd>Espace</kbd>
+          = <code>U+0020</code> espace</li>
+        <li><kbd>AltGr</kbd>+<kbd>Shift</kbd>+<kbd>Espace</kbd>
+          = <code>U+00a0</code> espace insécable (nbsp)</li>
       </ul>
     </dd>
+    <dd>
+      Ajout de guillemets typographiques secondaires dans la couche AltGr :
+      <ul>
+        <li> <kbd>AltGr</kbd>+<kbd>Shift</kbd>+<kbd>«</kbd><kbd>»</kbd>
+          = <code>‹›</code> </li>
+        <li> <kbd>AltGr</kbd>+<kbd>Shift</kbd>+<kbd>1</kbd><kbd>2</kbd><kbd>3</kbd>
+          = <code>‚‘’</code> </li>
+      </ul>
+    </dd>
+    <dd>
+      Ajout de nouvelles touches mortes dans la couche AltGr : hatchek, stroke,
+      greek, currency, ogonek, macron, brève, double accent aigu, double accent grave.
+    </dd>
+
+    <dt> v0.6 (2018-04-02) </dt>
+    <dd>
+      Publication d’une variante <a
+      href="https://github.com/fabi1cazenave/qwerty-lafayette/blob/master/layouts/qwerty42.yaml">Lafayette42</a>,
+      dédiée aux claviers compacts.
+    </dd>
+    <dd>
+      Modification de la couche AltGr pour faciliter certains enchaînements :
+      <code>+=</code>, <code>-=</code>, <code>=&gt;</code>, <code>('')</code>,
+      <code>~/</code>, etc.
+    </dd>
+    <dd>
+      <kbd>AltGr</kbd>+<kbd>Espace</kbd> ne produit plus <code>Esc</code>
+      (impossible à implémenter sous Windows).
+    </dd>
+
     <dt> v0.5 (2015-12-10) </dt>
     <dd>
       Quelques changements sur les caractères spéciaux :
@@ -572,28 +604,36 @@
           <kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd> —
           <i>Vim powwa!</i> </li>
       </ul>
+    </dd>
+    <dd>
       Mac OSX : meilleur fonctionnement des touches mortes en <kbd>CapsLock</kbd>. <br />
+    </dd>
+    <dd>
       Linux : meilleur fonctionnement de la touche <kbd>AltGr</kbd> sous Chromium.
     </dd>
+
     <dt> v0.2.1 (2013-03-05) </dt>
     <dd>
-      Linux : correction mineure (antislash)
+      Linux : correction mineure (antislash).
     </dd>
+
     <dt> v0.2 (2010-11-16) </dt>
+    <dd> Windows : première version publique. </dd>
     <dd>
-      Windows : première version publique <br />
       OSX : correction d’une erreur XML qui rendait le fichier keylayout
-      inutilisable <br />
-      Linux : correction des guillemets typographiques (<code>« »</code>)
+      inutilisable -_-'
     </dd>
+    <dd>
+      Linux : correction des guillemets typographiques (<code>« »</code>).
+    </dd>
+
     <dt> v0.1 (2010-07-05) </dt>
     <dd>
-      première version publique (OSX, Linux)
+      Première version publique (OSX, Linux).
     </dd>
   </dl>
   <p>
-    Ces pilotes de clavier sont encore expérimentaux et quelques disparités
-    sont possibles d’une plate-forme à l’autre, notamment :
+    Quelques disparités sont possibles d’une plate-forme à l’autre, notamment :
   </p>
   <ul>
     <li>
@@ -614,11 +654,7 @@
   <p>
     <strong>Nota :</strong> cette disposition de clavier est encore susceptible
     d’évoluer. La couche QWERTY est figée, mais certains caractères secondaires
-    pourront être ajoutés ou modifiés dans la couche « Extra ». Quant à la
-    couche « AltGr », elle est faite pour être reconfigurée : <a
-      href="https://github.com/fabi1cazenave/qwerty-lafayette/wiki/AltGr">proposez
-      votre disposition sur le wiki</a> pour contribuer à ce que sera la version
-    1.0 finale.
+    pourront être ajoutés ou modifiés dans les couches « Extra » et « AltGr ».
   </p>
 
   <h2 id="license"> Licence </h2>
