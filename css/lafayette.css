@@ -37,6 +37,14 @@ kbd .level6 {
   opacity: 0;
 }
 
+/* pinky keys */
+#keyboard kbd.pinky {
+  background-color: #eee;
+  border: 1px dashed;
+  opacity: 0.5;
+  color: #444;
+}
+
 /* qwerty|lafayette|altgr class switcher */
 .qwerty    kbd.qwerty,
 .extra     #key_AC10,
@@ -61,13 +69,7 @@ kbd .level6 {
 }
 
 /* altgr */
-.altgr #key_AD02,
-.altgr #key_AD03,
-.altgr #key_AC01,
-.altgr #key_AC02,
-.altgr #key_AC03,
-.altgr #key_AC04,
-.altgr #key_RALT {
+.altgr kbd.altgr {
   background-color: #ddf;
 }
 .altgr kbd span {
