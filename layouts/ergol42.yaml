@@ -1,15 +1,15 @@
-name: Qourg42
-name8: q42-fr
+name: Ergo-L-42
+name8: ergol42
 locale: fr
-variant: qourg42
-description: French (Qourg)
-url: https://github.com/fabi1cazenave/qwerty-lafayette
+variant: ergol42
+description: French (Ergo-L, compact variant)
+url: https://github.com/Leo-Caz/ergol
 geometry: ERGO
 version: 0.7.0
 
 base: |
   ╭╌╌╌╌╌┰─────┬─────┬─────┬─────┬─────┰─────┬─────┬─────┬─────┬─────┰╌╌╌╌╌┬╌╌╌╌╌╮
-  ┆ ~   ┃ ! ¡ │ @ ‘ │ # ’ │ $ ¢ │ % ‰ ┃ ^   │ & ÷ │ *   │ )   │ ? ¿ ┃ _ – ┆ + ± ┆
+  ┆ ~   ┃ ! ¡ │ @ ‘ │ # ’ │ $ ¢ │ % ‰ ┃ ^   │ & ÷ │ *   │ /   │ ? ¿ ┃ _ – ┆ + ± ┆
   ┆ `   ┃ 1 „ │ 2 “ │ 3 ” │ 4 £ │ 5 € ┃ 6 ¥ │ 7 ¤ │ 8 § │ 9 ¶ │ 0 ° ┃ - — ┆ = ≠ ┆
   ╰╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤
         ┃ Q   │ O   │ U   │ P   │ W   ┃ J   │ L   │ F   │ R   │ Y   ┃ {   ┆ }   ┆

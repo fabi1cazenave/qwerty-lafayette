@@ -4,19 +4,18 @@ window.addEventListener('DOMContentLoaded', () => {
   const keyboard = document.querySelector('x-keyboard');
   const button   = document.querySelector('button');
   const input    = document.querySelector('input');
-  const geometry = document.querySelector('#demo select');
-  const demo     = document.querySelector('#demo');
+  const geometry = document.querySelector('select');
 
   if (!keyboard.layout) {
     console.warn('web components are not supported');
     return; // the web component has not been loaded
   }
 
-  fetch(`layouts/qwerty.json`)
+  fetch(keyboard.getAttribute('src'))
     .then(response => response.json())
     .then(data => {
-      const shape = data.geometry.replace('ERGO', 'OL60').toLowerCase();
-      keyboard.setKeyboardLayout(data.layout, data.dead_keys, shape);
+      const shape = data.geometry.replace('ergo', 'ol60').toLowerCase();
+      keyboard.setKeyboardLayout(data.keymap, data.deadkeys, shape);
       geometry.value = shape;
       button.hidden = false;
       button.focus();
@@ -24,27 +23,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
   geometry.onchange = (event) => {
     keyboard.geometry = event.target.value;
-  };
-
-  /**
-   * Open/Close modal
-   */
-  function open() {
-    document.body.classList.add('demo');
-    demo.hidden = false;
-    input.value = '';
-    input.focus();
-  }
-  function close() {
-    keyboard.clearStyle()
-    document.body.classList.remove('demo');
-    demo.hidden = true;
-  }
-  button.onclick = open;
-  demo.onclick = (event) => {
-    if (event.target.id === 'demo') {
-      close();
-    }
   };
 
   /**
