@@ -30,7 +30,7 @@ The dead <kbd>★</kbd> key gives access to all acute accents, grave accents, ce
 
 The default layout allows to write in English, French, German and Esperanto easily.
 
-More information on the website (in French): https://ergol.github.io/
+[More information on the website](https://leo-caz.github.io/ergol/) (in French).
 
 
 Make your own
