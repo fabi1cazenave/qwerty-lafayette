@@ -14,6 +14,10 @@ h1, h2 {
   border-bottom: 1px inset brown;
 }
 
+img {
+	max-width: 100%;
+}
+
 dd, dt {
   margin-bottom: 0.5em;
 }
