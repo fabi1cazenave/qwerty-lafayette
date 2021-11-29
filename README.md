@@ -63,6 +63,6 @@ Alternatives
 There are other ways to use a Qwerty-US keyboard for French. Here are the two most intuitive ones:
 
 * [qwerty-intl](https://en.wikipedia.org/wiki/QWERTY#US-International) — turns <kbd>`</kbd><kbd>~</kbd><kbd>'</kbd><kbd>"</kbd><kbd>^</kbd> into dead keys;
-* [qwerty-fr](https://github.com/julienblitte/qwerty-fr) — smart use of the AltGr layer for direct access to all French accented characters, as well as dead keys for other characters.
+* [qwerty-fr](https://github.com/qwerty-fr/qwerty-fr) — smart use of the AltGr layer for direct access to all French accented characters, as well as dead keys for other characters.
 
 Qwerty-Lafayette provides sharper typography and better ergonomics in the long run, but has a steeper learning curve for non-touch-typists.
