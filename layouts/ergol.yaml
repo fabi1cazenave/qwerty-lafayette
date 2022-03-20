@@ -1,25 +1,25 @@
-name: Ergo-L-42
-name8: ergol42
+name: Ergo-L
+name8: ergol
 locale: fr
-variant: ergol42
-description: French (Ergo-L, compact variant)
+variant: ergol
+description: French (Ergo-L)
 url: https://github.com/Leo-Caz/ergol
 geometry: ERGO
-version: 0.7.0
+version: 0.2.0
 
 base: |
   ╭╌╌╌╌╌┰─────┬─────┬─────┬─────┬─────┰─────┬─────┬─────┬─────┬─────┰╌╌╌╌╌┬╌╌╌╌╌╮
-  ┆ ~   ┃ ! ¡ │ @ ‘ │ # ’ │ $ ¢ │ % ‰ ┃ ^   │ & ÷ │ *   │ «   │ »   ┃ _ – ┆ + ± ┆
+  ┆ ~   ┃ ! ¡ │ @ ‘ │ # ’ │ $ ¢ │ % ‰ ┃ ^   │ & ÷ │ * × │ (   │ )   ┃ _ – ┆ + ± ┆
   ┆ `   ┃ 1 „ │ 2 “ │ 3 ” │ 4 £ │ 5 € ┃ 6 ¥ │ 7 ¤ │ 8 § │ 9 ¶ │ 0 ° ┃ / ÷ ┆ = ≠ ┆
   ╰╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤
-        ┃ Q   │ O   │ U   │ D   │ W   ┃ B   │ M   │ F   │ P   │ G   ┃ {   ┆ }   ┆
-        ┃   æ │   œ │   ù │     │     ┃     │     │   ê │   î │     ┃ [   ┆ ]   ┆
+        ┃ Q   │ O   │ U   │ D   │ W   ┃ B   │ M   │ F   │ P   │ G   ┃ «   ┆ »   ┆
+        ┃   æ │   œ │   ù │     │     ┃     │   µ │     │     │     ┃*^   ┆*¨   ┆
         ┠─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┼╌╌╌╌╌┤
-        ┃ A   │ S   │ R   │ T   │ Y   ┃ H   │ N   │ E   │ I   │*¨   ┃ "   ┆ |   ┆
-        ┃   à │   ô │   û │   † │     ┃     │   ñ │   è │   é │** ` ┃ '   ┆ \   ┆
+        ┃ A   │ S   │ R   │ T   │ Y   ┃ H   │ N   │ E   │ I   │**   ┃ "   ┆ |   ┆
+        ┃   à │   ß │     │     │     ┃     │   ñ │   è │   é │** ` ┃ '   ┆ \   ┆
   ╭╌╌╌╌╌╂─────┼─────┼─────┼─────┼─────╂─────┼─────┼─────┼─────┼─────╂╌╌╌╌╌┴╌╌╌╌╌╯
-  ┆ >   ┃ Z   │ X   │ C   │ V   │ K   ┃ J   │ L º │ ; • │ :   │ ? ¿ ┃
-  ┆ <   ┃   â │   × │   ç │   ŭ │   ß ┃     │   µ │ , · │ . … │ - — ┃
+  ┆ >   ┃ Z   │ X   │ C   │ V   │ K   ┃ J   │ L   │ ; • │ :   │ ? ¿ ┃
+  ┆ <   ┃     │     │   ç │   ŭ │     ┃     │     │ , · │ . … │ - — ┃
   ╰╌╌╌╌╌┸─────┴─────┴─────┴─────┴─────┸─────┴─────┴─────┴─────┴─────┚
 
 altgr: |
@@ -41,5 +41,5 @@ spacebar:
   shift:       "\u202f"  # NARROW NO-BREAK SPACE
   altgr:       "\u0020"  # SPACE
   altgr_shift: "\u00a0"  # NO-BREAK SPACE
-  1dk:         "\u0027"  # SINGLE QUOTE
-  1dk_shift:   "\u0027"  # SINGLE QUOTE
+  1dk:         "\u2019"  # RIGHT SINGLE QUOTATION MARK
+  1dk_shift:   "\u2019"  # RIGHT SINGLE QUOTATION MARK

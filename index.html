@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="description" content="a Colemak-style keyboard layout for French-speaking users" />
-  <title> Ergo-L </title>
+  <title> ErgoL </title>
   <link type="text/css" rel="stylesheet" href="css/layout.css" />
   <link type="text/css" rel="stylesheet" href="css/demo.css" />
   <script type="module" src="https://unpkg.com/x-keyboard"></script>
@@ -11,7 +11,7 @@
 </head>
 <body class="qwerty">
 
-  <h1> Ergo-L </h1>
+  <h1> ErgoL </h1>
   <p> Une disposition de clavier optimisée pour les développeurs francophones et les typographes exigeants. </p>
 
   <div id="demo">
@@ -42,7 +42,7 @@
 
   <h2 id="install"> Installation </h2>
   <p>
-    Voir <a href="https://github.com/Leo-Caz/ergol">le dépot github</a>
+    Voir <a href="https://github.com/Leo-Caz/ErgoL">le dépot github</a>
     pour les instructions d’installation.
   </p>
 
@@ -80,68 +80,101 @@
 
 	<img src="layouts/heatmap_lafayette.png">
 
-	<p>Ergo-L (Ergonomique-Lafayette) est une optimisation type Workman du Qwerty-Lafayette.</p>
+	<p>ErgoL (Ergonomique-Lafayette) est une optimisation type Workman du Qwerty-Lafayette.</p>
 
 	<img src="layouts/heatmap_ergol.png">
 
-	<p>Ce projet est encore un travail en cours, certains caractères sont susceptibles de bouger pour améliorer l'équilibre de la heatmap. On envisage notamment de placer le <kbd>E</kbd> sous l'index droit, ce qui impose une refonte assez conséquente.</p>
-	<p>Contrairement à Bépo, la priorité reste d'éviter les touches à l'extérieur des zones de frappe naturelles, la heatmap est une optimisation secondaire mais on tient au principe du Workman (notamment éviter les extensions vers les colonnes du centre) et on apporte un soin particulier à la fluidité des enchaînements. En outre, on souhaite qu’Ergo-L reste meilleur que Qwerty pour l’anglais.</p>
+  <h2 id="ergomonie"> Principes d'ergonomie </h2>
 
-  <h2 id="bepo"> Ergo-L vs Bépo </h2>
+  <h3> ErgoL vs Bépo </h3>
+
   <p> Cette disposition poursuit les mêmes objectifs que <a href="https://bepo.fr">Bépo</a>, mais d’une façon différente. </p>
-
-  <h3> Efficacité </h3>
-  <p> Pour la saisie de texte français, les deux méthodes sont d’une efficacité similaire : </p>
 
   <ul>
     <li> heatmap comparable, mais avec un objectif différent :
       <ul>
         <li>Bépo est typé « dvorak », i.e. les touches fréquentes sont étalées sur toute la home row</li>
-        <li>Ergol est typé « workman », i.e. on évite les deux colonnes du centre</li>
+        <li>ErgoL est typé « workman », i.e. on évite les deux colonnes du centre</li>
       </ul>
     </li>
     <li> meilleure répartition par doigt :
       <ul>
         <li> Bépo charge surtout les index et les auriculaires (notamment l’auriculaire droit) </li>
-        <li> Ergol répartit la charge sur tous les doigts, mais allège les auriculaires </li>
+        <li> ErgoL répartit la charge sur tous les doigts, mais allège les auriculaires </li>
       </ul>
     </li>
+	<li> accès rapide aux caractères typographiques :
+	  <ul> 
+	    <li> Espace inscécable fine en <kbd>shift+espace</kbd>.</li>
+	    <li> Guillemet typographiques sur la rangée des chiffres.</li>
+	    <li> Ponctuation intuitive tirée de Qwerty-Lafayette.</li>
+	  </ul>
     <li> des enchaînements au moins aussi confortables que Bépo </li>
   </ul>
 
-  <h3> Une approche différente de la saisie de texte </h3>
-  <p> La philosophie d’Ergo-L est héritée du <a href="https://qwerty-lafayette.org/">Qwerty-Lafayette</a> : </p>
+  <h3> Une approche moderne de la saisie de texte </h3>
+
+  <p>
+    ErgoL est une disposition de clavier optimisé pour le français et l'anglais, ce qui est possible car les dix lettres les plus fréquentes en français sont les mêmes en anglais (avec un ordre légèrement différent). Ergol apporte de nombreux avantages par rapport à Bépo en s'inspirant de <a href="https://workmanlayout.org/">Workman</a> pour le placement des caractères et de <a href="https://qwerty-lafayette.org/">Qwerty-Lafayette</a> pour la touche morte et la couche AltGr.
+  </p>
+
+  <p> Il n'y a pas de lettres à l'extérieur des 3×10 touches du centre pour éviter le manque de confort et de précision causé par les extentions. Cela implique que : </p>
 
   <ul>
-    <li>les lettres accentuées et ponctuation spéciales sont obtenues avec une touche morte :
+	<li> les lettres accentués et ponctuation spéciales sont obtenues avec une touche morte :
+	  <ul>
+		<li> cela occasionne environ 3% de frappes supplémentaires en français </li>
+		<li> la touche morte est sur la home row </li>
+		<li> c'est moins intuitif que Bépo, mais favorise l'apprentissage en mémoire musculaire </li>
+		<li> (il y a deux touches mortes secondaires en dehors des 30 touches pour que ça reste intuitif, mais elles n'apparaissent pas dans la <a href="42.html">variante compacte</a>) </li>
+	  </ul>
+    <li> la couche AltGr est réservée aux symboles de programmation :
       <ul>
-        <li>cela occasionne environ 3% de frappes supplémentaires en français</li>
-        <li>la touche morte est sur la home row</li>
-        <li>toutes les lettres se font en restant dans les 3×10 touches sous les doigts (y compris les Ç, Œ, Æ…)</li>
-        <li>c’est moins intuitif que Bépo, mais favorise l’apprentissage en mémoire musculaire</li>
-      </ul>
-    </li>
-    <li>la couche AltGr est réservée aux symboles de programmation :
-      <ul>
-        <li>tous les symboles de programmation sont en AltGr + main gauche</li>
-        <li>accolades, crochets et chevrons sont sur les 6 touches les plus accessibles</li>
-        <li>la disposition est optimisée pour les enchaïnements fréquents en programmation :
+        <li> tous les symboles de programmation sont en AltGr + main gauche</li>
+        <li> accolades, crochets et chevrons sont sur les 6 touches les plus accessibles</li>
+        <li> la disposition est optimisée pour les enchaînements fréquents en programmation :
             <code> -> => </ /> (0) [0] [''] ("") {} ~/ </code>
         </li>
       </ul>
-    </ul>
-  </p>
-
-  <h3> Des avantages décisifs sur Bépo </h3>
-
-  <ul>
-    <li><strong>les raccourcis usuels du Qwerty sont conservés</strong> : Ctrl-{Q,A,S,Z,X,C,V}</li>
-    <li><strong>les chiffres sont accessibles en direct</strong> (oubliez le pavé numérique !)</li>
-    <li>la disposition est adaptée aux <strong>claviers compacts</strong> (50% et 40%)</li>
-    <li>le temps d’apprentissage est plus court (ça reste proche de Qwerty)</li>
-    <li>meilleure ergonomie pour la programmation et la saisie de texte anglais</li>
+	</li>
+	<li> la disposition est compatible avec les claviers compacts, voir ultra compacts avec une <a href="42.html">version alternative</a> (encore en développement). </li>
   </ul>
 
+  <p> Les chiffres sont en accès direct car ils sont beaucoup plus fréquent que les symboles sur les même touches. (Oubliez votre pavé numérique!) </p>
+
+  <p> Les raccourcis usuels Ctrl+{Q,A,S,Z,X,C,V} ont été concervé car le gain marginal d'ergonomie en mettant une autre lettre à la place n'es pas suffisant pour compenser la perte de ces raccourcis. </p>
+
+  <p>
+    Beaucoup d'attention à été porté sur les enchainements de lettres, avec la plupart des enchainements fréquents qui se font avec une alternance main gauche/droite ou un roulement intérieur. On a plutôt cherché à priviligier le confort car il est possible de tapper vite avec n'importe quelle disposition de clavier, par exemple : on a placé les lettres <kbd>L</kbd> et <kbd>M</kbd> sont sur l'index pour qu'elles soient confortables à doubler.
+  </p>
+
+  <p>
+    ErgoL cherche à équilibrer la charge des doigts mais allège les auriculaires (surtout l'auriculaire droigt, qui est utilisé pour les touches <kbd>Enter</kbd> et <kbd>Back-space</kbd>), contrairement à Bépo qui charge principalement les indexs et les auriculaires. Voici une comparaison des charges des doigts de ErgoL et de Bépo en français et anglais :
+  </p>
+
+  <ul>
+	<li> ErgoL en français : <img src="layouts/charge_ergol_fr.png"> </li>
+	<li> ErgoL en anglais : <img src="layouts/charge_ergol_en.png"> </li>
+	<li> ErgoL en français + anglais : <img src="layouts/charge_ergol_en_fr.png"> </li>
+	<li> Bépo en français : <img src="layouts/charge_bepo_fr.png"> </li>
+	<li> Bépo en anglais : <img src="layouts/charge_bepo_en.png"> </li>
+  </ul>
+
+  <p> Les charges des doigts on été généré à l'aide de <a href="https://fabi1cazenave.github.io/x-keyboard/">x-keyboard</a> <p>
+
+  <h3> Expériences rejetés et évolutions possibles </h3>
+
+  <p>
+    On a envisagé par le passé de placer le <kbd>E</kbd> sous l'index, comme le Bépo, parce que c'est la lettre la plus fréquente en français, mais cela ruine l'équilibre de la charge des doigts et complique beaucoup d'enchaînements. De même, on a essayé de mettre toutes les voyelles d'un côté (comme Dvorak ou Bépo) ou de déplacer la touche morte mais cela engendrait plus de problèmes que cela n'en résolvait.
+  </p>
+
+  <p>
+	Ce projet est encore un travail en cours, certains caractères sont susceptibles de bouger pour améliorer l'équilibre de la heatmap ou certains enchaînements. On envisage d'échanger les touches <kbd>Q</kbd> et <kbd>B</kbd> pour coriger les enchaînements <kbd>mb</kbd> et <kbd>bl</kbd> mais rend <kbd>que</kbd> (le trigramme le plus fréquent en français) moins confortable.
+  </p>
+
+  <p>
+    Il existe aussi une version compacte nommée <a href="42.html">ErgoL42</a> en cours de développement, elle vise à rendre la touche morte plus ergonomique (en n'en mettant qu'une au lieu de trois) et rendre la disposition compatible avec les claviers ultra compacte, mais est moins intuitive et sacrifie en partie la typographie.
+  </p>
 
   <!--
   <h2 id="related"> Voir aussi </h2>
