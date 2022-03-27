@@ -18,15 +18,15 @@ This layout claims to be better than Bépo for French and better than Qwerty for
 Layout
 --------------------------------------------------------------------------------
 
-![base layout](layouts/ergol.png)
+![base layout](img/ergol.png)
 
 The dead <kbd>★</kbd> key gives access to all acute accents, grave accents, cedillas, digraphs and quote signs you’ll need to write in proper French:
 
-![dead key layout](layouts/ergol_1dk.png)
+![dead key layout](img/ergol_1dk.png)
 
 … which leaves the AltGr layer fully available for any customization you have in mind.
 
-![altgr layout](layouts/ergol_alt.png)
+![altgr layout](img/ergol_alt.png)
 
 The default layout allows to write in English, French, German and Esperanto easily.
 

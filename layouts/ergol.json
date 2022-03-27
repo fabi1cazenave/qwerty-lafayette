@@ -1,7 +1,7 @@
 {
   "name": "Ergo-L",
   "description": "French (Ergo-L)",
-  "geometry": "ergo",
+  "geometry": "iso",
   "keymap": {
     "Digit1": [ "1", "!", "!" ],
     "Digit2": [ "2", "@", "(", "⁽" ],
