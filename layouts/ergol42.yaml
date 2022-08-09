@@ -5,7 +5,7 @@ variant: ergol42
 description: French (Ergo-L, compact variant)
 url: https://github.com/Leo-Caz/ergol
 geometry: ERGO
-version: 0.2.0
+version: 0.3.0
 
 base: |
   ╭╌╌╌╌╌┰─────┬─────┬─────┬─────┬─────┰─────┬─────┬─────┬─────┬─────┰╌╌╌╌╌┬╌╌╌╌╌╮
