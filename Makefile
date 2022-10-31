@@ -15,7 +15,7 @@ install:
 	xkalamine install layouts/qwerty*.yaml
 
 uninstall:
-	@echo "Unistaller script for XKB (GNU/Linux). Requires super-user privileges."
+	@echo "Uninstaller script for XKB (GNU/Linux). Requires super-user privileges."
 	@echo
 	xkalamine remove fr/lafayette
 	@echo
