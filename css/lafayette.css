@@ -61,12 +61,7 @@ kbd .level6 {
 }
 
 /* altgr */
-.altgr #key_AD02,
-.altgr #key_AD03,
-.altgr #key_AC01,
-.altgr #key_AC02,
-.altgr #key_AC03,
-.altgr #key_AC04,
+.altgr .alt_only,
 .altgr #key_RALT {
   background-color: #ddf;
 }

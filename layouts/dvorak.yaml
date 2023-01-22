@@ -1,6 +1,7 @@
 name: Dvorak-Lafayette
 description: French (Dvorak-Lafayette)
 url: https://github.com/fabi1cazenave/qwerty-lafayette
+geometry: ISO
 version: 0.7.0
 
 base: |

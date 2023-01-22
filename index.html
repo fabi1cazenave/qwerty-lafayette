@@ -29,7 +29,7 @@
   <div id="demo" hidden>
     <div>
       <input spellcheck="false">
-      <x-keyboard></x-keyboard>
+      <x-keyboard data-layout="layouts/qwerty.json"></x-keyboard>
       <p>
         <span> powered by
           <a href="https://fabi1cazenave.github.io/x-keyboard/">x-keyboard</a>
@@ -106,11 +106,13 @@
         <kbd id="key_AE08">
           <span class="level1"> 8 </span>
           <span class="level2"> * </span>
+          <span class="level3 secondary"> § </span>
           <span class="level5"> 8 </span>
         </kbd>
         <kbd id="key_AE09">
           <span class="level1"> 9 </span>
           <span class="level2"> ( </span>
+          <span class="level3 secondary"> ¶ </span>
           <span class="level5"> 9 </span>
         </kbd>
         <kbd id="key_AE10">
@@ -139,12 +141,12 @@
           <span class="level3"> æ </span>
           <span class="level5"> = </span>
         </kbd>
-        <kbd id="key_AD02">
+        <kbd id="key_AD02" class="alt_only">
           <span class="level2"> W </span>
           <span class="level3"> é </span>
           <span class="level5"> &lt; </span>
         </kbd>
-        <kbd id="key_AD03">
+        <kbd id="key_AD03" class="alt_only">
           <span class="level2"> E </span>
           <span class="level3"> è </span>
           <span class="level5"> &gt; </span>
@@ -182,21 +184,15 @@
         </kbd>
         <kbd id="key_AD10">
           <span class="level2"> P </span>
-          <span class="level3 secondary"> § </span>
-          <span class="level4 secondary"> ¶ </span>
           <span class="level5"> * </span>
         </kbd>
         <kbd id="key_AD11" class="qwerty">
           <span class="level1 deadKey"> ^ </span>
           <span class="level2"> « </span>
-          <span class="level3"> [ </span>
-          <span class="level4"> { </span>
         </kbd>
         <kbd id="key_AD12" class="qwerty">
           <span class="level1 deadKey"> ¨ </span>
           <span class="level2"> » </span>
-          <span class="level3"> ] </span>
-          <span class="level4"> } </span>
         </kbd>
         <kbd id="key_BKSL">
           <span class="level1"> \ </span>
@@ -205,22 +201,22 @@
       </div>
       <div id="row_AC">
         <kbd id="key_CAPS" class="specialKey"></kbd>
-        <kbd id="key_AC01">
+        <kbd id="key_AC01" class="alt_only">
           <span class="level2"> A </span>
           <span class="level3"> à </span>
           <span class="level5"> { </span>
         </kbd>
-        <kbd id="key_AC02">
+        <kbd id="key_AC02" class="alt_only">
           <span class="level2"> S </span>
           <span class="level3 secondary"> ß </span>
           <span class="level5"> [ </span>
         </kbd>
-        <kbd id="key_AC03">
+        <kbd id="key_AC03" class="alt_only">
           <span class="level2"> D </span>
           <span class="level3 secondary"> ð </span>
           <span class="level5"> ] </span>
         </kbd>
-        <kbd id="key_AC04">
+        <kbd id="key_AC04" class="alt_only">
           <span class="level2"> F </span>
           <span class="level3 secondary"> ſ </span>
           <span class="level4 secondary"> ª </span>
@@ -265,12 +261,11 @@
         <kbd id="key_LFSH" class="specialKey"></kbd>
         <kbd id="key_AB01">
           <span class="level2"> Z </span>
-          <span class="level3"> &lt; </span>
           <span class="level5"> ~ </span>
         </kbd>
         <kbd id="key_AB02">
           <span class="level2"> X </span>
-          <span class="level3"> &gt; </span>
+          <span class="level3 secondary"> × </span>
           <span class="level5"> ` </span>
         </kbd>
         <kbd id="key_AB03">
@@ -332,7 +327,7 @@
         </kbd>
         <kbd id="key_SPCE">
           <span class="level1"> ⍽ espace </span>
-          <span class="level2"> ⍽ espace insécable </span>
+          <span class="level2"> ⍽ espace insécable fine </span>
           <span class="level3"> ’ </span>
         </kbd>
         <kbd id="key_RALT" class="specialKey">
@@ -448,17 +443,15 @@
       </p>
       <p>
         De même, tous les caractères spéciaux tels que ≤≠±≥©®™μ… sont obtenus
-        avec la même touche morte. <a href="#_altgr">La couche AltGr</a> est donc optionnelle, et peut
-        être entièrement personnalisée.
+        avec la même touche morte. <a href="#_altgr">La couche AltGr</a> est donc spécifique
+        aux symboles de programmation, et peut être entièrement personnalisée.
       </p>
     </div>
 
     <div data-onbegin="select(this)" id="altgr">
       <p>
-        La couche AltGr n’est pas indispensable, puisque tous les caractères
-        techniques (`~@#[]{}) sont accessibles soit directement, soit avec la
-        touche morte <kbd>★</kbd> . Néanmoins, elle peut s’avérer très pratique pour les
-        développeurs, qui pourront l’adapter librement à leurs besoins.
+        La couche AltGr est dédiée aux symboles de programmation et cherche à en faciliter les
+        enchaînements. Les développeurs sont invités à l’adapter librement à leurs besoins.
       </p>
       <p>
         Dans la version de base ci-dessus, les caractères les plus utilisés en
@@ -481,22 +474,17 @@
   <dl class="download">
     <dt>
       <strong> Windows : </strong>
-      <a href="./releases/lafayette_windows_v0.6.zip">lafayette_windows_v0.6.zip</a> (259 Ko)
+      <a href="./releases/lafayette_windows_v0.8.exe">lafayette_windows_v0.8.exe</a> (1.03 Mo)
     </dt>
     <dd>
-      <p>
-        dézipper et exécuter <code>setup.exe</code>.
-      </p>
-      <p>
-        La disposition de clavier apparaît dans la barre de langues (indicateur
-        de la barre des tâches).
-      </p>
+      <p> Exécuter l’installeur. La disposition de clavier apparaît dans la
+        barre de langues (indicateur de la barre des tâches). </p>
     </dd>
-    <dt>
+    <dt hidden>
       <strong> Windows, version portable : </strong>
-      <a href="./releases/lafayette_pkl_v0.6.zip">lafayette_pkl_v0.6.zip</a> (330 Ko)
+      <a href="./releases/lafayette_pkl_v0.8.zip">lafayette_pkl_v0.8.zip</a> (330 Ko)
     </dt>
-    <dd>
+    <dd hidden>
       <p>
         dézipper et exécuter <code>pkl.exe</code>.
       </p>
@@ -507,58 +495,52 @@
     </dd>
     <dt>
       <strong> Mac OSX : </strong>
-      <a href="./releases/lafayette_macosx_v0.6.keylayout">lafayette_macosx_v0.6.keylayout</a> (67 Ko)
+      <a href="./releases/lafayette_macosx_v0.8.keylayout">lafayette_macosx_v0.8.keylayout</a> (68 Ko)
     </dt>
     <dd>
-      <p>
-        enregistrer dans <code>~/Library/Keyboard Layouts</code> (pour le seul
+      <p> Enregistrer dans <code>~/Library/Keyboard Layouts</code> (pour le seul
         utilisateur courant) ou <code>/Library/Keyboard Layouts</code> (pour
-        tous les utilisateurs), et relancer la session.
-      </p>
-      <p>
-        La disposition de clavier sera disponible dans vos préférences « Langue
-        et Texte », onglet « Méthodes de saisie ».
-      </p>
+        tous les utilisateurs), et relancer la session. </p>
+      <p> La disposition de clavier sera disponible dans vos préférences
+        « Langue et Texte », onglet « Méthodes de saisie ». </p>
     </dd>
     <dt>
       <strong> GNU/Linux : </strong>
-      <a href="./releases/lafayette_linux_v0.6.1.py">lafayette_linux_v0.6.1.py</a> (36 Ko)
+      <a href="./releases/lafayette_linux_v0.8.py">lafayette_linux_v0.8.py</a> (44 Ko)
     </dt>
     <dd>
-      <p>
-        script d’installation, nécessitant Python3 et lxml :
-      </p>
+      <p> script d’installation, nécessitant Python3 et lxml : </p>
       <pre>
-        sudo pip3 install lxml
-        curl -Ls https://qwerty-lafayette.org/releases/lafayette_linux_v0.6.1.py | sudo python3
+      sudo apt install python3-lxml
+      curl -Ls https://qwerty-lafayette.org/releases/lafayette_linux_v0.8.py | sudo python3
       </pre>
-      <p>
-        L’installeur contient les deux variantes, lafayette et lafayette42. Ces
-        dispositions sont activables par le gestionnaire de préférences Gnome ou
-        directement en ligne de commande :
-      </p>
+      <p> L’installeur contient les deux variantes, Lafayette et Lafayette42. Ces
+        dispositions sont activables par le gestionnaire de préférences de votre
+        bureau ou directement en ligne de commande (sous Xorg) : </p>
       <pre>
-        setxkbmap fr -variant lafayette
-        setxkbmap fr -variant lafayette42
+      setxkbmap fr -variant lafayette
+      setxkbmap fr -variant lafayette42
       </pre>
     </dd>
   </dl>
 
   <h2 id="changelog"> Notes de version </h2>
   <dl>
+    <dt> v0.8 (2023-01-22) </dt>
+    <dd> <kbd>Shift</kbd><kbd>Espace</kbd> produit désormais une insécable fine. </dd>
+    <dd> La couche AltGr a été légèrement modifiée pour faciliter l’accès au tiret. </dd>
+    <dd> La couche AltGr de la variante <a href="./42">Lafayette42</a> est
+      complètement revue pour la compatibilité avec les claviers 40% (42 et 34
+      touches). </dd>
+
     <dt> v0.6 (2018-04-02) </dt>
-    <dd>
-      <ul>
-        <li> variante <a
-            href="https://github.com/fabi1cazenave/qwerty-lafayette/blob/master/layouts/qwerty42.yaml">Lafayette42</a>,
-          dédiée aux claviers compacts ; </li>
-        <li> la couche AltGr a été modifiée pour faciliter certains
-          enchaînements : <code>+=</code>, <code>-=</code>, <code>=&gt;</code>,
-          <code>('')</code>, <code>~/</code>, etc. ; </li>
-        <li> <kbd>AltGr</kbd>+<kbd>Espace</kbd> ne produit plus Escape
-          (impossible à implémenter sous Windows).</li>
-      </ul>
-    </dd>
+    <dd> Variante <a href="./42">Lafayette42</a>, dédiée aux claviers compacts. </dd>
+    <dd> La couche AltGr a été modifiée pour faciliter certains
+      enchaînements : <code>+=</code>, <code>-=</code>, <code>=&gt;</code>,
+      <code>('')</code>, <code>~/</code>, etc. </dd>
+    <dd> <kbd>AltGr</kbd><kbd>Espace</kbd> ne produit plus Escape
+      (impossible à implémenter sous Windows).</dd>
+
     <dt> v0.5 (2015-12-10) </dt>
     <dd>
       Quelques changements sur les caractères spéciaux :
@@ -575,22 +557,20 @@
       Mac OSX : meilleur fonctionnement des touches mortes en <kbd>CapsLock</kbd>. <br />
       Linux : meilleur fonctionnement de la touche <kbd>AltGr</kbd> sous Chromium.
     </dd>
+
     <dt> v0.2.1 (2013-03-05) </dt>
-    <dd>
-      Linux : correction mineure (antislash)
-    </dd>
+    <dd> Linux : correction mineure. </dd>
+
     <dt> v0.2 (2010-11-16) </dt>
-    <dd>
-      Windows : première version publique <br />
-      OSX : correction d’une erreur XML qui rendait le fichier keylayout
-      inutilisable <br />
-      Linux : correction des guillemets typographiques (<code>« »</code>)
-    </dd>
+    <dd> Windows : première version publique. </dd>
+    <dd> OSX : correction d’une erreur XML qui rendait le fichier keylayout
+      inutilisable. </dd>
+    <dd> Linux : correction des guillemets typographiques (<code>« »</code>). </dd>
+
     <dt> v0.1 (2010-07-05) </dt>
-    <dd>
-      première version publique (OSX, Linux)
-    </dd>
+    <dd> Première version publique (OSX, Linux). </dd>
   </dl>
+
   <p>
     Ces pilotes de clavier sont encore expérimentaux et quelques disparités
     sont possibles d’une plate-forme à l’autre, notamment :
@@ -627,7 +607,14 @@
     – Do What the Fuck You Want to Public License.
   </p>
 
-  <h2 id="related"> Voir aussi… </h2>
+  <h2 id="lafayette42"> Variante compacte </h2>
+  <ul> <li> <a href="./42">Lafayette42</a> </li> </ul>
+  <p> Cette variante du QWERTY-Lafayette, un peu moins intuitive, est
+    spécifiquement conçue pour les claviers compacts : 50%, 40%, 42 ou 34
+    touches… et même sur les claviers standards, où elle apporte un gain
+    d’ergonomie sensible en réduisant nettement les extensions de doigts. </p>
+
+  <h2 id="related"> Alternatives classiques </h2>
   <p> Dispositions QWERTY-US supportant les caractères accentués français : </p>
   <ul>
     <li>
@@ -657,21 +644,34 @@
       disponible aussi en version AZERTY-be </li>
     <li> <a href="http://psydk.org/kbdfr-dk">kbdfr-dk</a>,
       pour des majuscules accentuées en <kbd>Shift</kbd>
-      (mais chiffres en <kbd>AltGr</kbd>+<kbd>Shift</kbd>) </li>
-  </ul>
-  <p> Dispositions ergonomiques spécifiques à la langue française : </p>
-  <ul>
-    <li> <a href="http://www.algo.be/ergo/dvorak-fr.html">dvorak-fr</a> </li>
-    <li> <a href="http://bepo.fr/">bépo</a> </li>
+      (mais chiffres en <kbd>AltGr</kbd><kbd>Shift</kbd>) </li>
   </ul>
   <p> Les dispositions QWERTY / QWERTZ / AZERTY ci-dessus sont adaptées aux
     néophytes ; le Lafayette offre une meilleure ergonomie et un support
     typographique plus complet, mais requiert un temps d’apprentissage
     sensiblement plus long. </p>
-  <p> Le Lafayette, le dvorak-fr et le bépo poursuivent le même objectif de
-    confort de saisie pour le français, mais l’approche est différente : le
-    Lafayette cherche à éliminer toutes les touches excentrées, au prix d’une
-    touche morte pour les caractères accentués, et privilégie la polyvalence
-    anglais / programmation / français. </p>
+
+  <h2 id="ergo"> Alternatives ergonomiques </h2>
+  <ul>
+    <li> <a href="http://ergol.org/">ErgoL</a> </li>
+    <li> <a href="http://bepo.fr/">Bépo</a> </li>
+    <li> <a href="http://algo.be/ergo/dvorak-fr.html">Dvorak-fr</a> </li>
+  </ul>
+  <p> Lafayette, Dvorak-fr et Bépo poursuivent le même objectif de confort de
+    saisie pour le français, mais l’approche est différente : Lafayette cherche
+    à éliminer toutes les touches excentrées, au prix d’une touche morte pour
+    les caractères accentués, et privilégie la polyvalence anglais /
+    programmation / français. </p>
+  <p> <a href="http://ergol.org/">ErgoL</a>, pour « ERGOnomic Lafayette »,
+    reprend tous les principes de Lafayette tout en appliquant une optimisation
+    de type Colemak / Workman. Contrairement à Bépo et Dvorak-fr, ErgoL vise un
+    compromis anglais / français mais il est déjà meilleur que ses prédécesseurs
+    pour le français, et sans commune mesure pour l’anglais — et le tout, en
+    conservant les raccourcis claviers usuels du QWERTY, les chiffres en direct,
+    et la compatibilité avec les claviers compacts. </p>
+  <p> Les projets ErgoL et Lafayette sont développés en collaboration — la
+    couche AltGr de Lafayette42, notamment, est commune aux deux projets. Passer
+    de Lafayette à ErgoL est relativement simple. </p>
+
 </body>
 </html>

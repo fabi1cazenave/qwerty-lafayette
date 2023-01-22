@@ -12,14 +12,16 @@ window.addEventListener('DOMContentLoaded', () => {
     return; // the web component has not been loaded
   }
 
-  fetch(`layouts/qwerty.json`)
+  fetch(keyboard.dataset.layout)
     .then(response => response.json())
     .then(data => {
       const shape = data.geometry.replace('ERGO', 'OL60').toLowerCase();
       keyboard.setKeyboardLayout(data.layout, data.dead_keys, shape);
       geometry.value = shape;
       button.hidden = false;
-      button.focus();
+      if (!window.location.hash) {
+        button.focus();
+      }
     });
 
   geometry.onchange = (event) => {
