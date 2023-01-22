@@ -14,6 +14,23 @@ h1, h2 {
   border-bottom: 1px inset brown;
 }
 
+h2 {
+  margin-top: 2em;
+}
+
+h2 a, h3 a {
+  display: none;
+}
+
+h2:hover a, h3:hover a {
+  display: inline;
+}
+
+h3 {
+  color: #333;
+  border-bottom: 1px dotted #333;
+}
+
 dd, dt {
   margin-bottom: 0.5em;
 }
@@ -34,11 +51,10 @@ body {
   font-family: sans-serif;
   border-left: 1px solid #aaa;
   border-right: 1px solid #aaa;
-  background-color: white;
-  color: black;
+  background-color: #fdfdfd;
+  color: #333;
   box-shadow: 0px 1px 10px #888;
 }
-
 
 /******************************************************************************
  * "Fork me" ribbon

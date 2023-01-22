@@ -1,0 +1,60 @@
+rect, path {
+  stroke: #666;
+  stroke-width: .5px;
+  fill: #fff;
+}
+.specialKey,
+.specialKey rect {
+  fill: #e4e4e4;
+}
+text {
+  fill: #333;
+  font: normal 20px sans-serif;
+  text-align: center;
+}
+
+#row_AD { transform: translate(64px,  64px); }
+#row_AC { transform: translate(64px, 124px); }
+#row_AB { transform: translate(64px, 184px); }
+#row_AA { transform: translate(64px, 244px); }
+
+/* .left   { transform: translate(-15px, 0); } */
+/* .right  { transform: translate(+15px, 0); } */
+
+.specialKey .win,
+.specialKey .gnu {
+  font-size: 14px;
+}
+.specialKey .win,
+.specialKey .mac,
+.specialKey .gnu {
+  display: none;
+}
+.mac .specialKey .mac,
+.gnu .specialKey .gnu,
+.win .specialKey .win { display: block; }
+
+/* dimmed AltGr + bold dead keys */
+.level3, .level4 { fill: blue; opacity: .4; }
+.level5, .level6 { fill: green; }
+.deadKey {
+  fill: red;
+  font-size: 14px;
+}
+.diacritic {
+  font-size: 28px;
+  font-weight: bolder;
+  transform: translateY(10px);
+}
+
+/* hide Level4 (Shift+AltGr) unless AltGr is pressed */
+.level4        { display: none; }
+.altgr .level4 { display: block; }
+
+/* highlight AltGr + Dead Keys */
+.dk .level1, .altgr .level1,
+.dk .level2, .altgr .level2 { opacity: 0.25; }
+.dk .level5, .altgr .level3,
+.dk .level6, .altgr .level4 { opacity: 1; }
+.dk .level3,
+.dk .level4 { display: none; }

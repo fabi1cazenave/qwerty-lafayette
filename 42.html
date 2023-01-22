@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="a QWERTY-Lafayette variant for compact keyboards" />
+  <title> Lafayette42 </title>
+  <link type="text/css" rel="stylesheet" href="css/layout.css"      />
+  <link type="text/css" rel="stylesheet" href="css/lafayette42.css" />
+  <link type="text/css" rel="stylesheet" href="css/demo.css"        />
+  <script type="module" src="https://unpkg.com/x-keyboard"></script>
+  <script type="text/javascript" src="js/demo.js"></script>
+</head>
+<body class="qwerty">
+  <a href="https://github.com/fabi1cazenave/qwerty-lafayette"
+    id="github"><span>Fork me on GitHub</span></a>
+
+  <h1> <button hidden>démo !</button> Lafayette42 </h1>
+  <p> Une variante <small>QWERTY</small>-Lafayette pour les claviers compacts. </p>
+
+  <div id="demo" hidden>
+    <div>
+      <input spellcheck="false">
+      <x-keyboard data-layout="layouts/qwerty42.json"></x-keyboard>
+      <p> <span> powered by
+        <a href="https://fabi1cazenave.github.io/x-keyboard/">x-keyboard</a>
+        </span> géométrie :
+        <select>
+          <option value="iso">  ISO  </option>
+          <option value="ansi"> ANSI </option>
+          <option value="ol60"> TMx  </option>
+          <option value="ol50"> 50%  </option>
+          <option value="ol40"> 40%  </option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <div id="intro">
+    <img src="img/lafayette42.svg">
+
+    <div class="highlight">
+      <p> Une adaptation du <a href="./"><small>QWERTY</small>-Lafayette</a>
+        pour les claviers compacts (50%, 40%, 42 touches, 34 touches…) : </p>
+      <ul>
+        <li> toutes les lettres du français se font dans la zone alphabétique de
+          3×10 touches, via <a href="#alpha">une unique touche morte</a> sur la
+          <i>home row</i> ; </li>
+        <li> tous les symboles de programmation sont accessibles dans cette zone
+          de 3×10 touches, via la <a href="#prog">couche AltGr</a>. </li>
+      </ul>
+      <p> Objectif : <strong>se passer totalement des touches excentrées</strong>.
+        C’est un gain de confort immédiat sur un clavier standard et cela permet
+        l’utilisation des claviers (très) compacts, pour recercher la meilleure
+        ergonomie possible. </p>
+    </div>
+
+    <p> Lafayette42 est une continuation de la démarche initiée avec
+      <a href="./"><small>QWERTY</small>-Lafayette</a> : </p>
+    <ul>
+      <li> plus proche du QWERTY ANSI (seules 3 touches diffèrent) ; </li>
+      <li> plus efficace pour écrire du code (couche AltGr optimisée) ; </li>
+      <li> plus efficace pour écrire du français, tout en maintenant un support
+        typographique iréprochable — majuscules accentuées, espaces insécables
+        avant les ponctuations doubles, guillemets et symboles typographiques… </li>
+    </ul>
+    <p> 3×10 touches alpha + 10 chiffres + <kbd>Espace</kbd> + <kbd>AltGr</kbd>
+      = 42, d’où « Lafayette42 ». </p>
+  </div>
+
+  <h2 id="usage"> Utilisation <a href="#usage">#</a> </h2>
+
+  <h3 id="alpha"> Lettres <a href="#alpha">#</a> </h3>
+  <p> La touche morte <kbd>★</kbd> étend le principe du Lafayette classique : </p>
+  <ul> 
+    <li> <kbd>★</kbd>, [lettre] = accent grave ou altération (à, è, ù, ç, œ, æ, µ) </li>
+    <li> <kbd>★</kbd>, [touche à gauche d’une voyelle] = voyelle avec accent aigu (é) </li>
+    <li> <kbd>★</kbd>, [touche sous une voyelle] = voyelle avec circonflexe (â, ê, û, î, ô) </li>
+    <li> <kbd>Shift</kbd><kbd>★</kbd>, [voyelle] = voyelle avec tréma (ä, ë, ü, ï, ö) </li>
+    <li> <kbd>★</kbd>, [chiffre] = guillemet ou symbole typographique («, », „, “, ”, …) </li>
+    <li> <kbd>★</kbd>, <kbd>Espace</kbd> = apostrophe typographique (’) </li>
+  </ul>
+  <img src="img/1dk.svg">
+  <p> Ainsi, toutes les lettres utilisées en français peuvent être saisies dans
+    le pavé alpha de 3×10 touches — ce qu’aucune disposition standard ne permet
+    (AZERTY, QWERTZ suisse, QWERTY québécois, Bépo…). </p>
+  <p> <strong>Sur un clavier compact</strong> cela permet de rapprocher les
+    touches <kbd>Enter</kbd> et <kbd>Backspace</kbd>, soulageant très
+    sensiblement l’auriculaire droit. Cela permet aussi d’utiliser des claviers
+    3×5, sans colonnes extérieures, pour soulager encore plus les auriculaires. </p>
+
+  <h3 id="prog"> Symboles <a href="#prog">#</a> </h3>
+  <p> La couche AltGr est très différente de celle du Lafayette classique,
+    toujours dans l’objectif de n’utiliser que les 3×10 touches principales.
+    Elle contient tous les symboles utilisés en programmation : </p>
+  <ul>
+    <li> les 10 symboles en <kbd>Shift</kbd> sur la rangée des chifres ; </li>
+    <li> les 2×8 symboles des touches excentrées ; </li>
+    <li> les 2 symboles de la touche <kbd>/?</kbd>. </li>
+  </ul>
+  <p> … soit 28 symboles. On ajoute <code>0</code> et <code>1</code> dans les
+    deux places restantes, afin de faciliter les enchaînements du type
+    <code>(0)</code>, <code>[1]</code> ou <code>+= 1</code> sans relâcher
+    <kbd>AltGr</kbd>. </p>
+  <img src="img/alt30.svg">
+  <p> Cette couche AltGr a été conçue sur les principes suivants : </p>
+  <ul>
+    <li> les délimiteurs de blocs <code>{()}[]</code> sont sur les touches les
+      plus confortables, i.e. <kbd>ASDFWE</kbd> ; </li>
+    <li> la première ligne contient les symboles les plus utiles de la rangée
+      des chiffres : <code>$%^&amp;*</code> sous <kbd>45678</kbd>,
+      <code>01</code> sous <kbd>01</kbd> ; </li>
+    <li> la deuxième ligne contient les symboles de comparaisons et flèches ; </li>
+    <li> la troisième ligne contient les symboles utilisés en <i>shell</i> ; </li>
+    <li> aucun symbole fréquemment doublé ne se trouve sous un auriculaire ; </li>
+    <li> les enchaînements fréquents doivent être aussi fluides que possible. </li>
+  </ul>
+  <p> La couche AltGr est encore en cours de développement, en collaboration
+    avec le projet <a href="https://ergol.org">ErgoL</a>. Elle est facilement
+    personnalisable, et les utilisateurs sont invités à l’adapter à leurs
+    besoins. </p>
+  <p> <strong>Sur un clavier compact</strong> il est recommandé de mapper toute
+    la couche AltGr sur un <i>layer</i> dédié, de sorte à permettre les raccourcis
+    comme <kbd>Ctrl</kbd><kbd>+</kbd> ou <kbd>Cmd</kbd><kbd>[</kbd>. </p></p>
+
+  <h3 id="num"> Chiffres <a href="#num">#</a> </h3>
+  <p> La rangée des chiffres est identique à celle du QWERTY-US ; mais en
+    Lafayette42 elle présente deux particularités : </p>
+  <ul>
+    <li> les combos <kbd>Shift</kbd>+[chiffre] deviennent inutiles, puisque
+      <code>!@#$%^&amp;*()</code> sont déjà présents (et plus accessibles) dans
+      la couche AltGr ; </li>
+    <li> la touche morte <kbd>★</kbd> permet d’obtenir beaucoup de symboles sur
+      ces chiffres, notamment les guillemets typographiques («» et “”). </li>
+  </ul>
+  <img src="img/num12.svg">
+  <p> <strong>Sur un clavier 40%</strong>, dépourvu de rangée de chiffres, il
+    faut mapper les chiffres sur un <i>layer</i> dédié. La plupart des
+    utilisateurs se satisfont d’un mini-pavé numérique sur une moitié de
+    clavier. </p>
+  <p> Toutefois, les utilisateurs qui soignent la typographie peuvent dédier un
+    <i>layer</i> numérique donnant un accès direct aux symboles typographiques
+    grâce à des macros <kbd>★</kbd>,[chiffre] et facilitant l’enchaînement des
+    insécables avec les ponctuations <code>;:?!«»</code> : </p>
+  <img src="img/num30.svg">
+  <p> Inversement, les utilisateurs de claviers 3×6 qui utilisent peu les
+    symboles peuvent se satisfaire d’un seul <i>layer</i> pour tous les chiffres
+    et symboles ASCII — c’est moins efficace que la couce AltGr dédiée, mais
+    toujours mieux que le QWERTY-US. </p>
+  <img src="img/alt36.svg">
+
+  <h2 id="download"> Téléchargement <a href="#download">#</a> </h2>
+  <dl class="download">
+    <dt>
+      <strong> Windows : </strong>
+      <a
+        href="./releases/lafayette42_windows_v0.8.exe">lafayette42_windows_v0.8.exe</a> (1.03 Mo)
+    </dt>
+    <dd>
+      <p> Exécuter l’installeur. La disposition de clavier apparaît dans la
+        barre de langues (indicateur de la barre des tâches). </p>
+    </dd>
+    <dt hidden>
+      <strong> Windows, version portable : </strong>
+      <a href="./releases/lafayette_pkl_v0.8.zip">lafayette_pkl_v0.8.zip</a> (330 Ko)
+    </dt>
+    <dd hidden>
+      <p> Dézipper et exécuter <code>pkl.exe</code>. </p>
+      <p> Un indicateur apparaît dans la barre des tâches. Ne nécessite pas de
+        droits d’administration, peut fonctionner depuis une clé USB. </p>
+    </dd>
+    <dt>
+      <strong> Mac OSX : </strong>
+      <a href="./releases/lafayette42_macosx_v0.8.keylayout">lafayette42_macosx_v0.8.keylayout</a> (62 Ko)
+    </dt>
+    <dd>
+      <p> Enregistrer dans <code>~/Library/Keyboard Layouts</code> (pour le seul
+        utilisateur courant) ou <code>/Library/Keyboard Layouts</code> (pour
+        tous les utilisateurs), et relancer la session. </p>
+      <p> La disposition de clavier sera disponible dans vos préférences « Langue
+        et Texte », onglet « Méthodes de saisie ». </p>
+    </dd>
+    <dt>
+      <strong> GNU/Linux : </strong>
+      <a href="./releases/lafayette_linux_v0.8.py">lafayette_linux_v0.8.py</a> (44 Ko)
+    </dt>
+    <dd>
+      <p> Script d’installation, nécessitant Python3 et lxml : </p>
+      <pre>
+      sudo apt install python3-lxml
+      curl -Ls https://qwerty-lafayette.org/releases/lafayette_linux_v0.8.py | sudo python3
+      </pre>
+      <p> L’installeur contient les deux variantes, Lafayette et Lafayette42. Ces
+        dispositions sont activables par le gestionnaire de préférences de votre
+        bureau ou directement en ligne de commande (sous Xorg) : </p>
+      <pre>
+      setxkbmap fr -variant lafayette
+      setxkbmap fr -variant lafayette42
+      </pre>
+    </dd>
+  </dl>
+
+  <h2 id="changelog"> Notes de version <a href="#changelog">#</a> </h2>
+  <dl>
+    <dt> v0.8 (2023-01-22) </dt>
+    <dd> <kbd>Shift</kbd><kbd>Espace</kbd> produit désormais une insécable
+      fine. </dd>
+    <dd> La couche AltGr est complètement revue pour la compatibilité avec les
+      claviers 40% (42 et 34 touches). </dd>
+    <dt> v0.6 (2018-04-02) </dt>
+    <dd> Première version publique, adaptée aux claviers 4×6. </dd>
+  </ul>
+
+  <h2 id="license"> Licence <a href="#license">#</a> </h2>
+  <p> <a href="http://wtfpl.net/">WTFPL</a>
+    – Do What the Fuck You Want to Public License.
+  </p>
+
+  <h2 id="related"> Voir aussi… <a href="#related">#</a> </h2>
+  <p> <a href="http://ergol.org/42">ErgoL42</a>, une alternative ergonomique du
+    Lafayette42. </p>
+
+</body>
+</html>

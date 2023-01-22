@@ -5,7 +5,7 @@ variant: lafayette
 description: French (Qwerty-Lafayette)
 url: https://github.com/fabi1cazenave/qwerty-lafayette
 geometry: ISO
-version: 0.7.0
+version: 0.8.0
 
 base: |
   ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━┓
