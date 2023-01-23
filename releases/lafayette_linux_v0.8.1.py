@@ -215,24 +215,16 @@ def get_rules_locale(tree, locale):
 
 
 def remove_rules_variant(variant_list, name):
-    signatures = ['kalamine']
-    if name.lower().startswith('lafayette'):
-        signatures.append('lafayette')
-
-    for signature in signatures:
-        query = 'variant[@type="{}"]/configItem/name[text()="{}"]/../..'.\
-                format(signature, name)
-        for variant in variant_list.xpath(query):
-            variant.getparent().remove(variant)
-
+    # XXX do NOT use the type='kalamine' mark here
+    query = f"variant/configItem/name[text()='{name}']/../.."
+    for variant in variant_list.xpath(query):
+        variant.getparent().remove(variant)
 
 def add_rules_variant(variant_list, name, description):
+    # XXX do NOT add the type='kalamine' mark here
     variant_list.append(
         E.variant(
-            E.configItem(
-                E.name(name),
-                E.description(description)
-            ), type='kalamine'))
+            E.configItem(E.name(name), E.description(description))))
 
 
 def update_rules(xkb_root, kbindex):
@@ -323,10 +315,11 @@ def exit_FileNotWritable(exception, path):
 # Layouts to install
 #
 
-PREFIX = 'fr/lafayette'  # layouts to remove / update
-LAYOUTS = [{             # layouts to install
+LOCALE = 'fr'
+PREFIX = 'lafayette'
+LAYOUTS = [{
     'meta': {
-        'locale': 'fr',
+        'locale': LOCALE,
         'variant': 'lafayette',
         'description': 'French (Qwerty-Lafayette)',
     },
@@ -450,7 +443,7 @@ LAYOUTS = [{             # layouts to install
         };""")
 }, {
     'meta': {
-        'locale': 'fr',
+        'locale': LOCALE,
         'variant': 'lafayette42',
         'description': 'French (Qwerty-Lafayette, compact variant)',
     },
@@ -574,6 +567,13 @@ LAYOUTS = [{             # layouts to install
         };""")
 }]
 
+def layout_items():
+    layouts = {}
+    for name, desc in xkb.list_all(f"{LOCALE}/*").items():
+        if name.startswith(f"{LOCALE}/{PREFIX}"):
+            layouts[name] = desc
+    return layouts.items()
+
 class KeyboardLayout:  # fake kalamine KeyboardLayout object
     def __init__(self, data):
         self.meta = data['meta']
@@ -581,14 +581,13 @@ class KeyboardLayout:  # fake kalamine KeyboardLayout object
 
 xkb = XKBManager()
 
-for name, _ in xkb.list('*').items():
-    if name.startswith(PREFIX):
-        xkb.remove(name)
+for _name, _ in layout_items():
+    xkb.remove(_name)
 for layout_data in LAYOUTS:
     xkb.add(KeyboardLayout(layout_data))
 xkb.update()
 
 print()
-print('Current kalamine layouts:')
-for name, desc in sorted(xkb.list('*').items()):
-    print(f"{name:<24} {desc}")
+print('Installed layouts:')
+for _name, _desc in layout_items():
+    print(f"{_name:<24} {_desc}")
