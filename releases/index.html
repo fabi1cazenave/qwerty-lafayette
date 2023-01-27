@@ -7,7 +7,7 @@
         let htmlString = '<ul>';
 
         for (let file of data) {
-          htmlString += `<li><a href="${file.path}">${file.name}</a></li>`;
+          htmlString += `<li><a href="${file.path.replace('releases/','')}">${file.name}</a></li>`;
         }
 
         htmlString += '</ul>';
