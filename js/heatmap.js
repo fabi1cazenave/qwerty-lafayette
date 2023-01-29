@@ -79,6 +79,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     tr.appendChild(document.createElement('td'));
     table.appendChild(tr);
+    div.innerHTML = '';
     div.appendChild(canvas);
     div.appendChild(table);
   };
