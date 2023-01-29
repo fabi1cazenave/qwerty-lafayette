@@ -463,14 +463,14 @@
       <p>
         Sous la main droite, un pavé numérique virtuel (comparable à ceux des
         portables) est proposé. Il n’est pas très facile d’accès sous Linux (pas
-        de touche <kbd>AltGr</kbd> / <kbd>Ctrl+Alt</kbd> à gauche) mais permet
-        néanmoins de saisir rapidement des (0) ou [0], très fréquents dans les
-        langages de programmation.
+        de touche <kbd>AltGr</kbd> / <kbd>Ctrl</kbd><kbd>Alt</kbd> à gauche)
+        mais permet néanmoins de saisir rapidement des (0) ou [0], très
+        fréquents dans les langages de programmation.
       </p>
     </div>
   </div>
 
-  <h2 id="download"> Téléchargement </h2>
+  <h2 id="download"> Téléchargement <a href="#download">#</a> </h2>
   <dl class="download">
     <dt>
       <strong> Windows : </strong>
@@ -531,11 +531,13 @@
     </dd>
   </dl>
 
-  <h2 id="changelog"> Notes de version </h2>
+  <h2 id="changelog"> Notes de version <a href="#changelog">#</a> </h2>
   <dl>
     <dt> v0.8 (2023-01-22) </dt>
     <dd> <kbd>Shift</kbd><kbd>Espace</kbd> produit désormais une insécable fine. </dd>
-    <dd> La couche AltGr a été légèrement modifiée pour faciliter l’accès au tiret. </dd>
+    <dd> <kbd>AltGr</kbd><kbd>Espace</kbd> produit désormais une espace normale. </dd>
+    <dd> Les accolades, crochets et chevrons <code>{}[]&lt;&gt;</code> ne peuvent
+      plus se faire avec la touche morte, et nécessitent désormais <kbd>AltGr</kbd>. </dd>
     <dd> La couche AltGr de la variante <a href="./42">Lafayette42</a> est
       complètement revue pour la compatibilité avec les claviers 40% (42 et 34
       touches). </dd>
@@ -545,7 +547,7 @@
     <dd> La couche AltGr a été modifiée pour faciliter certains
       enchaînements : <code>+=</code>, <code>-=</code>, <code>=&gt;</code>,
       <code>('')</code>, <code>~/</code>, etc. </dd>
-    <dd> <kbd>AltGr</kbd><kbd>Espace</kbd> ne produit plus Escape
+    <dd> <kbd>AltGr</kbd><kbd>Espace</kbd> ne produit plus <kbd>Escape</kbd>
       (impossible à implémenter sous Windows).</dd>
 
     <dt> v0.5 (2015-12-10) </dt>
@@ -561,18 +563,18 @@
           <kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd> —
           <i>Vim powwa!</i> </li>
       </ul>
-      Mac OSX : meilleur fonctionnement des touches mortes en <kbd>CapsLock</kbd>. <br />
-      Linux : meilleur fonctionnement de la touche <kbd>AltGr</kbd> sous Chromium.
     </dd>
+    <dd> Mac OSX : meilleur fonctionnement des touches mortes en <kbd>CapsLock</kbd>. </dd>
+    <dd> Linux : meilleur fonctionnement de la touche <kbd>AltGr</kbd> sous Chromium. </dd>
 
     <dt> v0.2.1 (2013-03-05) </dt>
-    <dd> Linux : correction mineure. </dd>
+    <dd> Linux : correction du pilote XKB. </dd>
 
     <dt> v0.2 (2010-11-16) </dt>
     <dd> Windows : première version publique. </dd>
-    <dd> OSX : correction d’une erreur XML qui rendait le fichier keylayout
-      inutilisable. </dd>
-    <dd> Linux : correction des guillemets typographiques (<code>« »</code>). </dd>
+    <dd> OSX : correction du pilote <i>keylayout</i>. </dd>
+    <dd> Linux : correction du pilote XKB
+      (guillemets typographiques <code>« »</code>). </dd>
 
     <dt> v0.1 (2010-07-05) </dt>
     <dd> Première version publique (OSX, Linux). </dd>
@@ -589,8 +591,8 @@
     </li>
     <li>
       Mac OSX : tous les raccourcis <kbd>Cmd</kbd> conservent la disposition
-      QWERTY-US, notamment pour les raccourcis <kbd>Cmd</kbd>+<kbd>[</kbd> et
-      <kbd>Cmd</kbd>+<kbd>]</kbd> qui sont très courants sur cette plate-forme.
+      QWERTY-US, notamment pour les raccourcis <kbd>Cmd</kbd><kbd>[</kbd> et
+      <kbd>Cmd</kbd><kbd>]</kbd> qui sont très courants sur cette plate-forme.
     </li>
     <li>
       Mac OSX : la touche morte <kbd>★</kbd> se comporte comme un accent grave
@@ -598,38 +600,29 @@
       y remédier.
     </li>
   </ul>
-  <p>
-    <strong>Nota :</strong> cette disposition de clavier est encore susceptible
-    d’évoluer. La couche QWERTY est figée, mais certains caractères secondaires
-    pourront être ajoutés ou modifiés dans la couche « Extra ». Quant à la
-    couche « AltGr », elle est faite pour être reconfigurée : <a
-      href="https://github.com/fabi1cazenave/qwerty-lafayette/wiki/AltGr">proposez
-      votre disposition sur le wiki</a> pour contribuer à ce que sera la version
-    1.0 finale.
-  </p>
 
-  <h2 id="license"> Licence </h2>
+  <h2 id="license"> Licence <a href="#license">#</a> </h2>
   <p>
     <a href="http://wtfpl.net/">WTFPL</a>
     – Do What the Fuck You Want to Public License.
   </p>
 
-  <h2 id="lafayette42"> Variante compacte </h2>
+  <h2 id="lafayette42"> Variante compacte <a href="#lafayette42">#</a> </h2>
   <ul> <li> <a href="./42">Lafayette42</a> </li> </ul>
   <p> Cette variante du QWERTY-Lafayette, un peu moins intuitive, est
     spécifiquement conçue pour les claviers compacts : 50%, 40%, 42 ou 34
     touches… et même sur les claviers standards, où elle apporte un gain
     d’ergonomie sensible en réduisant nettement les extensions de doigts. </p>
 
-  <h2 id="related"> Alternatives classiques </h2>
+  <h2 id="related"> Alternatives classiques <a href="#related">#</a> </h2>
   <p> Dispositions QWERTY-US supportant les caractères accentués français : </p>
   <ul>
     <li>
       <a href="https://fr.wikipedia.org/wiki/Disposition_des_touches_des_claviers_informatiques#/media/File:KB_USA-international.svg">QWERTY-intl</a>
-      — les caractères accentués sont faits avec des touches mortes excentrées ; </li>
+      — tous les caractères accentués sont faits avec des touches mortes excentrées ; </li>
     <li>
-      <a href="http://marin.jb.free.fr/qwerty-fr/">QWERTY-fr</a>
-      — les caractères accentués sont faits avec <kbd>AltGr</kbd>.  </li>
+      <a href="https://qwerty-fr.org/">QWERTY-fr</a>
+      — la plupart des caractères accentués sont faits avec <kbd>AltGr</kbd>. </li>
   </ul>
   <p> Autres dispositions standard francophones avec les chiffres en direct : </p>
   <ul>
@@ -658,7 +651,7 @@
     typographique plus complet, mais requiert un temps d’apprentissage
     sensiblement plus long. </p>
 
-  <h2 id="ergo"> Alternatives ergonomiques </h2>
+  <h2 id="ergo"> Alternatives ergonomiques <a href="#ergo">#</a> </h2>
   <ul>
     <li> <a href="http://ergol.org/">ErgoL</a> </li>
     <li> <a href="http://bepo.fr/">Bépo</a> </li>
