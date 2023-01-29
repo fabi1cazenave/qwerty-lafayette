@@ -48,15 +48,15 @@ def parse_corpus(file_path):
         sorted_dict = {}
         for (key, count) in sorted(table.items(), key=lambda x: -x[1]):
             freq = round(100 * count / char_count, precision)
-            if freq >= 0.01:
+            if freq > 0:
                 sorted_dict[key] = freq
         return sorted_dict
 
     results = {}
     results["corpus"] = file_path
     results["symbols"] = sort_by_frequency(symbols)
-    results["digrams"] = sort_by_frequency(digrams, 3)
-    results["trigrams"] = sort_by_frequency(trigrams, 3)
+    results["digrams"] = sort_by_frequency(digrams, 4)
+    results["trigrams"] = sort_by_frequency(trigrams, 4)
     return results
 
 
