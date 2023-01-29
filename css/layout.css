@@ -42,12 +42,14 @@ dd, dt {
 
 html {
   background-color: #ccc;
+  height: 100%;
 }
 
 body {
   width: 740px;
   margin: auto;
   padding: 20px;
+  min-height: calc(100% - 40px);
   font-family: sans-serif;
   border-left: 1px solid #aaa;
   border-right: 1px solid #aaa;
