@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   let keyChars = {};
   let corpus = {};
+  let digrams = {};
   let corpusName = '';
 
   // create an efficient hash table to parse a text
@@ -35,6 +36,42 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     return charTable;
+  };
+
+  const sfu = () => {
+    const sfuCount = {}; // same-finger usage
+    const skuCount = {}; // same-key usage
+    ['l5', 'l4', 'l3', 'l2', 'r2', 'r3', 'r4', 'r5'].forEach((finger) => {
+      sfuCount[finger] = 0;
+      skuCount[finger] = 0;
+    });
+
+    const keyFinger = {};
+    Object.entries(keyboard.fingerAssignments).forEach(([f, keys]) => {
+      keys.forEach((keyName) => { keyFinger[keyName] = f; });
+    });
+
+    Object.entries(digrams).forEach(([digram, frequency]) => {
+      keyboard.layout.getKeySequence(digram).reduce((acc, key) => {
+        const finger = keyFinger[key.id];
+        if (finger) { // in case there's no key for the current character...
+          if (acc === key.id) {
+            skuCount[finger] += frequency;
+          }
+          else if (keyFinger[acc] === finger) {
+            console.log(digram, frequency);
+            sfuCount[finger] += frequency;
+          }
+        }
+        return key.id;
+      }, '');
+    });
+
+    // note: in Ergol, ï and î are same-finger digrams
+    // even though they are single characters => count symbols, too?
+    console.log(sfuCount);
+    console.log(skuCount);
+    console.log(Object.values(sfuCount).reduce((acc, freq) => acc + freq));
   };
 
   // compute the heatmap for a text on a given layout
@@ -125,6 +162,7 @@ window.addEventListener('DOMContentLoaded', () => {
             keyChars = supportedChars(data.keymap, data.deadkeys);
             if (Object.keys(corpus).length > 0) {
               heatmap();
+              sfu();
             }
           });
       } else {
@@ -138,8 +176,10 @@ window.addEventListener('DOMContentLoaded', () => {
           .then((response) => response.json())
           .then((data) => {
             corpus = data.symbols;
+            digrams = data.digrams;
             if (Object.keys(keyChars).length > 0) {
               heatmap();
+              sfu();
             }
           });
         corpusName = value;
