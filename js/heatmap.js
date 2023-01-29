@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   let keyChars = {};
   let corpus = {};
+  let digrams = {};
   let corpusName = '';
 
   // create an efficient hash table to parse a text
@@ -35,6 +36,97 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     return charTable;
+  };
+
+  // display a percentage value
+  const setPercent = (elt, num, precision) => {
+    const x = 10 ** precision;
+    elt.innerText = `${Math.round(x * num) / x}%`;
+  };
+  const showPercent = (sel, num, precision) => {
+    setPercent(document.querySelector(sel), num, precision);
+  };
+
+  // display a finger/frequency table and bar graph
+  const showFingerData = (div, values, maxValue, precision) => {
+    const canvas = document.createElement('canvas');
+    const table = document.createElement('table');
+    const tr = document.createElement('tr');
+    tr.appendChild(document.createElement('td'));
+
+    canvas.width = 1000;
+    canvas.height = 100;
+    const ctx = canvas.getContext('2d');
+    ctx.save();
+    ctx.fillStyle = '#88f';
+    const width = canvas.width / 11;
+    const margin = 20;
+    const scale = 100 / maxValue;
+
+    // for (const [f, load] of Object.entries(fingerLoad)) {
+    Object.values(values).forEach((value, i) => {
+      if (i == 4) {
+        tr.appendChild(document.createElement('td'));
+      }
+      const idx = i >= 4 ? i + 2 : i + 1;
+      const td = document.createElement('td');
+      setPercent(td, value, precision);
+      tr.appendChild(td);
+      ctx.fillRect(idx * width + margin / 2, canvas.height - value * scale,
+        width - margin / 2, value * scale);
+    });
+    ctx.restore();
+
+    tr.appendChild(document.createElement('td'));
+    table.appendChild(tr);
+    div.appendChild(canvas);
+    div.appendChild(table);
+  };
+
+  // compute the same-finger and same-key usages
+  const sfu = () => {
+    const skuCount = {}; // same-key usage
+    const sfuCount = {}; // same-finger usage
+    const sfuDigrams = [];
+    const fingers = ['l5', 'l4', 'l3', 'l2', 'r2', 'r3', 'r4', 'r5'];
+    fingers.forEach((finger) => {
+      sfuCount[finger] = 0;
+      skuCount[finger] = 0;
+    });
+
+    const keyFinger = {};
+    Object.entries(keyboard.fingerAssignments).forEach(([f, keys]) => {
+      keys.forEach((keyName) => { keyFinger[keyName] = f; });
+    });
+
+    Object.entries(digrams).forEach(([digram, frequency]) => {
+      keyboard.layout.getKeySequence(digram).reduce((acc, key) => {
+        const finger = keyFinger[key.id];
+        if (finger) { // in case there's no key for the current character...
+          if (acc === key.id) {
+            skuCount[finger] += frequency;
+            // sfuCount[finger] += frequency;
+          }
+          else if (keyFinger[acc] === finger) {
+            console.log(digram, frequency);
+            sfuDigrams.push({digram, frequency});
+            sfuCount[finger] += frequency;
+          }
+        }
+        return key.id;
+      }, '');
+    });
+
+    // note: in Ergol, ï and î are same-finger digrams
+    // even though they are single characters => count symbols, too?
+    const sum = (acc, freq) => acc + freq;
+    showPercent('#sfu-all', Object.values(sfuCount).reduce(sum, 0), 2);
+    showPercent('#sku-all', Object.values(skuCount).reduce(sum, 0), 2);
+
+    // display metrics
+    showFingerData(document.querySelector('#sfu'), sfuCount, 2.0, 2);
+    showFingerData(document.querySelector('#sku'), skuCount, 2.0, 2);
+    console.log(sfuDigrams);
   };
 
   // compute the heatmap for a text on a given layout
@@ -81,33 +173,15 @@ window.addEventListener('DOMContentLoaded', () => {
         .reduce((acc, id) => acc + keyCount[id], 0);
       keystrokes += fingerCount[f];
     });
-    const percent = (num) => `${Math.round(10 * num) / 10}%`;
     Object.entries(fingerCount).forEach(([f, count]) => {
       fingerLoad[f] = (100 * count) / keystrokes;
-      document.getElementById(f).innerText = percent(fingerLoad[f]);
     });
-    const totalLoad = (acc, id) => fingerLoad[id] + acc;
-    const left = ['l2', 'l3', 'l4', 'l5'].reduce(totalLoad, 0);
-    const right = ['r2', 'r3', 'r4', 'r5'].reduce(totalLoad, 0);
-    document.getElementById('left').innerText = percent(left);
-    document.getElementById('right').innerText = percent(right);
+    const sum = (acc, id) => fingerLoad[id] + acc;
+    showPercent('#load-left', ['l2', 'l3', 'l4', 'l5'].reduce(sum, 0), 1);
+    showPercent('#load-right', ['r2', 'r3', 'r4', 'r5'].reduce(sum, 0), 1);
 
     // display metrics
-    const canvas = document.querySelector('#load canvas');
-    canvas.width = 1000;
-    canvas.height = 100;
-    const ctx = canvas.getContext('2d');
-    ctx.save();
-    ctx.fillStyle = '#88f';
-    const width = canvas.width / 11;
-    const margin = 20;
-    // for (const [f, load] of Object.entries(fingerLoad)) {
-    Object.values(fingerLoad).forEach((load, i) => {
-      const idx = i >= 4 ? i + 2 : i + 1;
-      ctx.fillRect(idx * width + margin / 2, canvas.height - load * 4,
-        width - margin / 2, load * 4);
-    });
-    ctx.restore();
+    showFingerData(document.querySelector('#load'), fingerLoad, 25.0, 1);
   };
 
   // keyboard state: these <select> element IDs match the x-keyboard properties
@@ -125,6 +199,7 @@ window.addEventListener('DOMContentLoaded', () => {
             keyChars = supportedChars(data.keymap, data.deadkeys);
             if (Object.keys(corpus).length > 0) {
               heatmap();
+              sfu();
             }
           });
       } else {
@@ -138,8 +213,10 @@ window.addEventListener('DOMContentLoaded', () => {
           .then((response) => response.json())
           .then((data) => {
             corpus = data.symbols;
+            digrams = data.digrams;
             if (Object.keys(keyChars).length > 0) {
               heatmap();
+              sfu();
             }
           });
         corpusName = value;
