@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Une variante de QWERTY pour les développeurs
+    francophones et les typographes exigeants. " />
+  <title> Lafayette101 </title>
+
+  <link type="text/css" rel="stylesheet" href="css/layout.css"      />
+  <link type="text/css" rel="stylesheet" href="css/lafayette.css"   />
+  <link type="text/css" rel="stylesheet" href="css/keyboard.css"    />
+  <link type="text/css" rel="stylesheet" href="css/transitions.css" />
+  <link type="text/css" rel="stylesheet" href="css/demo.css"        />
+  <link type="image/svg+xml" rel="icon" href="favicon.svg" sizes="any" />
+
+  <script type="module"          src="js/x-keyboard.js"></script>
+  <script type="text/javascript" src="js/timesheets-min.js"></script>
+  <script type="text/javascript" src="js/adblock-tester.js"></script>
+  <script type="text/javascript" src="js/demo.js"></script>
+  <script type="text/javascript">
+    function select(element) { document.body.className = element.id; }
+  </script>
+</head>
+<body class="qwerty">
+  <a href="https://github.com/fabi1cazenave/qwerty-lafayette"
+    id="github"><span>Fork me on GitHub</span></a>
+
+  <h1> <button hidden>démo !</button> Lafayette101 </h1>
+  <p> Un QWERTY pour les développeurs francophones et les typographes exigeants. </p>
+
+  <div id="demo" hidden>
+    <div>
+      <input spellcheck="false">
+      <x-keyboard src="layouts/lafayette101.json"></x-keyboard>
+      <p>
+        <span> powered by
+          <a href="https://fabi1cazenave.github.io/x-keyboard/">x-keyboard</a>
+        </span> géométrie :
+        <select>
+          <option value="iso">  ISO  </option>
+          <option value="ansi"> ANSI </option>
+          <option value="ol60"> TMx  </option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <div style="position: relative; margin: 0 auto; width: 664px;">
+    <p id="badRendering">
+      Votre navigateur n’affiche pas correctement la disposition de clavier
+      ci-dessous. <br />
+      Veuillez essayer de désactiver votre bloqueur de publicités (AdBlockPlus…)
+      et recharger cette page.
+    </p>
+
+  <div id="keyboard">
+      <div id="row_AE">
+        <kbd id="key_TLDE">
+          <span class="level1"> ` </span>
+          <span class="level2"> ~ </span>
+          <span class="level5 deadKey"> ` </span>
+          <span class="level6 deadKey"> ~ </span>
+        </kbd>
+        <kbd id="key_AE01">
+          <span class="level1"> 1 </span>
+          <span class="level2"> ! </span>
+          <span class="level3 secondary"> „ </span>
+          <span class="level4 secondary"> ¡ </span>
+          <span class="level5"> ! </span>
+        </kbd>
+        <kbd id="key_AE02">
+          <span class="level1"> 2 </span>
+          <span class="level2"> @ </span>
+          <span class="level3 secondary"> “ </span>
+          <span class="level4 secondary"> ‘ </span>
+          <span class="level5"> ( </span>
+        </kbd>
+        <kbd id="key_AE03">
+          <span class="level1"> 3 </span>
+          <span class="level2"> # </span>
+          <span class="level3 secondary"> ” </span>
+          <span class="level4 secondary"> ’ </span>
+          <span class="level5"> ) </span>
+        </kbd>
+        <kbd id="key_AE04">
+          <span class="level1"> 4 </span>
+          <span class="level2"> $ </span>
+          <span class="level3 secondary"> £ </span>
+          <span class="level4 secondary"> ¢ </span>
+          <span class="level5"> ' </span>
+        </kbd>
+        <kbd id="key_AE05">
+          <span class="level1"> 5 </span>
+          <span class="level2"> % </span>
+          <span class="level3"> € </span>
+          <span class="level4 secondary"> ‰ </span>
+          <span class="level5"> " </span>
+        </kbd>
+        <kbd id="key_AE06">
+          <span class="level1"> 6 </span>
+          <span class="level2"> ^ </span>
+        </kbd>
+        <kbd id="key_AE07">
+          <span class="level1"> 7 </span>
+          <span class="level2"> &amp; </span>
+          <span class="level5"> 7 </span>
+        </kbd>
+        <kbd id="key_AE08">
+          <span class="level1"> 8 </span>
+          <span class="level2"> * </span>
+          <span class="level3 secondary"> § </span>
+          <span class="level5"> 8 </span>
+        </kbd>
+        <kbd id="key_AE09">
+          <span class="level1"> 9 </span>
+          <span class="level2"> ( </span>
+          <span class="level3 secondary"> ¶ </span>
+          <span class="level5"> 9 </span>
+        </kbd>
+        <kbd id="key_AE10">
+          <span class="level1"> 0 </span>
+          <span class="level2"> ) </span>
+          <span class="level3 secondary"> ° </span>
+          <span class="level5"> / </span>
+        </kbd>
+        <kbd id="key_AE11">
+          <span class="level1"> - </span>
+          <span class="level2"> _ </span>
+          <span class="level3"> — </span>
+        </kbd>
+        <kbd id="key_AE12">
+          <span class="level1"> = </span>
+          <span class="level2"> + </span>
+          <span class="level3 secondary"> ≠ </span>
+          <span class="level4 secondary"> ± </span>
+        </kbd>
+        <kbd id="key_BKSP" class="specialKey"></kbd>
+      </div>
+      <div id="row_AD">
+        <kbd id="key_TAB" class="specialKey"></kbd>
+        <kbd id="key_AD01">
+          <span class="level2"> Q </span>
+          <span class="level3 secondary"> æ </span>
+          <span class="level5"> = </span>
+        </kbd>
+        <kbd id="key_AD02" class="alt_only">
+          <span class="level2"> W </span>
+          <span class="level3"> é </span>
+          <span class="level5"> &lt; </span>
+        </kbd>
+        <kbd id="key_AD03" class="alt_only">
+          <span class="level2"> E </span>
+          <span class="level3"> è </span>
+          <span class="level5"> &gt; </span>
+        </kbd>
+        <kbd id="key_AD04">
+          <span class="level2"> R </span>
+          <span class="level3 secondary"> ® </span>
+          <span class="level4 secondary"> ™ </span>
+          <span class="level5"> - </span>
+        </kbd>
+        <kbd id="key_AD05">
+          <span class="level2"> T </span>
+          <span class="level3 secondary"> þ </span>
+          <span class="level5"> + </span>
+        </kbd>
+        <kbd id="key_AD06">
+          <span class="level2"> Y </span>
+          <span class="level3 secondary"> ¥ </span>
+          <span class="level4 secondary"> ¤ </span>
+        </kbd>
+        <kbd id="key_AD07">
+          <span class="level2"> U </span>
+          <span class="level3"> ù </span>
+          <span class="level5"> 4 </span>
+        </kbd>
+        <kbd id="key_AD08">
+          <span class="level2"> I </span>
+          <span class="level3 secondary"> ĳ </span>
+          <span class="level5"> 5 </span>
+        </kbd>
+        <kbd id="key_AD09">
+          <span class="level2"> O </span>
+          <span class="level3"> œ </span>
+          <span class="level5"> 6 </span>
+        </kbd>
+        <kbd id="key_AD10">
+          <span class="level2"> P </span>
+          <span class="level5"> * </span>
+        </kbd>
+        <kbd id="key_AD11" class="qwerty">
+          <span class="level1 deadKey"> ^ </span>
+          <span class="level2"> « </span>
+        </kbd>
+        <kbd id="key_AD12" class="qwerty">
+          <span class="level1 deadKey"> ¨ </span>
+          <span class="level2"> » </span>
+        </kbd>
+        <kbd id="key_BKSL">
+          <span class="level1"> \ </span>
+          <span class="level2"> | </span>
+        </kbd>
+      </div>
+      <div id="row_AC">
+        <kbd id="key_CAPS" class="specialKey"></kbd>
+        <kbd id="key_AC01" class="alt_only">
+          <span class="level2"> A </span>
+          <span class="level3"> à </span>
+          <span class="level5"> { </span>
+        </kbd>
+        <kbd id="key_AC02" class="alt_only">
+          <span class="level2"> S </span>
+          <span class="level3 secondary"> ß </span>
+          <span class="level5"> [ </span>
+        </kbd>
+        <kbd id="key_AC03" class="alt_only">
+          <span class="level2"> D </span>
+          <span class="level3 secondary"> ð </span>
+          <span class="level5"> ] </span>
+        </kbd>
+        <kbd id="key_AC04" class="alt_only">
+          <span class="level2"> F </span>
+          <span class="level3 secondary"> ſ </span>
+          <span class="level4 secondary"> ª </span>
+          <span class="level5"> } </span>
+        </kbd>
+        <kbd id="key_AC05">
+          <span class="level2"> G </span>
+          <span class="level3 secondary"> © </span>
+          <span class="level5"> / </span>
+        </kbd>
+        <kbd id="key_AC06">
+          <span class="level2"> H </span>
+          <span class="level3 secondary"> ← </span>
+        </kbd>
+        <kbd id="key_AC07">
+          <span class="level2"> J </span>
+          <span class="level3 secondary"> ↓ </span>
+          <span class="level5"> 1 </span>
+        </kbd>
+        <kbd id="key_AC08">
+          <span class="level2"> K </span>
+          <span class="level3 secondary"> ↑ </span>
+          <span class="level5"> 2 </span>
+        </kbd>
+        <kbd id="key_AC09">
+          <span class="level2"> L </span>
+          <span class="level3 secondary"> → </span>
+          <span class="level5"> 3 </span>
+        </kbd>
+        <kbd id="key_AC10" class="qwerty">
+          <span class="level2 deadKey" style="margin: 6px;"> ★ </span>
+          <span class="level5"> - </span>
+        </kbd>
+        <kbd id="key_AC11">
+          <span class="level1"> ' </span>
+          <span class="level2"> " </span>
+          <span class="level5 deadKey"> ´ </span>
+        </kbd>
+        <kbd id="key_RTRN" class="specialKey"></kbd>
+      </div>
+      <div id="row_AB">
+        <kbd id="key_LFSH" class="specialKey"></kbd>
+        <kbd id="key_AB01">
+          <span class="level2"> Z </span>
+          <span class="level5"> ~ </span>
+        </kbd>
+        <kbd id="key_AB02">
+          <span class="level2"> X </span>
+          <span class="level3 secondary"> × </span>
+          <span class="level5"> ` </span>
+        </kbd>
+        <kbd id="key_AB03">
+          <span class="level2"> C </span>
+          <span class="level3"> ç </span>
+          <span class="level5"> | </span>
+        </kbd>
+        <kbd id="key_AB04">
+          <span class="level2"> V </span>
+          <span class="level3 secondary"> ŭ </span>
+          <span class="level5"> _ </span>
+        </kbd>
+        <kbd id="key_AB05">
+          <span class="level2"> B </span>
+          <span class="level3 secondary"> † </span>
+          <span class="level5"> \ </span>
+        </kbd>
+        <kbd id="key_AB06">
+          <span class="level2"> N </span>
+          <span class="level3 secondary"> ñ </span>
+        </kbd>
+        <kbd id="key_AB07">
+          <span class="level2"> M </span>
+          <span class="level3 secondary"> µ </span>
+          <span class="level4 secondary"> º </span>
+          <span class="level5"> 0 </span>
+        </kbd>
+        <kbd id="key_AB08" class="qwerty">
+          <span class="level1"> , </span>
+          <span class="level2"> ; </span>
+          <span class="level3 secondary"> · </span>
+          <span class="level4 secondary"> • </span>
+          <span class="level5"> , </span>
+        </kbd>
+        <kbd id="key_AB09" class="qwerty">
+          <span class="level1"> . </span>
+          <span class="level2"> : </span>
+          <span class="level3"> … </span>
+          <span class="level5"> . </span>
+        </kbd>
+        <kbd id="key_AB10">
+          <span class="level1"> / </span>
+          <span class="level2"> ? </span>
+          <span class="level3 secondary"> ؟ </span>
+          <span class="level4 secondary"> ¿ </span>
+          <span class="level5"> + </span>
+        </kbd>
+        <kbd id="key_RTSH" class="specialKey"></kbd>
+      </div>
+      <div id="row_AA">
+        <kbd id="key_LCTL" class="specialKey">
+          <span class="level1"> ctrl </span>
+        </kbd>
+        <kbd id="key_LWIN" class="specialKey">
+          <span class="level1"> super </span>
+        </kbd>
+        <kbd id="key_LALT" class="specialKey">
+          <span class="level1"> alt </span>
+        </kbd>
+        <kbd id="key_SPCE">
+          <span class="level1"> ⍽ espace </span>
+          <span class="level2"> ⍽ espace insécable fine </span>
+          <span class="level3"> ’ </span>
+        </kbd>
+        <kbd id="key_RALT" class="specialKey">
+          <span class="level1"> altgr </span>
+        </kbd>
+        <kbd id="key_RWIN" class="specialKey">
+          <span class="level1"> super </span>
+        </kbd>
+        <kbd id="key_MENU" class="specialKey">
+          <span class="level1"> menu </span>
+        </kbd>
+        <kbd id="key_RCTL" class="specialKey">
+          <span class="level1"> ctrl </span>
+        </kbd>
+      </div>
+    </div>
+  </div>
+
+  <p id="selector">
+    <a id="navHome"      href="#_home">      Objectif </a>
+    <a id="navQwerty"    href="#_qwerty">    QWERTY   </a>
+    <a id="navLafayette" href="#_lafayette"> Accents  </a>
+    <a id="navExtra"     href="#_extra">     Extra    </a>
+    <a id="navAltGr"     href="#_altgr">     AltGr    </a>
+  </p>
+
+  <div id="description" data-timecontainer="seq">
+    <div data-onbegin="select(this)" id="home">
+      <p>
+        Une adaptation du QWERTY-US pour les francophones :
+      </p>
+      <ul>
+        <li>
+          pour un <a href="#_qwerty">accès direct aux chiffres</a>, sans <kbd>Shift</kbd>
+          ni <kbd>CapsLock</kbd> ;
+        </li>
+        <li>
+          pour une <a href="#_lafayette">typographie soignée</a> en français :
+          majuscules accentuées, lettres entrelacées, guillemets…
+        </li>
+        <li>
+          pour saisir facilement des <a href="#_qwerty">espaces insécables</a>
+          avant les ponctuations doubles (;:?!) et à l’intérieur des guillemets
+          (« ») ;
+        </li>
+        <li>
+          pour disposer d’une couche <a href="#_altgr">AltGr personnalisable</a>,
+          notamment pour les langages de programmation.
+        </li>
+      </ul>
+      <p>
+        L’objectif est de conserver l’efficacité du QWERTY (chiffres en direct,
+        développement) tout en proposant une disposition de clavier plus
+        efficace que l’AZERTY pour le français.
+      </p>
+    </div>
+
+    <div data-onbegin="select(this)" id="qwerty">
+      <p>
+        Cette disposition de clavier ne diffère que très peu du QWERTY-US :
+        seules 5 touches sont affectées. Elle convient donc particulièrement aux
+        claviers QWERTY, mais s’utilise tout aussi bien sur un clavier AZERTY
+        pour ceux qui savent taper en méthode dactylo.
+      </p>
+      <p>
+        Le principal intéret de cette modification est de permettre une saisie
+        confortable des <strong>espaces insécables</strong> avant les
+        ponctuations doubles (;:?!) et à l’intérieur des guillemets
+        typographiques («») : il suffit de maintenir la touche <kbd>Shift</kbd> enfoncée,
+        puis de presser <kbd>Espace</kbd> et la touche de ponctuation.
+      </p>
+      <p>
+        Par rapport au layout AZERTY de référence pour les francophones,
+        l’autre avantage de cette disposition est d’accéder aux
+        <strong>chiffres en direct</strong> — sans <kbd>Shift</kbd> ni
+        <kbd>CapsLock</kbd>. Le pavé numérique n’est plus indispensable.
+      </p>
+    </div>
+
+    <div data-onbegin="select(this)" id="lafayette">
+      <p>
+        La plupart des accents utilisés en français sont obtenus par une seule
+        touche morte, située sur la rangée de base — cf. <kbd>★</kbd> l’étoile sur fond
+        rouge dans le schéma ci-dessus.
+      </p>
+      <p>
+        Cette touche morte permet aussi de saisir facilement les majuscules accentuées
+        ansi que des caractères tels que Œ, Æ ou les points de suspension (…).
+        Contrairement aux apparences, cette disposition de clavier est donc
+        <strong>plus adaptée au français que l’AZERTY</strong>.
+      </p>
+      <p>
+        Cela augmente d’environ 3% le nombre de frappes sur un texte
+        francophone ; en revanche, les touches étant plus accessibles (plus
+        besoin d’aller chercher les caractères accentués sur la ligne des
+        chiffres), la frappe est plus fluide et plus confortable, si bien que
+        ces 3% de frappes supplémentaires ne pénalisent pas la vitesse de
+        saisie.
+      </p>
+    </div>
+
+    <div data-onbegin="select(this)" id="extra">
+      <p>
+        Cette disposition de clavier a été pensée pour une utilisation
+        occasionnelle en allemand (ß), néerlandais (ĳ), espagnol (ñ), catalan (l·l), portugais,
+        italien et espéranto : accents, tildes, cédilles, umlauts, guillemets spécifiques…
+      </p>
+      <p>
+        Contrairement à la plupart des dispositions de clavier, les caractères
+        spéciaux requis pour ces langues ne sont pas obtenus avec <kbd>AltGr</kbd> mais
+        avec la touche morte <kbd>★</kbd>, afin de privilégier le confort et la fluidité de
+        la saisie.
+      </p>
+      <p>
+        De même, tous les caractères spéciaux tels que ≤≠±≥©®™μ… sont obtenus
+        avec la même touche morte. <a href="#_altgr">La couche AltGr</a> est donc spécifique
+        aux symboles de programmation, et peut être entièrement personnalisée.
+      </p>
+    </div>
+
+    <div data-onbegin="select(this)" id="altgr">
+      <p>
+        La couche AltGr est dédiée aux symboles de programmation et cherche à en faciliter les
+        enchaînements. Les développeurs sont invités à l’adapter librement à leurs besoins.
+      </p>
+      <p>
+        Dans la version de base ci-dessus, les caractères les plus utilisés en
+        C/C++ (ou Java, JavaScript…) et HTML/XML sont disponibles en <kbd>AltGr</kbd> +
+        main gauche. Cela permet de saisir rapidement des digrammes du type -&gt;,
+        &lt;/, /&gt;. Les accolades {} et crochets [] sont sur la rangée de base,
+        bien plus accessibles qu’en QWERTY classique.
+      </p>
+      <p>
+        Sous la main droite, un pavé numérique virtuel (comparable à ceux des
+        portables) est proposé. Il n’est pas très facile d’accès sous Linux (pas
+        de touche <kbd>AltGr</kbd> / <kbd>Ctrl</kbd><kbd>Alt</kbd> à gauche)
+        mais permet néanmoins de saisir rapidement des (0) ou [0], très
+        fréquents dans les langages de programmation.
+      </p>
+    </div>
+  </div>
+
+  <h2 id="download"> Téléchargement <a href="#download">#</a> </h2>
+  <dl class="download">
+    <dt>
+      <strong> Windows : </strong>
+      <a href="./releases/lafayette_windows_v0.8.exe">lafayette_windows_v0.8.exe</a> (1.03 Mo)
+    </dt>
+    <dd>
+      <p> Exécuter l’installeur. La disposition de clavier apparaît dans la
+        barre de langues (indicateur de la barre des tâches). </p>
+    </dd>
+    <dt hidden>
+      <strong> Windows, version portable : </strong>
+      <a href="./releases/lafayette_pkl_v0.8.zip">lafayette_pkl_v0.8.zip</a> (330 Ko)
+    </dt>
+    <dd hidden>
+      <p>
+        dézipper et exécuter <code>pkl.exe</code>.
+      </p>
+      <p>
+        Un indicateur apparaît dans la barre des tâches. Ne nécessite pas de
+        droits d’administration, peut fonctionner depuis une clé USB.
+      </p>
+    </dd>
+    <dt>
+      <strong> macOS : </strong>
+      <a href="./releases/lafayette_macos_v0.8.keylayout">lafayette_macos_v0.8.keylayout</a> (68 Ko)
+    </dt>
+    <dd>
+      <p> Enregistrer dans <code>~/Library/Keyboard Layouts</code> (pour le seul
+        utilisateur courant) ou <code>/Library/Keyboard Layouts</code> (pour
+        tous les utilisateurs), et relancer la session. </p>
+      <p> La disposition de clavier sera disponible dans vos préférences
+        « Langue et Texte », onglet « Méthodes de saisie ». </p>
+    </dd>
+    <dt>
+      <strong> GNU/Linux : </strong>
+      <a href="./releases/lafayette_linux_v0.8.1.py">lafayette_linux_v0.8.1.py</a> (45 Ko)
+    </dt>
+    <dd>
+      <p> Script d’installation, nécessitant Python3 et lxml : </p>
+      <pre>
+      sudo apt install python3-lxml
+      curl -Ls https://qwerty-lafayette.org/releases/lafayette_linux_v0.8.1.py | sudo python3
+      </pre>
+      <p> L’installeur contient les deux variantes, Lafayette et Lafayette101.
+        Ces dispositions sont activables par le gestionnaire de préférences de
+        votre bureau ou directement en ligne de commande (sous Xorg) : </p>
+      <pre>
+      setxkbmap fr -variant lafayette
+      setxkbmap fr -variant lafayette101
+      </pre>
+    </dd>
+  </dl>
+
+  <h2 id="license"> Licence <a href="#license">#</a> </h2>
+  <p> <a href="http://wtfpl.net/">WTFPL</a>
+    – Do What the Fuck You Want to Public License. </p>
+
+</body>
+</html>

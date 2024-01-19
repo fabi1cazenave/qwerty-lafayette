@@ -2,476 +2,177 @@
 <html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
-  <meta name="description" content="a QWERTY keyboard layout for French-speaking users" />
+  <meta name="description" content="Une variante ergonomique de QWERTY pour les
+    développeurs francophones et les typographes exigeants. " />
   <title> QWERTY-Lafayette </title>
-
   <link type="text/css" rel="stylesheet" href="css/layout.css"      />
-  <link type="text/css" rel="stylesheet" href="css/lafayette.css"   />
-  <link type="text/css" rel="stylesheet" href="css/keyboard.css"    />
-  <link type="text/css" rel="stylesheet" href="css/transitions.css" />
+  <link type="text/css" rel="stylesheet" href="css/lafayette42.css" />
   <link type="text/css" rel="stylesheet" href="css/demo.css"        />
   <link type="image/svg+xml" rel="icon" href="favicon.svg" sizes="any" />
-
-  <script type="module" src="https://unpkg.com/x-keyboard"></script>
-  <script type="text/javascript" src="js/timesheets-min.js"></script>
-  <script type="text/javascript" src="js/adblock-tester.js"></script>
-  <script type="text/javascript" src="js/demo.js"></script>
-  <script type="text/javascript">
-    function select(element) { document.body.className = element.id; }
-  </script>
+  <script src="js/x-keyboard.js" type="module"></script>
+  <script src="js/demo.js" type="text/javascript"></script>
 </head>
-<body class="qwerty">
+<body>
   <a href="https://github.com/fabi1cazenave/qwerty-lafayette"
     id="github"><span>Fork me on GitHub</span></a>
 
   <h1> <button hidden>démo !</button> <small>QWERTY</small>-Lafayette </h1>
-  <p> Un QWERTY pour les développeurs francophones et les typographes exigeants. </p>
+  <p> Une variante de QWERTY pour les développeurs francophones, les typographes
+    exigeants et les utilisateurs de claviers ergonomiques. </p>
 
   <div id="demo" hidden>
     <div>
       <input spellcheck="false">
-      <x-keyboard data-layout="layouts/qwerty.json"></x-keyboard>
-      <p>
-        <span> powered by
-          <a href="https://fabi1cazenave.github.io/x-keyboard/">x-keyboard</a>
+      <x-keyboard src="layouts/lafayette.json"></x-keyboard>
+      <p> <span> powered by
+        <a href="https://fabi1cazenave.github.io/x-keyboard/">x-keyboard</a>
         </span> géométrie :
         <select>
           <option value="iso">  ISO  </option>
           <option value="ansi"> ANSI </option>
           <option value="ol60"> TMx  </option>
+          <option value="ol50"> 4×6  </option>
+          <option value="ol40"> 3×6  </option>
         </select>
       </p>
     </div>
   </div>
 
-  <div style="position: relative; margin: 0 auto; width: 664px;">
-    <p id="badRendering">
-      Votre navigateur n’affiche pas correctement la disposition de clavier
-      ci-dessous. <br />
-      Veuillez essayer de désactiver votre bloqueur de publicités (AdBlockPlus…)
-      et recharger cette page.
-    </p>
+  <div id="intro">
+    <img src="img/lafayette.svg">
 
-    <div id="keyboard">
-      <div id="row_AE">
-        <kbd id="key_TLDE">
-          <span class="level1"> ` </span>
-          <span class="level2"> ~ </span>
-          <span class="level5 deadKey"> ` </span>
-          <span class="level6 deadKey"> ~ </span>
-        </kbd>
-        <kbd id="key_AE01">
-          <span class="level1"> 1 </span>
-          <span class="level2"> ! </span>
-          <span class="level3 secondary"> „ </span>
-          <span class="level4 secondary"> ¡ </span>
-          <span class="level5"> ! </span>
-        </kbd>
-        <kbd id="key_AE02">
-          <span class="level1"> 2 </span>
-          <span class="level2"> @ </span>
-          <span class="level3 secondary"> “ </span>
-          <span class="level4 secondary"> ‘ </span>
-          <span class="level5"> ( </span>
-        </kbd>
-        <kbd id="key_AE03">
-          <span class="level1"> 3 </span>
-          <span class="level2"> # </span>
-          <span class="level3 secondary"> ” </span>
-          <span class="level4 secondary"> ’ </span>
-          <span class="level5"> ) </span>
-        </kbd>
-        <kbd id="key_AE04">
-          <span class="level1"> 4 </span>
-          <span class="level2"> $ </span>
-          <span class="level3 secondary"> £ </span>
-          <span class="level4 secondary"> ¢ </span>
-          <span class="level5"> ' </span>
-        </kbd>
-        <kbd id="key_AE05">
-          <span class="level1"> 5 </span>
-          <span class="level2"> % </span>
-          <span class="level3"> € </span>
-          <span class="level4 secondary"> ‰ </span>
-          <span class="level5"> " </span>
-        </kbd>
-        <kbd id="key_AE06">
-          <span class="level1"> 6 </span>
-          <span class="level2"> ^ </span>
-        </kbd>
-        <kbd id="key_AE07">
-          <span class="level1"> 7 </span>
-          <span class="level2"> &amp; </span>
-          <span class="level5"> 7 </span>
-        </kbd>
-        <kbd id="key_AE08">
-          <span class="level1"> 8 </span>
-          <span class="level2"> * </span>
-          <span class="level3 secondary"> § </span>
-          <span class="level5"> 8 </span>
-        </kbd>
-        <kbd id="key_AE09">
-          <span class="level1"> 9 </span>
-          <span class="level2"> ( </span>
-          <span class="level3 secondary"> ¶ </span>
-          <span class="level5"> 9 </span>
-        </kbd>
-        <kbd id="key_AE10">
-          <span class="level1"> 0 </span>
-          <span class="level2"> ) </span>
-          <span class="level3 secondary"> ° </span>
-          <span class="level5"> / </span>
-        </kbd>
-        <kbd id="key_AE11">
-          <span class="level1"> - </span>
-          <span class="level2"> _ </span>
-          <span class="level3"> — </span>
-        </kbd>
-        <kbd id="key_AE12">
-          <span class="level1"> = </span>
-          <span class="level2"> + </span>
-          <span class="level3 secondary"> ≠ </span>
-          <span class="level4 secondary"> ± </span>
-        </kbd>
-        <kbd id="key_BKSP" class="specialKey"></kbd>
-      </div>
-      <div id="row_AD">
-        <kbd id="key_TAB" class="specialKey"></kbd>
-        <kbd id="key_AD01">
-          <span class="level2"> Q </span>
-          <span class="level3"> æ </span>
-          <span class="level5"> = </span>
-        </kbd>
-        <kbd id="key_AD02" class="alt_only">
-          <span class="level2"> W </span>
-          <span class="level3"> é </span>
-          <span class="level5"> &lt; </span>
-        </kbd>
-        <kbd id="key_AD03" class="alt_only">
-          <span class="level2"> E </span>
-          <span class="level3"> è </span>
-          <span class="level5"> &gt; </span>
-        </kbd>
-        <kbd id="key_AD04">
-          <span class="level2"> R </span>
-          <span class="level3 secondary"> ® </span>
-          <span class="level4 secondary"> ™ </span>
-          <span class="level5"> - </span>
-        </kbd>
-        <kbd id="key_AD05">
-          <span class="level2"> T </span>
-          <span class="level3 secondary"> þ </span>
-          <span class="level5"> + </span>
-        </kbd>
-        <kbd id="key_AD06">
-          <span class="level2"> Y </span>
-          <span class="level3 secondary"> ¥ </span>
-          <span class="level4 secondary"> ¤ </span>
-        </kbd>
-        <kbd id="key_AD07">
-          <span class="level2"> U </span>
-          <span class="level3"> ù </span>
-          <span class="level5"> 4 </span>
-        </kbd>
-        <kbd id="key_AD08">
-          <span class="level2"> I </span>
-          <span class="level3 secondary"> ĳ </span>
-          <span class="level5"> 5 </span>
-        </kbd>
-        <kbd id="key_AD09">
-          <span class="level2"> O </span>
-          <span class="level3"> œ </span>
-          <span class="level5"> 6 </span>
-        </kbd>
-        <kbd id="key_AD10">
-          <span class="level2"> P </span>
-          <span class="level5"> * </span>
-        </kbd>
-        <kbd id="key_AD11" class="qwerty">
-          <span class="level1 deadKey"> ^ </span>
-          <span class="level2"> « </span>
-        </kbd>
-        <kbd id="key_AD12" class="qwerty">
-          <span class="level1 deadKey"> ¨ </span>
-          <span class="level2"> » </span>
-        </kbd>
-        <kbd id="key_BKSL">
-          <span class="level1"> \ </span>
-          <span class="level2"> | </span>
-        </kbd>
-      </div>
-      <div id="row_AC">
-        <kbd id="key_CAPS" class="specialKey"></kbd>
-        <kbd id="key_AC01" class="alt_only">
-          <span class="level2"> A </span>
-          <span class="level3"> à </span>
-          <span class="level5"> { </span>
-        </kbd>
-        <kbd id="key_AC02" class="alt_only">
-          <span class="level2"> S </span>
-          <span class="level3 secondary"> ß </span>
-          <span class="level5"> [ </span>
-        </kbd>
-        <kbd id="key_AC03" class="alt_only">
-          <span class="level2"> D </span>
-          <span class="level3 secondary"> ð </span>
-          <span class="level5"> ] </span>
-        </kbd>
-        <kbd id="key_AC04" class="alt_only">
-          <span class="level2"> F </span>
-          <span class="level3 secondary"> ſ </span>
-          <span class="level4 secondary"> ª </span>
-          <span class="level5"> } </span>
-        </kbd>
-        <kbd id="key_AC05">
-          <span class="level2"> G </span>
-          <span class="level3 secondary"> © </span>
-          <span class="level5"> / </span>
-        </kbd>
-        <kbd id="key_AC06">
-          <span class="level2"> H </span>
-          <span class="level3 secondary"> ← </span>
-        </kbd>
-        <kbd id="key_AC07">
-          <span class="level2"> J </span>
-          <span class="level3 secondary"> ↓ </span>
-          <span class="level5"> 1 </span>
-        </kbd>
-        <kbd id="key_AC08">
-          <span class="level2"> K </span>
-          <span class="level3 secondary"> ↑ </span>
-          <span class="level5"> 2 </span>
-        </kbd>
-        <kbd id="key_AC09">
-          <span class="level2"> L </span>
-          <span class="level3 secondary"> → </span>
-          <span class="level5"> 3 </span>
-        </kbd>
-        <kbd id="key_AC10" class="qwerty">
-          <span class="level2 deadKey" style="margin: 6px;"> ★ </span>
-          <span class="level5"> - </span>
-        </kbd>
-        <kbd id="key_AC11">
-          <span class="level1"> ' </span>
-          <span class="level2"> " </span>
-          <span class="level5 deadKey"> ´ </span>
-        </kbd>
-        <kbd id="key_RTRN" class="specialKey"></kbd>
-      </div>
-      <div id="row_AB">
-        <kbd id="key_LFSH" class="specialKey"></kbd>
-        <kbd id="key_AB01">
-          <span class="level2"> Z </span>
-          <span class="level5"> ~ </span>
-        </kbd>
-        <kbd id="key_AB02">
-          <span class="level2"> X </span>
-          <span class="level3 secondary"> × </span>
-          <span class="level5"> ` </span>
-        </kbd>
-        <kbd id="key_AB03">
-          <span class="level2"> C </span>
-          <span class="level3"> ç </span>
-          <span class="level5"> | </span>
-        </kbd>
-        <kbd id="key_AB04">
-          <span class="level2"> V </span>
-          <span class="level3 secondary"> ŭ </span>
-          <span class="level5"> _ </span>
-        </kbd>
-        <kbd id="key_AB05">
-          <span class="level2"> B </span>
-          <span class="level3 secondary"> † </span>
-          <span class="level5"> \ </span>
-        </kbd>
-        <kbd id="key_AB06">
-          <span class="level2"> N </span>
-          <span class="level3 secondary"> ñ </span>
-        </kbd>
-        <kbd id="key_AB07">
-          <span class="level2"> M </span>
-          <span class="level3 secondary"> µ </span>
-          <span class="level4 secondary"> º </span>
-          <span class="level5"> 0 </span>
-        </kbd>
-        <kbd id="key_AB08" class="qwerty">
-          <span class="level1"> , </span>
-          <span class="level2"> ; </span>
-          <span class="level3 secondary"> · </span>
-          <span class="level4 secondary"> • </span>
-          <span class="level5"> , </span>
-        </kbd>
-        <kbd id="key_AB09" class="qwerty">
-          <span class="level1"> . </span>
-          <span class="level2"> : </span>
-          <span class="level3"> … </span>
-          <span class="level5"> . </span>
-        </kbd>
-        <kbd id="key_AB10">
-          <span class="level1"> / </span>
-          <span class="level2"> ? </span>
-          <span class="level3 secondary"> ؟ </span>
-          <span class="level4 secondary"> ¿ </span>
-          <span class="level5"> + </span>
-        </kbd>
-        <kbd id="key_RTSH" class="specialKey"></kbd>
-      </div>
-      <div id="row_AA">
-        <kbd id="key_LCTL" class="specialKey">
-          <span class="level1"> ctrl </span>
-        </kbd>
-        <kbd id="key_LWIN" class="specialKey">
-          <span class="level1"> super </span>
-        </kbd>
-        <kbd id="key_LALT" class="specialKey">
-          <span class="level1"> alt </span>
-        </kbd>
-        <kbd id="key_SPCE">
-          <span class="level1"> ⍽ espace </span>
-          <span class="level2"> ⍽ espace insécable fine </span>
-          <span class="level3"> ’ </span>
-        </kbd>
-        <kbd id="key_RALT" class="specialKey">
-          <span class="level1"> altgr </span>
-        </kbd>
-        <kbd id="key_RWIN" class="specialKey">
-          <span class="level1"> super </span>
-        </kbd>
-        <kbd id="key_MENU" class="specialKey">
-          <span class="level1"> menu </span>
-        </kbd>
-        <kbd id="key_RCTL" class="specialKey">
-          <span class="level1"> ctrl </span>
-        </kbd>
-      </div>
+    <div class="highlight">
+      <p> <strong>Plus efficace qu’AZERTY pour le français :</strong> toutes les
+        lettres du français se font dans la zone alphabétique de 3×10 touches, via
+        <a href="#alpha">une unique touche morte</a> sur la <i>home row</i> qui
+        permet une typographie soignée : majuscules accentuées, lettres
+        entrelacées, guillemets et apostrophe typographiques… </p>
+      <p> <strong>Plus ergonomique que QWERTY pour coder :</strong> les symboles
+        de programmation sont disponibles à leur emplacement habituel en QWERTY,
+        mais ils sont également accessibles dans cette zone de 3×10 touches via
+        la <a href="#altgr">couche AltGr</a>. </p>
+      <p> Lafayette permet ainsi de <strong>se passer totalement des touches
+        excentrées</strong>. C’est un gain de confort immédiat sur un clavier
+        standard et cela permet l’utilisation des claviers (très) compacts, pour
+        rechercher la meilleure ergonomie possible. </p>
     </div>
   </div>
 
-  <p id="selector">
-    <a id="navHome"      href="#_home">      Objectif </a>
-    <a id="navQwerty"    href="#_qwerty">    QWERTY   </a>
-    <a id="navLafayette" href="#_lafayette"> Accents  </a>
-    <a id="navExtra"     href="#_extra">     Extra    </a>
-    <a id="navAltGr"     href="#_altgr">     AltGr    </a>
-  </p>
+  <h2 id="utilisation"> Utilisation <a href="#utilisation">#</a> </h2>
 
-  <div id="description" data-timecontainer="seq">
-    <div data-onbegin="select(this)" id="home">
-      <p>
-        Une adaptation du QWERTY-US pour les francophones :
-      </p>
-      <ul>
-        <li>
-          pour un <a href="#_qwerty">accès direct aux chiffres</a>, sans <kbd>Shift</kbd>
-          ni <kbd>CapsLock</kbd> ;
-        </li>
-        <li>
-          pour une <a href="#_lafayette">typographie soignée</a> en français :
-          majuscules accentuées, lettres entrelacées, guillemets…
-        </li>
-        <li>
-          pour saisir facilement des <a href="#_qwerty">espaces insécables</a>
-          avant les ponctuations doubles (;:?!) et à l’intérieur des guillemets
-          (« ») ;
-        </li>
-        <li>
-          pour disposer d’une couche <a href="#_altgr">AltGr personnalisable</a>,
-          notamment pour les langages de programmation.
-        </li>
-      </ul>
-      <p>
-        L’objectif est de conserver l’efficacité du QWERTY (chiffres en direct,
-        développement) tout en proposant une disposition de clavier plus
-        efficace que l’AZERTY pour le français.
-      </p>
-    </div>
+  <h3 id="alpha"> Lettres <a href="#alpha">#</a> </h3>
+  <p> Plutôt que d’avoir une touche morte par accent comme habituellement, la
+    touche morte <kbd>★</kbd> permet d’obtenir confortablement tous les accents
+    utilisés en français : </p>
+  <ul> 
+    <li> <kbd>★</kbd> [lettre] = accent grave ou altération (à, è, ù, ç, œ) </li>
+    <li> <kbd>★</kbd> [touche à gauche d’une voyelle] = voyelle avec accent aigu (é) </li>
+    <li> <kbd>★</kbd> [touche sous une voyelle] = voyelle avec circonflexe (â, ê, ŷ, û, î, ô) </li>
+    <li> <kbd>★</kbd> <kbd>★</kbd> [voyelle] = voyelle avec tréma (ä, ë, ÿ, ü, ï, ö) </li>
+    <li> … et d’autres altérations : æ, ×, µ, ß, ñ, tirets, ponctuations spéciales… </li>
+  </ul>
+  <img src="img/1dk.svg">
+  <p> Ainsi, toutes les lettres utilisées en français peuvent être saisies dans
+    le pavé alpha de 3×10 touches — ce qu’aucune disposition standard ne permet
+    (AZERTY, QWERTZ suisse, QWERTY québécois, Bépo…). </p>
 
-    <div data-onbegin="select(this)" id="qwerty">
-      <p>
-        Cette disposition de clavier ne diffère que très peu du QWERTY-US :
-        seules 5 touches sont affectées. Elle convient donc particulièrement aux
-        claviers QWERTY, mais s’utilise tout aussi bien sur un clavier AZERTY
-        pour ceux qui savent taper en méthode dactylo.
-      </p>
-      <p>
-        Le principal intéret de cette modification est de permettre une saisie
-        confortable des <strong>espaces insécables</strong> avant les
-        ponctuations doubles (;:?!) et à l’intérieur des guillemets
-        typographiques («») : il suffit de maintenir la touche <kbd>Shift</kbd> enfoncée,
-        puis de presser <kbd>Espace</kbd> et la touche de ponctuation.
-      </p>
-      <p>
-        Par rapport au layout AZERTY de référence pour les francophones,
-        l’autre avantage de cette disposition est d’accéder aux
-        <strong>chiffres en direct</strong> — sans <kbd>Shift</kbd> ni
-        <kbd>CapsLock</kbd>. Le pavé numérique n’est plus indispensable.
-      </p>
-    </div>
+  <h3 id="ponctuation"> Ponctuation <a href="#ponctuation">#</a> </h3>
+  <p> Lafayette permet une typoraphie beaucoup plus précise qu’AZERTY : </p>
+  <ul>
+    <li> <kbd>Shift</kbd><kbd>Espace</kbd> = espace insécable fine ; </li>
+    <li> <kbd>★</kbd> <kbd>Espace</kbd> = apostrophe typographique (’) ; </li>
+    <li> <kbd>★</kbd> <kbd>F</kbd><kbd>V</kbd><kbd>B</kbd><kbd>G</kbd> 
+      = tiret court, bas, cadratin, demi-cadratin ; </li>
+    <li> <kbd>★</kbd> [majuscule] = majuscule accentuée. </li>
+  </ul>
+  <p> Les ponctuations doubles <code>;:!?</code> étant en <kbd>Shift</kbd>, il
+    est facile de les faire précéder d’une espace insécable : on maintient
+    <kbd>Shift</kbd>, on presse <kbd>Espace</kbd> puis la ponctuation, on
+    relâche <kbd>Shift</kbd>. </p>
 
-    <div data-onbegin="select(this)" id="lafayette">
-      <p>
-        La plupart des accents utilisés en français sont obtenus par une seule
-        touche morte, située sur la rangée de base — cf. <kbd>★</kbd> l’étoile sur fond
-        rouge dans le schéma ci-dessus.
-      </p>
-      <p>
-        Cette touche morte permet aussi de saisir facilement les majuscules accentuées
-        ansi que des caractères tels que Œ, Æ ou les points de suspension (…).
-        Contrairement aux apparences, cette disposition de clavier est donc
-        <strong>plus adaptée au français que l’AZERTY</strong>.
-      </p>
-      <p>
-        Cela augmente d’environ 3% le nombre de frappes sur un texte
-        francophone ; en revanche, les touches étant plus accessibles (plus
-        besoin d’aller chercher les caractères accentués sur la ligne des
-        chiffres), la frappe est plus fluide et plus confortable, si bien que
-        ces 3% de frappes supplémentaires ne pénalisent pas la vitesse de
-        saisie.
-      </p>
-    </div>
+  <h3 id="altgr"> Symboles <a href="#altgr">#</a> </h3>
+  <p> La couche AltGr contient tous les symboles utilisés en programmation : </p>
+  <ul>
+    <li> les 10 symboles en <kbd>Shift</kbd> sur la rangée des chiffres ; </li>
+    <li> les 2×8 symboles des touches excentrées ; </li>
+    <li> les 2 symboles de la touche <kbd>/?</kbd>. </li>
+  </ul>
+  <p> … soit 28 symboles. On ajoute <code>;:</code> dans les deux places
+    restantes afin de faciliter les enchaînements. </p>
+  <img src="img/alt30.svg">
+  <p> Cette couche AltGr a été conçue avec l’équipe <a
+    href="https://ergol.org">Ergo‑L</a> selon les principes suivants : </p>
+  <ul>
+    <li> les délimiteurs <code>&lt;&gt;{()}</code> sont sur les touches les
+      plus confortables (<kbd>WEASDF</kbd>) ; </li>
+    <li> les enchaînements fréquents doivent être aussi fluides que possible ; </li>
+    <li> les symboles fréquemment doublés ne se trouvent pas sous un auriculaire ; </li>
+    <li> les symboles les plus utiles de la rangée des chiffres sont sur la
+      première ligne : <code>$%^&amp;*</code> sous <kbd>45678</kbd>. </li>
+  </ul>
 
-    <div data-onbegin="select(this)" id="extra">
-      <p>
-        Cette disposition de clavier a été pensée pour une utilisation
-        occasionnelle en allemand (ß), néerlandais (ĳ), espagnol (ñ), catalan (l·l), portugais,
-        italien et espéranto : accents, tildes, cédilles, umlauts, guillemets spécifiques…
-      </p>
-      <p>
-        Contrairement à la plupart des dispositions de clavier, les caractères
-        spéciaux requis pour ces langues ne sont pas obtenus avec <kbd>AltGr</kbd> mais
-        avec la touche morte <kbd>★</kbd>, afin de privilégier le confort et la fluidité de
-        la saisie.
-      </p>
-      <p>
-        De même, tous les caractères spéciaux tels que ≤≠±≥©®™μ… sont obtenus
-        avec la même touche morte. <a href="#_altgr">La couche AltGr</a> est donc spécifique
-        aux symboles de programmation, et peut être entièrement personnalisée.
-      </p>
-    </div>
+  <h3 id="num"> Chiffres <a href="#num">#</a> </h3>
+  <p> La rangée des chiffres est identique à celle du QWERTY-US ; mais en
+    Lafayette elle présente deux particularités : </p>
+  <img src="img/num12.svg">
+  <ul>
+    <li> les combos <kbd>Shift</kbd>+[chiffre] ne sont pas indispensables,
+      puisque <code>!@#$%^&amp;*()</code> sont déjà présents (et plus
+      accessibles) dans la couche AltGr ; </li>
+    <li> la touche morte <kbd>★</kbd> permet d’obtenir des symboles typographiques
+      sur ces chiffres, notamment les guillemets <code>«»</code> et
+      <code>„“”</code>. </li>
+  </ul>
 
-    <div data-onbegin="select(this)" id="altgr">
-      <p>
-        La couche AltGr est dédiée aux symboles de programmation et cherche à en faciliter les
-        enchaînements. Les développeurs sont invités à l’adapter librement à leurs besoins.
-      </p>
-      <p>
-        Dans la version de base ci-dessus, les caractères les plus utilisés en
-        C/C++ (ou Java, JavaScript…) et HTML/XML sont disponibles en <kbd>AltGr</kbd> +
-        main gauche. Cela permet de saisir rapidement des digrammes du type -&gt;,
-        &lt;/, /&gt;. Les accolades {} et crochets [] sont sur la rangée de base,
-        bien plus accessibles qu’en QWERTY classique.
-      </p>
-      <p>
-        Sous la main droite, un pavé numérique virtuel (comparable à ceux des
-        portables) est proposé. Il n’est pas très facile d’accès sous Linux (pas
-        de touche <kbd>AltGr</kbd> / <kbd>Ctrl</kbd><kbd>Alt</kbd> à gauche)
-        mais permet néanmoins de saisir rapidement des (0) ou [0], très
-        fréquents dans les langages de programmation.
-      </p>
-    </div>
-  </div>
+  <h2 id="related"> Alternatives standard <a href="#related">#</a> </h2>
+  <p> Il existe des dispositions standard qui permettent de taper en français
+    sans les principaux inconvénients d’AZERTY (point et chiffres en
+    <kbd>Shift</kbd>, notamment) : </p>
+  <ul>
+    <li> <a href="https://fr.wikipedia.org/wiki/Disposition_des_touches_des_claviers_informatiques#/media/File:KB_USA-international.svg">QWERTY-intl</a>
+      – 4 accents morts (<code>´`^¨</code>) sur 3 touches mortes excentrées ; </li>
+    <li> <a href="https://fr.wikipedia.org/wiki/CAN/CSA_Z243.200-92">QWERTY québécois</a>
+      – <kbd>É</kbd> en accès direct, <kbd>ÀÈÙÇ</kbd> en touches excentrées ; </li>
+    <li> <a href="https://fr.wikipedia.org/wiki/Disposition_des_touches_des_claviers_informatiques#/media/File:KB_Swiss_Luxemburg_text.svg">QWERTZ suisse</a>
+      – <kbd>É</kbd> en accès direct, <kbd>ÀÈÇ</kbd> en touches excentrées. </li>
+  </ul>
 
-  <h2 id="download"> Téléchargement <a href="#download">#</a> </h2>
+  <p> <a href="http://bepo.fr/">Bépo</a> et ses variantes proposent des
+    dispositions de type Dvorak optimisées pour le français avec :</p>
+  <ul>
+    <li> le point en direct (bien) ; </li>
+    <li> les chiffres en <kbd>Shift</kbd> (moins bien) ; </li>
+    <li> des lettres excentrées (moins bien), voire en AltGr ; </li>
+    <li> un bon support des symboles typographiques ; </li>
+    <li> toutes les voyelles à gauche, les consonnes à droite ; </li>
+    <li> aucun raccourci clavier à une main (<kbd>Ctrl</kbd>
+      <kbd>ASZXCV</kbd>). </li>
+  </ul>
+
+  <p> Ces dispositions sont intéressantes mais ne permettent pas l’approche
+    <abbr title="one distance from home" lang="en">1DFH</abbr> que propose
+    Qwerty-Lafayette, où aucun caractère ne nécessite un écart supérieur à une
+    touche par rapport à la position de repos. À ce titre, l’intérêt ergonomique
+    de dispositions de type Bépo est débattable, d’autant que l’optimisation se
+    fait au détriment de l’anglais et des raccourcis clavier ; mais cela peut
+    convenir à une utilisation plus littéraire du français. </p>
+
+  <h2 id="ergo"> Alternative ergonomique <a href="#ergo">#</a> </h2>
+  <p> Le projet <a href="http://ergol.org/">Ergo‑L</a>, pour « ERGOnomic
+    Lafayette », reprend les principes de Lafayette tout en appliquant une
+    optimisation moderne de type Colemak / Workman pour un compromis français /
+    anglais. </p>
+  <p> Grâce à cette approche, Ergo‑L est à la fois <a
+    href="https://ergol.org/stats#/ergol/iso/fr">meilleur que Bépo pour le
+    français</a> et <a href="https://ergol.org/stats#/ergol/iso/en">meilleur que
+    Dvorak pour l’anglais</a> — le tout, en conservant les raccourcis claviers
+    usuels du QWERTY, les chiffres en direct, et l’approche 1DFH de Lafayette qui
+    assure la compatibilité avec les claviers compacts. </p> <p> Les projets
+    Ergo‑L et Lafayette sont développés en collaboration — la couche AltGr,
+    notamment, est commune aux deux projets. Passer de Lafayette à Ergo‑L est
+    relativement simple. </p>
+
+  <h2 id="pilotes"> Téléchargement <a href="#pilotes">#</a> </h2>
   <dl class="download">
     <dt>
       <strong> Windows : </strong>
@@ -515,59 +216,58 @@
       sudo apt install python3-lxml
       curl -Ls https://qwerty-lafayette.org/releases/lafayette_linux_v0.8.1.py | sudo python3
       </pre>
-      <p> L’installeur contient les deux variantes, Lafayette et Lafayette42. Ces
+      <p> L’installeur contient les deux variantes, Lafayette et Lafayette101. Ces
         dispositions sont activables par le gestionnaire de préférences de votre
         bureau ou directement en ligne de commande (sous Xorg) : </p>
       <pre>
       setxkbmap fr -variant lafayette
-      setxkbmap fr -variant lafayette42
+      setxkbmap fr -variant lafayette101
       </pre>
     </dd>
-    <dt>
-      <strong> Versions précédentes : </strong>
-      <a href="./releases">archives</a>
-    </dt>
-    <dd> Les version précédentes peuvent être installées sans garantie de leur
-      fonctionnement. </dd>
-    <dd> Si vous cherchez une version précédente pour contourner un problème qui
-      apparaît sur la dernière version en date, merci d’<a
-      href="https://github.com/fabi1cazenave/qwerty-lafayette/issues">ouvrir un
-      ticket github</a>. </dd>
   </dl>
 
-  <h2 id="changelog"> Notes de version <a href="#changelog">#</a> </h2>
+  <h2 id="versions"> Notes de version <a href="#versions">#</a> </h2>
   <dl>
+
+    <dt> v0.9 (<a href="layouts/lafayette.toml">en cours de finalisation…</a>) </dt>
+    <dd> <em>Lafayette42</em> devient la version officielle, et la version
+      historique est archivée sous le nom <a href="101">Lafayette101</a>. </dd>
+    <dd> Les tirets court, bas, cadratin et demi-cadratin sont désormais
+      faisables avec la touche morte <kbd>★</kbd> et
+      <kbd>F</kbd><kbd>V</kbd><kbd>B</kbd><kbd>G</kbd> respectivement.
+    <dd> Le tréma mort passe en double touche morte :
+      <kbd>★</kbd> <kbd>★</kbd> <kbd>i</kbd> donne « ï ». </dd>
+    <dd> La couche AltGr est révisée, en collaboration avec le projet
+      <a href="https://ergol.org">Ergo‑L</a>. </dd>
+    <dd> Windows : pilote portable AutoHotKey. </dd>
+
     <dt> v0.8 (2023-01-22) </dt>
     <dd> <kbd>Shift</kbd><kbd>Espace</kbd> produit désormais une insécable fine. </dd>
     <dd> <kbd>AltGr</kbd><kbd>Espace</kbd> produit désormais une espace normale. </dd>
-    <dd> Les accolades, crochets et chevrons <code>{}[]&lt;&gt;</code> ne peuvent
-      plus se faire avec la touche morte, et nécessitent désormais <kbd>AltGr</kbd>. </dd>
-    <dd> La couche AltGr de la variante <a href="./42">Lafayette42</a> est
-      complètement revue pour la compatibilité avec les claviers 40% (42 et 34
-      touches). </dd>
+    <dd> Les accolades, crochets et chevrons <code>{}[]&lt;&gt;</code> ne
+      peuvent plus se faire avec la touche morte <kbd>★</kbd>, et nécessitent
+      désormais <kbd>AltGr</kbd>. </dd>
+    <dd> La couche AltGr de la variante <em>Lafayette42</em> est complètement
+       revue pour la compatibilité avec les claviers 3×6 et 3×5. </dd>
 
     <dt> v0.6 (2018-04-02) </dt>
-    <dd> Variante <a href="./42">Lafayette42</a>, dédiée aux claviers compacts. </dd>
-    <dd> La couche AltGr a été modifiée pour faciliter certains
-      enchaînements : <code>+=</code>, <code>-=</code>, <code>=&gt;</code>,
-      <code>('')</code>, <code>~/</code>, etc. </dd>
+    <dd> La couche AltGr est modifiée pour faciliter certains enchaînements :
+      <code>+=</code>, <code>-=</code>, <code>=&gt;</code>, <code>('')</code>,
+      <code>~/</code>, etc. </dd>
     <dd> <kbd>AltGr</kbd><kbd>Espace</kbd> ne produit plus <kbd>Escape</kbd>
       (impossible à implémenter sous Windows).</dd>
+    <dd> Nouvelle variante <em>Lafayette42</em> où tous les caractères accentués
+      et symboles de ponctuation sont faits avec la seule touche morte <kbd>★</kbd>,
+      afin de s’adapter aux claviers compacts (4×6). </dd>
 
     <dt> v0.5 (2015-12-10) </dt>
-    <dd>
-      Quelques changements sur les caractères spéciaux :
-      <ul>
-        <li> le tréma mort (<code>¨</code>) passe sur la touche <kbd>]</kbd>,
-          pour éviter les touches mortes en majuscule (source de confusion) ; </li>
-        <li> le symbole Euro (<code>€</code>) passe sur la touche <kbd>5</kbd>
-          pour mieux coller aux claviers QWERTY récents ; </li>
-        <li> les flèches <code>←↓↑→</code> passent des touches
-          <kbd>I</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd> aux touches
-          <kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd> —
-          <i>Vim powwa!</i> </li>
-      </ul>
-    </dd>
+    <dd> Le tréma mort (<code>¨</code>) passe sur la touche <kbd>]</kbd>,
+        pour éviter les touches mortes en majuscule (source de confusion). </dd>
+    <dd> Le symbole Euro (<code>€</code>) passe sur la touche <kbd>5</kbd>
+      pour mieux coller aux claviers QWERTY récents. </dd>
+    <dd> Les flèches <code>←↓↑→</code> passent des touches
+      <kbd>I</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd> aux touches
+      <kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd> — <i>Vim powwa!</i> </dd>
     <dd> macOS : meilleur fonctionnement des touches mortes en <kbd>CapsLock</kbd>. </dd>
     <dd> Linux : meilleur fonctionnement de la touche <kbd>AltGr</kbd> sous Chromium. </dd>
 
@@ -584,96 +284,9 @@
     <dd> Première version publique (macOS, Linux). </dd>
   </dl>
 
-  <p>
-    Ces pilotes de clavier sont encore expérimentaux et quelques disparités
-    sont possibles d’une plate-forme à l’autre, notamment :
-  </p>
-  <ul>
-    <li>
-      Windows : certains caractères spéciaux risquent de ne pas s’afficher
-      correctement avec l’encodage par défaut (cp-1252).
-    </li>
-    <li>
-      macOS : tous les raccourcis <kbd>Cmd</kbd> conservent la disposition
-      QWERTY-US, notamment pour les raccourcis <kbd>Cmd</kbd><kbd>[</kbd> et
-      <kbd>Cmd</kbd><kbd>]</kbd> qui sont très courants sur cette plate-forme.
-    </li>
-    <li>
-      macOS : la touche morte <kbd>★</kbd> se comporte comme un accent grave
-      mort sous X11. Utiliser ce fichier <a href="XCompose">~/.XCompose</a> pour
-      y remédier.
-    </li>
-  </ul>
-
-  <h2 id="license"> Licence <a href="#license">#</a> </h2>
+  <h2 id="licence"> Licence <a href="#licence">#</a> </h2>
   <p> <a href="http://wtfpl.net/">WTFPL</a>
     – Do What the Fuck You Want to Public License. </p>
-
-  <h2 id="lafayette42"> Variante compacte <a href="#lafayette42">#</a> </h2>
-  <ul> <li> <a href="./42">Lafayette42</a> </li> </ul>
-  <p> Cette variante du QWERTY-Lafayette, un peu moins intuitive, est
-    spécifiquement conçue pour les claviers compacts : 50%, 40%, 42 ou 34
-    touches… et même sur les claviers standards, où elle apporte un gain
-    d’ergonomie sensible en réduisant nettement les extensions de doigts. </p>
-
-  <h2 id="related"> Alternatives classiques <a href="#related">#</a> </h2>
-  <p> Dispositions QWERTY-US supportant les caractères accentués français : </p>
-  <ul>
-    <li>
-      <a href="https://fr.wikipedia.org/wiki/Disposition_des_touches_des_claviers_informatiques#/media/File:KB_USA-international.svg">QWERTY-intl</a>
-      — tous les caractères accentués sont faits avec des touches mortes excentrées ; </li>
-    <li>
-      <a href="https://qwerty-fr.org/">QWERTY-fr</a>
-      — la plupart des caractères accentués sont faits avec <kbd>AltGr</kbd>. </li>
-  </ul>
-  <p> Autres dispositions standard francophones avec les chiffres en direct : </p>
-  <ul>
-    <li> <a href="https://fr.wikipedia.org/wiki/CAN/CSA_Z243.200-92">QWERTY québécois</a> </li>
-    <li> <a href="https://fr.wikipedia.org/wiki/Disposition_des_touches_des_claviers_informatiques#/media/File:KB_Swiss_Luxemburg_text.svg">QWERTZ suisse</a> </li>
-  </ul>
-  <p> Variantes AZERTY-fr supportant une meilleure typographie : </p>
-  <ul>
-    <li> <a href="http://norme-azerty.fr/">AFNOR</a>, très complet et
-      fraîchement normalisé. Pas encore très répandu, et pas toujours meilleur
-      que l’AZERTY traditionnel : position de l’accent circonflexe,
-      <code>ù</code> et <code>ç</code> en <kbd>AltGr</kbd>… </li>
-    <li> <a href="http://sourceforge.net/projects/frelrick/">Fr Elrick</a>,
-      très complet sur la typographie (apostrophe <code>’</code>, notamment) </li>
-    <li> <a
-        href="http://accentuez.mon.nom.free.fr/Clavier-Galeron.php">Galéron</a>,
-      disponible aussi en version portable (PKL) </li>
-    <li> <a href="http://users.numericable.be/denis.liegeois/kbdfrac.htm">Liégeois</a>,
-      disponible aussi en version AZERTY-be </li>
-    <li> <a href="http://psydk.org/kbdfr-dk">kbdfr-dk</a>,
-      pour des majuscules accentuées en <kbd>Shift</kbd>
-      (mais chiffres en <kbd>AltGr</kbd><kbd>Shift</kbd>) </li>
-  </ul>
-  <p> Les dispositions QWERTY / QWERTZ / AZERTY ci-dessus sont adaptées aux
-    néophytes ; le Lafayette offre une meilleure ergonomie et un support
-    typographique plus complet, mais requiert un temps d’apprentissage
-    sensiblement plus long. </p>
-
-  <h2 id="ergo"> Alternatives ergonomiques <a href="#ergo">#</a> </h2>
-  <ul>
-    <li> <a href="http://ergol.org/">ErgoL</a> </li>
-    <li> <a href="http://bepo.fr/">Bépo</a> </li>
-    <li> <a href="http://algo.be/ergo/dvorak-fr.html">Dvorak-fr</a> </li>
-  </ul>
-  <p> Lafayette, Dvorak-fr et Bépo poursuivent le même objectif de confort de
-    saisie pour le français, mais l’approche est différente : Lafayette cherche
-    à éliminer toutes les touches excentrées, au prix d’une touche morte pour
-    les caractères accentués, et privilégie la polyvalence anglais /
-    programmation / français. </p>
-  <p> <a href="http://ergol.org/">ErgoL</a>, pour « ERGOnomic Lafayette »,
-    reprend tous les principes de Lafayette tout en appliquant une optimisation
-    de type Colemak / Workman. Contrairement à Bépo et Dvorak-fr, ErgoL vise un
-    compromis anglais / français mais il est déjà meilleur que ses prédécesseurs
-    pour le français, et sans commune mesure pour l’anglais — et le tout, en
-    conservant les raccourcis claviers usuels du QWERTY, les chiffres en direct,
-    et la compatibilité avec les claviers compacts. </p>
-  <p> Les projets ErgoL et Lafayette sont développés en collaboration — la
-    couche AltGr de Lafayette42, notamment, est commune aux deux projets. Passer
-    de Lafayette à ErgoL est relativement simple. </p>
 
 </body>
 </html>
