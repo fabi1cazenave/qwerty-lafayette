@@ -396,7 +396,7 @@
         <g class="key" text-anchor="middle">
           <text x="12.8" y="20.6" class="level2">Q</text>
           <text x="38.0" y="43.4" class="level3">1</text>
-          <text x="38.0" y="43.4" class="level5">æ</text>
+          <text x="38.0" y="43.4" class="level5"> </text>
         </g>
       </g>
       <g id="KeyW" class="letterKey" transform="translate(150)">
@@ -584,10 +584,10 @@
       <g id="Semicolon" class="letterKey homeKey" transform="translate(645)">
         <rect width="52" height="52" rx="5" ry="5"/>
         <g class="key" text-anchor="middle">
-          <text x="12.8" y="43.4" class="level1 deadKey">★</text>
-          <text x="12.8" y="20.6" class="level2 deadKey diacritic">¨</text>
+          <text x="12.8" y="20.6" class="level2 deadKey">★</text>
           <text x="38.0" y="43.4" class="level3">&quot;</text>
           <text x="38.0" y="20.6" class="level4 deadKey diacritic">¨</text>
+          <text x="38.0" y="43.4" class="level5 deadKey diacritic">¨</text>
         </g>
       </g>
       <g id="Quote" class="pinkyKey" transform="translate(705)">

@@ -12,11 +12,11 @@ window.addEventListener('DOMContentLoaded', () => {
     return; // the web component has not been loaded
   }
 
-  fetch(keyboard.dataset.layout)
+  fetch(keyboard.getAttribute('src'))
     .then(response => response.json())
     .then(data => {
-      const shape = data.geometry.replace('ERGO', 'OL60').toLowerCase();
-      keyboard.setKeyboardLayout(data.layout, data.dead_keys, shape);
+      const shape = 'iso'; // data.geometry.replace('ergo', 'ol60').toLowerCase();
+      keyboard.setKeyboardLayout(data.keymap, data.deadkeys, shape);
       geometry.value = shape;
       button.hidden = false;
       if (!window.location.hash) {
