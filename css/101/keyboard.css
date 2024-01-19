@@ -79,12 +79,12 @@ kbd.specialKey {
   background-position: bottom left;
 }
 
-#key_TAB  { background-image: url(images/key-tab.png);  }
-#key_BKSP { background-image: url(images/key-bksp.png); }
-#key_CAPS { background-image: url(images/key-caps.png); }
-#key_RTRN { background-image: url(images/key-rtrn.png); }
+#key_TAB  { background-image: url(key-tab.png);  }
+#key_BKSP { background-image: url(key-bksp.png); }
+#key_CAPS { background-image: url(key-caps.png); }
+#key_RTRN { background-image: url(key-rtrn.png); }
 #key_LFSH,
-#key_RTSH { background-image: url(images/key-shift.png); }
+#key_RTSH { background-image: url(key-shift.png); }
 
 
 /******************************************************************************

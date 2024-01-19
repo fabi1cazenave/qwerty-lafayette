@@ -1,26 +1,19 @@
-a, a:hover, a:visited, a:active {
-  color: brown;
+body {
+  min-width: 780px;
 }
 
-code {
-  background-color: #eef;
-  padding: 2px;
+nav {
+  float: right;
 }
 
-kbd {
-  background: white;
-  border-color: #ddd #bbb #bbb #ddd;
-  border-radius: 3px;
-  border-style: solid;
-  border-width: 1px 1px 2px;
-  margin-bottom: 0.5em;
-  padding: 1px 3px;
-  white-space: nowrap;
+#intro {
+  width: 664px;
+  margin: 20px auto;
 }
 
 
 /******************************************************************************
- * Keyboard layout
+ * Keyboard Colors
  */
 
 /* primary lafayette keys */
@@ -103,7 +96,7 @@ kbd .level6 {
   overflow: hidden;
   position: relative;
   height: 350px;
-  width: 780px;
+  width: calc(100% + 40px);
   margin: 0 -20px;
 }
 
@@ -112,7 +105,7 @@ kbd .level6 {
   top: 0;
   width: 620px;
   height: 300px;
-  margin: 0 58px;
+  margin: 0 calc(50% - 330px);
   padding: 20px;
   border: 1px solid #ddd;
   background-color: #f8f8f8;
@@ -148,6 +141,37 @@ kbd .level6 {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 }
+
+
+/**
+ * Transitions -- ignored by IE<10 and older browsers
+ */
+
+#keyboard kbd,
+#keyboard span {
+  transition-duration: 1s;
+  transition-property: opacity, background-color;
+}
+
+#description div {
+  transition-duration: 1s;
+  transition-property: transform, opacity;
+}
+
+#description div[smil=idle] {
+  opacity: 0;
+  transform: scale(0.3) translate(+160%);
+}
+
+#description div[smil=active] {
+  opacity: 1;
+}
+
+#description div[smil=done] {
+  opacity: 0;
+  transform: scale(0.3) translate(-160%);
+}
+
 
 
 /******************************************************************************

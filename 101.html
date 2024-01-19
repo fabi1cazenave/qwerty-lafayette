@@ -7,9 +7,8 @@
   <title> Lafayette101 </title>
 
   <link type="text/css" rel="stylesheet" href="css/layout.css"      />
-  <link type="text/css" rel="stylesheet" href="css/lafayette.css"   />
-  <link type="text/css" rel="stylesheet" href="css/keyboard.css"    />
-  <link type="text/css" rel="stylesheet" href="css/transitions.css" />
+  <link type="text/css" rel="stylesheet" href="css/101/layout.css"  />
+  <link type="text/css" rel="stylesheet" href="css/101/keyboard.css"/>
   <link type="text/css" rel="stylesheet" href="css/demo.css"        />
   <link type="image/svg+xml" rel="icon" href="favicon.svg" sizes="any" />
 
@@ -22,11 +21,11 @@
   </script>
 </head>
 <body class="qwerty">
-  <a href="https://github.com/fabi1cazenave/qwerty-lafayette"
-    id="github"><span>Fork me on GitHub</span></a>
-
-  <h1> <button hidden>démo !</button> Lafayette101 </h1>
-  <p> Un QWERTY pour les développeurs francophones et les typographes exigeants. </p>
+  <header>
+    <h1> <button hidden>démo !</button> Lafayette101 </h1>
+    <nav> <a href=".">« <small>QWERTY</small>-Lafayette</a> </nav>
+    <p> <small>QWERTY</small>-Lafayette, canal historique ! :-) </p>
+  </header>
 
   <div id="demo" hidden>
     <div>
@@ -52,299 +51,299 @@
       Veuillez essayer de désactiver votre bloqueur de publicités (AdBlockPlus…)
       et recharger cette page.
     </p>
+  </div>
 
   <div id="keyboard">
-      <div id="row_AE">
-        <kbd id="key_TLDE">
-          <span class="level1"> ` </span>
-          <span class="level2"> ~ </span>
-          <span class="level5 deadKey"> ` </span>
-          <span class="level6 deadKey"> ~ </span>
-        </kbd>
-        <kbd id="key_AE01">
-          <span class="level1"> 1 </span>
-          <span class="level2"> ! </span>
-          <span class="level3 secondary"> „ </span>
-          <span class="level4 secondary"> ¡ </span>
-          <span class="level5"> ! </span>
-        </kbd>
-        <kbd id="key_AE02">
-          <span class="level1"> 2 </span>
-          <span class="level2"> @ </span>
-          <span class="level3 secondary"> “ </span>
-          <span class="level4 secondary"> ‘ </span>
-          <span class="level5"> ( </span>
-        </kbd>
-        <kbd id="key_AE03">
-          <span class="level1"> 3 </span>
-          <span class="level2"> # </span>
-          <span class="level3 secondary"> ” </span>
-          <span class="level4 secondary"> ’ </span>
-          <span class="level5"> ) </span>
-        </kbd>
-        <kbd id="key_AE04">
-          <span class="level1"> 4 </span>
-          <span class="level2"> $ </span>
-          <span class="level3 secondary"> £ </span>
-          <span class="level4 secondary"> ¢ </span>
-          <span class="level5"> ' </span>
-        </kbd>
-        <kbd id="key_AE05">
-          <span class="level1"> 5 </span>
-          <span class="level2"> % </span>
-          <span class="level3"> € </span>
-          <span class="level4 secondary"> ‰ </span>
-          <span class="level5"> " </span>
-        </kbd>
-        <kbd id="key_AE06">
-          <span class="level1"> 6 </span>
-          <span class="level2"> ^ </span>
-        </kbd>
-        <kbd id="key_AE07">
-          <span class="level1"> 7 </span>
-          <span class="level2"> &amp; </span>
-          <span class="level5"> 7 </span>
-        </kbd>
-        <kbd id="key_AE08">
-          <span class="level1"> 8 </span>
-          <span class="level2"> * </span>
-          <span class="level3 secondary"> § </span>
-          <span class="level5"> 8 </span>
-        </kbd>
-        <kbd id="key_AE09">
-          <span class="level1"> 9 </span>
-          <span class="level2"> ( </span>
-          <span class="level3 secondary"> ¶ </span>
-          <span class="level5"> 9 </span>
-        </kbd>
-        <kbd id="key_AE10">
-          <span class="level1"> 0 </span>
-          <span class="level2"> ) </span>
-          <span class="level3 secondary"> ° </span>
-          <span class="level5"> / </span>
-        </kbd>
-        <kbd id="key_AE11">
-          <span class="level1"> - </span>
-          <span class="level2"> _ </span>
-          <span class="level3"> — </span>
-        </kbd>
-        <kbd id="key_AE12">
-          <span class="level1"> = </span>
-          <span class="level2"> + </span>
-          <span class="level3 secondary"> ≠ </span>
-          <span class="level4 secondary"> ± </span>
-        </kbd>
-        <kbd id="key_BKSP" class="specialKey"></kbd>
-      </div>
-      <div id="row_AD">
-        <kbd id="key_TAB" class="specialKey"></kbd>
-        <kbd id="key_AD01">
-          <span class="level2"> Q </span>
-          <span class="level3 secondary"> æ </span>
-          <span class="level5"> = </span>
-        </kbd>
-        <kbd id="key_AD02" class="alt_only">
-          <span class="level2"> W </span>
-          <span class="level3"> é </span>
-          <span class="level5"> &lt; </span>
-        </kbd>
-        <kbd id="key_AD03" class="alt_only">
-          <span class="level2"> E </span>
-          <span class="level3"> è </span>
-          <span class="level5"> &gt; </span>
-        </kbd>
-        <kbd id="key_AD04">
-          <span class="level2"> R </span>
-          <span class="level3 secondary"> ® </span>
-          <span class="level4 secondary"> ™ </span>
-          <span class="level5"> - </span>
-        </kbd>
-        <kbd id="key_AD05">
-          <span class="level2"> T </span>
-          <span class="level3 secondary"> þ </span>
-          <span class="level5"> + </span>
-        </kbd>
-        <kbd id="key_AD06">
-          <span class="level2"> Y </span>
-          <span class="level3 secondary"> ¥ </span>
-          <span class="level4 secondary"> ¤ </span>
-        </kbd>
-        <kbd id="key_AD07">
-          <span class="level2"> U </span>
-          <span class="level3"> ù </span>
-          <span class="level5"> 4 </span>
-        </kbd>
-        <kbd id="key_AD08">
-          <span class="level2"> I </span>
-          <span class="level3 secondary"> ĳ </span>
-          <span class="level5"> 5 </span>
-        </kbd>
-        <kbd id="key_AD09">
-          <span class="level2"> O </span>
-          <span class="level3"> œ </span>
-          <span class="level5"> 6 </span>
-        </kbd>
-        <kbd id="key_AD10">
-          <span class="level2"> P </span>
-          <span class="level5"> * </span>
-        </kbd>
-        <kbd id="key_AD11" class="qwerty">
-          <span class="level1 deadKey"> ^ </span>
-          <span class="level2"> « </span>
-        </kbd>
-        <kbd id="key_AD12" class="qwerty">
-          <span class="level1 deadKey"> ¨ </span>
-          <span class="level2"> » </span>
-        </kbd>
-        <kbd id="key_BKSL">
-          <span class="level1"> \ </span>
-          <span class="level2"> | </span>
-        </kbd>
-      </div>
-      <div id="row_AC">
-        <kbd id="key_CAPS" class="specialKey"></kbd>
-        <kbd id="key_AC01" class="alt_only">
-          <span class="level2"> A </span>
-          <span class="level3"> à </span>
-          <span class="level5"> { </span>
-        </kbd>
-        <kbd id="key_AC02" class="alt_only">
-          <span class="level2"> S </span>
-          <span class="level3 secondary"> ß </span>
-          <span class="level5"> [ </span>
-        </kbd>
-        <kbd id="key_AC03" class="alt_only">
-          <span class="level2"> D </span>
-          <span class="level3 secondary"> ð </span>
-          <span class="level5"> ] </span>
-        </kbd>
-        <kbd id="key_AC04" class="alt_only">
-          <span class="level2"> F </span>
-          <span class="level3 secondary"> ſ </span>
-          <span class="level4 secondary"> ª </span>
-          <span class="level5"> } </span>
-        </kbd>
-        <kbd id="key_AC05">
-          <span class="level2"> G </span>
-          <span class="level3 secondary"> © </span>
-          <span class="level5"> / </span>
-        </kbd>
-        <kbd id="key_AC06">
-          <span class="level2"> H </span>
-          <span class="level3 secondary"> ← </span>
-        </kbd>
-        <kbd id="key_AC07">
-          <span class="level2"> J </span>
-          <span class="level3 secondary"> ↓ </span>
-          <span class="level5"> 1 </span>
-        </kbd>
-        <kbd id="key_AC08">
-          <span class="level2"> K </span>
-          <span class="level3 secondary"> ↑ </span>
-          <span class="level5"> 2 </span>
-        </kbd>
-        <kbd id="key_AC09">
-          <span class="level2"> L </span>
-          <span class="level3 secondary"> → </span>
-          <span class="level5"> 3 </span>
-        </kbd>
-        <kbd id="key_AC10" class="qwerty">
-          <span class="level2 deadKey" style="margin: 6px;"> ★ </span>
-          <span class="level5"> - </span>
-        </kbd>
-        <kbd id="key_AC11">
-          <span class="level1"> ' </span>
-          <span class="level2"> " </span>
-          <span class="level5 deadKey"> ´ </span>
-        </kbd>
-        <kbd id="key_RTRN" class="specialKey"></kbd>
-      </div>
-      <div id="row_AB">
-        <kbd id="key_LFSH" class="specialKey"></kbd>
-        <kbd id="key_AB01">
-          <span class="level2"> Z </span>
-          <span class="level5"> ~ </span>
-        </kbd>
-        <kbd id="key_AB02">
-          <span class="level2"> X </span>
-          <span class="level3 secondary"> × </span>
-          <span class="level5"> ` </span>
-        </kbd>
-        <kbd id="key_AB03">
-          <span class="level2"> C </span>
-          <span class="level3"> ç </span>
-          <span class="level5"> | </span>
-        </kbd>
-        <kbd id="key_AB04">
-          <span class="level2"> V </span>
-          <span class="level3 secondary"> ŭ </span>
-          <span class="level5"> _ </span>
-        </kbd>
-        <kbd id="key_AB05">
-          <span class="level2"> B </span>
-          <span class="level3 secondary"> † </span>
-          <span class="level5"> \ </span>
-        </kbd>
-        <kbd id="key_AB06">
-          <span class="level2"> N </span>
-          <span class="level3 secondary"> ñ </span>
-        </kbd>
-        <kbd id="key_AB07">
-          <span class="level2"> M </span>
-          <span class="level3 secondary"> µ </span>
-          <span class="level4 secondary"> º </span>
-          <span class="level5"> 0 </span>
-        </kbd>
-        <kbd id="key_AB08" class="qwerty">
-          <span class="level1"> , </span>
-          <span class="level2"> ; </span>
-          <span class="level3 secondary"> · </span>
-          <span class="level4 secondary"> • </span>
-          <span class="level5"> , </span>
-        </kbd>
-        <kbd id="key_AB09" class="qwerty">
-          <span class="level1"> . </span>
-          <span class="level2"> : </span>
-          <span class="level3"> … </span>
-          <span class="level5"> . </span>
-        </kbd>
-        <kbd id="key_AB10">
-          <span class="level1"> / </span>
-          <span class="level2"> ? </span>
-          <span class="level3 secondary"> ؟ </span>
-          <span class="level4 secondary"> ¿ </span>
-          <span class="level5"> + </span>
-        </kbd>
-        <kbd id="key_RTSH" class="specialKey"></kbd>
-      </div>
-      <div id="row_AA">
-        <kbd id="key_LCTL" class="specialKey">
-          <span class="level1"> ctrl </span>
-        </kbd>
-        <kbd id="key_LWIN" class="specialKey">
-          <span class="level1"> super </span>
-        </kbd>
-        <kbd id="key_LALT" class="specialKey">
-          <span class="level1"> alt </span>
-        </kbd>
-        <kbd id="key_SPCE">
-          <span class="level1"> ⍽ espace </span>
-          <span class="level2"> ⍽ espace insécable fine </span>
-          <span class="level3"> ’ </span>
-        </kbd>
-        <kbd id="key_RALT" class="specialKey">
-          <span class="level1"> altgr </span>
-        </kbd>
-        <kbd id="key_RWIN" class="specialKey">
-          <span class="level1"> super </span>
-        </kbd>
-        <kbd id="key_MENU" class="specialKey">
-          <span class="level1"> menu </span>
-        </kbd>
-        <kbd id="key_RCTL" class="specialKey">
-          <span class="level1"> ctrl </span>
-        </kbd>
-      </div>
+    <div id="row_AE">
+      <kbd id="key_TLDE">
+        <span class="level1"> ` </span>
+        <span class="level2"> ~ </span>
+        <span class="level5 deadKey"> ` </span>
+        <span class="level6 deadKey"> ~ </span>
+      </kbd>
+      <kbd id="key_AE01">
+        <span class="level1"> 1 </span>
+        <span class="level2"> ! </span>
+        <span class="level3 secondary"> „ </span>
+        <span class="level4 secondary"> ¡ </span>
+        <span class="level5"> ! </span>
+      </kbd>
+      <kbd id="key_AE02">
+        <span class="level1"> 2 </span>
+        <span class="level2"> @ </span>
+        <span class="level3 secondary"> “ </span>
+        <span class="level4 secondary"> ‘ </span>
+        <span class="level5"> ( </span>
+      </kbd>
+      <kbd id="key_AE03">
+        <span class="level1"> 3 </span>
+        <span class="level2"> # </span>
+        <span class="level3 secondary"> ” </span>
+        <span class="level4 secondary"> ’ </span>
+        <span class="level5"> ) </span>
+      </kbd>
+      <kbd id="key_AE04">
+        <span class="level1"> 4 </span>
+        <span class="level2"> $ </span>
+        <span class="level3 secondary"> £ </span>
+        <span class="level4 secondary"> ¢ </span>
+        <span class="level5"> ' </span>
+      </kbd>
+      <kbd id="key_AE05">
+        <span class="level1"> 5 </span>
+        <span class="level2"> % </span>
+        <span class="level3"> € </span>
+        <span class="level4 secondary"> ‰ </span>
+        <span class="level5"> " </span>
+      </kbd>
+      <kbd id="key_AE06">
+        <span class="level1"> 6 </span>
+        <span class="level2"> ^ </span>
+      </kbd>
+      <kbd id="key_AE07">
+        <span class="level1"> 7 </span>
+        <span class="level2"> &amp; </span>
+        <span class="level5"> 7 </span>
+      </kbd>
+      <kbd id="key_AE08">
+        <span class="level1"> 8 </span>
+        <span class="level2"> * </span>
+        <span class="level3 secondary"> § </span>
+        <span class="level5"> 8 </span>
+      </kbd>
+      <kbd id="key_AE09">
+        <span class="level1"> 9 </span>
+        <span class="level2"> ( </span>
+        <span class="level3 secondary"> ¶ </span>
+        <span class="level5"> 9 </span>
+      </kbd>
+      <kbd id="key_AE10">
+        <span class="level1"> 0 </span>
+        <span class="level2"> ) </span>
+        <span class="level3 secondary"> ° </span>
+        <span class="level5"> / </span>
+      </kbd>
+      <kbd id="key_AE11">
+        <span class="level1"> - </span>
+        <span class="level2"> _ </span>
+        <span class="level3"> — </span>
+      </kbd>
+      <kbd id="key_AE12">
+        <span class="level1"> = </span>
+        <span class="level2"> + </span>
+        <span class="level3 secondary"> ≠ </span>
+        <span class="level4 secondary"> ± </span>
+      </kbd>
+      <kbd id="key_BKSP" class="specialKey"></kbd>
+    </div>
+    <div id="row_AD">
+      <kbd id="key_TAB" class="specialKey"></kbd>
+      <kbd id="key_AD01">
+        <span class="level2"> Q </span>
+        <span class="level3 secondary"> æ </span>
+        <span class="level5"> = </span>
+      </kbd>
+      <kbd id="key_AD02" class="alt_only">
+        <span class="level2"> W </span>
+        <span class="level3"> é </span>
+        <span class="level5"> &lt; </span>
+      </kbd>
+      <kbd id="key_AD03" class="alt_only">
+        <span class="level2"> E </span>
+        <span class="level3"> è </span>
+        <span class="level5"> &gt; </span>
+      </kbd>
+      <kbd id="key_AD04">
+        <span class="level2"> R </span>
+        <span class="level3 secondary"> ® </span>
+        <span class="level4 secondary"> ™ </span>
+        <span class="level5"> - </span>
+      </kbd>
+      <kbd id="key_AD05">
+        <span class="level2"> T </span>
+        <span class="level3 secondary"> þ </span>
+        <span class="level5"> + </span>
+      </kbd>
+      <kbd id="key_AD06">
+        <span class="level2"> Y </span>
+        <span class="level3 secondary"> ¥ </span>
+        <span class="level4 secondary"> ¤ </span>
+      </kbd>
+      <kbd id="key_AD07">
+        <span class="level2"> U </span>
+        <span class="level3"> ù </span>
+        <span class="level5"> 4 </span>
+      </kbd>
+      <kbd id="key_AD08">
+        <span class="level2"> I </span>
+        <span class="level3 secondary"> ĳ </span>
+        <span class="level5"> 5 </span>
+      </kbd>
+      <kbd id="key_AD09">
+        <span class="level2"> O </span>
+        <span class="level3"> œ </span>
+        <span class="level5"> 6 </span>
+      </kbd>
+      <kbd id="key_AD10">
+        <span class="level2"> P </span>
+        <span class="level5"> * </span>
+      </kbd>
+      <kbd id="key_AD11" class="qwerty">
+        <span class="level1 deadKey"> ^ </span>
+        <span class="level2"> « </span>
+      </kbd>
+      <kbd id="key_AD12" class="qwerty">
+        <span class="level1 deadKey"> ¨ </span>
+        <span class="level2"> » </span>
+      </kbd>
+      <kbd id="key_BKSL">
+        <span class="level1"> \ </span>
+        <span class="level2"> | </span>
+      </kbd>
+    </div>
+    <div id="row_AC">
+      <kbd id="key_CAPS" class="specialKey"></kbd>
+      <kbd id="key_AC01" class="alt_only">
+        <span class="level2"> A </span>
+        <span class="level3"> à </span>
+        <span class="level5"> { </span>
+      </kbd>
+      <kbd id="key_AC02" class="alt_only">
+        <span class="level2"> S </span>
+        <span class="level3 secondary"> ß </span>
+        <span class="level5"> [ </span>
+      </kbd>
+      <kbd id="key_AC03" class="alt_only">
+        <span class="level2"> D </span>
+        <span class="level3 secondary"> ð </span>
+        <span class="level5"> ] </span>
+      </kbd>
+      <kbd id="key_AC04" class="alt_only">
+        <span class="level2"> F </span>
+        <span class="level3 secondary"> ſ </span>
+        <span class="level4 secondary"> ª </span>
+        <span class="level5"> } </span>
+      </kbd>
+      <kbd id="key_AC05">
+        <span class="level2"> G </span>
+        <span class="level3 secondary"> © </span>
+        <span class="level5"> / </span>
+      </kbd>
+      <kbd id="key_AC06">
+        <span class="level2"> H </span>
+        <span class="level3 secondary"> ← </span>
+      </kbd>
+      <kbd id="key_AC07">
+        <span class="level2"> J </span>
+        <span class="level3 secondary"> ↓ </span>
+        <span class="level5"> 1 </span>
+      </kbd>
+      <kbd id="key_AC08">
+        <span class="level2"> K </span>
+        <span class="level3 secondary"> ↑ </span>
+        <span class="level5"> 2 </span>
+      </kbd>
+      <kbd id="key_AC09">
+        <span class="level2"> L </span>
+        <span class="level3 secondary"> → </span>
+        <span class="level5"> 3 </span>
+      </kbd>
+      <kbd id="key_AC10" class="qwerty">
+        <span class="level2 deadKey" style="margin: 6px;"> ★ </span>
+        <span class="level5"> - </span>
+      </kbd>
+      <kbd id="key_AC11">
+        <span class="level1"> ' </span>
+        <span class="level2"> " </span>
+        <span class="level5 deadKey"> ´ </span>
+      </kbd>
+      <kbd id="key_RTRN" class="specialKey"></kbd>
+    </div>
+    <div id="row_AB">
+      <kbd id="key_LFSH" class="specialKey"></kbd>
+      <kbd id="key_AB01">
+        <span class="level2"> Z </span>
+        <span class="level5"> ~ </span>
+      </kbd>
+      <kbd id="key_AB02">
+        <span class="level2"> X </span>
+        <span class="level3 secondary"> × </span>
+        <span class="level5"> ` </span>
+      </kbd>
+      <kbd id="key_AB03">
+        <span class="level2"> C </span>
+        <span class="level3"> ç </span>
+        <span class="level5"> | </span>
+      </kbd>
+      <kbd id="key_AB04">
+        <span class="level2"> V </span>
+        <span class="level3 secondary"> ŭ </span>
+        <span class="level5"> _ </span>
+      </kbd>
+      <kbd id="key_AB05">
+        <span class="level2"> B </span>
+        <span class="level3 secondary"> † </span>
+        <span class="level5"> \ </span>
+      </kbd>
+      <kbd id="key_AB06">
+        <span class="level2"> N </span>
+        <span class="level3 secondary"> ñ </span>
+      </kbd>
+      <kbd id="key_AB07">
+        <span class="level2"> M </span>
+        <span class="level3 secondary"> µ </span>
+        <span class="level4 secondary"> º </span>
+        <span class="level5"> 0 </span>
+      </kbd>
+      <kbd id="key_AB08" class="qwerty">
+        <span class="level1"> , </span>
+        <span class="level2"> ; </span>
+        <span class="level3 secondary"> · </span>
+        <span class="level4 secondary"> • </span>
+        <span class="level5"> , </span>
+      </kbd>
+      <kbd id="key_AB09" class="qwerty">
+        <span class="level1"> . </span>
+        <span class="level2"> : </span>
+        <span class="level3"> … </span>
+        <span class="level5"> . </span>
+      </kbd>
+      <kbd id="key_AB10">
+        <span class="level1"> / </span>
+        <span class="level2"> ? </span>
+        <span class="level3 secondary"> ؟ </span>
+        <span class="level4 secondary"> ¿ </span>
+        <span class="level5"> + </span>
+      </kbd>
+      <kbd id="key_RTSH" class="specialKey"></kbd>
+    </div>
+    <div id="row_AA">
+      <kbd id="key_LCTL" class="specialKey">
+        <span class="level1"> ctrl </span>
+      </kbd>
+      <kbd id="key_LWIN" class="specialKey">
+        <span class="level1"> super </span>
+      </kbd>
+      <kbd id="key_LALT" class="specialKey">
+        <span class="level1"> alt </span>
+      </kbd>
+      <kbd id="key_SPCE">
+        <span class="level1"> ⍽ espace </span>
+        <span class="level2"> ⍽ espace insécable fine </span>
+        <span class="level3"> ’ </span>
+      </kbd>
+      <kbd id="key_RALT" class="specialKey">
+        <span class="level1"> altgr </span>
+      </kbd>
+      <kbd id="key_RWIN" class="specialKey">
+        <span class="level1"> super </span>
+      </kbd>
+      <kbd id="key_MENU" class="specialKey">
+        <span class="level1"> menu </span>
+      </kbd>
+      <kbd id="key_RCTL" class="specialKey">
+        <span class="level1"> ctrl </span>
+      </kbd>
     </div>
   </div>
 
@@ -472,7 +471,19 @@
     </div>
   </div>
 
-  <h2 id="download"> Téléchargement <a href="#download">#</a> </h2>
+  <h2 id="avertissement"> Avertissement <a href="#avertissement">#</a> </h2>
+  <p> Cette version est dépréciée et n’est présentée ici qu’à titre d’archive.
+    La version actuelle, anciennement appelée <a href=".">Lafayette42</a>, nous
+    semble supérieure dans tous les domaines : </p>
+  <ul>
+    <li> plus proche du QWERTY ANSI (seules 3 touches diffèrent) ; </li>
+    <li> plus efficace pour écrire du code (couche AltGr optimisée) ; </li>
+    <li> plus efficace pour écrire du français, tout en maintenant un support
+      typographique iréprochable — majuscules accentuées, espaces insécables
+      avant les ponctuations doubles, guillemets et symboles typographiques… </li>
+  </ul>
+
+  <h2 id="pilotes"> Téléchargement <a href="#pilotes">#</a> </h2>
   <dl class="download">
     <dt>
       <strong> Windows : </strong>
@@ -530,5 +541,9 @@
   <p> <a href="http://wtfpl.net/">WTFPL</a>
     – Do What the Fuck You Want to Public License. </p>
 
+  <footer>
+    <a href="https://github.com/fabi1cazenave/qwerty-lafayette">dépôt GitHub</a> |
+    <a href="https://discord.gg/5xR5K3nAFX">serveur Discord</a>
+  </footer>
 </body>
 </html>
