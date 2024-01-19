@@ -1,17 +1,30 @@
+html {
+  background-color: #ccc;
+  height: 100%;
+}
+
+body {
+  margin: auto;
+  padding: 20px;
+  max-width: 54em;
+  min-height: calc(100% - 40px);
+  font-family: sans-serif;
+  border-left: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+  background-color: #fdfdfd;
+  color: #333;
+  box-shadow: 0px 1px 10px #888;
+}
+
 h1 {
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 30px;
 }
 
-h1 + p {
-  margin-top: 0.5em;
-  color: #c8a;
-}
-
 h1, h2 {
   color: brown;
-  border-bottom: 1px inset brown;
+  border-bottom: 1px solid brown;
 }
 
 h2 {
@@ -31,48 +44,51 @@ h3 {
   border-bottom: 1px dotted #333;
 }
 
+header p {
+  margin-top: 0.5em;
+  color: #735;
+}
+
+#intro {
+  padding: 0;
+  margin: 20px;
+}
+
+.highlight {
+  margin: 20px 0;
+  padding: 0 20px;
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
+  border-radius: 15px;
+}
+
 dd, dt {
   margin-bottom: 0.5em;
 }
 
-
-/******************************************************************************
- * Fixed width layout (780px)
- */
-
-html {
-  background-color: #ccc;
-  height: 100%;
+a, a:hover, a:visited, a:active {
+  color: brown;
 }
 
-body {
-  width: 740px;
-  margin: auto;
-  padding: 20px;
-  min-height: calc(100% - 40px);
-  font-family: sans-serif;
-  border-left: 1px solid #aaa;
-  border-right: 1px solid #aaa;
-  background-color: #fdfdfd;
-  color: #333;
-  box-shadow: 0px 1px 10px #888;
+code {
+  background-color: #eef;
+  padding: 2px;
 }
 
-/******************************************************************************
- * "Fork me" ribbon
- */
-
-#github {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  display: block;
-  width: 149px;
-  height: 149px;
-  background-image: url(images/forkme.png);
+kbd {
+  background: white;
+  border-color: #ddd #bbb #bbb #ddd;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px 1px 2px;
+  margin-bottom: 0.5em;
+  padding: 1px 3px;
+  white-space: nowrap;
 }
 
-#github span {
-  display: none;
+footer {
+  color: brown;
+  margin-top: 3em;
+  border-top: 1px solid brown;
+  text-align: right;
 }
