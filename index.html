@@ -53,7 +53,7 @@
       <p> Lafayette permet ainsi de <strong>se passer totalement des touches
         excentrées</strong>. C’est un gain de confort immédiat sur un clavier
         standard et cela permet l’utilisation des claviers (très) compacts, pour
-        rechercher la meilleure ergonomie possible. </p>
+        rechercher <a href="#ergonomie">la meilleure ergonomie possible</a>. </p>
     </div>
   </div>
 
@@ -123,40 +123,112 @@
       <code>„“”</code>. </li>
   </ul>
 
-  <h2 id="related"> Alternatives standard <a href="#related">#</a> </h2>
-  <p> Il existe des dispositions standard qui permettent de taper en français
-    sans les principaux inconvénients d’AZERTY (point et chiffres en
-    <kbd>Shift</kbd>, notamment) : </p>
+  <h2 id="ergonomie"> Ergonomie <a href="#ergonomie">#</a> </h2>
+  <p> Lafayette permet une ergonomie plus poussée que les dispositions optimisées
+    telles que Dvorak ou Bépo. </p>
+
+  <h3 id="1dfh"> 1DFH : <i lang="en">“One Distance From Home”</i>
+    <a href="#1dfh">#</a> </h3>
+  <p> De nos jours, c’est de loin le plus gros gain ergonomique qu’on puisse
+    faire avec un clavier : <strong>n’utiliser aucune touche qui soit à plus
+    d’une touche d’écart de la position de repos.</strong> </p>
+  <p>
+    Conformément à ce principe, la plupart des claviers ergonomiques modernes ne
+    disposent que de 6 colonnes de touches par main.
+    <!--
+    Les principes d’optimisation de Dvorak ont été développés pendant
+    l’entre-deux guerres pour des machines à écrire mécaniques, dépourvues de
+    touches excentrées telles que <kbd>Tab</kbd>, <kbd>Enter</kbd>,
+    <kbd>Backspace</kbd>.
+    -->
+    En n’utilisant que le pavé principal de 3×10 touches pour toutes les
+    lettres et tous les symboles de programmation, Lafayette permet de conserver
+    <kbd>Shift</kbd>, <kbd>Tab</kbd>, <kbd>Enter</kbd>, <kbd>Backspace</kbd> sur
+    les colonnes extérieures sans compromettre l’approche 1DFH. </p>
+  <img src="img/1dfh.svg">
+  <p> Dvorak et Bépo sont <em>optimisées</em>, en disposant les touches
+    fréquentes au plus proche des positions de repos ; alors que Lafayette se
+    veut <em>ergonomique</em>, en supprimant toutes les extensions de doigt
+    susceptibles de causer des troubles musculo-squelettiques. </p>
+
+  <h3 id="1dk"> Touche morte <kbd>★</kbd> <a href="#1dk">#</a> </h3>
+  <p> Cela peut sembler contre-intuitif mais une touche morte est une façon plus
+    saine d’accéder à un caractère spécial que <kbd>AltGr</kbd> : ça n’ajoute
+    aucune pression de touche et c’est beaucoup plus facile à synchroniser que
+    <kbd>AltGr</kbd>, notamment à vitesse élevée où l’on presse des touches
+    avant d’avoir relâché les touches précédentes. 
+    Par exemple : si l’on suppose que <kbd>AltGr</kbd><kbd>W</kbd> et
+    <kbd>★</kbd><kbd>W</kbd> produisent toutes les deux <code>É</code>, alors
+    <kbd>★</kbd><kbd>W</kbd><kbd>E</kbd> fera toujours <code>ée</code> mais
+    <kbd>AltGr</kbd><kbd>W</kbd><kbd>E</kbd> risque de produire <code>éè</code>
+    (deux accents) à vitesse élevée. </p>
+  <!-- <kbd>AltGr</kbd>↓ <kbd>W</kbd>↓ <kbd>AltGr</kbd>↑ <kbd>E</kbd>↓ <kbd>W</kbd>↑ <kbd>E</kbd>↑ -->
+  <p> <kbd>AltGr</kbd> est parfaite pour enchaîner plusieurs symboles en
+    maintenant la touche enfoncée et reste pertinente pour les caractères qui
+    ne sont pas à l’intérieur d’un mot. Mais ça n’est pas une façon ergonomique
+    de produire un caractère accentué. </p>
+
+  <h3 id="arsenik"> Claviers compacts <a href="arsenik">#</a> </h3>
+  <p> Puisque toutes les lettres sont dans le pavé principal de 3×10 touches on
+    peut envisager d’utiliser <kbd>Shift</kbd> avec un pouce, pour un gain de
+    confort important ; et on peut même envisager de ne plus utiliser du tout de
+    colonnes extérieures, supprimant ainsi radicalement toutes les extensions
+    d’auriculaires. </p>
+  <p> <a href="https://github.com/fabi1cazenave/arsenik">Arsenik</a> est un
+    exemple d’agencement de touches permettant aux utilisateurs avancés
+    d’utiliser 100 % de Lafayette sur uniquement 33 touches : </p>
+  <img src="img/arsenik.svg">
   <ul>
-    <li> <a href="https://fr.wikipedia.org/wiki/Disposition_des_touches_des_claviers_informatiques#/media/File:KB_USA-international.svg">QWERTY-intl</a>
-      – 4 accents morts (<code>´`^¨</code>) sur 3 touches mortes excentrées ; </li>
-    <li> <a href="https://fr.wikipedia.org/wiki/CAN/CSA_Z243.200-92">QWERTY québécois</a>
-      – <kbd>É</kbd> en accès direct, <kbd>ÀÈÙÇ</kbd> en touches excentrées ; </li>
+    <li> <kbd>Shift</kbd> passe sous le pouce gauche, et un appui bref donne un
+      <kbd>Backspace</kbd> ; </li>
+    <li> <kbd>AltGr</kbd> reste sous le pouce droit, et un appui bref donne un
+      <kbd>Enter</kbd> ; </li>
+    <li> un appui long sur la barre d’espace donne accès à la couche
+      « Navigation » : flèches / tabulations / raccourcis à gauche, pavé
+      numérique à droite ; </li>
+    <li> les modifieurs <kbd>Ctrl</kbd>, <kbd>Alt</kbd>, <kbd>Super</kbd>
+      sont associés à <kbd>SDF</kbd> et <kbd>JKL</kbd> comme <i lang="en"><a
+      href="https://precondition.github.io/home-row-mods">home row mods</a></i>. </li>
+  </ul>
+  <p> D’autres agencements sont évidemment possibles. <a lang="en"
+    href="https://github.com/manna-harbour/miryoku">Miryoku</a> est de loin le
+    plus connu mais il nécessite 6 touches de pouces, donc un clavier
+    ergonomique ; Arsenik, avec 3 touches de pouces, peut s’utiliser sur
+    n’importe quel clavier — y compris un clavier d’ordinateur portable. </p>
+
+  <h2 id="alternatives"> Alternatives <a href="#alternatives">#</a> </h2>
+  <h3 id="standard"> Alternatives standard <a href="#standard">#</a> </h3>
+  <p> Pour beaucoup d’utilisateurs, les principaux défauts d’AZERTY sont le
+    point et les chiffres en <kbd>Shift</kbd>, et l’impossibilité de saisir des
+    majuscules accentuées. Il existe des dispositions standard qui permettent de
+    taper en français sans ces inconvénients, notamment : </p>
+  <ul>
+    <li> <a href="https://fr.wikipedia.org/wiki/Disposition_des_touches_des_claviers_informatiques#/media/File:KB_USA-international.svg">QWERTY
+      international</a> – 4 accents morts (<code>´`^¨</code>) sur 3 touches
+      mortes excentrées ; </li>
+    <li> <a href="https://fr.wikipedia.org/wiki/CAN/CSA_Z243.200#/media/Fichier:Clavier_qu%C3%A9b%C3%A9cois_normalis%C3%A9,_version_int%C3%A9grale._Repr%C3%A9sentation_des_groupes_et_niveaux,_par_les_couleurs..svg">QWERTY
+      québécois</a> – <kbd>É</kbd> en accès direct, <kbd>ÈÙ</kbd> en touches
+      excentrées, <kbd>ÀÇ</kbd> en touches très excentrées ; </li>
     <li> <a href="https://fr.wikipedia.org/wiki/Disposition_des_touches_des_claviers_informatiques#/media/File:KB_Swiss_Luxemburg_text.svg">QWERTZ suisse</a>
-      – <kbd>É</kbd> en accès direct, <kbd>ÀÈÇ</kbd> en touches excentrées. </li>
+      – <kbd>É</kbd> en accès direct, <kbd>ÀÈÇ</kbd> en touches excentrées,
+      seul <code>Ù</code> requiert une touche morte très excentrée.
+      Particularité : <kbd>CapsLock</kbd> est requis pour les majuscules accentuées. </li>
   </ul>
-
-  <p> <a href="http://bepo.fr/">Bépo</a> et ses variantes proposent des
-    dispositions de type Dvorak optimisées pour le français avec :</p>
+  <p> <a href="http://bepo.fr/">Bépo</a> est une optimisation de type Dvorak
+    pour le français avec :</p>
   <ul>
-    <li> le point en direct (bien) ; </li>
-    <li> les chiffres en <kbd>Shift</kbd> (moins bien) ; </li>
-    <li> des lettres excentrées (moins bien), voire en AltGr ; </li>
-    <li> un bon support des symboles typographiques ; </li>
-    <li> toutes les voyelles à gauche, les consonnes à droite ; </li>
-    <li> aucun raccourci clavier à une main (<kbd>Ctrl</kbd>
-      <kbd>ASZXCV</kbd>). </li>
+    <li> le point en direct, les chiffres en <kbd>Shift</kbd>, les majuscules
+      accentuées en <kbd>Shift</kbd> ; </li>
+    <li> des lettres excentrées (MZ), voire très excentrées (WÇ), voire en
+      <kbd>AltGr</kbd> (Ù et les trémas) ; </li>
+    <li> aucun raccourci clavier classique (<kbd>Ctrl</kbd> <kbd>ASZXCV</kbd>). </li>
   </ul>
+  <p> Ces dispositions peuvent s’avérer meilleures qu’AZERTY mais ne permettent
+    pas une approche <a href="#1dfh">1DFH</a>. À ce titre l’intérêt ergonomique
+    de Bépo est très discutable, d’autant que l’optimisation est faite au
+    détriment de l’anglais et des raccourcis clavier. </p>
 
-  <p> Ces dispositions sont intéressantes mais ne permettent pas l’approche
-    <abbr title="one distance from home" lang="en">1DFH</abbr> que propose
-    Qwerty-Lafayette, où aucun caractère ne nécessite un écart supérieur à une
-    touche par rapport à la position de repos. À ce titre, l’intérêt ergonomique
-    de dispositions de type Bépo est débattable, d’autant que l’optimisation se
-    fait au détriment de l’anglais et des raccourcis clavier ; mais cela peut
-    convenir à une utilisation plus littéraire du français. </p>
-
-  <h2 id="ergo"> Alternative ergonomique <a href="#ergo">#</a> </h2>
+  <h3 id="ergol"> Alternative ergonomique <a href="#ergol">#</a> </h3>
   <p> Le projet <a href="http://ergol.org/">Ergo‑L</a>, pour « ERGOnomic
     Lafayette », reprend les principes de Lafayette tout en appliquant une
     optimisation moderne de type Colemak / Workman pour un compromis français /
@@ -165,11 +237,11 @@
     href="https://ergol.org/stats#/ergol/iso/fr">meilleur que Bépo pour le
     français</a> et <a href="https://ergol.org/stats#/ergol/iso/en">meilleur que
     Dvorak pour l’anglais</a> — le tout, en conservant les raccourcis claviers
-    usuels du QWERTY, les chiffres en direct, et l’approche 1DFH de Lafayette qui
-    assure la compatibilité avec les claviers compacts. </p> <p> Les projets
-    Ergo‑L et Lafayette sont développés en collaboration — la couche AltGr,
-    notamment, est commune aux deux projets. Passer de Lafayette à Ergo‑L est
-    relativement simple. </p>
+    usuels du QWERTY, les chiffres en direct, et l’approche <a href="#1dfh">1DFH</a>
+    de Lafayette qui assure la compatibilité avec les claviers compacts. </p>
+  <p> Les projets Ergo‑L et Lafayette sont développés en collaboration — la
+    couche AltGr, notamment, est commune aux deux projets. Passer de Lafayette à
+    Ergo‑L est relativement simple. </p>
 
   <h2 id="pilotes"> Téléchargement <a href="#pilotes">#</a> </h2>
   <dl class="download">
