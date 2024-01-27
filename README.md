@@ -1,7 +1,7 @@
 Qwerty-Lafayette
 ================================================================================
 
-A Qwerty layout for French-speaking users.
+A compact Qwerty layout for French-speaking users.
 
 
 TL;DR:
@@ -33,19 +33,25 @@ Download
 https://qwerty-lafayette.org/#pilotes
 
 
-Make your own
+Make Your Own!
 --------------------------------------------------------------------------------
 
-You’ll need the latest version of [Kalamine](https://github.com/fabi1cazenave/kalamine) to build your own layout:
+The latest version of [Kalamine](https://github.com/fabi1cazenave/kalamine) is recommended to customize your layout:
 
 ```bash
 pip3 install kalamine
 ```
 
-And build your custom layout like this:
+[Grab the TOML layout](layouts/lafayette.toml), start the Kalamine previewer and edit your layout with your preferred text editor:
 
 ```bash
-kalamine make MyCustomLayout.yaml
+kalamine watch lafayette.toml
+```
+
+Then build your custom layout drivers:
+
+```bash
+kalamine make lafayette.toml
 ```
 
 
@@ -63,4 +69,4 @@ There are other ways to use a Qwerty-US keyboard for French. Here are the two mo
 * [qwerty-intl](https://en.wikipedia.org/wiki/QWERTY#US-International) — turns <kbd>`</kbd><kbd>~</kbd><kbd>'</kbd><kbd>"</kbd><kbd>^</kbd> into dead keys;
 * [qwerty-fr](https://github.com/qwerty-fr/qwerty-fr) — smart use of the AltGr layer for direct access to all French accented characters, as well as dead keys for other characters.
 
-Qwerty-Lafayette provides sharper typography and better ergonomics in the long run, but has a steeper learning curve for non-touch-typists.
+Qwerty-Lafayette offers sharper typography and better ergonomics, but might have a steeper learning curve for non-touch-typists.
