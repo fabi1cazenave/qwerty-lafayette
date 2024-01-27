@@ -1,6 +1,6 @@
 {
-  "name": "Qwerty-Lafayette",
-  "description": "French (Qwerty-Lafayette)",
+  "name": "Lafayette101",
+  "description": "French (Qwerty-Lafayette, legacy)",
   "geometry": "iso",
   "keymap": {
     "Digit1": [ "1", "!", "!" ],
