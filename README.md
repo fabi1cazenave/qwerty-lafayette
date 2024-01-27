@@ -18,13 +18,11 @@ Layout
 
 The <kbd>;</kbd> key is turned into a dead key that gives access to all acute accents, grave accents, cedillas, digraphs and quote signs you’ll need to write in proper French:
 
-![base & dead key layout](layouts/qwerty_1dk.png)
+![base & dead key layout](img/lafayette_1dk.png)
 
-… which leaves the AltGr layer fully available for any customization you have in mind.
+… which leaves the AltGr layer fully dedicated to programming symbols:
 
-![altgr layout](layouts/qwerty_alt.png)
-
-The default layout allows to write in English, French, Spanish, Portuguese, Italian, German, Dutch and Esperanto easily.
+![altgr layout](img/lafayette_sym.png)
 
 More information on the website (in French): https://qwerty-lafayette.org/
 
@@ -32,7 +30,7 @@ More information on the website (in French): https://qwerty-lafayette.org/
 Download
 --------------------------------------------------------------------------------
 
-https://qwerty-lafayette.org/#download
+https://qwerty-lafayette.org/#pilotes
 
 
 Make your own
@@ -47,7 +45,7 @@ pip3 install kalamine
 And build your custom layout like this:
 
 ```bash
-kalamine MyCustomLayout.yaml
+kalamine make MyCustomLayout.yaml
 ```
 
 

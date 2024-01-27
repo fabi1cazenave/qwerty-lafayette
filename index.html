@@ -86,7 +86,7 @@
     <kbd>Shift</kbd>, on presse <kbd>Espace</kbd> puis la ponctuation, on
     relâche <kbd>Shift</kbd>. </p>
 
-  <h3 id="altgr"> Symboles <a href="#altgr">#</a> </h3>
+  <h3 id="symboles"> Symboles <a href="#symboles">#</a> </h3>
   <p> La couche AltGr contient tous les symboles utilisés en programmation : </p>
   <ul>
     <li> les 10 symboles en <kbd>Shift</kbd> sur la rangée des chiffres ; </li>
@@ -159,11 +159,28 @@
     <kbd>★</kbd><kbd>W</kbd><kbd>E</kbd> fera toujours <code>ée</code> mais
     <kbd>AltGr</kbd><kbd>W</kbd><kbd>E</kbd> risque de produire <code>éè</code>
     (deux accents) à vitesse élevée. </p>
-  <!-- <kbd>AltGr</kbd>↓ <kbd>W</kbd>↓ <kbd>AltGr</kbd>↑ <kbd>E</kbd>↓ <kbd>W</kbd>↑ <kbd>E</kbd>↑ -->
-  <p> <kbd>AltGr</kbd> est parfaite pour enchaîner plusieurs symboles en
-    maintenant la touche enfoncée et reste pertinente pour les caractères qui
-    ne sont pas à l’intérieur d’un mot. Mais ça n’est pas une façon ergonomique
-    de produire un caractère accentué. </p>
+    <!-- <kbd>AltGr</kbd>↓ <kbd>W</kbd>↓ <kbd>AltGr</kbd>↑ <kbd>E</kbd>↓ <kbd>W</kbd>↑ <kbd>E</kbd>↑ -->
+
+  <h3 id="altgr"> AltGr <a href="#altgr">#</a> </h3>
+  <p> <kbd>AltGr</kbd> permet d’accéder aux symboles de programmation en restant
+    dans une approche <a href="#1dfh">1DFH</a>, mais reste facultative.
+    Sur un clavier QWERTY il est naturel de saisir les symboles de programmation
+    là où ils sont imprimés, i.e. sur des positions excentrées. Mais au fur et à
+    mesure on peut prendre l’habitude de privilégier leurs alternatives en
+    <kbd>AltGr</kbd>, e.g.
+    <code>{()}</code> sur <kbd>AltGr</kbd><kbd>ASDF</kbd>,
+    et surtout profiter des enchaînements courants comme
+    <code>-&gt;</code> sur <kbd>AltGr</kbd><kbd>KE</kbd>,
+    <code>=&gt;</code> sur <kbd>AltGr</kbd><kbd>GE</kbd>,
+    <code>('')</code> sur <kbd>AltGr</kbd><kbd>SOOD</kbd>,
+    etc. </p>
+  <p> À noter : <kbd>AltGr</kbd> est plus facile d’accès sur les ordinateurs
+    portables (barre d’espace en 5u) que sur les claviers bureautique externes
+    (barre d’espace en 6.25u voire 7u), sauf à s’équiper d’un modèle compact.
+    Sur macOS il est recommandé d’utiliser <a
+    href="https://karabiner-elements.pqrs.org/">Karabiner</a> pour <a
+    href="img/karabiner_settings.png">inverser les touches</a> <kbd>⌘ Command</kbd> 
+    et <kbd>⌥ Option</kbd> à droite. </p>
 
   <h3 id="arsenik"> Claviers compacts <a href="arsenik">#</a> </h3>
   <p> Puisque toutes les lettres sont dans le pavé principal de 3×10 touches on
@@ -218,7 +235,8 @@
       accentuées en <kbd>Shift</kbd> ; </li>
     <li> des lettres excentrées (MZ), voire très excentrées (WÇ), voire en
       <kbd>AltGr</kbd> (Ù et les trémas) ; </li>
-    <li> aucun raccourci clavier classique (<kbd>Ctrl</kbd> <kbd>ASZXCV</kbd>). </li>
+    <li> aucun raccourci clavier classique (<kbd>Ctrl</kbd> <kbd>ZXCV</kbd>) en
+      main gauche. </li>
   </ul>
   <p> Ces dispositions peuvent s’avérer meilleures qu’AZERTY mais ne permettent
     pas une approche <a href="#1dfh">1DFH</a>. À ce titre l’intérêt ergonomique
@@ -242,43 +260,67 @@
 
   <h2 id="pilotes"> Téléchargement <a href="#pilotes">#</a> </h2>
   <dl class="download">
-    <dt>
+
+    <dt hidden>
       <strong> Windows : </strong>
-      <a href="./releases/lafayette_windows_v0.8.exe">lafayette_windows_v0.8.exe</a> (1.03 Mo)
+      <a href="./releases/lafayette_windows_v0.9.exe">lafayette_windows_v0.9.exe</a>
     </dt>
-    <dd>
+    <dd hidden>
       <p> Exécuter l’installeur. La disposition de clavier apparaît dans la
         barre de langues (indicateur de la barre des tâches). </p>
     </dd>
+
     <dt hidden>
       <strong> Windows, version portable : </strong>
-      <a href="./releases/lafayette_pkl_v0.8.zip">lafayette_pkl_v0.8.zip</a> (330 Ko)
+      <a href="./releases/lafayette_pkl_v0.9.zip">lafayette_pkl_v0.9.zip</a>
     </dt>
     <dd hidden>
-      <p>
-        dézipper et exécuter <code>pkl.exe</code>.
-      </p>
-      <p>
-        Un indicateur apparaît dans la barre des tâches. Ne nécessite pas de
-        droits d’administration, peut fonctionner depuis une clé USB.
-      </p>
+      <p> dézipper et exécuter <code>pkl.exe</code>. </p>
+      <p> Un indicateur apparaît dans la barre des tâches. Ne nécessite pas de
+        droits d’administration, peut fonctionner depuis une clé USB. </p>
     </dd>
+
     <dt>
       <strong> macOS : </strong>
-      <a href="./releases/lafayette_macos_v0.8.keylayout">lafayette_macos_v0.8.keylayout</a> (68 Ko)
+      <a href="./releases/lafayette_macos_v0.9.keylayout">lafayette_macos_v0.9.keylayout</a>
     </dt>
     <dd>
       <p> Enregistrer dans <code>~/Library/Keyboard Layouts</code> (pour le seul
         utilisateur courant) ou <code>/Library/Keyboard Layouts</code> (pour
         tous les utilisateurs), et relancer la session. </p>
       <p> La disposition de clavier sera disponible dans vos préférences
-        « Langue et Texte », onglet « Méthodes de saisie ». </p>
+        « Langue et Texte », onglet « Méthodes de saisie ». Il est possible
+        d’utiliser <a href="https://karabiner-elements.pqrs.org/">Karabiner</a>
+        pour <a href="img/karabiner_settings.png">inverser les touches</a>
+        <kbd>⌘ Command</kbd> et <kbd>⌥ Option</kbd> à droite, afin d’accéder
+        plus facilement à la couche de symboles. </p>
     </dd>
+
     <dt>
       <strong> GNU/Linux : </strong>
-      <a href="./releases/lafayette_linux_v0.8.1.py">lafayette_linux_v0.8.1.py</a> (45 Ko)
+      <a href="./releases/lafayette_linux_v0.9.xkb_custom">lafayette_linux_v0.9.xkb_custom</a>
     </dt>
     <dd>
+      <p> Copier le pilote dans <code>xkb/symbols/custom</code> :</p>
+      <pre>
+      wget https://qwerty-lafayette.org/releases/lafayette_linux_v0.9.xkb_custom
+      sudo mv lafayette_linux_v0.9.xkb_custom ${XKB_CONFIG_ROOT:-/usr/share/X11/xkb}/symbols/custom
+      </pre>
+      <p> La disposition de clavier est activable par le gestionnaire de préférences
+        du bureau (XOrg, Wayland) ou directement en ligne de commande (XOrg) : </p>
+      <pre>
+      setxkbmap custom
+      </pre>
+      <p> D’autres méthodes d’installation sont possibles, en passant le <a
+        href="layouts/lafayette.toml">fichier source</a> à <a
+        href="https://github.com/fabi1cazenave/kalamine#xkalamine">XKalamine</a>.
+    </dd>
+
+    <dt hidden>
+      <strong> GNU/Linux : </strong>
+      <a href="./releases/lafayette_linux_v0.8.1.py">lafayette_linux_v0.8.1.py</a>
+    </dt>
+    <dd hidden>
       <p> Script d’installation, nécessitant Python3 et lxml : </p>
       <pre>
       sudo apt install python3-lxml
@@ -292,6 +334,7 @@
       setxkbmap fr -variant lafayette101
       </pre>
     </dd>
+
   </dl>
 
   <h2 id="versions"> Notes de version <a href="#versions">#</a> </h2>
