@@ -72,76 +72,9 @@ altgr = '''
 ╰╌╌╌╌╌┸─────┴─────┴─────┴─────┴─────┸─────┴─────┴─────┴─────┴─────┚ · · · · · ·
 '''
 
-# The AltGr layer is mostly intended for full-size keyboards.
-# Compact keyboards (down to 3×10 keys) should use a physical “prog” layer
-# instead, along with “nav” and “num”, as explained below.
-
 [spacebar]
 shift       = "\u202f"  # NARROW NO-BREAK SPACE
 altgr       = "\u0020"  # SPACE
 altgr_shift = "\u00a0"  # NO-BREAK SPACE
 1dk         = "\u2019"  # RIGHT SINGLE QUOTATION MARK
 1dk_shift   = "\u2019"  # RIGHT SINGLE QUOTATION MARK
-
-
-[layers]
-
-###
-# Suggested layers for compact, programmable keyboards
-#   - 4×6 keyboards => one prog layer matching the AltGr layer:
-#       4×10 keys + prog layer + space bar = 42 keys
-#   - 3×5 keyboards => one prog/altgr layer and one number layer:
-#       3×10 keys + prog layer + num layer + space bar = 33 keys
-##
-
-# Rather than just using an AltGr key, it is recommended to  mirror the whole
-# AltGr layer to a “prog” layer in order to enable special keyboard shortcuts
-# (e.g. Ctrl-]) — and you might want to set the Shift+Prog combo on Shift+AltGr
-
-prog = '''
-······┏━━━━━┯━━━━━┯━━━━━┯━━━━━┯━━━━━┓ ┏━━━━━┯━━━━━┯━━━━━┯━━━━━┯━━━━━┓······
-·     ┃ @   │ <   │ >   │ $   │ %   ┃ ┃ ^   │ &   │ *   │ '   │ `   ┃     ·
-·     ┃     │     │     │     │     ┃ ┃     │     │     │     │     ┃     ·
-······┠─────┼─────┼─────┼─────┼─────┨ ┠─────┼─────┼─────┼─────┼─────┨······
-·     ┃ {   │ (   │ )   │ }   │ =   ┃ ┃ \   │ +   │ -   │ /   │ "   ┃     ·
-·     ┃     │     │     │     │     ┃ ┃     │     │     │     │     ┃     ·
-······┠─────┼─────┼─────┼─────┼─────┨ ┠─────┼─────┼─────┼─────┼─────┨······
-·     ┃ ~   │ [   │ ]   │ _   │ #   ┃ ┃ |   │ ?   │ ;   │ :   │ ?   ┃     ·
-·     ┃     │     │     │     │     ┃ ┃     │     │     │     │     ┃     ·
-······┗━━━━━┷━━━━━┷━━━━━┷━━━━━┷━━━━━┛ ┗━━━━━┷━━━━━┷━━━━━┷━━━━━┷━━━━━┛······
-'''
-
-# On keyboards with no number row, a numeric layer is required.
-# Rather tnan using a numpad layer, a dedicated “numrow” layer can fit all
-# punctuation and number signs thanks to 1dk+[number] macros
-# (you’ll probably want to map the space key to shift+space here)
-
-numrow = '''
-······┏━━━━━┯━━━━━┯━━━━━┯━━━━━┯━━━━━┓ ┏━━━━━┯━━━━━┯━━━━━┯━━━━━┯━━━━━┓······
-·     ┃ !   │ «   │ »   │ €   │ %   ┃ ┃ ¥   │ ¤   │ §   │ ¶   │ °   ┃     ·
-·     ┃     │     │     │     │     ┃ ┃     │     │     │     │     ┃     ·
-······┠─────┼─────┼─────┼─────┼─────┨ ┠─────┼─────┼─────┼─────┼─────┨······
-·     ┃ 1   │ 2   │ 3   │ 4   │ 5   ┃ ┃ 6   │ 7   │ 8   │ 9   │ 0   ┃     ·
-·     ┃     │     │     │     │     ┃ ┃     │     │     │     │     ┃     ·
-······┠─────┼─────┼─────┼─────┼─────┨ ┠─────┼─────┼─────┼─────┼─────┨······
-·     ┃ „   │ “   │ ”   │ ¢   │ ‰   ┃ ┃ —   │ -   │ ;   │ :   │ ?   ┃     ·
-·     ┃     │     │     │     │     ┃ ┃     │     │     │     │     ┃     ·
-······┗━━━━━┷━━━━━┷━━━━━┷━━━━━┷━━━━━┛ ┗━━━━━┷━━━━━┷━━━━━┷━━━━━┷━━━━━┛······
-'''
-
-# As an alternative for 3×6 keyboards, all symbols in the 10 number keys +
-# 8 pinky keys (base and shift levels) can fit in a single prog-and-num layer.
-# Not as optimized as the Lafayette AltGr layer, but still better than Qwerty.
-
-alt42 = '''
-╭╌╌╌╌╌┏━━━━━┯━━━━━┯━━━━━┯━━━━━┯━━━━━┓ ┏━━━━━┯━━━━━┯━━━━━┯━━━━━┯━━━━━┓╌╌╌╌╌╮
-┆ ~   ┃ !   │ @   │ #   │ $   │ %   ┃ ┃ ^   │ &   │ *   │ (   │ )   ┃ "   ┆
-┆     ┃     │     │     │     │     ┃ ┃     │     │     │     │     ┃     ┆
-┆╌╌╌╌╌┠─────┼─────┼─────┼─────┼─────┨ ┠─────┼─────┼─────┼─────┼─────┨╌╌╌╌╌┆
-┆ `   ┃ 1   │ 2   │ 3   │ 4   │ 5   ┃ ┃ 6   │ 7   │ 8   │ 9   │ 0   ┃ '   ┆
-┆     ┃     │     │     │     │     ┃ ┃     │     │     │     │     ┃     ┆
-┆╌╌╌╌╌┠─────┼─────┼─────┼─────┼─────┨ ┠─────┼─────┼─────┼─────┼─────┨╌╌╌╌╌┆
-┆ <   ┃ {   │ [   │ ]   │ }   │ >   ┃ ┃ \   │ =   │ -   │ +   │ _   ┃ |   ┆
-┆     ┃     │     │     │     │     ┃ ┃     │     │     │     │     ┃     ┆
-╰╌╌╌╌╌┗━━━━━┷━━━━━┷━━━━━┷━━━━━┷━━━━━┛ ┗━━━━━┷━━━━━┷━━━━━┷━━━━━┷━━━━━┛╌╌╌╌╌╯
-'''
