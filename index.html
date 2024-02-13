@@ -57,9 +57,9 @@
   <h2 id="utilisation"> Utilisation <a href="#utilisation">#</a> </h2>
 
   <h3 id="alpha"> Lettres <a href="#alpha">#</a> </h3>
-  <p> Plutôt que d’avoir une touche morte par accent comme habituellement, la
-    touche morte <kbd>★</kbd> permet d’obtenir confortablement tous les accents
-    utilisés en français : </p>
+  <p> Plutôt que d’avoir une touche morte par accent comme habituellement,
+    Lafayette dispose d’une seule touche morte pour tous les accents utilisés en
+    français : </p>
   <ul> 
     <li> <kbd>★</kbd> [lettre] = accent grave ou altération (à, è, ù, ç, œ) </li>
     <li> <kbd>★</kbd> [touche à gauche d’une voyelle] = voyelle avec accent aigu (é) </li>
@@ -68,7 +68,7 @@
     <li> … et d’autres altérations : æ, ×, µ, ß, ñ, tirets, ponctuations spéciales… </li>
   </ul>
   <img src="img/1dk.svg">
-  <p> Ainsi, toutes les lettres utilisées en français peuvent être saisies dans
+  <p> Toutes les lettres utilisées en français peuvent ainsi être saisies dans
     le pavé alpha de 3×10 touches — ce qu’aucune disposition standard ne permet
     (AZERTY, QWERTZ suisse, QWERTY québécois, Bépo…). </p>
 
@@ -261,13 +261,16 @@
   <h2 id="pilotes"> Téléchargement <a href="#pilotes">#</a> </h2>
   <dl class="download">
 
-    <dt hidden>
+    <dt id="windows">
       <strong> Windows : </strong>
       <a href="./releases/lafayette_windows_v0.9.exe">lafayette_windows_v0.9.exe</a>
     </dt>
-    <dd hidden>
-      <p> Exécuter l’installeur. La disposition de clavier apparaît dans la
-        barre de langues (indicateur de la barre des tâches). </p>
+    <dd>
+      <p> Exécuter l’installeur <strong>et redémarrez Windows</strong>, même si
+        votre système ne le demande pas. La disposition de clavier apparaît dans
+        la barre de langues (indicateur de la barre des tâches). </p>
+      <p> Pour les utilisateurs sans droits d’administration, un pilote portable
+        est disponible dans l’<a href="nomade">archive nomade</a> ci-après. </p>
     </dd>
 
     <dt hidden>
@@ -280,7 +283,7 @@
         droits d’administration, peut fonctionner depuis une clé USB. </p>
     </dd>
 
-    <dt>
+    <dt id="mac">
       <strong> macOS : </strong>
       <a href="./releases/lafayette_macos_v0.9.keylayout">lafayette_macos_v0.9.keylayout</a>
     </dt>
@@ -288,7 +291,7 @@
       <p> Enregistrer dans <code>~/Library/Keyboard Layouts</code> (pour le seul
         utilisateur courant) ou <code>/Library/Keyboard Layouts</code> (pour
         tous les utilisateurs), et relancer la session. </p>
-      <p> La disposition de clavier sera disponible dans vos préférences
+      <p> La disposition de clavier est disponible dans vos préférences
         « Langue et Texte », onglet « Méthodes de saisie ». Il est possible
         d’utiliser <a href="https://karabiner-elements.pqrs.org/">Karabiner</a>
         pour <a href="img/karabiner_settings.png">inverser les touches</a>
@@ -296,24 +299,42 @@
         plus facilement à la couche de symboles. </p>
     </dd>
 
-    <dt>
+    <dt id="linux">
       <strong> GNU/Linux : </strong>
       <a href="./releases/lafayette_linux_v0.9.xkb_custom">lafayette_linux_v0.9.xkb_custom</a>
     </dt>
     <dd>
-      <p> Copier le pilote dans <code>xkb/symbols/custom</code> :</p>
+      <p> <strong>Méthode simple :</strong> copier le pilote dans
+        <code>xkb/symbols/custom</code>. </p>
       <pre>
       wget https://qwerty-lafayette.org/releases/lafayette_linux_v0.9.xkb_custom
       sudo mv lafayette_linux_v0.9.xkb_custom ${XKB_CONFIG_ROOT:-/usr/share/X11/xkb}/symbols/custom
       </pre>
-      <p> La disposition de clavier est activable par le gestionnaire de préférences
-        du bureau (XOrg, Wayland) ou directement en ligne de commande (XOrg) : </p>
+      <p> La disposition de clavier est disponible dans le gestionnaire de
+        préférences du bureau sous un nom générique (« custom layout »,
+        « disposition personnalisée », etc.).
+        Sous XOrg on peut aussi l’activer directement en ligne de commande) : </p>
       <pre>
       setxkbmap custom
       </pre>
-      <p> D’autres méthodes d’installation sont possibles, en passant le <a
+      <p> <strong> Méthode avancée : </strong> passer le <a
         href="layouts/lafayette.toml">fichier source</a> à <a
-        href="https://github.com/fabi1cazenave/kalamine#xkalamine">XKalamine</a>.
+        href="https://github.com/OneDeadKey/kalamine#xkalamine">XKalamine</a>. </p>
+      <pre>
+      wget https://qwerty-lafayette.org/layouts/lafayette.toml
+      pip install --user --upgrade kalamine  # ou `pipx install kalamine`
+      xkalamine install lafayette.toml
+      </pre>
+      <p> La disposition de clavier est disponible dans le gestionnaire de
+        préférences du bureau sous le nom « Lafayette ».
+        Sous XOrg on peut aussi l’activer directement en ligne de commande) : </p>
+      <pre>
+      setxkbmap fr -variant lafayette
+      </pre>
+      <p> <strong> Remarque : </strong> avec certains bureaux (Gnome notamment),
+        la touche morte <kbd>★</kbd> ne fonctionne que si Lafayette est définie
+        comme disposition de par défaut, i.e. en haut de la liste dans les
+        préférences clavier. </p>
     </dd>
 
     <dt hidden>
@@ -333,6 +354,23 @@
       setxkbmap fr -variant lafayette
       setxkbmap fr -variant lafayette101
       </pre>
+    </dd>
+
+    <dt id="nomade">
+      <strong> Archive nomade : </strong>
+      <a href="./releases/lafayette_v0.9.zip">lafayette_v0.9.zip</a>
+    </dt>
+    <dd>
+      <p> Cette archive contient tous les fichiers pour une utilisation sans
+        droits d’administration sur les principaux systèmes d’exploitation : </p>
+      <ul>
+        <li> pour Windows, un script <code>ahk</code> et un pilote portable ; </li>
+        <li> pour macOS, le fichier <code>keylayout</code> ; </li>
+        <li> pour GNU/Linux, un fichier <code>xkb</code> ; </li>
+      </ul>
+      <p> … ainsi que le fichier source <code>toml</code> qui a servi à générer
+        ces pilotes via <a href="https://github.com/OneDeadKey/kalamine">kalamine</a>.
+      </p>
     </dd>
 
   </dl>
