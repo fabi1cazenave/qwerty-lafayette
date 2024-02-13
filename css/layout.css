@@ -8,6 +8,7 @@ body {
   padding: 20px;
   max-width: 54em;
   min-height: calc(100% - 40px);
+  line-height: 1.4em;
   font-family: sans-serif;
   border-left: 1px solid #aaa;
   border-right: 1px solid #aaa;
@@ -35,7 +36,7 @@ h2 a, h3 a {
   display: none;
 }
 
-h2:hover a, h3:hover a {
+h2:hover a, h3:hover a, h3 a.download {
   display: inline;
 }
 
@@ -63,7 +64,15 @@ header p {
 }
 
 dd, dt {
+  line-height: 1.1em;
   margin-bottom: 0.5em;
+}
+
+pre {
+  margin: -0.5em 0;
+  padding: 0.5em 0;
+  font-size: 14px;
+  background-color: #eef;
 }
 
 a, a:hover, a:visited, a:active {
