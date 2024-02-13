@@ -27,22 +27,19 @@
     <p> <small>QWERTY</small>-Lafayette, canal historique ! :-) </p>
   </header>
 
-  <div id="demo" hidden>
-    <div>
-      <input spellcheck="false">
-      <x-keyboard src="layouts/lafayette101.json"></x-keyboard>
-      <p>
-        <span> powered by
-          <a href="https://fabi1cazenave.github.io/x-keyboard/">x-keyboard</a>
-        </span> géométrie :
-        <select>
-          <option value="iso">  ISO  </option>
-          <option value="ansi"> ANSI </option>
-          <option value="ol60"> TMx  </option>
-        </select>
-      </p>
-    </div>
-  </div>
+  <dialog>
+    <input spellcheck="false">
+    <x-keyboard src="layouts/lafayette101.json"></x-keyboard>
+    <p> <span> powered by
+        <a href="https://OneDeadKey.github.io/x-keyboard/">x-keyboard</a>
+      </span> géométrie :
+      <select>
+        <option value="iso">  ISO  </option>
+        <option value="ansi"> ANSI </option>
+        <option value="ol60"> TMx  </option>
+      </select>
+    </p>
+  </dialog>
 
   <div style="position: relative; margin: 0 auto; width: 664px;">
     <p id="badRendering">
