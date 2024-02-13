@@ -36,7 +36,7 @@ h2 a, h3 a {
   display: none;
 }
 
-h2:hover a, h3:hover a {
+h2:hover a, h3:hover a, h3 a.download {
   display: inline;
 }
 
@@ -69,8 +69,10 @@ dd, dt {
 }
 
 pre {
-  margin: -0.5em -2em -1.5em;
+  margin: -0.5em 0;
+  padding: 0.5em 0;
   font-size: 14px;
+  background-color: #eef;
 }
 
 a, a:hover, a:visited, a:active {

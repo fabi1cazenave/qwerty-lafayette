@@ -259,121 +259,90 @@
     Ergo‑L est relativement simple. </p>
 
   <h2 id="pilotes"> Téléchargement <a href="#pilotes">#</a> </h2>
-  <dl class="download">
 
-    <dt id="windows">
-      <strong> Windows : </strong>
-      <a href="./releases/lafayette_windows_v0.9.exe">lafayette_windows_v0.9.exe</a>
-    </dt>
-    <dd>
-      <p> Exécuter l’installeur <strong>et redémarrez Windows</strong>, même si
-        votre système ne le demande pas. La disposition de clavier apparaît dans
-        la barre de langues (indicateur de la barre des tâches). </p>
-      <p> Pour les utilisateurs sans droits d’administration, un pilote portable
-        est disponible dans l’<a href="nomade">archive nomade</a> ci-après. </p>
-    </dd>
+  <h3 id="windows"> Windows : <a class="download"
+    href="./releases/lafayette_windows_v0.9.exe">lafayette_windows_v0.9.exe</a>
+    <a href="#windows">#</a> </h3>
+  <p> Exécuter l’installeur <strong>et redémarrer Windows</strong>, même si
+    le système ne le demande pas. La disposition de clavier apparaît dans la
+    barre de langues (indicateur de la barre des tâches). </p>
+  <p> Pour les utilisateurs sans droits d’administration, un pilote portable
+    est disponible dans l’<a href="#nomade">archive nomade</a> ci-après. </p>
 
-    <dt hidden>
-      <strong> Windows, version portable : </strong>
-      <a href="./releases/lafayette_pkl_v0.9.zip">lafayette_pkl_v0.9.zip</a>
-    </dt>
-    <dd hidden>
-      <p> dézipper et exécuter <code>pkl.exe</code>. </p>
-      <p> Un indicateur apparaît dans la barre des tâches. Ne nécessite pas de
-        droits d’administration, peut fonctionner depuis une clé USB. </p>
-    </dd>
+  <h3 id="mac"> macOS : <a class="download"
+    href="./releases/lafayette_macos_v0.9.keylayout">lafayette_macos_v0.9.keylayout</a>
+    <a href="#mac">#</a> </h3>
+  <p> Enregistrer dans <code>~/Library/Keyboard Layouts</code> (pour le seul
+    utilisateur courant) ou <code>/Library/Keyboard Layouts</code> (pour tous
+    les utilisateurs), et relancer la session. </p>
+  <p> La disposition de clavier est disponible dans vos préférences « Langue et
+    Texte », onglet « Méthodes de saisie ». Il est possible d’utiliser <a
+      href="https://karabiner-elements.pqrs.org/">Karabiner</a> pour <a
+      href="img/karabiner_settings.png">inverser les touches</a>
+    <kbd>⌘ Command</kbd> et <kbd>⌥ Option</kbd> à droite, afin d’accéder plus
+    facilement à la couche de symboles. </p>
 
-    <dt id="mac">
-      <strong> macOS : </strong>
-      <a href="./releases/lafayette_macos_v0.9.keylayout">lafayette_macos_v0.9.keylayout</a>
-    </dt>
-    <dd>
-      <p> Enregistrer dans <code>~/Library/Keyboard Layouts</code> (pour le seul
-        utilisateur courant) ou <code>/Library/Keyboard Layouts</code> (pour
-        tous les utilisateurs), et relancer la session. </p>
-      <p> La disposition de clavier est disponible dans vos préférences
-        « Langue et Texte », onglet « Méthodes de saisie ». Il est possible
-        d’utiliser <a href="https://karabiner-elements.pqrs.org/">Karabiner</a>
-        pour <a href="img/karabiner_settings.png">inverser les touches</a>
-        <kbd>⌘ Command</kbd> et <kbd>⌥ Option</kbd> à droite, afin d’accéder
-        plus facilement à la couche de symboles. </p>
-    </dd>
-
-    <dt id="linux">
-      <strong> GNU/Linux : </strong>
-      <a href="./releases/lafayette_linux_v0.9.xkb_custom">lafayette_linux_v0.9.xkb_custom</a>
-    </dt>
-    <dd>
-      <p> <strong>Méthode simple :</strong> copier le pilote dans
-        <code>xkb/symbols/custom</code>. </p>
-      <pre>
-      wget https://qwerty-lafayette.org/releases/lafayette_linux_v0.9.xkb_custom
-      sudo mv lafayette_linux_v0.9.xkb_custom ${XKB_CONFIG_ROOT:-/usr/share/X11/xkb}/symbols/custom
-      </pre>
-      <p> La disposition de clavier est disponible dans le gestionnaire de
-        préférences du bureau sous un nom générique (« custom layout »,
-        « disposition personnalisée », etc.).
-        Sous XOrg on peut aussi l’activer directement en ligne de commande) : </p>
-      <pre>
-      setxkbmap custom
-      </pre>
-      <p> <strong> Méthode avancée : </strong> passer le <a
-        href="layouts/lafayette.toml">fichier source</a> à <a
-        href="https://github.com/OneDeadKey/kalamine#xkalamine">XKalamine</a>. </p>
-      <pre>
-      wget https://qwerty-lafayette.org/layouts/lafayette.toml
-      pip install --user --upgrade kalamine  # ou `pipx install kalamine`
-      xkalamine install lafayette.toml
-      </pre>
-      <p> La disposition de clavier est disponible dans le gestionnaire de
-        préférences du bureau sous le nom « Lafayette ».
-        Sous XOrg on peut aussi l’activer directement en ligne de commande) : </p>
-      <pre>
-      setxkbmap fr -variant lafayette
-      </pre>
-      <p> <strong> Remarque : </strong> avec certains bureaux (Gnome notamment),
-        la touche morte <kbd>★</kbd> ne fonctionne que si Lafayette est définie
-        comme disposition de par défaut, i.e. en haut de la liste dans les
-        préférences clavier. </p>
-    </dd>
+  <h3 id="linux"> GNU/Linux : <a class="download" <a
+    href="./releases/lafayette_linux_v0.9.xkb_custom">lafayette_linux_v0.9.xkb_custom</a>
+    <a href="#linux">#</a> </h3>
+  <p> <strong>Méthode simple :</strong> copier le pilote dans <code>xkb/symbols/custom</code>. </p>
+  <pre>
+  wget https://qwerty-lafayette.org/releases/lafayette_linux_v0.9.xkb_custom
+  sudo mv lafayette_linux_v0.9.xkb_custom ${XKB_CONFIG_ROOT:-/usr/share/X11/xkb}/symbols/custom </pre>
+  <p> La disposition de clavier est disponible dans le gestionnaire de
+    préférences du bureau sous un nom générique (« custom layout »,
+    « disposition personnalisée », etc.).
+    Sous XOrg on peut aussi l’activer directement en ligne de commande : </p>
+  <pre>
+  setxkbmap custom </pre>
+  <p> <strong> Méthode avancée : </strong> passer le <a
+    href="layouts/lafayette.toml">fichier source</a> à <a
+    href="https://github.com/OneDeadKey/kalamine#xkalamine">XKalamine</a>. </p>
+  <pre>
+  wget https://qwerty-lafayette.org/layouts/lafayette.toml
+  pip install --user --upgrade kalamine  # ou `pipx install kalamine`
+  xkalamine install lafayette.toml </pre>
+  <p> La disposition de clavier est disponible dans le gestionnaire de
+    préférences du bureau sous le nom « Lafayette ».
+    Sous XOrg on peut aussi l’activer directement en ligne de commande : </p>
+  <pre>
+  setxkbmap fr -variant lafayette </pre>
+  <p> <strong> Remarque : </strong> avec certains bureaux (Gnome notamment), la
+    touche morte <kbd>★</kbd> ne fonctionne que si Lafayette est définie comme
+    disposition de par défaut, i.e. en haut de la liste dans les préférences
+    clavier. </p>
 
     <dt hidden>
-      <strong> GNU/Linux : </strong>
+      <strong> GNU/Linux : </strong>
       <a href="./releases/lafayette_linux_v0.8.1.py">lafayette_linux_v0.8.1.py</a>
     </dt>
     <dd hidden>
-      <p> Script d’installation, nécessitant Python3 et lxml : </p>
+      <p> Script d’installation, nécessitant Python3 et lxml : </p>
       <pre>
       sudo apt install python3-lxml
       curl -Ls https://qwerty-lafayette.org/releases/lafayette_linux_v0.8.1.py | sudo python3
       </pre>
       <p> L’installeur contient les deux variantes, Lafayette et Lafayette101. Ces
         dispositions sont activables par le gestionnaire de préférences de votre
-        bureau ou directement en ligne de commande (sous Xorg) : </p>
+        bureau ou directement en ligne de commande (sous Xorg) : </p>
       <pre>
       setxkbmap fr -variant lafayette
       setxkbmap fr -variant lafayette101
       </pre>
     </dd>
 
-    <dt id="nomade">
-      <strong> Archive nomade : </strong>
-      <a href="./releases/lafayette_v0.9.zip">lafayette_v0.9.zip</a>
-    </dt>
-    <dd>
-      <p> Cette archive contient tous les fichiers pour une utilisation sans
-        droits d’administration sur les principaux systèmes d’exploitation : </p>
-      <ul>
-        <li> pour Windows, un script <code>ahk</code> et un pilote portable ; </li>
-        <li> pour macOS, le fichier <code>keylayout</code> ; </li>
-        <li> pour GNU/Linux, un fichier <code>xkb</code> ; </li>
-      </ul>
-      <p> … ainsi que le fichier source <code>toml</code> qui a servi à générer
-        ces pilotes via <a href="https://github.com/OneDeadKey/kalamine">kalamine</a>.
-      </p>
-    </dd>
-
-  </dl>
+  <h3 id="nomade"> Archive nomade : <a class="download"
+    href="./releases/lafayette_v0.9.zip">lafayette_v0.9.zip</a>
+    <a href="#nomade">#</a> </h3>
+  <p> Cette archive contient tous les fichiers pour une utilisation sans
+    droits d’administration sur les principaux systèmes d’exploitation : </p>
+  <ul>
+    <li> pour Windows, un script <code>ahk</code> et un pilote portable ; </li>
+    <li> pour macOS, le fichier <code>keylayout</code> ; </li>
+    <li> pour GNU/Linux, un fichier <code>xkb</code> ; </li>
+  </ul>
+  <p> … ainsi que le fichier source <code>toml</code> qui a servi à générer ces
+    pilotes via <a href="https://github.com/OneDeadKey/kalamine">kalamine</a>. </p>
 
   <h2 id="versions"> Notes de version <a href="#versions">#</a> </h2>
   <dl>
@@ -400,7 +369,7 @@
        revue pour la compatibilité avec les claviers 3×6 et 3×5. </dd>
 
     <dt> v0.6 (2018-04-02) </dt>
-    <dd> La couche AltGr est modifiée pour faciliter certains enchaînements :
+    <dd> La couche AltGr est modifiée pour faciliter certains enchaînements :
       <code>+=</code>, <code>-=</code>, <code>=&gt;</code>, <code>('')</code>,
       <code>~/</code>, etc. </dd>
     <dd> <kbd>AltGr</kbd><kbd>Espace</kbd> ne produit plus <kbd>Escape</kbd>
@@ -417,16 +386,16 @@
     <dd> Les flèches <code>←↓↑→</code> passent des touches
       <kbd>I</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd> aux touches
       <kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd> — <i>Vim powwa!</i> </dd>
-    <dd> macOS : meilleur fonctionnement des touches mortes en <kbd>CapsLock</kbd>. </dd>
-    <dd> Linux : meilleur fonctionnement de la touche <kbd>AltGr</kbd> sous Chromium. </dd>
+    <dd> macOS : meilleur fonctionnement des touches mortes en <kbd>CapsLock</kbd>. </dd>
+    <dd> Linux : meilleur fonctionnement de la touche <kbd>AltGr</kbd> sous Chromium. </dd>
 
     <dt> v0.2.1 (2013-03-05) </dt>
-    <dd> Linux : correction du pilote XKB. </dd>
+    <dd> Linux : correction du pilote XKB. </dd>
 
     <dt> v0.2 (2010-11-16) </dt>
-    <dd> Windows : première version publique. </dd>
-    <dd> macOS : correction du pilote <i>keylayout</i>. </dd>
-    <dd> Linux : correction du pilote XKB
+    <dd> Windows : première version publique. </dd>
+    <dd> macOS : correction du pilote <i>keylayout</i>. </dd>
+    <dd> Linux : correction du pilote XKB
       (guillemets typographiques <code>« »</code>). </dd>
 
     <dt> v0.1 (2010-07-05) </dt>
