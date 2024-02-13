@@ -5,9 +5,8 @@
   <meta name="description" content="Une variante ergonomique de QWERTY pour les
     développeurs francophones et les typographes exigeants. " />
   <title> QWERTY-Lafayette </title>
-  <link type="text/css" rel="stylesheet" href="css/layout.css"    />
-  <link type="text/css" rel="stylesheet" href="css/lafayette.css" />
-  <link type="text/css" rel="stylesheet" href="css/demo.css"      />
+  <link type="text/css" rel="stylesheet" href="css/layout.css" />
+  <link type="text/css" rel="stylesheet" href="css/demo.css" />
   <link type="image/svg+xml" rel="icon" href="favicon.svg" sizes="any" />
   <script src="js/x-keyboard.js" type="module"></script>
   <script src="js/demo.js" type="text/javascript"></script>
@@ -19,23 +18,21 @@
       les typographes exigeants. </p>
   </header>
 
-  <div id="demo" hidden>
-    <div>
-      <input spellcheck="false">
-      <x-keyboard src="layouts/lafayette.json"></x-keyboard>
-      <p> <span> powered by
-        <a href="https://fabi1cazenave.github.io/x-keyboard/">x-keyboard</a>
-        </span> géométrie :
-        <select>
-          <option value="iso">  ISO  </option>
-          <option value="ansi"> ANSI </option>
-          <option value="ol60"> TMx  </option>
-          <option value="ol50"> 4×6  </option>
-          <option value="ol40"> 3×6  </option>
-        </select>
-      </p>
-    </div>
-  </div>
+  <dialog>
+    <input spellcheck="false"></input>
+    <x-keyboard src="layouts/lafayette.json"></x-keyboard>
+    <p> <span> powered by
+      <a href="https://OneDeadKey.github.io/x-keyboard/">x-keyboard</a>
+      </span> géométrie :
+      <select>
+        <option value="iso">  ISO  </option>
+        <option value="ansi"> ANSI </option>
+        <option value="ol60"> TMx  </option>
+        <option value="ol50"> 4×6  </option>
+        <option value="ol40"> 3×6  </option>
+      </select>
+    </p>
+  </dialog>
 
   <div id="intro">
     <img src="img/lafayette.svg">
@@ -127,7 +124,7 @@
   <p> Lafayette permet une ergonomie plus poussée que les dispositions optimisées
     telles que Dvorak ou Bépo. </p>
 
-  <h3 id="1dfh"> 1DFH : <i lang="en">“One Distance From Home”</i>
+  <h3 id="1dfh"> 1DFH : <i lang="en">“1u Distance From Home”</i>
     <a href="#1dfh">#</a> </h3>
   <p> De nos jours, c’est de loin le plus gros gain ergonomique qu’on puisse
     faire avec un clavier : <strong>n’utiliser aucune touche qui soit à plus
@@ -174,7 +171,7 @@
     confort important ; et on peut même envisager de ne plus utiliser du tout de
     colonnes extérieures, supprimant ainsi radicalement toutes les extensions
     d’auriculaires. </p>
-  <p> <a href="https://github.com/fabi1cazenave/arsenik">Arsenik</a> est un
+  <p> <a href="https://github.com/OneDeadKey/arsenik">Arsenik</a> est un
     exemple d’agencement de touches permettant aux utilisateurs avancés
     d’utiliser 100 % de Lafayette sur uniquement 33 touches : </p>
   <img src="img/arsenik.svg">

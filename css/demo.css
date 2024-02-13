@@ -2,50 +2,40 @@ h1 button {
   float: right;
 }
 
-#demo[hidden] {
-  display: none;
+dialog::backdrop {
+  backdrop-filter: blur(5px);
 }
 
-#demo {
-  display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
+dialog {
+  max-width: 66em;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 2;
-  text-align: center;
-}
-
-#demo div {
-  width: 100%;
-  max-width: 54em;
-  background-color: #f4f4f0;
-  box-sizing: border-box;
+  padding: 2em;
   margin: auto;
-  padding: 1.5em 2em 1em;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: #f4f4f8;
+  border: 5px solid #fff4;
 }
 
-#demo input {
+dialog input {
   box-sizing: border-box;
   width: calc(100% - 8px); /* to match the <x-keyboard> 4px padding */
+  height: 2em;
   text-align: center;
   font-size: 1.5em;
   margin-bottom: 1em;
 }
 
-#demo p {
+dialog p {
   margin: 1em 4px 0; /* to match the <x-keyboard> 4px padding */
   text-align: right;
 }
 
-#demo p span {
+dialog p span {
   float: left;
   font-size: small;
 }
 
-#demo p a {
+dialog p a {
   color: brown;
 }
