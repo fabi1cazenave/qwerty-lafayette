@@ -7,14 +7,14 @@
 ##
 
 name = "Qwerty-Lafayette"
-name8 = "Lafayette"
+name8 = "Qwerty-L"
 locale = "fr"
 variant = "lafayette"
 author = "Fabien Cazenave (:kazé)"
 description = "French (Qwerty-Lafayette)"
 url = "https://github.com/fabi1cazenave/qwerty-lafayette"
 geometry = "ERGO"
-version = "0.9"
+version = "0.9.0"
 
 # To follow the 1DFH principle, all diacritics require a single dead key (1dk):
 #   - 1dk + vowel         = grave accent / alt   (à, è, ù, ç, ï, œ, æ, ñ, ß)
