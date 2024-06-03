@@ -2,11 +2,6 @@
     viewBox="0 60 900 240">
     <!-- viewBox="60 60 780 240"> -->
 
-<!--
-  <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet"
-      href="42_style.css" type="text/css"/>
--->
-
   <style>
     rect, path {
       stroke: #666;
@@ -85,7 +80,7 @@
         <rect width="52" height="52" rx="5" ry="5"/>
         <g class="key" text-anchor="middle">
           <text x="12.8" y="20.6" class="level2">Q</text>
-          <text x="38.0" y="43.4" class="level3">@</text>
+          <text x="38.0" y="43.4" class="level3">^</text>
         </g>
       </g>
       <g transform="translate(150)">
@@ -122,7 +117,7 @@
         <rect width="52" height="52" rx="5" ry="5"/>
         <g class="key" text-anchor="middle">
           <text x="12.8" y="20.6" class="level2">Y</text>
-          <text x="38.0" y="43.4" class="level3">^</text>
+          <text x="38.0" y="43.4" class="level3">@</text>
         </g>
       </g>
       <g transform="translate(450)">

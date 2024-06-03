@@ -10,10 +10,13 @@
   <link type="image/svg+xml" rel="icon" href="favicon.svg" sizes="any" />
   <script src="js/x-keyboard.js" type="module"></script>
   <script src="js/demo.js" type="text/javascript"></script>
+  <style>
+    body { line-height: 1.4em; }
+  </style>
 </head>
 <body>
   <header>
-    <h1> <button hidden>démo !</button> <small>QWERTY</small>-Lafayette </h1>
+    <h1> <small>QWERTY</small>-Lafayette </h1>
     <p> Une variante ergonomique de QWERTY pour les développeurs francophones et
       les typographes exigeants. </p>
   </header>
@@ -36,6 +39,12 @@
 
   <div id="intro">
     <img src="img/lafayette.svg">
+
+    <nav>
+      <!-- <a href="dactylo">⌨ Apprendre</a> -->
+      <button hidden>⇪ Tester</button>
+      <a href="#pilotes">⇣ Installer</a>
+    </nav>
 
     <div class="highlight">
       <p> <strong>Plus efficace qu’AZERTY pour le français :</strong> toutes les
@@ -73,7 +82,7 @@
     (AZERTY, QWERTZ suisse, QWERTY québécois, Bépo…). </p>
 
   <h3 id="ponctuation"> Ponctuation <a href="#ponctuation">#</a> </h3>
-  <p> Lafayette permet une typoraphie beaucoup plus précise qu’AZERTY : </p>
+  <p> Lafayette permet une typographie beaucoup plus précise qu’AZERTY : </p>
   <ul>
     <li> <kbd>Shift</kbd><kbd>Espace</kbd> = espace insécable fine ; </li>
     <li> <kbd>★</kbd> <kbd>Espace</kbd> = apostrophe typographique (’) ; </li>
@@ -338,7 +347,7 @@
     droits d’administration sur les principaux systèmes d’exploitation : </p>
   <ul>
     <li> pour Windows, un script <code>ahk</code> et un pilote portable ; </li>
-    <li> pour macOS, le fichier <code>keylayout</code> ; </li>
+    <li> pour macOS, un fichier <code>keylayout</code> ; </li>
     <li> pour GNU/Linux, un fichier <code>xkb</code> ; </li>
   </ul>
   <p> … ainsi que le fichier source <code>toml</code> qui a servi à générer ces
@@ -347,7 +356,7 @@
   <h2 id="versions"> Notes de version <a href="#versions">#</a> </h2>
   <dl>
 
-    <dt> v0.9 (<a href="layouts/lafayette.toml">en cours de finalisation…</a>) </dt>
+    <dt> v0.9 (2024-06-03) </dt>
     <dd> <em>Lafayette42</em> devient la version officielle, et la version
       historique est archivée sous le nom <a href="101">Lafayette101</a>. </dd>
     <dd> Les tirets court, bas, cadratin et demi-cadratin sont désormais
