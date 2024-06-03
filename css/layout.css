@@ -35,7 +35,11 @@ h2 a, h3 a {
   display: none;
 }
 
-h2:hover a, h3:hover a {
+h3 a.download {
+  font-size: 16px;
+}
+
+h2:hover a, h3:hover a, h3 a.download {
   display: inline;
 }
 
@@ -54,6 +58,39 @@ header p {
   margin: 20px;
 }
 
+#intro nav {
+  margin-top: 0.5em;
+  text-align: center;
+}
+
+#intro nav a,
+#intro nav a:hover,
+#intro nav a:active,
+#intro nav a:visited,
+#intro nav button {
+  display: inline-block;
+  margin: 0 1.6em 0 0;
+  padding: 8px;
+  font-family: sans-serif;
+  font-size: 1.2em;
+  text-decoration: none;
+
+  color: #333;
+  background-color: #e4e4e4;
+  border: 1px solid #6668;
+  border-radius: 5px;
+}
+
+#intro nav a:hover,
+#intro nav button:hover {
+  border: 1px solid brown;
+}
+
+#intro nav button {
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .highlight {
   margin: 20px 0;
   padding: 0 20px;
@@ -63,7 +100,15 @@ header p {
 }
 
 dd, dt {
+  line-height: 1.1em;
   margin-bottom: 0.5em;
+}
+
+pre {
+  margin: -0.5em 0;
+  padding: 0.5em 0;
+  font-size: 14px;
+  background-color: #eef;
 }
 
 a, a:hover, a:visited, a:active {

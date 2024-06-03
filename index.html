@@ -10,10 +10,13 @@
   <link type="image/svg+xml" rel="icon" href="favicon.svg" sizes="any" />
   <script src="js/x-keyboard.js" type="module"></script>
   <script src="js/demo.js" type="text/javascript"></script>
+  <style>
+    body { line-height: 1.4em; }
+  </style>
 </head>
 <body>
   <header>
-    <h1> <button hidden>démo !</button> <small>QWERTY</small>-Lafayette </h1>
+    <h1> <small>QWERTY</small>-Lafayette </h1>
     <p> Une variante ergonomique de QWERTY pour les développeurs francophones et
       les typographes exigeants. </p>
   </header>
@@ -37,6 +40,12 @@
   <div id="intro">
     <img src="img/lafayette.svg">
 
+    <nav>
+      <!-- <a href="dactylo">⌨ Apprendre</a> -->
+      <button hidden>⇪ Tester</button>
+      <a href="#pilotes">⇣ Installer</a>
+    </nav>
+
     <div class="highlight">
       <p> <strong>Plus efficace qu’AZERTY pour le français :</strong> toutes les
         lettres du français se font dans la zone alphabétique de 3×10 touches, via
@@ -57,9 +66,9 @@
   <h2 id="utilisation"> Utilisation <a href="#utilisation">#</a> </h2>
 
   <h3 id="alpha"> Lettres <a href="#alpha">#</a> </h3>
-  <p> Plutôt que d’avoir une touche morte par accent comme habituellement, la
-    touche morte <kbd>★</kbd> permet d’obtenir confortablement tous les accents
-    utilisés en français : </p>
+  <p> Plutôt que d’avoir une touche morte par accent comme habituellement,
+    Lafayette dispose d’une seule touche morte pour tous les accents utilisés en
+    français : </p>
   <ul> 
     <li> <kbd>★</kbd> [lettre] = accent grave ou altération (à, è, ù, ç, œ) </li>
     <li> <kbd>★</kbd> [touche à gauche d’une voyelle] = voyelle avec accent aigu (é) </li>
@@ -68,12 +77,12 @@
     <li> … et d’autres altérations : æ, ×, µ, ß, ñ, tirets, ponctuations spéciales… </li>
   </ul>
   <img src="img/1dk.svg">
-  <p> Ainsi, toutes les lettres utilisées en français peuvent être saisies dans
+  <p> Toutes les lettres utilisées en français peuvent ainsi être saisies dans
     le pavé alpha de 3×10 touches — ce qu’aucune disposition standard ne permet
     (AZERTY, QWERTZ suisse, QWERTY québécois, Bépo…). </p>
 
   <h3 id="ponctuation"> Ponctuation <a href="#ponctuation">#</a> </h3>
-  <p> Lafayette permet une typoraphie beaucoup plus précise qu’AZERTY : </p>
+  <p> Lafayette permet une typographie beaucoup plus précise qu’AZERTY : </p>
   <ul>
     <li> <kbd>Shift</kbd><kbd>Espace</kbd> = espace insécable fine ; </li>
     <li> <kbd>★</kbd> <kbd>Espace</kbd> = apostrophe typographique (’) ; </li>
@@ -86,7 +95,7 @@
     <kbd>Shift</kbd>, on presse <kbd>Espace</kbd> puis la ponctuation, on
     relâche <kbd>Shift</kbd>. </p>
 
-  <h3 id="altgr"> Symboles <a href="#altgr">#</a> </h3>
+  <h3 id="symboles"> Symboles <a href="#symboles">#</a> </h3>
   <p> La couche AltGr contient tous les symboles utilisés en programmation : </p>
   <ul>
     <li> les 10 symboles en <kbd>Shift</kbd> sur la rangée des chiffres ; </li>
@@ -159,11 +168,28 @@
     <kbd>★</kbd><kbd>W</kbd><kbd>E</kbd> fera toujours <code>ée</code> mais
     <kbd>AltGr</kbd><kbd>W</kbd><kbd>E</kbd> risque de produire <code>éè</code>
     (deux accents) à vitesse élevée. </p>
-  <!-- <kbd>AltGr</kbd>↓ <kbd>W</kbd>↓ <kbd>AltGr</kbd>↑ <kbd>E</kbd>↓ <kbd>W</kbd>↑ <kbd>E</kbd>↑ -->
-  <p> <kbd>AltGr</kbd> est parfaite pour enchaîner plusieurs symboles en
-    maintenant la touche enfoncée et reste pertinente pour les caractères qui
-    ne sont pas à l’intérieur d’un mot. Mais ça n’est pas une façon ergonomique
-    de produire un caractère accentué. </p>
+    <!-- <kbd>AltGr</kbd>↓ <kbd>W</kbd>↓ <kbd>AltGr</kbd>↑ <kbd>E</kbd>↓ <kbd>W</kbd>↑ <kbd>E</kbd>↑ -->
+
+  <h3 id="altgr"> AltGr <a href="#altgr">#</a> </h3>
+  <p> <kbd>AltGr</kbd> permet d’accéder aux symboles de programmation en restant
+    dans une approche <a href="#1dfh">1DFH</a>, mais reste facultative.
+    Sur un clavier QWERTY il est naturel de saisir les symboles de programmation
+    là où ils sont imprimés, i.e. sur des positions excentrées. Mais au fur et à
+    mesure on peut prendre l’habitude de privilégier leurs alternatives en
+    <kbd>AltGr</kbd>, e.g.
+    <code>{()}</code> sur <kbd>AltGr</kbd><kbd>ASDF</kbd>,
+    et surtout profiter des enchaînements courants comme
+    <code>-&gt;</code> sur <kbd>AltGr</kbd><kbd>KE</kbd>,
+    <code>=&gt;</code> sur <kbd>AltGr</kbd><kbd>GE</kbd>,
+    <code>('')</code> sur <kbd>AltGr</kbd><kbd>SOOD</kbd>,
+    etc. </p>
+  <p> À noter : <kbd>AltGr</kbd> est plus facile d’accès sur les ordinateurs
+    portables (barre d’espace en 5u) que sur les claviers bureautique externes
+    (barre d’espace en 6.25u voire 7u), sauf à s’équiper d’un modèle compact.
+    Sur macOS il est recommandé d’utiliser <a
+    href="https://karabiner-elements.pqrs.org/">Karabiner</a> pour <a
+    href="img/karabiner_settings.png">inverser les touches</a> <kbd>⌘ Command</kbd> 
+    et <kbd>⌥ Option</kbd> à droite. </p>
 
   <h3 id="arsenik"> Claviers compacts <a href="arsenik">#</a> </h3>
   <p> Puisque toutes les lettres sont dans le pavé principal de 3×10 touches on
@@ -218,7 +244,8 @@
       accentuées en <kbd>Shift</kbd> ; </li>
     <li> des lettres excentrées (MZ), voire très excentrées (WÇ), voire en
       <kbd>AltGr</kbd> (Ù et les trémas) ; </li>
-    <li> aucun raccourci clavier classique (<kbd>Ctrl</kbd> <kbd>ASZXCV</kbd>). </li>
+    <li> aucun raccourci clavier classique (<kbd>Ctrl</kbd> <kbd>ZXCV</kbd>) en
+      main gauche. </li>
   </ul>
   <p> Ces dispositions peuvent s’avérer meilleures qu’AZERTY mais ne permettent
     pas une approche <a href="#1dfh">1DFH</a>. À ce titre l’intérêt ergonomique
@@ -241,63 +268,95 @@
     Ergo‑L est relativement simple. </p>
 
   <h2 id="pilotes"> Téléchargement <a href="#pilotes">#</a> </h2>
-  <dl class="download">
-    <dt>
-      <strong> Windows : </strong>
-      <a href="./releases/lafayette_windows_v0.8.exe">lafayette_windows_v0.8.exe</a> (1.03 Mo)
-    </dt>
-    <dd>
-      <p> Exécuter l’installeur. La disposition de clavier apparaît dans la
-        barre de langues (indicateur de la barre des tâches). </p>
-    </dd>
+
+  <h3 id="windows"> Windows : <a class="download"
+    href="./releases/lafayette_windows_v0.9.exe">lafayette_windows_v0.9.exe</a>
+    <a href="#windows">#</a> </h3>
+  <p> Exécuter l’installeur <strong>et redémarrer Windows</strong>, même si
+    le système ne le demande pas. La disposition de clavier apparaît dans la
+    barre de langues (indicateur de la barre des tâches). </p>
+  <p> Pour les utilisateurs sans droits d’administration, un pilote portable
+    est disponible dans l’<a href="#nomade">archive nomade</a> ci-après. </p>
+
+  <h3 id="mac"> macOS : <a class="download"
+    href="./releases/lafayette_macos_v0.9.keylayout">lafayette_macos_v0.9.keylayout</a>
+    <a href="#mac">#</a> </h3>
+  <p> Enregistrer dans <code>~/Library/Keyboard Layouts</code> (pour le seul
+    utilisateur courant) ou <code>/Library/Keyboard Layouts</code> (pour tous
+    les utilisateurs), et relancer la session. </p>
+  <p> La disposition de clavier est disponible dans vos préférences « Langue et
+    Texte », onglet « Méthodes de saisie ». Il est possible d’utiliser <a
+      href="https://karabiner-elements.pqrs.org/">Karabiner</a> pour <a
+      href="img/karabiner_settings.png">inverser les touches</a>
+    <kbd>⌘ Command</kbd> et <kbd>⌥ Option</kbd> à droite, afin d’accéder plus
+    facilement à la couche de symboles. </p>
+
+  <h3 id="linux"> GNU/Linux : <a class="download" <a
+    href="./releases/lafayette_linux_v0.9.xkb_custom">lafayette_linux_v0.9.xkb_custom</a>
+    <a href="#linux">#</a> </h3>
+  <p> <strong>Méthode simple :</strong> copier le pilote dans <code>xkb/symbols/custom</code>. </p>
+  <pre>
+  wget https://qwerty-lafayette.org/releases/lafayette_linux_v0.9.xkb_custom
+  sudo mv lafayette_linux_v0.9.xkb_custom ${XKB_CONFIG_ROOT:-/usr/share/X11/xkb}/symbols/custom </pre>
+  <p> La disposition de clavier est disponible dans le gestionnaire de
+    préférences du bureau sous un nom générique (« custom layout »,
+    « disposition personnalisée », etc.).
+    Sous XOrg on peut aussi l’activer directement en ligne de commande : </p>
+  <pre>
+  setxkbmap custom </pre>
+  <p> <strong> Méthode avancée : </strong> passer le <a
+    href="layouts/lafayette.toml">fichier source</a> à <a
+    href="https://github.com/OneDeadKey/kalamine#xkalamine">XKalamine</a>. </p>
+  <pre>
+  wget https://qwerty-lafayette.org/layouts/lafayette.toml
+  pip install --user --upgrade kalamine  # ou `pipx install kalamine`
+  xkalamine install lafayette.toml </pre>
+  <p> La disposition de clavier est disponible dans le gestionnaire de
+    préférences du bureau sous le nom « Lafayette ».
+    Sous XOrg on peut aussi l’activer directement en ligne de commande : </p>
+  <pre>
+  setxkbmap fr -variant lafayette </pre>
+  <p> <strong> Remarque : </strong> avec certains bureaux (Gnome notamment), la
+    touche morte <kbd>★</kbd> ne fonctionne que si Lafayette est définie comme
+    disposition de par défaut, i.e. en haut de la liste dans les préférences
+    clavier. </p>
+
     <dt hidden>
-      <strong> Windows, version portable : </strong>
-      <a href="./releases/lafayette_pkl_v0.8.zip">lafayette_pkl_v0.8.zip</a> (330 Ko)
+      <strong> GNU/Linux : </strong>
+      <a href="./releases/lafayette_linux_v0.8.1.py">lafayette_linux_v0.8.1.py</a>
     </dt>
     <dd hidden>
-      <p>
-        dézipper et exécuter <code>pkl.exe</code>.
-      </p>
-      <p>
-        Un indicateur apparaît dans la barre des tâches. Ne nécessite pas de
-        droits d’administration, peut fonctionner depuis une clé USB.
-      </p>
-    </dd>
-    <dt>
-      <strong> macOS : </strong>
-      <a href="./releases/lafayette_macos_v0.8.keylayout">lafayette_macos_v0.8.keylayout</a> (68 Ko)
-    </dt>
-    <dd>
-      <p> Enregistrer dans <code>~/Library/Keyboard Layouts</code> (pour le seul
-        utilisateur courant) ou <code>/Library/Keyboard Layouts</code> (pour
-        tous les utilisateurs), et relancer la session. </p>
-      <p> La disposition de clavier sera disponible dans vos préférences
-        « Langue et Texte », onglet « Méthodes de saisie ». </p>
-    </dd>
-    <dt>
-      <strong> GNU/Linux : </strong>
-      <a href="./releases/lafayette_linux_v0.8.1.py">lafayette_linux_v0.8.1.py</a> (45 Ko)
-    </dt>
-    <dd>
-      <p> Script d’installation, nécessitant Python3 et lxml : </p>
+      <p> Script d’installation, nécessitant Python3 et lxml : </p>
       <pre>
       sudo apt install python3-lxml
       curl -Ls https://qwerty-lafayette.org/releases/lafayette_linux_v0.8.1.py | sudo python3
       </pre>
       <p> L’installeur contient les deux variantes, Lafayette et Lafayette101. Ces
         dispositions sont activables par le gestionnaire de préférences de votre
-        bureau ou directement en ligne de commande (sous Xorg) : </p>
+        bureau ou directement en ligne de commande (sous Xorg) : </p>
       <pre>
       setxkbmap fr -variant lafayette
       setxkbmap fr -variant lafayette101
       </pre>
     </dd>
-  </dl>
+
+  <h3 id="nomade"> Archive nomade : <a class="download"
+    href="./releases/lafayette_v0.9.zip">lafayette_v0.9.zip</a>
+    <a href="#nomade">#</a> </h3>
+  <p> Cette archive contient tous les fichiers pour une utilisation sans
+    droits d’administration sur les principaux systèmes d’exploitation : </p>
+  <ul>
+    <li> pour Windows, un script <code>ahk</code> et un pilote portable ; </li>
+    <li> pour macOS, un fichier <code>keylayout</code> ; </li>
+    <li> pour GNU/Linux, un fichier <code>xkb</code> ; </li>
+  </ul>
+  <p> … ainsi que le fichier source <code>toml</code> qui a servi à générer ces
+    pilotes via <a href="https://github.com/OneDeadKey/kalamine">kalamine</a>. </p>
 
   <h2 id="versions"> Notes de version <a href="#versions">#</a> </h2>
   <dl>
 
-    <dt> v0.9 (<a href="layouts/lafayette.toml">en cours de finalisation…</a>) </dt>
+    <dt> v0.9 (2024-06-03) </dt>
     <dd> <em>Lafayette42</em> devient la version officielle, et la version
       historique est archivée sous le nom <a href="101">Lafayette101</a>. </dd>
     <dd> Les tirets court, bas, cadratin et demi-cadratin sont désormais
@@ -319,7 +378,7 @@
        revue pour la compatibilité avec les claviers 3×6 et 3×5. </dd>
 
     <dt> v0.6 (2018-04-02) </dt>
-    <dd> La couche AltGr est modifiée pour faciliter certains enchaînements :
+    <dd> La couche AltGr est modifiée pour faciliter certains enchaînements :
       <code>+=</code>, <code>-=</code>, <code>=&gt;</code>, <code>('')</code>,
       <code>~/</code>, etc. </dd>
     <dd> <kbd>AltGr</kbd><kbd>Espace</kbd> ne produit plus <kbd>Escape</kbd>
@@ -336,16 +395,16 @@
     <dd> Les flèches <code>←↓↑→</code> passent des touches
       <kbd>I</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd> aux touches
       <kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd> — <i>Vim powwa!</i> </dd>
-    <dd> macOS : meilleur fonctionnement des touches mortes en <kbd>CapsLock</kbd>. </dd>
-    <dd> Linux : meilleur fonctionnement de la touche <kbd>AltGr</kbd> sous Chromium. </dd>
+    <dd> macOS : meilleur fonctionnement des touches mortes en <kbd>CapsLock</kbd>. </dd>
+    <dd> Linux : meilleur fonctionnement de la touche <kbd>AltGr</kbd> sous Chromium. </dd>
 
     <dt> v0.2.1 (2013-03-05) </dt>
-    <dd> Linux : correction du pilote XKB. </dd>
+    <dd> Linux : correction du pilote XKB. </dd>
 
     <dt> v0.2 (2010-11-16) </dt>
-    <dd> Windows : première version publique. </dd>
-    <dd> macOS : correction du pilote <i>keylayout</i>. </dd>
-    <dd> Linux : correction du pilote XKB
+    <dd> Windows : première version publique. </dd>
+    <dd> macOS : correction du pilote <i>keylayout</i>. </dd>
+    <dd> Linux : correction du pilote XKB
       (guillemets typographiques <code>« »</code>). </dd>
 
     <dt> v0.1 (2010-07-05) </dt>

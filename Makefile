@@ -1,6 +1,6 @@
 all:
-	kalamine layouts/lafayette.toml    --out layouts/lafayette.json
-	kalamine layouts/lafayette101.toml --out layouts/lafayette101.json
+	kalamine build layouts/lafayette.toml    --out layouts/lafayette.json
+	kalamine build layouts/lafayette101.toml --out layouts/lafayette101.json
 
 dev:
 	pip3 install kalamine

@@ -52,12 +52,6 @@ class XKBManager:
         update_rules(self._rootdir, self._index)  # XKB/rules/{base,evdev}.xml
         self._index = {}
 
-    def list(self, mask=''):
-        return list_rules(self._rootdir, mask)
-
-    def list_all(self, mask=''):
-        return list_rules(self._rootdir, mask, True)
-
 
 ###############################################################################
 # Helpers: XKB/symbols
@@ -72,7 +66,7 @@ class XKBManager:
         // KALAMINE::[NAME]::END
 
     - XKB/rules/{base,evdev}.xml: layout references
-        <variant type="kalamine">
+        <variant>
             <configItem>
                 <name>lafayette42</name>
                 <description>French (Lafayette42)</description>
@@ -215,13 +209,11 @@ def get_rules_locale(tree, locale):
 
 
 def remove_rules_variant(variant_list, name):
-    # XXX do NOT use the type='kalamine' mark here
     query = f"variant/configItem/name[text()='{name}']/../.."
     for variant in variant_list.xpath(query):
         variant.getparent().remove(variant)
 
 def add_rules_variant(variant_list, name, description):
-    # XXX do NOT add the type='kalamine' mark here
     variant_list.append(
         E.variant(
             E.configItem(E.name(name), E.description(description))))
@@ -251,41 +243,6 @@ def update_rules(xkb_root, kbindex):
 
         except Exception as e:
             exit_FileNotWritable(e, path)
-
-
-def list_rules(xkb_root, mask='', include_non_kalamine_variants=False):
-    """ List all installed Kalamine layouts. """
-
-    def matches(string, mask):
-        return mask == '*' or mask == string
-
-    if mask == '' or mask == '*':
-        locale_mask = '*'
-        variant_mask = '*'
-    else:
-        m = mask.split('/')
-        if len(m) != 2:
-            exit('Error: expecting a [locale]/[variant] mask.')
-        locale_mask, variant_mask = m
-
-    query = '//variant'
-    if not include_non_kalamine_variants:
-        query += '[@type]'
-
-    layouts = {}
-    for filename in ['base.xml', 'evdev.xml']:
-        tree = etree.parse(os.path.join(xkb_root, 'rules', filename))
-        for variant in tree.xpath(query):
-            locale = variant.xpath('../../configItem/name')[0].text
-            name = variant.xpath('configItem/name')[0].text
-            desc = variant.xpath('configItem/description')[0].text
-            id = locale + '/' + name
-            if id not in layouts \
-               and matches(locale, locale_mask) \
-               and matches(name, variant_mask):
-                layouts[id] = desc
-
-    return layouts
 
 
 ###############################################################################
@@ -567,27 +524,21 @@ LAYOUTS = [{
         };""")
 }]
 
-def layout_items():
-    layouts = {}
-    for name, desc in xkb.list_all(f"{LOCALE}/*").items():
-        if name.startswith(f"{LOCALE}/{PREFIX}"):
-            layouts[name] = desc
-    return layouts.items()
-
 class KeyboardLayout:  # fake kalamine KeyboardLayout object
     def __init__(self, data):
         self.meta = data['meta']
         self.xkb_patch = data['symbols']
 
 xkb = XKBManager()
-
-for _name, _ in layout_items():
-    xkb.remove(_name)
+xkb.remove('fr/lafayette')
+xkb.remove('fr/lafayette42')
 for layout_data in LAYOUTS:
     xkb.add(KeyboardLayout(layout_data))
 xkb.update()
 
 print()
 print('Installed layouts:')
-for _name, _desc in layout_items():
-    print(f"{_name:<24} {_desc}")
+for layout_data in LAYOUTS:
+    meta = layout_data['meta']
+    name = f"{meta['locale']}/{meta['variant']}"
+    print(f"{name:<24} {meta['description']}")
