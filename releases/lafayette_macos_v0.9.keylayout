@@ -1467,10 +1467,6 @@
       <when state="none"       output=";" />
       <when state="1dk"        output="•" />
     </action>
-    <action id="ab08_;">
-      <when state="none"       output=";" />
-      <when state="1dk"        output="•" />
-    </action>
     <action id="ab09_.">
       <when state="none"       output="." />
       <when state="1dk"        output="…" />
@@ -1478,10 +1474,6 @@
     <action id="ab10_/">
       <when state="none"       output="/" />
       <when state="1dk"        output="¿" />
-    </action>
-    <action id="ab10_?">
-      <when state="none"       output="?" />
-      <when state="1dk"        output="÷" />
     </action>
     <action id="ab10_?">
       <when state="none"       output="?" />
