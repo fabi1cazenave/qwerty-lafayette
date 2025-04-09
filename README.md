@@ -51,7 +51,7 @@ kalamine watch lafayette.toml
 Then build your custom layout drivers:
 
 ```bash
-kalamine make lafayette.toml
+kalamine build lafayette.toml
 ```
 
 
