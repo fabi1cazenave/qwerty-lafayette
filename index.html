@@ -113,7 +113,7 @@
     <li> les enchaînements fréquents doivent être aussi fluides que possible ; </li>
     <li> les symboles fréquemment doublés ne se trouvent pas sous un auriculaire ; </li>
     <li> les symboles les plus utiles de la rangée des chiffres sont sur la
-      première ligne : <code>$%^&amp;*</code> sous <kbd>45678</kbd>. </li>
+      première ligne : <code>$%^&amp;*</code>. </li>
   </ul>
 
   <h3 id="num"> Chiffres <a href="#num">#</a> </h3>
@@ -162,13 +162,12 @@
     saine d’accéder à un caractère spécial que <kbd>AltGr</kbd> : ça n’ajoute
     aucune pression de touche et c’est beaucoup plus facile à synchroniser que
     <kbd>AltGr</kbd>, notamment à vitesse élevée où l’on presse des touches
-    avant d’avoir relâché les touches précédentes. 
+    avant d’avoir relâché les touches précédentes.
     Par exemple : si l’on suppose que <kbd>AltGr</kbd><kbd>W</kbd> et
     <kbd>★</kbd><kbd>W</kbd> produisent toutes les deux <code>É</code>, alors
     <kbd>★</kbd><kbd>W</kbd><kbd>E</kbd> fera toujours <code>ée</code> mais
     <kbd>AltGr</kbd><kbd>W</kbd><kbd>E</kbd> risque de produire <code>éè</code>
     (deux accents) à vitesse élevée. </p>
-    <!-- <kbd>AltGr</kbd>↓ <kbd>W</kbd>↓ <kbd>AltGr</kbd>↑ <kbd>E</kbd>↓ <kbd>W</kbd>↑ <kbd>E</kbd>↑ -->
 
   <h3 id="altgr"> AltGr <a href="#altgr">#</a> </h3>
   <p> <kbd>AltGr</kbd> permet d’accéder aux symboles de programmation en restant
@@ -270,7 +269,7 @@
   <h2 id="pilotes"> Téléchargement <a href="#pilotes">#</a> </h2>
 
   <h3 id="windows"> Windows : <a class="download"
-    href="./releases/lafayette_windows_v0.9.exe">lafayette_windows_v0.9.exe</a>
+    href="./releases/lafayette_windows.exe">lafayette_windows.exe</a>
     <a href="#windows">#</a> </h3>
   <p> Exécuter l’installeur <strong>et redémarrer Windows</strong>, même si
     le système ne le demande pas. La disposition de clavier apparaît dans la
@@ -279,7 +278,7 @@
     est disponible dans l’<a href="#nomade">archive nomade</a> ci-après. </p>
 
   <h3 id="mac"> macOS : <a class="download"
-    href="./releases/lafayette_macos_v0.9.keylayout">lafayette_macos_v0.9.keylayout</a>
+    href="./releases/lafayette_macos.keylayout">lafayette_macos.keylayout</a>
     <a href="#mac">#</a> </h3>
   <p> Enregistrer dans <code>~/Library/Keyboard Layouts</code> (pour le seul
     utilisateur courant) ou <code>/Library/Keyboard Layouts</code> (pour tous
@@ -292,12 +291,12 @@
     facilement à la couche de symboles. </p>
 
   <h3 id="linux"> GNU/Linux : <a class="download" <a
-    href="./releases/lafayette_linux_v0.9.xkb_custom">lafayette_linux_v0.9.xkb_custom</a>
+    href="./releases/lafayette_linux.xkb_custom">lafayette_linux.xkb_custom</a>
     <a href="#linux">#</a> </h3>
   <p> <strong>Méthode simple :</strong> copier le pilote dans <code>xkb/symbols/custom</code>. </p>
   <pre>
-  wget https://qwerty-lafayette.org/releases/lafayette_linux_v0.9.xkb_custom
-  sudo mv lafayette_linux_v0.9.xkb_custom ${XKB_CONFIG_ROOT:-/usr/share/X11/xkb}/symbols/custom </pre>
+  wget https://qwerty-lafayette.org/releases/lafayette_linux.xkb_custom
+  sudo mv lafayette_linux.xkb_custom ${XKB_CONFIG_ROOT:-/usr/share/X11/xkb}/symbols/custom </pre>
   <p> La disposition de clavier est disponible dans le gestionnaire de
     préférences du bureau sous un nom générique (« custom layout »,
     « disposition personnalisée », etc.).
@@ -323,25 +322,21 @@
 
     <dt hidden>
       <strong> GNU/Linux : </strong>
-      <a href="./releases/lafayette_linux_v0.8.1.py">lafayette_linux_v0.8.1.py</a>
+      <a href="./releases/lafayette_linux.py">lafayette_linux.py</a>
     </dt>
     <dd hidden>
       <p> Script d’installation, nécessitant Python3 et lxml : </p>
       <pre>
       sudo apt install python3-lxml
-      curl -Ls https://qwerty-lafayette.org/releases/lafayette_linux_v0.8.1.py | sudo python3
+      curl -Ls https://qwerty-lafayette.org/releases/lafayette_linux.py | sudo python3
       </pre>
-      <p> L’installeur contient les deux variantes, Lafayette et Lafayette101. Ces
-        dispositions sont activables par le gestionnaire de préférences de votre
-        bureau ou directement en ligne de commande (sous Xorg) : </p>
       <pre>
       setxkbmap fr -variant lafayette
-      setxkbmap fr -variant lafayette101
       </pre>
     </dd>
 
   <h3 id="nomade"> Archive nomade : <a class="download"
-    href="./releases/lafayette_v0.9.zip">lafayette_v0.9.zip</a>
+    href="./releases/lafayette.zip">lafayette.zip</a>
     <a href="#nomade">#</a> </h3>
   <p> Cette archive contient tous les fichiers pour une utilisation sans
     droits d’administration sur les principaux systèmes d’exploitation : </p>
@@ -356,12 +351,25 @@
   <h2 id="versions"> Notes de version <a href="#versions">#</a> </h2>
   <dl>
 
+    <dt> v0.10 (2026-03-20) </dt>
+    <dd> Inversion du <kbd>£</kbd> et <kbd>€</kbd> pour rendre plus accessible la monnaie
+      française. </dd>
+    <dd> Ajout du « ë » en <kbd>★</kbd> <kbd>R</kbd>. </dd>
+    <dd> Ajout de la touche morte grecque en <kbd>★</kbd> <kbd>Y</kbd>. </dd>
+    <dd> <kbd>Shift</kbd><kbd>★</kbd> permet de faire « ! ». </dd>
+    <dd> Ajout du tiret insécable en <kbd>★</kbd> <kbd>Shift</kbd><kbd>F</kbd>. </dd>
+    <dd> Les précédentes versions de Lafayette sont archivées dans le tag
+      <a href="https://github.com/fabi1cazenave/qwerty-lafayette/tree/v0.9">v0.9</a> sur le repository
+      Github. </dd>
+    <dd> Pilote Windows : touche « kana » à la place de AltGr pour gérer les cas où AltGr est capté
+      comme la combinaison de Ctrl+Alt dans certaines applications. </dd>
+
     <dt> v0.9 (2024-06-03) </dt>
     <dd> <em>Lafayette42</em> devient la version officielle, et la version
-      historique est archivée sous le nom <a href="101">Lafayette101</a>. </dd>
+      historique est archivée sous le nom Lafayette101. </dd>
     <dd> Les tirets court, bas, cadratin et demi-cadratin sont désormais
       faisables avec la touche morte <kbd>★</kbd> et
-      <kbd>F</kbd><kbd>V</kbd><kbd>B</kbd><kbd>G</kbd> respectivement.
+      <kbd>F</kbd><kbd>V</kbd><kbd>B</kbd><kbd>G</kbd> respectivement. </dd>
     <dd> Le tréma mort passe en double touche morte :
       <kbd>★</kbd> <kbd>★</kbd> <kbd>i</kbd> donne « ï ». </dd>
     <dd> La couche AltGr est révisée, en collaboration avec le projet

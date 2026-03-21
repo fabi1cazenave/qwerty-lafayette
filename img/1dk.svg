@@ -91,7 +91,7 @@
         <rect width="52" height="52" rx="5" ry="5"/>
         <g class="key" text-anchor="middle">
           <text x="12.8" y="20.6" class="level2">R</text>
-          <text x="38.0" y="43.4" class="level3"> </text>
+          <text x="38.0" y="43.4" class="level3">ë</text>
         </g>
       </g>
       <g transform="translate(330)">
@@ -107,7 +107,7 @@
         <rect width="52" height="52" rx="5" ry="5"/>
         <g class="key" text-anchor="middle">
           <text x="12.8" y="20.6" class="level2">Y</text>
-          <text x="38.0" y="43.4" class="level3"> </text>
+          <text x="38.0" y="43.4" class="level3 deadKey">µ</text>
         </g>
       </g>
       <g transform="translate(450)">
@@ -121,7 +121,7 @@
         <rect width="52" height="52" rx="5" ry="5"/>
         <g class="key" text-anchor="middle">
           <text x="12.8" y="20.6" class="level2">I</text>
-          <text x="38.0" y="43.4" class="level3"> </text>
+          <text x="38.0" y="43.4" class="level3">ï</text>
         </g>
       </g>
       <g transform="translate(570)">
@@ -176,6 +176,7 @@
         <rect width="52" height="52" rx="5" ry="5"/>
         <g class="key" text-anchor="middle">
           <text x="12.8" y="20.6" class="level2">F</text>
+          <text x="38.0" y="20.6" class="level3">‑</text>
           <text x="38.0" y="43.4" class="level3">-</text>
         </g>
       </g>
@@ -219,7 +220,8 @@
       <g transform="translate(630)">
         <rect width="52" height="52" rx="5" ry="5"/>
         <g class="key" text-anchor="middle">
-          <text x="12.8" y="20.6" class="level2 deadKey">★</text>
+          <text x="12.8" y="43.4" class="level1 deadKey">★</text>
+          <text x="12.8" y="20.6" class="level2">!</text>
           <text x="38.0" y="43.4" class="level3 deadKey diacritic">¨</text>
         </g>
       </g>
@@ -277,7 +279,7 @@
         <rect width="52" height="52" rx="5" ry="5"/>
         <g class="key" text-anchor="middle">
           <text x="12.8" y="20.6" class="level2">N</text>
-          <text x="38.0" y="43.4" class="level3"> </text>
+          <text x="38.0" y="43.4" class="level3">ñ</text>
         </g>
       </g>
       <g transform="translate(450)">
@@ -339,6 +341,7 @@
     </g>
     <g class="homeKey" transform="translate(270)">
       <rect width="232" height="52" rx="5" ry="5"/>
+      <text x="217.0" y="43.4" class="level3">’</text>
     </g>
     <g class="right">
       <g class="specialKey" transform="translate(510)">

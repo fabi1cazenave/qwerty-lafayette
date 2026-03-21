@@ -65,7 +65,7 @@
       <g transform="translate(270)">
         <rect width="52" height="52" rx="5" ry="5"/>
         <text x="12.8" y="20.6" class="level2">R</text>
-        <text x="38.0" y="43.4" class="level3"> </text>
+        <text x="38.0" y="43.4" class="level3">ë</text>
       </g>
       <g transform="translate(330)">
         <rect width="52" height="52" rx="5" ry="5"/>
@@ -87,7 +87,7 @@
       <g transform="translate(510)">
         <rect width="52" height="52" rx="5" ry="5"/>
         <text x="12.8" y="20.6" class="level2">I</text>
-        <text x="38.0" y="43.4" class="level3"> </text>
+        <text x="38.0" y="43.4" class="level3">ï</text>
       </g>
       <g transform="translate(570)">
         <rect width="52" height="52" rx="5" ry="5"/>
@@ -153,7 +153,8 @@
       </g>
       <g transform="translate(630)">
         <rect width="52" height="52" rx="5" ry="5" id="odk"/>
-        <text x="15" y="24" class="deadKey">★</text>
+        <text x="12.8" y="20.6" class="level2">!</text>
+        <text x="15" y="43.4" class="deadKey">★</text>
         <text x="38" y="55" class="deadKey">¨</text>
       </g>
     </g>
@@ -196,7 +197,7 @@
       <g transform="translate(450)">
         <rect width="52" height="52" rx="5" ry="5"/>
         <text x="12.8" y="20.6" class="level2">M</text>
-        <text x="38.0" y="43.4" class="level3">µ</text>
+        <text x="38.0" y="43.4" class="level3"> </text>
       </g>
       <g transform="translate(510)">
         <rect width="52" height="52" rx="5" ry="5"/>
@@ -226,6 +227,7 @@
     </g>
     <g transform="translate(270)">
       <rect width="232" height="52" rx="5" ry="5"/>
+      <text x="217.0" y="43.4" class="level3">’</text>
     </g>
     <g transform="translate(510)" class="specialKey">
       <rect width="82" height="52" rx="5" ry="5"/>
